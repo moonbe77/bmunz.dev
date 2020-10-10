@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import AOS from 'aos';
 import { useStateContext, useStateDispatch } from '../store/store';
-import styled from 'styled-components';
-import Project from '../components/Project';
+// import Project from '../components/Project';
+import Button from '../components/Button';
+import Header from '../components/Header/';
 
 export default function Home() {
   useEffect(() => {
@@ -29,31 +30,15 @@ export default function Home() {
         <title>BMDev</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
+      <Header onLogin={()=>{console.log('on login button')}} user={false}/>
+      <Button
+        primary={false}
+        label='Button demo'
+        size='large'
+        backgroundColor='#fff'
+      />
 
-      <Project aosEffect='fade' anchor='top-bottom' />
-      <Project aosEffect='fade-in' />
-      <Project aosEffect='fade-down' />
-      <Project aosEffect='fade-down' />
-      <Project aosEffect='fade-down' />
-      <Project aosEffect='fade-down' />
-      <Project aosEffect='flip-up' />
-      <Project aosEffect='flip-down' />
-      <Project aosEffect='flip-left' />
-      <Project aosEffect='flip-right' />
-      <Project aosEffect='flip-up' />
-      <Project aosEffect='flip-up' />
-      <Project aosEffect='zoom-in' />
-      <Project aosEffect='zoom-up' />
-      <Project aosEffect='zoom-in-down' />
-      <Project aosEffect='zoom-in-left' />
-      <Project aosEffect='zoom-out' />
-      <Project aosEffect='zoom-out-up' />
-      <Project aosEffect='zoom-in' />
-      <Project aosEffect='zoom-in' />
-      <Project aosEffect='zoom-in' />
-      <Project aosEffect='zoom-in' />
-      <Project aosEffect='zoom-in' />
-      <Project aosEffect='zoom-in' />
+      {/* <Project aosEffect='fade' anchor='top-bottom' /> */}
     </div>
   );
 }
