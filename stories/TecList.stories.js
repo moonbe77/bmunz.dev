@@ -1,4 +1,4 @@
-jsonimport React from 'react';
+import React from 'react';
 import TecList from '../components/atoms/Tec_List';
 
 export default {
