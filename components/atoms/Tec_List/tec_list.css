@@ -1,0 +1,13 @@
+.tec-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tec-list--item {
+  padding: 3px 10px;
+  margin: 0.1em;
+  border: 1px solid rgb(215, 221, 247);
+  border-radius: 5px;
+}

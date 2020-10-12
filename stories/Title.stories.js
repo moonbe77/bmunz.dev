@@ -1,15 +1,15 @@
 import React from 'react';
-import Title from '../components/Title';
+import Title from '../components/atoms/Title';
 
 export default {
-  title: 'Example/Title',
+  title: 'Design System/Atoms/Title',
   component: Title,
   argTypes: {
     color: { control: 'color' },
   },
 };
 
-const Template = (args) => <Title {...args} />;
+const Template = (args) => <Title {...args}>{args.text}</Title>;
 
 export const Primary = Template.bind({});
 Primary.args = {

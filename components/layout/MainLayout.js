@@ -1,11 +1,11 @@
 import Link from 'next/link';
-// import Header from '../Header';
+import Header from '../molecules/Header';
 import styles from '../../styles/Home.module.css';
 
 export default function Layout({ children }) {
   return (
     <div>
-      {/* <Header /> */}
+      <Header onLogin={()=>{console.log('on login button')}} user={null}/>
 
       {children}
 

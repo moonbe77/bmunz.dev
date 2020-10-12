@@ -2,11 +2,13 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import AOS from 'aos';
 import { useStateContext, useStateDispatch } from '../store/store';
-// import Project from '../components/Project';
-import Button from '../components/Button';
-import Header from '../components/Header/';
+import ProjectCard from '../components/molecules/ProjectCard';
+
+
 
 export default function Home() {
+  const state = useStateContext();
+
   useEffect(() => {
     AOS.init({
       duration: 700,
@@ -30,13 +32,7 @@ export default function Home() {
         <title>BMDev</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Header onLogin={()=>{console.log('on login button')}} user={false}/>
-      <Button
-        primary={false}
-        label='Button demo'
-        size='large'
-        backgroundColor='#fff'
-      />
+      <ProjectCard title='Project Card' />
 
       {/* <Project aosEffect='fade' anchor='top-bottom' /> */}
     </div>

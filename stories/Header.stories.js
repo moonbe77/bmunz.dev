@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Header from '../components/Header';
+import Header from '../components/molecules/Header';
 
 export default {
-  title: 'Example/Header',
+  title: 'Design System/Molecules/Header',
   component: Header,
 };
 

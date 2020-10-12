@@ -1,0 +1,35 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Latitud Náutica",
+      "liveUrl": "https://www.latitudnautica.com.ar/",
+      "imgName": "ln-img.jpg",
+      "description": "e-commerce",
+      "technologies": [
+        "React",
+        "Next.js",
+        "Server Side Rendering",
+        "Styled-Components",
+        "Express.js",
+        "MySQL"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "More Clean",
+      "liveUrl": "https://www.moreclean.com.ar/",
+      "imgName": "mc-img.jpg",
+      "description": "Institutional",
+      "technologies": ["React", "Styled-Components", "Hosting"]
+    },
+    {
+      "id": 3,
+      "title": "Alfredes",
+      "liveUrl": "https://www.alfredes.com.ar/",
+      "imgName": "alfredes-img.jpg",
+      "description": "Institutional",
+      "technologies": ["React", "Firebase Hosting", "Firebase Cloud Functions"]
+    }
+  ]
+}

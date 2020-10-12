@@ -1,0 +1,21 @@
+.project-card {
+  border: 1px solid red;
+  color: rgb(48, 60, 63);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 300px;
+}
+
+.card-grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-card--image {
+  background-color: beige;
+}
+.project-card--info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 3em;
+}

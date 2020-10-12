@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import Button from '../Button';
-// import './header.css';
+import Button from '../../atoms/Button';
 
 const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
   <header>
-    <div className='wrapper'>
+    <nav className='wrapper'>
       <div>
         <svg
           width='32'
@@ -46,7 +44,7 @@ const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
           </>
         )}
       </div>
-    </div>
+    </nav>
   </header>
 );
 export default Header;
