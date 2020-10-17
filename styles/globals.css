@@ -1,9 +1,8 @@
-@import url("../components/atoms/Button/button.css");
-@import url("../components/atoms/Title/title.css");
-@import url("../components/atoms/Tec_List/tec_list.css");
-@import url("../components/molecules/Header/header.css");
-@import url("../components/molecules/ProjectCard/project_card.css");
-@import url("../components/Project/project.css");
+@import url('../components/atoms/Button/button.css');
+@import url('../components/atoms/Title/title.css');
+@import url('../components/atoms/Tec_List/tec_list.css');
+@import url('../components/molecules/Header/header.css');
+@import url('../components/layout/layout.css');
 
 html,
 body {
@@ -20,4 +19,18 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  max-width: 800px;
+  margin-top: 3rem;
+}
+.main-container {
+  max-width: 1300px;
+  margin: auto;
+  min-height: 100vh;
 }

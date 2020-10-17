@@ -1,4 +1,4 @@
-.project-card {
+.card {
   border: 1px solid red;
   color: rgb(48, 60, 63);
   display: grid;
@@ -6,12 +6,12 @@
   min-height: 300px;
 }
 
-.card-grid-item {
+.grid_item {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.project-card--image {
+.card_image {
   background-color: beige;
 }
 .project-card--info {

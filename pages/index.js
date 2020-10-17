@@ -2,9 +2,8 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import AOS from 'aos';
 import { useStateContext, useStateDispatch } from '../store/store';
-import ProjectCard from '../components/molecules/ProjectCard';
-
-
+import Hero from '../components/hero';
+import style from '../styles/Home.module.css';
 
 export default function Home() {
   const state = useStateContext();
@@ -32,7 +31,7 @@ export default function Home() {
         <title>BMDev</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <ProjectCard title='Project Card' />
+      <Hero />
 
       {/* <Project aosEffect='fade' anchor='top-bottom' /> */}
     </div>

@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
-import TecList from '../../atoms/Tec_List'
+import TecList from '../../atoms/Tec_List';
+import style from './project_card.module.css';
 
 const ProjectCard = (project) => {
-  const { title, description,liveUrl,technologies } = project;
+  const { title, description, liveUrl, technologies } = project;
 
   return (
     <>
-      <div className='project-card'>
-        <div className='card-grid-item project-card--image'>
+      <div className={style.card}>
+        <div className={`${style.grid_item} ${style.card_image}`}>
           <img src='/vercel.svg' alt='' srcSet='' />
         </div>
         <div className={`card-grid-item project-card--info`}>

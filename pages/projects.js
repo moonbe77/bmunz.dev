@@ -5,7 +5,8 @@ import { useStateContext } from '../store/store';
 const ProjectsPage = () => {
   const state = useStateContext();
   const { projects } = state;
-
+  console.log(projects);
+  
   return (
     <>
       {projects.map((project) => (

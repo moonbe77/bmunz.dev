@@ -1,6 +1,7 @@
 import { StateProvider } from '../store/store';
 import Layout from '../components/layout/MainLayout';
 
+import '../styles/normalize.css';
 import '../styles/globals.css';
 import 'aos/dist/aos.css';
 
