@@ -11,8 +11,8 @@ const ProjectCard = (project) => {
   return (
     <>
       <div className={style.card}>
-        <div className={`${style.grid_item} ${style.card_image}`}>
-          <img src='/vercel.svg' alt='' srcSet='' />
+        <div className={`${style.grid_item}`}>
+          <img className={style.card_image} src={`/projects_mockups/${project.imgName}`} alt='' srcSet='' />
         </div>
         <div className={`card-grid-item project-card--info`}>
           <Title size='large'>{title}</Title>

@@ -13,10 +13,10 @@ const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
       <class>
         <ul className='menu'>
           <li className='menu-links'>
-            <a href='/projects'>portfolio</a>
+            <a href='/projects'>PORTFOLIO</a>
           </li>
           <li className='menu-links'>
-            <a href='/contact'>contact</a>
+            <a href='/contact'>CONTACT</a>
           </li>
         </ul>
       </class>

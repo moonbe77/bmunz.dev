@@ -1,0 +1,13 @@
+.me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  margin-top: 1em;
+}
+
+.paragraph {
+  line-height: 1.8em;
+  text-indent: 0.5em;
+  padding: 0 2em;
+}

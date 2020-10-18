@@ -4,6 +4,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 300px;
+  background-color: beige;
+  margin: 10px 0;
 }
 
 .grid_item {
@@ -11,8 +13,9 @@
   justify-content: center;
   align-items: center;
 }
+
 .card_image {
-  background-color: beige;
+  width: 80%;
 }
 .project-card--info {
   display: flex;

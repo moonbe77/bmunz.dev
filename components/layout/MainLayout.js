@@ -1,9 +1,9 @@
-import Link from 'next/link';
 import Header from '../molecules/Header';
+import style from './layout.module.css';
 
 export default function Layout({ children }) {
   return (
-    <main className='main-container'>
+    <main className={style.container}>
       <Header
         onLogin={() => {
           console.log('on login button');
@@ -12,8 +12,8 @@ export default function Layout({ children }) {
       />
       {children}
 
-      <footer className='footer'>
-        <img src='/bm-logo_icon.gif' alt='MunzBe' className='logo' />
+      <footer className={style.footer}>
+        <img src='/bm-logo_icon.gif' alt='MunzBe logo' className={style.logo} />
       </footer>
     </main>
   );
