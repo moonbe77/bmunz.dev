@@ -1,17 +1,17 @@
-.title-primary {
+.primary {
   font-size: 1.2em;
   font-weight: 700;
 }
-.title-secondary {
+.secondary {
   font-size: 1.2em;
   font-weight: 400;
 }
-.title-small {
+.small {
   font-size: 0.8em;
 }
-.title-medium {
+.medium {
   font-size: 1em;
 }
-.title-large {
-  font-size: 1.3em;
+.large {
+  font-size: 1.em;
 }

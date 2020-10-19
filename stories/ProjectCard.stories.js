@@ -6,7 +6,7 @@ export default {
   component: ProjectCard,
 };
 
-const Template = (args) => <ProjectCard {...args} />;
+const Template = (args) => <ProjectCard {...args.project} />;
 
 export const Card = Template.bind({});
 Card.args = {
@@ -14,7 +14,7 @@ Card.args = {
     id: 1,
     title: 'Latitud Náutica',
     liveUrl: 'https://www.latitudnautica.com.ar/',
-    imgName: 'ln-img.jpg',
+    imgName: 'mockup_ln.png',
     description: 'e-commerce',
     technologies: [
       'React',

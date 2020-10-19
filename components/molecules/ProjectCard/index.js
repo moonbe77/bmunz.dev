@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
@@ -7,14 +7,24 @@ import style from './project_card.module.css';
 
 const ProjectCard = (project) => {
   const { title, description, liveUrl, technologies } = project;
+  const [show, setShow] = useState(false);
+
+  const handleMouseOver = (e) => {
+    console.log(e.target);
+    setShow(!show);
+  };
 
   return (
     <>
-      <div className={style.card}>
-        <div className={`${style.grid_item}`}>
-          <img className={style.card_image} src={`/projects_mockups/${project.imgName}`} alt='' srcSet='' />
-        </div>
-        <div className={`card-grid-item project-card--info`}>
+      <div className={style.card} onMouseOver={handleMouseOver}>
+        <img
+          className={style.image}
+          src={`/projects_mockups/${project.imgName}`}
+          alt={title}
+          srcSet=''
+        />
+
+        <div className={`${style.info} ${show ? style.show : style.hide}`}>
           <Title size='large'>{title}</Title>
           <div>{description}</div>
           <TecList list={technologies}></TecList>
@@ -30,5 +40,5 @@ const ProjectCard = (project) => {
 export default ProjectCard;
 
 ProjectCard.propTypes = {
-  project: PropTypes.object.isRequired,
+  project: PropTypes.object,
 };

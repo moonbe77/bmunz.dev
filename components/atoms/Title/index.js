@@ -1,11 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import './title.css';
+import style from './title.module.css';
 
-const Title = ({children, text, size, primary, color }) => {
-  const mode = primary ? 'title-primary' : 'title-secondary';
+const Title = (props) => {
+  const { children, size, primary, color } = props;
+  console.log(props);
+  const mode = primary ? style.primary : style.secondary;
+  let titleSize;
+  switch (size) {
+    case 'small':
+      titleSize = style.small;
+      break;
+    case 'medium':
+      titleSize = style.medium;
+      break;
+    case 'large':
+      titleSize = style.large;
+      break;
+
+    default:
+      titleSize = style.medium;
+      break;
+  }
+
   return (
-    <div className={`title-${size} ${mode}`} style={color && { color }}>
+    <div className={`${mode} ${titleSize} `} style={color && { color }}>
       {children}
     </div>
   );

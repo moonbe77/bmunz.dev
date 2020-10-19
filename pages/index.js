@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import AOS from 'aos';
 import { useStateContext, useStateDispatch } from '../store/store';
-import Hero from '../components/hero';
+import Hero from '../components/molecules/Hero';
 import style from '../styles/Home.module.css';
 
 export default function Home() {

@@ -13,7 +13,7 @@ const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
       <class>
         <ul className='menu'>
           <li className='menu-links'>
-            <a href='/projects'>PORTFOLIO</a>
+            <a href='/portfolio'>PORTFOLIO</a>
           </li>
           <li className='menu-links'>
             <a href='/contact'>CONTACT</a>
@@ -26,9 +26,9 @@ const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
 export default Header;
 Header.propTypes = {
   user: PropTypes.shape({}),
-  onLogin: PropTypes.func.isRequired,
-  onLogout: PropTypes.func.isRequired,
-  onCreateAccount: PropTypes.func.isRequired,
+  // onLogin: PropTypes.func.isRequired,
+  // onLogout: PropTypes.func.isRequired,
+  // onCreateAccount: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {
