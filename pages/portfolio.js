@@ -1,6 +1,7 @@
 import React from 'react';
-import ProjectCard from '../components/molecules/ProjectCard';
+import PortfolioCard from '../components/molecules/PortfolioCard';
 import { useStateContext } from '../store/store';
+import BoxShadowed from '../components/atoms/BoxShadowed';
 import style from '../styles/portfolio.module.css';
 
 const Portfolios = () => {
@@ -8,15 +9,17 @@ const Portfolios = () => {
   const { projects } = state;
 
   return (
-    <section className={style.wrapper}>
-      {projects.map((project) => (
-        <ProjectCard
-          className={style.card}
-          key={project.id}
-          {...project}
-        />
-      ))}
-    </section>
+    <div className={style.content}>
+      <h1>Portfolio</h1>
+
+      <section className={style.wrapper}>
+        {projects.map((project) => (
+          <BoxShadowed size='medium'>
+            <PortfolioCard key={project.id} {...project} />
+          </BoxShadowed>
+        ))}
+      </section>
+    </div>
   );
 };
 

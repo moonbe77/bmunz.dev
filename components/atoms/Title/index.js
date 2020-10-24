@@ -4,7 +4,6 @@ import style from './title.module.css';
 
 const Title = (props) => {
   const { children, size, primary, color } = props;
-  console.log(props);
   const mode = primary ? style.primary : style.secondary;
   let titleSize;
   switch (size) {

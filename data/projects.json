@@ -19,7 +19,7 @@
       "id": 2,
       "title": "More Clean",
       "liveUrl": "https://www.moreclean.com.ar/",
-      "imgName": "mockup_ln.png",
+      "imgName": "moreclean.png",
       "description": "Institutional",
       "technologies": ["React", "Styled-Components", "Hosting"]
     },
@@ -27,12 +27,33 @@
       "id": 3,
       "title": "Alfredes",
       "liveUrl": "https://www.alfredes.com.ar/",
-      "imgName": "mockup_ln.png",
+      "imgName": "alfredes.png",
       "description": "Institutional",
-      "technologies": ["React", "Firebase Hosting", "Firebase Cloud Functions"]
+      "technologies": [
+        "React",
+        "Firebase Hosting",
+        "Firebase Cloud Functions",
+        "mailgun.js"
+      ]
     },
     {
       "id": 4,
+      "title": "Club Náutico San Martin",
+      "liveUrl": "http://cnsm.org.ar",
+      "imgName": "cnsm.png",
+      "description": "Institutional",
+      "technologies": ["HTML", "jQuery", "Hosting", "Mailing Configuration"]
+    },
+    {
+      "id": 4,
+      "title": "Crucero de la Amistad",
+      "liveUrl": "http://crucerodelaamistad.com",
+      "imgName": "cdla.png",
+      "description": "Institutional",
+      "technologies": ["HTML", "jQuery", "Hosting", "Mailing Configuration"]
+    },
+    {
+      "id": 5,
       "title": "Frontend Mentor",
       "liveUrl": "#",
       "imgName": "mockup_ln.png",

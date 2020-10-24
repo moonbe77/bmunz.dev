@@ -2,12 +2,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: whitesmoke;
-  margin-top: 1em;
+  margin: 2em 0;
+  /* padding: 5em; */
 }
 
 .paragraph {
   line-height: 1.8em;
   text-indent: 0.5em;
   padding: 0 2em;
+}
+
+.techIcons {
+  text-align: center;
+  padding: 5em;
+}
+
+@media only screen and (max-width: 980px) {
+  .me {
+    display: flex;
+    flex-direction: column;    
+  }
 }

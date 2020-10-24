@@ -1,12 +1,12 @@
 import React from 'react';
-import ProjectCard from '../components/molecules/ProjectCard';
+import PortfolioCard from '../components/molecules/PortfolioCard';
 
 export default {
   title: 'Design System/Molecules/Project',
-  component: ProjectCard,
+  component: PortfolioCard,
 };
 
-const Template = (args) => <ProjectCard {...args.project} />;
+const Template = (args) => <PortfolioCard {...args.project} />;
 
 export const Card = Template.bind({});
 Card.args = {
