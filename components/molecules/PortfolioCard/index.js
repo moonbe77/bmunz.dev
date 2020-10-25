@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
 import TecList from '../../atoms/Tec_List';
-import style from './portfolioCard.module.sass';
+import style from './portfolioCard.module.css';
 
 const PortfolioCard = (project) => {
   const { title, description, liveUrl, technologies } = project;

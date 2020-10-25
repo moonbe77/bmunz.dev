@@ -1,25 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './header.module.sass';
+import style from './header.module.css';
 
-const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
+const Header = () => (
   <header className={style.header}>
     <nav className={style.wrapper}>
       <div>
-        <a href='/'>
-          <img className={style.logoImage} src='/bm-logo.gif' alt='' />
+        <a href='/' id={style.logo}>          
         </a>
       </div>
-      <class>
+      <div>
         <ul className={style.menu}>
           <li className={style.links}>
             <a href='/portfolio'>PORTFOLIO</a>
           </li>
           <li className={style.links}>
-            <a href='/contact'>CONTACT</a>
-          </li>
-          <li className={style.links}>
-            <a href='/contact'>GITHUB</a>
+            <a href='https://github.com/moonbe77'>GITHUB</a>
           </li>
           <li className={style.links}>
             <a
@@ -30,19 +26,12 @@ const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
               LINKEDIN
             </a>
           </li>
+          <li className={style.links}>
+            <a href='https://twitter.com/moonbe77'>TWITTER</a>
+          </li>
         </ul>
-      </class>
+      </div>
     </nav>
   </header>
 );
 export default Header;
-Header.propTypes = {
-  user: PropTypes.shape({}),
-  // onLogin: PropTypes.func.isRequired,
-  // onLogout: PropTypes.func.isRequired,
-  // onCreateAccount: PropTypes.func.isRequired,
-};
-
-Header.defaultProps = {
-  user: null,
-};

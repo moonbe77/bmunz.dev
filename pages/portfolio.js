@@ -1,6 +1,7 @@
 import React from 'react';
 import PortfolioCard from '../components/molecules/PortfolioCard';
 import { useStateContext } from '../store/store';
+import Header from '../components/molecules/Header'
 import BoxShadowed from '../components/atoms/BoxShadowed';
 import style from '../styles/portfolio.module.css';
 
@@ -9,6 +10,8 @@ const Portfolios = () => {
   const { projects } = state;
 
   return (
+    <>
+    <Header/>
     <div className={style.content}>
       <h1>Portfolio</h1>
 
@@ -20,6 +23,7 @@ const Portfolios = () => {
         ))}
       </section>
     </div>
+    </>
   );
 };
 

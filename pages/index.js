@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import AOS from 'aos';
 import { useStateContext, useStateDispatch } from '../store/store';
-import GifLogo from '../components/atoms/GifLogo';
+import Hero from '../components/molecules/Hero'
 import BoxShadowed from '../components/atoms/BoxShadowed';
 import style from '../styles/home.module.css';
 
@@ -32,11 +32,10 @@ export default function Home() {
         <title>BMDev</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-
+        <Hero/>
       <section>
         <BoxShadowed padSize='large'>
           <div className={style.me}>
-            <GifLogo />
             <div>
               <p className={style.paragraph}>
                 I have been teaching my self web technologies for 6 years.

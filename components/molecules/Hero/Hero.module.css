@@ -1,0 +1,15 @@
+.hero {
+  background-color: black;
+  color: whitesmoke;
+  min-height: 50vh;
+  height: 400px;
+  background-image: url('../../../public/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  text-align: center;
+}
+
