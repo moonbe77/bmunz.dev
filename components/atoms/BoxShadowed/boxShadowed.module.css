@@ -2,16 +2,21 @@
   box-shadow: 0 9px 30px -13px grey;
   background-color: white;
   margin: 2em 0;
-  object-fit: contain;  
+  object-fit: contain;
 }
 
-.padding_small{
-  padding: 1em
+.paddingSmall {
+  padding: 1em;
 }
 
-.padding_medium{
-  padding: 2em
+.paddingMedium {
+  padding: 2em;
 }
-.padding_large{
-  padding: 3em
+
+.paddingLarge {
+  padding: 3em;
+}
+
+.paddingNone {
+  padding: none;
 }

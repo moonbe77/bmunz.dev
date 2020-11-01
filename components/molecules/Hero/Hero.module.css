@@ -1,15 +1,30 @@
 .hero {
+  composes: lightTextColor from '../../../styles/colors.css';
   background-color: black;
-  color: whitesmoke;
-  min-height: 50vh;
-  height: 400px;
   background-image: url('../../../public/bg.jpg');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  min-height: 50vh;
 }
 
+.header {
+  flex: 1;
+}
+
+.h1 {
+  border-bottom: 2px solid purple;
+  display: block;
+}
+
+.h2 {
+  border-bottom: 2px solid purple;
+  display: block;
+}
 .content {
+  flex: 2;
   text-align: center;
 }
-

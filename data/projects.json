@@ -29,12 +29,7 @@
       "liveUrl": "https://www.alfredes.com.ar/",
       "imgName": "alfredes.png",
       "description": "Institutional",
-      "technologies": [
-        "React",
-        "Firebase Hosting",
-        "Firebase Cloud Functions",
-        "mailgun.js"
-      ]
+      "technologies": ["React", "Firebase Hosting", "Mailgun.js"]
     },
     {
       "id": 4,
@@ -42,7 +37,7 @@
       "liveUrl": "http://cnsm.org.ar",
       "imgName": "cnsm.png",
       "description": "Institutional",
-      "technologies": ["HTML", "jQuery", "Hosting", "Mailing Configuration"]
+      "technologies": ["HTML", "jQuery", "Hosting", "Mailchimp"]
     },
     {
       "id": 4,
@@ -50,7 +45,7 @@
       "liveUrl": "http://crucerodelaamistad.com",
       "imgName": "cdla.png",
       "description": "Institutional",
-      "technologies": ["HTML", "jQuery", "Hosting", "Mailing Configuration"]
+      "technologies": ["HTML", "jQuery", "Hosting", "Mail Setup"]
     },
     {
       "id": 5,
@@ -58,7 +53,7 @@
       "liveUrl": "#",
       "imgName": "mockup_ln.png",
       "description": "Institutional",
-      "technologies": ["React", "Firebase Hosting", "Firebase Cloud Functions"]
+      "technologies": ["HTML","CSS","JavaScript"]
     }
   ]
 }

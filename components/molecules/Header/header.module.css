@@ -1,38 +1,38 @@
 .header {
-  width: inherit;
-  /* background-color: white; */
   font-family: 'Syne Mono', monospace;
+  width: inherit;
+}
+
+.dark{
+  background-color: black;
+  color: white;
 }
 
 .wrapper {
   align-items: center;
-  /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
   display: flex;
   justify-content: space-around;
-  /* padding: 15px 20px; */
-  /* box-shadow: 0 9px 30px -13px grey; */
 }
 
-#logo{
+#logo {
   background-image: url(../../../public/logoSVG.svg);
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: contain;
   display: block;
-  /* text-indent: -9999px; */
-  width: 300px;
-  height: 82px;
-  background-repeat: no-repeat;
-  background-position: center;
   fill: white;
+  height: 50px;
+  width: 230px;
 }
 
 /*ul element*/
 .menu {
-  /* composes: purpleColor from '../../../styles/colors.css'; */
+  align-items: center;
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   list-style: none;
+  padding: 0;
 }
 
 /*li elements*/
@@ -47,10 +47,10 @@
   background-position: 0 50%;
   background-repeat: repeat-y;
   background-size: 2px 100%;
-  color: whitesmoke;
   font-size: 1em;
-  margin-left: 10px;
-  padding: 5px 5px 5px 10px;
+  margin: 0 2.5px;
+  margin: 5px;
+  padding: 5px 10px;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
@@ -58,4 +58,15 @@
 .links:hover {
   background-size: 100% 100%;
   color: white;
+}
+
+@media only screen and (max-width: 740px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  #logo {
+    width: 200px;
+    height: 40px;
+  }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import PropTypes from 'prop-types';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
@@ -11,18 +12,31 @@ const PortfolioCard = (project) => {
 
   return (
     <>
-      <div className={style.card} onMouseOver={()=>{setShow(true)}} onMouseOut={()=>{setShow(false)}} >
-        <img
-          className={style.image}
-          src={`/projects_mockups/${project.imgName}`}
-          alt={title}
-          srcSet=''
-        />
+      <div
+        className={style.card}
+        onMouseOver={() => {
+          setShow(true);
+        }}
+        onMouseOut={() => {
+          setShow(false);
+        }}
+      >
+        <div className={style.imageWrapper}>
+          <Image
+            src={`/projects_mockups/${project.imgName}`}
+            alt={title}
+            width={450}
+            height={291}
+            // unsized
+          />
+        </div>
 
         <div className={`${style.info} ${show ? style.show : style.hide}`}>
-          <Title size='large'>{title}</Title>
-          <div>{description}</div>
-          <TecList list={technologies}></TecList>
+          <div className={style.cardHeader}>
+            <Title size='large'>{title}</Title>
+            <div className={style.cardDescription}>{description}</div>
+          </div>
+          <TecList list={technologies} />
           <a href={liveUrl} target='_blank' rel='noopener noreferrer'>
             <Button primary label='check it out' />
           </a>

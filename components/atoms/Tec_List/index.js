@@ -5,7 +5,7 @@ const TecList = ({ list }) => {
   return (
     <div className='tec-list'>
       {list &&
-        list.map((item) => <div className='tec-list--item'>{item}</div>)}
+        list.map((item) => <div key={item.id} className='tec-list--item'>{item}</div>)}
     </div>
   );
 };

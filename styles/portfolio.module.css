@@ -8,3 +8,10 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.aosTest {
+  border: 1px solid red;
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+}

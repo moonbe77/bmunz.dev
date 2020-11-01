@@ -5,6 +5,7 @@
   margin: auto;
   max-width: 1300px;
   min-height: 100vh;
+  min-width: 100vw;
   position: relative;
 }
 
@@ -13,10 +14,10 @@
 }
 
 .footer {
-  min-height: 100px;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  min-height: 100px;
 }
 
 .footer img {
@@ -24,9 +25,9 @@
 }
 
 .footer a {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .footerLogo {
