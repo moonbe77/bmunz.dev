@@ -1,32 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './title.module.css';
 
 const Title = (props) => {
-  const { children, size, primary, color } = props;
-  const mode = primary ? style.primary : style.secondary;
+  const { children, size, primary } = props;
+  const mode = primary ? 'text-blue-700 text-2xl border-b-2 mb-8' : 'text-blue-500 text-xl';
+
   let titleSize;
   switch (size) {
     case 'small':
-      titleSize = style.small;
+      titleSize = `text`;
       break;
     case 'medium':
-      titleSize = style.medium;
+      titleSize = 'text-base';
       break;
     case 'large':
-      titleSize = style.large;
+      titleSize = 'text-xl';
       break;
 
     default:
-      titleSize = style.medium;
+      titleSize = 'text-base';
       break;
   }
 
-  return (
-    <div className={`${mode} ${titleSize} `} style={color && { color }}>
-      {children}
-    </div>
-  );
+  return <div className={`${mode} ${titleSize}`}> {children}</div>;
 };
 
 export default Title;
@@ -37,6 +33,6 @@ Title.propTypes = {
 };
 
 Title.defaultProps = {
-  primary: true,
+  primary: false,
   size: 'medium',
 };

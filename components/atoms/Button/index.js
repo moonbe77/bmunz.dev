@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 /**
  * Primary UI component for user interaction
  */
@@ -13,9 +12,7 @@ const Button = ({ primary, backgroundColor, size, label, ...props }) => {
   return (
     <button
       type='button'
-      className={['storybook-button', `storybook-button--${size}`, mode].join(
-        ' '
-      )}
+      className='text-center border border-green-500 rounded px-3 py-1 uppercase text-green-500 hover:bg-green-500 hover:text-green-50 transition-all'
       style={backgroundColor && { backgroundColor }}
       {...props}
     >
