@@ -1,6 +1,6 @@
 .hero {
   composes: lightTextColor from '../../../styles/colors.css';
-  background-color: black;
+  background-color: rgb(218, 204, 204);
   background-image: url('../../../public/bg.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -11,19 +11,24 @@
   min-height: 50vh;
 }
 
-.header {
-  flex: 1;
+.content {
+  position: relative;
 }
 
 .h1 {
-  border-bottom: 2px solid purple;
-  display: block;
+  left: 50%;
+  position: absolute;
+  top: 25%;
+  transform: translate(-50%, -50%);
 }
 
 .h2 {
-  border-bottom: 2px solid purple;
-  display: block;
+  left: 50%;
+  position: absolute;
+  top: 40%;
+  transform: translate(-50%, -50%);
 }
+
 .content {
   flex: 2;
   text-align: center;

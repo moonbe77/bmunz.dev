@@ -1,24 +1,31 @@
 .card {
   background-color: white;
-  display: inline-block;
-  max-height: 30em; 
-  max-width: 30em;
+  box-shadow: 0 9px 30px -13px grey;
+  height: 291px;
+  margin: 2em;
   position: relative;
-  position: relative;
-  transition: all 0.5s;
+  max-width: 430px;
+}
+
+.cardHeader {
+  text-align: right;
 }
 
 .imageWrapper {
   clip-path: polygon(0 0, 40% 0, 60% 100%, 0% 100%);
+  height: auto;
   position: relative;
-  transition: all 0.5s;
+  transition: all 0.5s ease-in-out;
   width: 100%;
   z-index: 99;
 }
 
 .imageWrapper:hover {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  z-index: 99;
+}
+.image {
+  width: 100%;
+  height: auto;
 }
 
 .info {
@@ -37,16 +44,37 @@
   transition: all 0.5s;
   width: 100%;
 }
+
 /* .info:hover{
   clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
 } */
 
-.show {
-  opacity: 1;
-  visibility: visible;
+.tecList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.hide {
-  opacity: 1;
-  visibility: visible;
+@media only screen and (max-width: 450px) {
+  .card {
+    border: 1px solid red;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .imageWrapper {
+    clip-path: none;
+    margin-bottom: 10px;
+  }
+
+  .info {
+    position: relative;
+    justify-content: flex-start;
+  }
+
+  .tecList {
+    flex-direction: row;
+  }
 }

@@ -33,7 +33,7 @@ export default Title;
 
 Title.propTypes = {
   primary: PropTypes.bool,
-  size: PropTypes.oneOf[('small', 'medium', 'large')],
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 Title.defaultProps = {

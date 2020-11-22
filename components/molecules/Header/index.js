@@ -11,7 +11,6 @@ const Header = (props) => {
         <div>
           <a href='/' id={style.logo}></a>
         </div>
-        <div>
           <ul className={style.menu}>
             <li className={style.links}>
               <a href='/portfolio'>PORTFOLIO</a>
@@ -32,7 +31,6 @@ const Header = (props) => {
               <a href='https://twitter.com/moonbe77'>TWITTER</a>
             </li>
           </ul>
-        </div>
       </nav>
     </header>
   );
