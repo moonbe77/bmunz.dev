@@ -1,32 +1,34 @@
 .hero {
   composes: lightTextColor from '../../../styles/colors.css';
   background-color: rgb(218, 204, 204);
-  background-image: url('../../../public/bg.jpg');
+  background-image: url('https://images.unsplash.com/photo-1537498425277-c283d32ef9db?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=4800');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 400px;
-  min-height: 50vh;
+  font-family: 'Bangers', cursive;
+  height: 100vh ;  
 }
 
 .content {
   position: relative;
 }
 
-.h1 {
+.firstLine {
   left: 50%;
   position: absolute;
-  top: 25%;
+  top: 30%;
   transform: translate(-50%, -50%);
+  font-size: 5rem;
 }
 
-.h2 {
+.secondLine {
   left: 50%;
   position: absolute;
   top: 40%;
   transform: translate(-50%, -50%);
+  font-size: 3rem;
 }
 
 .content {

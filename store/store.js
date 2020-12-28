@@ -10,6 +10,8 @@ const reducer = (state, action) => {
       return { name: action.payload };
     case 'RESET_NAME':
       return { name: 'My Name' };
+    case 'SWITCH_THEME':
+      return {...state, isDarkTheme: action.payload };
     default:
       throw new Error(`Unknown action: ${action.type}`);
   }

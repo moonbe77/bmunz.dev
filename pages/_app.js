@@ -28,12 +28,14 @@ function MyApp({ Component, pageProps }) {
           href='/favicon/favicon-16x16.png'
         />
         <link rel='manifest' href='/site.webmanifest' />
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans&display=swap" rel="stylesheet"/>
       </Head>
-      <Layout>
         <StateProvider>
-          <Component {...pageProps} />
-        </StateProvider>
+            <Layout>
+            <Component {...pageProps} />
       </Layout>
+        </StateProvider>
     </>
   );
 }

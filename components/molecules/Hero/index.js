@@ -6,8 +6,8 @@ const Hero = () => {
     <>
       <section className={style.hero}>
         <div className={style.content}>
-          <h1 className={style.h1}>Bernardo Munz</h1>
-          <h2 className={style.h2}>Web developer</h2>
+          <h1 className={style.firstLine}>HEY! I'm Bernardo Munz</h1>
+          <h2 className={style.secondLine}>Web developer</h2>
         </div>
       </section>
     </>
