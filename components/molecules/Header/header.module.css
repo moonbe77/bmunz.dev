@@ -1,6 +1,5 @@
 .header {
-  align-items: center;
-  
+  align-items: center;  
   display: flex;
   font-family: 'Syne Mono', monospace;
   height: 100px;
@@ -10,6 +9,7 @@
   top: 0;
   width: 100%;
   z-index: 1;  
+  font-family: 'Open Sans', sans-serif;
 }
 
 .dark{
@@ -18,8 +18,8 @@
 }
 
 .light{
-  color: rgb(61, 61, 61);
-  background: rgb(199, 199, 199);
+  color: rgb(102, 102, 102);
+  background: #222222;
 }
 
 .nav {
@@ -37,11 +37,12 @@
   color: white;
   height: 50px;
   width: 230px;
+  font-family: 'Bangers', cursive;
 }
 
 /*ul element*/
 .menu {
-  align-items: baseline;
+  align-items: center;
   display: inline-flex;
   flex-direction: row;
   justify-content: center;
@@ -52,12 +53,16 @@
 /*li elements*/
 .links {
   position: relative;   
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin: 0 2.5px;
   margin: 5px;
   padding: 0px 10px 10px;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
+}
+.links  svg{
+  font-size: 1.6rem;
+  /* height: 50px; */
 }
 
 /*span element inside li*/
@@ -80,7 +85,6 @@
 }
 
 .links:hover .linkBorder {
-  visibility: visible ;
   transform: scaleX(1);
 }
 

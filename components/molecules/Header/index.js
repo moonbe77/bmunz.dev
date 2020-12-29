@@ -3,33 +3,33 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import PropTypes from 'prop-types';
 import { useStateContext } from '../../../store/store';
-import style from './header.module.css';
 import Switch from '../../atoms/Switch';
+import {AiOutlineTwitter,AiOutlineGithub,AiOutlineLinkedin} from 'react-icons/ai'
+import style from './header.module.css';
 
-
+const LinkWrapper = ({href,children})=>{
+  return <Link href={href}>{children}</Link>
+}
 
 const Header = (props) => {
   const state = useStateContext()
   const theme = state.isDarkTheme ? style.dark : style.light;
   const router = useRouter()
 
-  const active = {
-    transform: 'scaleX(0)'
-  }
-
-
-  // useEffect(() => {
-  //   const links = document.getElementsByTagName('a')
-  //   console.log(links);
-  //   // links.forEach(link => {
-  //   //   console.log(link);
-  //   //   if (link.pathname === router.pathname) {
-  //   //     console.log(link.pathname === router.pathname);
-  //   //     link.style.visibility = 'visible'
-  //   //     link.style.transform = 'scaleX(1)'
-  //   //   }
-  //   // });
-  // }, [router.pathname])
+  useEffect(() => {
+    const links = document.querySelectorAll('.link')
+    links.forEach(link => {
+      const border = link.nextSibling
+      if (link.pathname === router.pathname) {
+        console.log(link.pathname === router.pathname);
+        border.style.transform="scaleX(1)"
+      }else{
+        console.log(link.pathname === router.pathname);
+        border.style.removeProperty('transform')
+        border.style.transform="null"
+      }
+    });
+  }, [router])
 
   return (
     <header className={`${style.header} ${theme}`}>
@@ -40,14 +40,14 @@ const Header = (props) => {
         <ul className={style.menu}>
           <li className={`${style.links} `}>
             <Link href='/portfolio' >
-              <a>PORTFOLIO </a>
+              <a className='link'>PORTFOLIO </a>
             </Link>
-            <span className={`linkBorder ${style.linkBorder}`}></span>
+            <span className={`${style.linkBorder} ${style.active}`}></span>
           </li>
           <li className={` ${style.links} `} >
             <a href='https://github.com/moonbe77' target='_blank'
-              rel='noreferrer  noopener'>GITHUB</a>
-            <span className={`${style.linkBorder}`}></span>
+              rel='noreferrer  noopener'><AiOutlineGithub/></a>
+            <span className={`${style.linkBorder} `}></span>
           </li>
           <li className={` ${style.links}`}>
             <a
@@ -55,13 +55,13 @@ const Header = (props) => {
               target='_blank'
               rel='noreferrer  noopener'
             >
-              LINKEDIN
+              <AiOutlineLinkedin/>
               </a>
             <span className={`${style.linkBorder}`}></span>
           </li>
           <li className={`${style.links} `}>
             <a href='https://twitter.com/moonbe77' target='_blank'
-              rel='noreferrer  noopener'>TWITTER</a>
+              rel='noreferrer  noopener'><AiOutlineTwitter/></a>
             <span className={`${style.linkBorder}`}></span>
           </li>
         </ul>

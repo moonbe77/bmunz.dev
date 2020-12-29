@@ -1,15 +1,10 @@
-@import url('../components/atoms/Button/button.css');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;600;700&family=Syne+Mono&display=swap');
-
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #f2f2f2;
-  font-family: 'Source Code Pro', monospace;
-  /* font-family: 'Syne Mono', monospace; */
+  color: #888;
+  font-family: 'Open Sans';
   font-size: 15px;
 }
 
