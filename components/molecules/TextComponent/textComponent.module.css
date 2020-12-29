@@ -1,0 +1,36 @@
+.me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    padding: 1em;
+    background: rgb(13,13,13);
+  background: linear-gradient(270deg, rgba(13,13,13,1) 0%, rgba(28,28,28,1) 50%, rgba(13,13,13,1) 100%);
+    color: floralwhite;
+  }
+  
+  .paragraph {
+    line-height: 1.8em;
+    text-indent: 0.5em;
+    padding: 0 2em;
+  }
+  
+  .techIcons {
+    display: flex;
+    justify-content: space-around;
+    padding: 1em;
+    font-size: 6em;
+  }
+  
+  @media only screen and (max-width: 980px) {
+    .me {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0px 1px 20px 0px #e3e0e0;
+  }
+  
