@@ -1,4 +1,3 @@
-import react, { useContext } from 'react';
 import Header from '../molecules/Header';
 import style from './layout.module.css';
 

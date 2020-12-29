@@ -18,4 +18,8 @@ a {
 
 :root {
   --mainColor: #6f58fa;
+  --textDark: rgb(246, 241, 247);
+  --textLight: #2d2d2d;
+  --backgroundLight : rgb(246, 241, 247);
+  --backgroundDark : #2d2d2d;
 }

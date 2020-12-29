@@ -11,7 +11,7 @@ const reducer = (state, action) => {
     case 'RESET_NAME':
       return { name: 'My Name' };
     case 'SWITCH_THEME':
-      return {...state, isDarkTheme: action.payload };
+      return { ...state, isDarkTheme: action.payload };
     default:
       throw new Error(`Unknown action: ${action.type}`);
   }
@@ -20,18 +20,20 @@ const reducer = (state, action) => {
 const initialState = {
   name: 'BMDev',
   isDarkTheme: true,
-  projects : projects.data,
+  projects: projects.data,
   theme: {
-    lightTheme:{
+    lightTheme: {
       colors: {
-        primary: '#0070f3',
+        text: 'rgb(246, 241, 247)',
+        backgroundColor: '#2d2d2d',
       },
     },
-    darkTheme:{
+    darkTheme: {
       colors: {
-        primary: '#0070f3',
+        text: '#2d2d2d',
+        backgroundColor: 'rgb(246, 241, 247)',
       },
-    }
+    },
   },
 };
 

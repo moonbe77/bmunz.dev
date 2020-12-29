@@ -11,7 +11,7 @@ const Portfolios = () => {
   return (
     <>
       <div className={style.content}>
-        <Title size='large'>Portfolio</Title>
+        <Title size="large">Portfolio</Title>
         <section className={style.wrapper}>
           {projects.map((project) => (
             <PortfolioCard key={project.id} project={project} />

@@ -1,74 +1,86 @@
 import { useEffect } from 'react';
-import { useRouter } from 'next/router'
-import Link from 'next/link'
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
+import {
+  AiOutlineTwitter,
+  AiOutlineGithub,
+  AiOutlineLinkedin,
+} from 'react-icons/ai';
 import { useStateContext } from '../../../store/store';
 import Switch from '../../atoms/Switch';
-import {AiOutlineTwitter,AiOutlineGithub,AiOutlineLinkedin} from 'react-icons/ai'
 import style from './header.module.css';
 
-const LinkWrapper = ({href,children})=>{
-  return <Link href={href}>{children}</Link>
-}
 
-const Header = (props) => {
-  const state = useStateContext()
+const Header = () => {
+  const state = useStateContext();
   const theme = state.isDarkTheme ? style.dark : style.light;
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
-    const links = document.querySelectorAll('.link')
-    links.forEach(link => {
-      const border = link.nextSibling
+    const links = document.querySelectorAll('.link');
+    links.forEach((link) => {
+      const border = link.nextSibling;
       if (link.pathname === router.pathname) {
         console.log(link.pathname === router.pathname);
-        border.style.transform="scaleX(1)"
-      }else{
+        border.style.transform = 'scaleX(1)';
+      } else {
         console.log(link.pathname === router.pathname);
-        border.style.removeProperty('transform')
-        border.style.transform="null"
+        border.style.removeProperty('transform');
+        border.style.transform = 'null';
       }
     });
-  }, [router])
+  }, [router]);
 
   return (
     <header className={`${style.header} ${theme}`}>
-      <nav className={style.nav}>
-        <div id={style.logo}>
-          <Link href='/' ><a> BM Dev</a></Link>
+      <nav className={`${style.nav} `}>
+        <div className={`${style.logo}`}>
+          <Link href="/">
+            <a> BM Dev</a>
+          </Link>
         </div>
         <ul className={style.menu}>
           <li className={`${style.links} `}>
-            <Link href='/portfolio' >
-              <a className='link'>PORTFOLIO </a>
+            <Link href="/portfolio">
+              <a className="link">PORTFOLIO </a>
             </Link>
-            <span className={`${style.linkBorder} ${style.active}`}></span>
+            <span className={`${style.linkBorder} ${style.active}`} />
           </li>
-          <li className={` ${style.links} `} >
-            <a href='https://github.com/moonbe77' target='_blank'
-              rel='noreferrer  noopener'><AiOutlineGithub/></a>
-            <span className={`${style.linkBorder} `}></span>
+          <li className={` ${style.links} `}>
+            <a
+              href="https://github.com/moonbe77"
+              target="_blank"
+              rel="noreferrer  noopener"
+            >
+              <AiOutlineGithub />
+            </a>
+            <span className={`${style.linkBorder} `} />
           </li>
           <li className={` ${style.links}`}>
             <a
-              href='https://www.linkedin.com/in/munzbe/'
-              target='_blank'
-              rel='noreferrer  noopener'
+              href="https://www.linkedin.com/in/munzbe/"
+              target="_blank"
+              rel="noreferrer  noopener"
             >
-              <AiOutlineLinkedin/>
-              </a>
-            <span className={`${style.linkBorder}`}></span>
+              <AiOutlineLinkedin />
+            </a>
+            <span className={`${style.linkBorder}`} />
           </li>
           <li className={`${style.links} `}>
-            <a href='https://twitter.com/moonbe77' target='_blank'
-              rel='noreferrer  noopener'><AiOutlineTwitter/></a>
-            <span className={`${style.linkBorder}`}></span>
+            <a
+              href="https://twitter.com/moonbe77"
+              target="_blank"
+              rel="noreferrer  noopener"
+            >
+              <AiOutlineTwitter />
+            </a>
+            <span className={`${style.linkBorder}`} />
           </li>
         </ul>
         <div>
           <Switch />
         </div>
-
       </nav>
     </header>
   );

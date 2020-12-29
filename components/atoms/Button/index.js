@@ -11,8 +11,8 @@ const Button = ({ primary, backgroundColor, size, label, ...props }) => {
 
   return (
     <button
-      type='button'
-      className='text-center border border-green-500 rounded px-3 py-1 uppercase text-green-500 hover:bg-green-500 hover:text-green-50 transition-all'
+      type="button"
+      className="text-center border border-green-500 rounded px-3 py-1 uppercase text-green-500 hover:bg-green-500 hover:text-green-50 transition-all"
       style={backgroundColor && { backgroundColor }}
       {...props}
     >

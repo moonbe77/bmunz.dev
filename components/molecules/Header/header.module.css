@@ -1,7 +1,7 @@
 .header {
   align-items: center;  
   display: flex;
-  font-family: 'Syne Mono', monospace;
+  font-family: 'Open Sans', sans-serif;
   height: 100px;
   justify-content: center;
   left: 0; 
@@ -9,17 +9,16 @@
   top: 0;
   width: 100%;
   z-index: 1;  
-  font-family: 'Open Sans', sans-serif;
 }
 
 .dark{
-  color: rgb(214, 212, 212);
-  background: black;
+  color: var(--textDark);
+  background: var(--backgroundDark);
 }
 
 .light{
-  color: rgb(102, 102, 102);
-  background: #222222;
+  color: var(--textLight);
+  background: var(--backgroundLight);
 }
 
 .nav {
@@ -29,15 +28,14 @@
   justify-content: space-around;
 }
 
-#logo {  
-  display: flex;
-  justify-content: center;
+.logo {  
   align-items: center;
+  display: flex;
+  font-family: 'Bangers', cursive !important;
   font-size: 2rem;
-  color: white;
   height: 50px;
+  justify-content: center;
   width: 230px;
-  font-family: 'Bangers', cursive;
 }
 
 /*ul element*/
@@ -81,7 +79,7 @@
 }
 
 .links:hover {
-  color: white;
+  color: rgb(128, 128, 128);
 }
 
 .links:hover .linkBorder {
