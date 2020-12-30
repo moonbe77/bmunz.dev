@@ -1,6 +1,6 @@
 {
-  "name": "bmdev",
-  "version": "0.1.0",
+  "name": "bmunz.dev",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

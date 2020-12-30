@@ -13,8 +13,9 @@ export default function Switch() {
       payload: !isDarkTheme,
     });
   }
+
   const changeThemeShortCut = (e) => {
-    console.log(e);
+    // console.log(e);
   };
 
   const shadow = isDarkTheme ? style.shadowDark : style.shadowLight;

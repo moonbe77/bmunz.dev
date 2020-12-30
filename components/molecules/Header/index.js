@@ -1,20 +1,32 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import {
   AiOutlineTwitter,
   AiOutlineGithub,
   AiOutlineLinkedin,
 } from 'react-icons/ai';
 import { useStateContext } from '../../../store/store';
+import Burger from '../../atoms/Burger';
 import Switch from '../../atoms/Switch';
 import style from './header.module.css';
+import { useScroll } from '../../../utils/useScroll';
+import SideNavbar from '../SideNavbar';
 
 const Header = () => {
-  const state = useStateContext();
-  const theme = state.isDarkTheme ? style.dark : style.light;
+  const [isHidden, setIsHidden] = useState(false);
+  const { isDarkTheme } = useStateContext();
+  const theme = isDarkTheme ? style.dark : style.light;
   const router = useRouter();
+  const scroll = useScroll();
+  // detect when scroll and stick the header to top
+  useEffect(() => {
+    if (scroll.y > 150) {
+      setIsHidden(true);
+      return;
+    }
+    setIsHidden(false);
+  }, [scroll]);
 
   useEffect(() => {
     const links = document.querySelectorAll('.link');
@@ -32,7 +44,7 @@ const Header = () => {
   }, [router]);
 
   return (
-    <header className={`${style.header} ${theme}`}>
+    <header className={`${style.header} ${theme} ${isHidden && style.hidden}`}>
       <nav className={`${style.nav} `}>
         <div className={`${style.logo}`}>
           <Link href="/">
@@ -77,22 +89,18 @@ const Header = () => {
             <span className={`${style.linkBorder}`} />
           </li>
         </ul>
-        <div>
-          <div className={style.themeSwitch}>
-            <Switch />
-          </div>
+        <div className={style.themeSwitch}>
+          <Switch />
         </div>
+        <Burger />
       </nav>
+      <SideNavbar />
     </header>
   );
 };
 
 export default Header;
 
-Header.propTypes = {
-  theme: PropTypes.string,
-};
+Header.propTypes = {};
 
-Header.defaultProp = {
-  theme: 'dark',
-};
+Header.defaultProp = {};

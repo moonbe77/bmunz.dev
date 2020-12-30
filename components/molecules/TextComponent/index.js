@@ -48,7 +48,7 @@ export default function TextComponent() {
         </div>
       </div>
       <div>
-        <div className={`${style.techIcons} ${style.card}`}>
+        <div className={`${style.techIcons} `}>
           <DiHtml5 />
           <DiCss3 />
           <DiJavascript1 />

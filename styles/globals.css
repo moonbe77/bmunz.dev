@@ -24,4 +24,7 @@ a {
   --backgroundLightGradient: linear-gradient(to top left, #ffffff 0%, #dedede 100%);
   --backgroundDark : #485461;
   --backgroundDarkGradient: linear-gradient(315deg, #485461 0%, #28313b 74%);
+  --xSmallScreen: 375px;
+  --smallScreen: 640px;
+  --mediumScreen: 1007px;
 }

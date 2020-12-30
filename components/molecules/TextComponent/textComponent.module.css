@@ -51,7 +51,8 @@
   flex-direction: column;
   justify-content: space-around;
   padding: 1rem;
-  font-size: 6em;
+  font-size: 6rem;
+  width: 100%;
   /* border: 1px solid red; */
 }
   
@@ -66,9 +67,13 @@
     .section{
       flex-direction: column;
     }
+    .text{
+      margin: 0 2rem;
+    }
     .techIcons {
       flex-direction: row;
       padding: 0;
+      font-size: 4rem;
     }
   }
   

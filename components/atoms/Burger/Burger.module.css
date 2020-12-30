@@ -1,0 +1,38 @@
+.burger{
+  position: absolute;
+  top: 10%;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  /* border: 1px solid red; */
+}
+
+.burger:focus {
+  outline: none;
+}
+
+.line {
+  width: 2rem;
+  height: 0.25rem;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.light{
+  background: var(--textLight);
+}
+.dark{
+  background: var(--textDark);  
+}
+
+

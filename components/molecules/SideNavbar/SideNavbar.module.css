@@ -1,0 +1,27 @@
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    border: 5px solid red;
+    transform: translateX(0vw);
+    transition: transform 0.5s ease-in;
+}
+
+.hidden{
+    /* visibility: hidden; */
+    /* display: none; */
+    transform: translateX(100vw);
+}
+
+.light{
+    background-color: var(--backgroundLightGradient);
+}
+.dark{
+    background-color: var(--backgroundDarkGradient);
+}

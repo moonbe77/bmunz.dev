@@ -3,13 +3,14 @@
   display: flex;
   flex-wrap: wrap;
   font-family: 'Open Sans', sans-serif;
-  min-height: 100px;
+  padding: 1.7rem;
   justify-content: center;
   left: 0; 
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 1;  
+  transition: all 0.3s ease-in-out;
 }
 
 .dark{
@@ -32,7 +33,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   flex: 2;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .logo {  
@@ -43,7 +44,7 @@
   height: 50px;
   justify-content: center;
   width: 230px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 /*ul element*/
@@ -54,7 +55,7 @@
   justify-content: center;
   list-style: none;
   padding-top: 10px;
-  border: 1px solid blue;
+  /* border: 1px solid rgb(0, 255, 64); */
 }
 
 .themeSwitch{
@@ -78,7 +79,6 @@
 
 /*span element inside li*/
 .linkBorder{ 
-  /* visibility: hidden; */
   position: absolute;
   left: .6em;
   right: .6em;
@@ -99,13 +99,23 @@
   transform: scaleX(1);
 }
 
-@media only screen and (max-width: 740px) {
-  .wrapper {
-    display: flex;
-    flex-direction: column;
+.hidden{
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 640px) {
+  .header{
+    padding: 1rem;
   }
-  #logo {
-    width: 200px;
-    height: 40px;
-  }
+
+  .menu, .themeSwitch{
+    visibility: hidden;
+    display: none;
+  }  
+}
+
+@media only screen and (max-width: 375px) {
+  
 }

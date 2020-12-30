@@ -8,8 +8,8 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'UPDATE_NAME':
       return { name: action.payload };
-    case 'RESET_NAME':
-      return { name: 'My Name' };
+    case 'TOGGLE_SIDE_MENU':
+      return { ...state, showSideMenu: action.payload };
     case 'SWITCH_THEME':
       return { ...state, isDarkTheme: action.payload };
     default:
@@ -18,9 +18,10 @@ const reducer = (state, action) => {
 };
 
 const initialState = {
-  name: 'BMDev',
+  name: 'bMunz.Dev',
   isDarkTheme: true,
   projects: projects.data,
+  showSideMenu: false,
   theme: {
     lightTheme: {
       colors: {
