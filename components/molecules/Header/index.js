@@ -11,7 +11,6 @@ import { useStateContext } from '../../../store/store';
 import Switch from '../../atoms/Switch';
 import style from './header.module.css';
 
-
 const Header = () => {
   const state = useStateContext();
   const theme = state.isDarkTheme ? style.dark : style.light;
@@ -37,7 +36,7 @@ const Header = () => {
       <nav className={`${style.nav} `}>
         <div className={`${style.logo}`}>
           <Link href="/">
-            <a> BM Dev</a>
+            <a>bMunz.Dev</a>
           </Link>
         </div>
         <ul className={style.menu}>
@@ -79,7 +78,9 @@ const Header = () => {
           </li>
         </ul>
         <div>
-          <Switch />
+          <div className={style.themeSwitch}>
+            <Switch />
+          </div>
         </div>
       </nav>
     </header>

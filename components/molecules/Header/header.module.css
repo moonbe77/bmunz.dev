@@ -1,8 +1,9 @@
 .header {
   align-items: center;  
   display: flex;
+  flex-wrap: wrap;
   font-family: 'Open Sans', sans-serif;
-  height: 100px;
+  min-height: 100px;
   justify-content: center;
   left: 0; 
   position: fixed;
@@ -14,18 +15,24 @@
 .dark{
   color: var(--textDark);
   background: var(--backgroundDark);
+  background-image: var(--backgroundDarkGradient);
 }
 
 .light{
   color: var(--textLight);
   background: var(--backgroundLight);
+  background-image: var(--backgroundLightGradient);
 }
 
 .nav {
   width: 100%;
   align-items: center;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
+  flex: 2;
+  border: 1px solid red;
 }
 
 .logo {  
@@ -36,6 +43,7 @@
   height: 50px;
   justify-content: center;
   width: 230px;
+  border: 1px solid blue;
 }
 
 /*ul element*/
@@ -46,6 +54,11 @@
   justify-content: center;
   list-style: none;
   padding-top: 10px;
+  border: 1px solid blue;
+}
+
+.themeSwitch{
+  border: 1px solid blue;
 }
 
 /*li elements*/
