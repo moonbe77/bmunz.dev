@@ -26,7 +26,7 @@ const Header = () => {
   }, [scroll]);
 
   const updateWindowSize = () => {
-    const size = window.screen.width;
+    const size = window.innerWidth || document.body.clientWidth;
     setWindowsSize(size);
     console.log(windowSize);
   };
@@ -51,7 +51,6 @@ const Header = () => {
     });
   }, [router]);
 
-  
   return (
     <header className={`${style.header} ${theme} ${isHidden && style.hidden}`}>
       <div className={`${style.wrapper} `}>
