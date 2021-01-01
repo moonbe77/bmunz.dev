@@ -1,22 +1,23 @@
 import { useState, useEffect } from 'react';
-import style from './SideNavbar.module.css';
 import { useStateContext } from '../../../store/store';
+import Menu from '../Menu';
+import style from './SideNavbar.module.css';
 
 export default function SideNavbar() {
-  const [isHidden, setIsHidden] = useState(true);
+  const [show, setShow] = useState(false);
   const { isDarkTheme, showSideMenu } = useStateContext();
 
   useEffect(() => {
-    setIsHidden(showSideMenu);
+    setShow(showSideMenu);
   }, [showSideMenu]);
 
+  const theme = isDarkTheme ? style.dark : style.light;
+
   return (
-    <div
-      className={`${style.wrapper} ${isDarkTheme ? style.dark : style.light} ${
-        isHidden && style.hidden
-      }`}
-    >
-      side navbar
+    <div className={`${style.wrapper} ${theme} ${!show && style.hidden}`}>
+      <nav className={style.menu}>
+        <Menu />
+      </nav>
     </div>
   );
 }

@@ -25,7 +25,7 @@
   background-image: var(--backgroundLightGradient);
 }
 
-.nav {
+.wrapper {
   width: 100%;
   align-items: center;
   display: flex;
@@ -34,6 +34,12 @@
   justify-content: space-around;
   flex: 2;
   /* border: 1px solid red; */
+}
+
+
+.menu ul{
+  display: inline-flex;
+  flex-direction: row;
 }
 
 .logo {  
@@ -47,56 +53,8 @@
   /* border: 1px solid blue; */
 }
 
-/*ul element*/
-.menu {
-  align-items: center;
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  list-style: none;
-  padding-top: 10px;
-  /* border: 1px solid rgb(0, 255, 64); */
-}
-
 .themeSwitch{
   border: 1px solid blue;
-}
-
-/*li elements*/
-.links {
-  position: relative;   
-  font-size: 1rem;
-  margin: 0 2.5px;
-  margin: 5px;
-  padding: 0px 10px 10px;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-}
-.links  svg{
-  font-size: 1.6rem;
-  /* height: 50px; */
-}
-
-/*span element inside li*/
-.linkBorder{ 
-  position: absolute;
-  left: .6em;
-  right: .6em;
-  bottom: 0;
-  height: .12em;
-  background-color: currentColor;
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  transition-duration: .3s;
-  transition-property: transform;
-}
-
-.links:hover {
-  color: rgb(128, 128, 128);
-}
-
-.links:hover .linkBorder {
-  transform: scaleX(1);
 }
 
 .hidden{
@@ -110,7 +68,7 @@
     padding: 1rem;
   }
 
-  .menu, .themeSwitch{
+  .themeSwitch, .menu { 
     visibility: hidden;
     display: none;
   }  
