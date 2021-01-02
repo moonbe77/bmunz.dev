@@ -28,7 +28,6 @@ const Header = () => {
   const updateWindowSize = () => {
     const size = window.innerWidth || document.body.clientWidth;
     setWindowsSize(size);
-    console.log(windowSize);
   };
 
   useEffect(() => {

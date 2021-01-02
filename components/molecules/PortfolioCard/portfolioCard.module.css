@@ -2,9 +2,15 @@
   background-color: white;
   box-shadow: 0 9px 30px -13px grey;
   height: 291px;
+  width: 450px;
   margin: 2em;
   position: relative;
   max-width: 430px;
+  border: 1px solid red;
+}
+
+.card .image:hover{
+  opacity: 0.5;
 }
 
 .cardHeader {
@@ -23,6 +29,7 @@
 .imageWrapper:hover {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
+
 .image {
   width: 100%;
   height: auto;
@@ -35,7 +42,7 @@
   background-color: rgba(255, 255, 255);
   display: flex;
   flex-direction: column;
-  height: 100%;
+  /* height: 100%; */
   justify-content: space-between;
   padding: 10px;
   position: absolute;
@@ -43,7 +50,8 @@
   top: 0;
   transition: all 0.5s;
   width: 100%;
-}
+} 
+
 
 /* .info:hover{
   clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);

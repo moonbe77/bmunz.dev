@@ -26,44 +26,39 @@ const PortfolioCard = (props) => {
 
   return (
     <>
-      <div
-        class='max-w-xs rounded overflow-hidden shadow-lg my-2'
-        data-aos='fade-up'
-      >
+      <div className={style.card} data-aos="fade-up">
         <Image
-          className='w-full shadow-sm'
+          className={style.image}
           src={`/projects_mockups/${imgName}`}
           alt={title}
           width={450}
           height={291}
-          layout='responsive'
+          layout="responsive"
         />
-        <div className='flex flex-col h-full border border-green-600 relative'>
-          <div class='px-4 mt-5'>
-            <div class='font-bold text-xl mb-2 text-gray-500'>{title}</div>
-            <p class='text-grey-darker text-base text-gray-400'>{description}</p>
+        {/* <div className={style.info}>
+          <div className="px-4 mt-5">
+            <div className="font-bold text-xl mb-2 text-gray-500">{title}</div>
+            <p className="text-grey-darker text-base text-gray-400">
+              {description}
+            </p>
           </div>
-          <div class='px-4 py-5 text-gray-400'>
+          <div className={style.tecList}>
             {technologies &&
-              technologies.map((item, index) => {
-                return (
-                  <span className='inline-block bg-grey-lighter rounded-full px-1 py-1 text-sm font-semibold text-grey-darker '>
-                    #{item}
-                  </span>
-                );
-              })}
+              technologies.map((item, index) => (
+                <span className="">#{item}</span>
+              ))}
           </div>
-          <div className='border border-red-600 text-center relative min-h-200'>
+          <div className="border border-red-600 text-center relative min-h-200">
             <a
-              className='block m-5 p-2 absolute bottom-0'
+              className="block m-5 p-2 absolute bottom-0"
               href={liveUrl}
-              target='_blank'
-              rel='noopener noreferrer'
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Button primary label='check it out' />
+              <Button primary label="check it out" />
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

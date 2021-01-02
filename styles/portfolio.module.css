@@ -1,18 +1,4 @@
-.content {
-  padding: 1em;
-}
-
 .wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 1;
-  flex-wrap: wrap;
-  justify-content: space-around;
+
 }
 
-.aosTest {
-  border: 1px solid red;
-  margin: 10px;
-  width: 200px;
-  height: 200px;
-}

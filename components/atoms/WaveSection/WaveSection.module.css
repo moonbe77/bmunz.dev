@@ -1,0 +1,25 @@
+.waveTop{
+    z-index: 1;
+    display: block;
+    transform-origin: bottom;
+    /* animation: animateWaveTop 1000ms cubic-bezier(0.23, 1, 0.32, 1) forwards; */
+  }
+  .waveBottom{
+    z-index: 1;
+    display: block;
+    transform-origin: bottom;
+    /* animation: animateWaveBottom 1000ms cubic-bezier(0.23, 1, 0.32, 1) forwards; */
+  }
+  
+  .waveDark{
+    fill: var(--backgroundDark)
+  }
+  .waveLight{
+    fill: var(--backgroundLight)
+  }
+  .content{
+    display: flex;
+    flex-direction: row; 
+    z-index: 10;
+  }
+  

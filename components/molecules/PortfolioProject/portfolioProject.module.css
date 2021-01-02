@@ -1,0 +1,49 @@
+.content{
+  display: flex;
+  width: 100%;
+  position: relative;  
+}
+
+.dark{
+  background-color: var(--backgroundDark);
+  color: var(--textDark);
+}
+.light{
+  background-color: var(--backgroundLight);
+  color: var(--textLight);
+}
+
+.imageWrapper{
+  position: relative;
+  flex: 1;
+}
+.infoWrapper{
+  flex: 1;
+  margin-left: 1rem;
+}
+
+@media only screen and (max-width: 640px) {
+
+}
+
+
+@keyframes animateWaveTop {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes animateWaveBottom {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
