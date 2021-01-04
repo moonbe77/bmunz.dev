@@ -50,6 +50,7 @@
   height: 50px;
   justify-content: center;
   width: 230px;
+  z-index: 22;
   /* border: 1px solid blue; */
 }
 

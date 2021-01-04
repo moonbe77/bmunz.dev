@@ -15,7 +15,7 @@ export default function TextComponent() {
   const theme = isDarkTheme ? style.dark : style.light;
 
   return (
-    <section className={`${style.section} ${theme}`}>
+    <section className={`${style.section}`}>
       <div className={`${style.text}`}>
         <h1> Hi, I'm Bernardo Munz it is nice to see you here</h1>
         <div className={`${style.textWrapper}`}>

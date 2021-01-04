@@ -26,6 +26,18 @@
     fill: var(--backgroundLight)
 }
 
+.dark{
+    color: var(--textDark);
+    background-color: var(--backgroundDark);
+    /* background-image: var(--backgroundDarkGradient); */
+    }
+    
+  .light{
+      color: var(--textLight);
+    background-color: var(--backgroundLight);
+    /* background-image: var(--backgroundLightGradient); */
+    }
+
 .content{
     position: relative;
     z-index: 2;

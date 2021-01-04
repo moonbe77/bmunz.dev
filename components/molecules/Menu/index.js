@@ -4,12 +4,23 @@ import {
   AiOutlineGithub,
   AiOutlineLinkedin,
 } from 'react-icons/ai';
+import { useStateContext, useStateDispatch } from '../../../store/store';
+import Switch from '../../atoms/Switch';
 import style from './Menu.module.css';
 
 export default function Menu() {
+  const { showSideMenu } = useStateContext();
+  const dispatch = useStateDispatch();
+
+  const handleSideMenu = () => {
+    dispatch({
+      type: 'TOGGLE_SIDE_MENU',
+      payload: !showSideMenu,
+    });
+  };
   return (
-    <ul className={style.menu}>
-      <li className={`${style.links} `}>
+    <ul className={style.menu} onClick={handleSideMenu}>
+      <li className={`${style.links}`}>
         <Link href="/portfolio">
           <a className="link">PORTFOLIO </a>
         </Link>
@@ -44,6 +55,9 @@ export default function Menu() {
           <AiOutlineTwitter />
         </a>
         <span className={`${style.linkBorder}`} />
+      </li>
+      <li className={`${style.links}`}>
+        <Switch />
       </li>
     </ul>
   );

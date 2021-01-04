@@ -4,12 +4,15 @@
     border-radius: 50%;
     padding: 2px;
   }
+  .switch:focus{
+    border:none;
+  }
 
   .shadowLight{
-    box-shadow:  0 0 10px 1px rgb(80, 80, 79);
+    /* box-shadow:  0 0 10px 1px rgb(80, 80, 79); */
   }
 
   .shadowDark{
-    box-shadow:  0 0 10px 1px yellow;
+    /* box-shadow:  0 0 10px 1px yellow; */
   }
    

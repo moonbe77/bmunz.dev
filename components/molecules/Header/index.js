@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useStateContext } from '../../../store/store';
 import Burger from '../../atoms/Burger';
-import Switch from '../../atoms/Switch';
 import style from './header.module.css';
 import { useScroll } from '../../../utils/useScroll';
 import SideNavbar from '../SideNavbar';
@@ -11,7 +10,8 @@ import Menu from '../Menu';
 
 const Header = () => {
   const [isHidden, setIsHidden] = useState(false);
-  const [windowSize, setWindowsSize] = useState();
+  const [showBurgerMenu, setShowBurgerMenu] = useState();
+  const [windowSize, setWindowSize] = useState();
   const { isDarkTheme } = useStateContext();
   const theme = isDarkTheme ? style.dark : style.light;
   const router = useRouter();
@@ -25,14 +25,22 @@ const Header = () => {
     setIsHidden(false);
   }, [scroll]);
 
-  const updateWindowSize = () => {
+  const getWindowSize = () => {
     const size = window.innerWidth || document.body.clientWidth;
-    setWindowsSize(size);
+    setWindowSize(size);
   };
 
   useEffect(() => {
-    window.addEventListener('resize', updateWindowSize);
-    return () => window.removeEventListener('resize', updateWindowSize);
+    window.addEventListener('resize', getWindowSize);
+    return () => window.removeEventListener('resize', getWindowSize);
+  }, []);
+
+  useEffect(() => {
+    if (windowSize <= 640) {
+      setShowBurgerMenu(true);
+      return;
+    }
+    setShowBurgerMenu(false);
   }, [windowSize]);
 
   useEffect(() => {
@@ -43,7 +51,6 @@ const Header = () => {
         console.log(link.pathname === router.pathname);
         border.style.transform = 'scaleX(1)';
       } else {
-        console.log(link.pathname === router.pathname);
         border.style.removeProperty('transform');
         border.style.transform = 'null';
       }
@@ -61,11 +68,8 @@ const Header = () => {
         <nav className={style.menu}>
           <Menu />
         </nav>
-        <div className={style.themeSwitch}>
-          <Switch />
-        </div>
       </div>
-      {windowSize <= 640 && (
+      {showBurgerMenu && (
         <>
           <SideNavbar />
           <Burger />
