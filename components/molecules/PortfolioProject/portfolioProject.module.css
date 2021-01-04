@@ -1,7 +1,12 @@
 .content{
+  /* border: 1px solid red; */
+  background-image: var(--backgroundDarkGradient);
   display: flex;
   width: 100%;
   position: relative;  
+  max-width: 1024px;  
+  margin: auto;
+  border-radius: 8px;
 }
 
 .dark{
@@ -16,10 +21,16 @@
 .imageWrapper{
   position: relative;
   flex: 1;
+  max-width: 500px;
 }
+
 .infoWrapper{
+  padding: 1rem;
   flex: 1;
   margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 @media only screen and (max-width: 640px) {

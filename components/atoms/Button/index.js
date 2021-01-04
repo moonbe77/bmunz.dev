@@ -1,18 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import style from './Button.module.css';
 
 /**
  * Primary UI component for user interaction
  */
 const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary';
+  const mode = primary ? style.primary : style.secondary;
+
+  const buttonSize =
+    size === 'small'
+      ? style.small
+      : size === 'medium'
+      ? style.medium
+      : style.large;
 
   return (
     <button
       type="button"
-      className="text-center border border-green-500 rounded px-3 py-1 uppercase text-green-500 hover:bg-green-500 hover:text-green-50 transition-all"
+      className={`${style.button} ${mode} ${buttonSize} `}
       style={backgroundColor && { backgroundColor }}
       {...props}
     >

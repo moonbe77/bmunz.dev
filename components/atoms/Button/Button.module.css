@@ -1,0 +1,45 @@
+.button {
+  border-radius: 3em;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
+}
+.primary {
+  color: white;
+  background-color: var(--mainColor);
+}
+.secondary {
+  color: #333;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+
+/* .button{
+  background-color: rgb(138, 43, 226);  
+  padding: 1rem;
+  border-radius: 15px;
+  transition: all .3s;
+  cursor: pointer;
+} */
+/* .button:hover{
+  background-color: rgb(103, 11, 189);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px -2px blueviolet;
+} */
+
+.small {
+  font-size: 0.8rem;
+  padding: 10px 16px;
+}
+.medium {
+  font-size: 1rem;
+  padding: 11px 20px;
+}
+.large {
+  font-size: 1.2rem;
+  padding: 12px 30px;
+}

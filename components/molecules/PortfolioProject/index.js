@@ -47,7 +47,7 @@ const PortfolioProject = (props) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button primary label="check it out" />
+              <Button primary size="medium" label="check it out" />
             </a>
           </div>
         </div>

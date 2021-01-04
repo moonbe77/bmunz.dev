@@ -36,7 +36,7 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    if (windowSize <= 640) {
+    if (windowSize <= 660) {
       setShowBurgerMenu(true);
       return;
     }
@@ -65,9 +65,11 @@ const Header = () => {
             <a>bMunz.Dev</a>
           </Link>
         </div>
-        <nav className={style.menu}>
-          <Menu />
-        </nav>
+        {!showBurgerMenu && (
+          <nav className={style.menu}>
+            <Menu />
+          </nav>
+        )}
       </div>
       {showBurgerMenu && (
         <>
