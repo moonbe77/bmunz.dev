@@ -1,15 +1,13 @@
-.container {
-  background: var(--backgroundDark);  /* fallback for old browsers */
-  background: var(--backgroundDarkGradient);
+.container { 
   display: flex;
   flex-direction: column;
+  max-width: 1440px;
   margin: auto;
   position: relative;
 }
 
 .content {
-  flex: 1;
-  margin-top: 138px;
+  /* flex: 1; */
 }
 
 .footer {
@@ -33,9 +31,9 @@
   height: 2em;
 }
 
-
+@media only screen and (max-width: 780px) {
+ 
+}
 @media only screen and (max-width: 640px) {
-  .content {
-    margin-top: 80px;
-  }
+  
 }

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Header from '../molecules/Header';
 import style from './layout.module.css';
 
@@ -12,3 +13,7 @@ export default function Layout({ children }) {
     </div>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.node,
+};

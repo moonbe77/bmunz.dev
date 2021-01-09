@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStateContext } from '../store/store';
 import PortfolioProject from '../components/molecules/PortfolioProject';
-import style from '../styles/portfolio.module.css';
 
 // import 'aos/dist/aos.css';
 const Portfolio = () => {

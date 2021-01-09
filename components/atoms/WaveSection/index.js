@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
+import { useSpring, animated } from 'react-spring';
 import PropTypes from 'prop-types';
 import style from './WaveSection.module.css';
 
@@ -17,6 +18,7 @@ export default function WaveSection(props) {
       disableMutationObserver: false, // disables automatic mutations' detections (advanced)
       debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
       throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+      mirror: false,
     });
   });
 
@@ -24,15 +26,38 @@ export default function WaveSection(props) {
     <>
       <div className={`${style.container} `} data-aos="fade-up">
         <svg
+          className={`${style.svg} ${style.svgCircle}`}
+          width="40"
+          height="41"
+          viewBox="0 0 40 41"
+          fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-          className={`${style.wave} ${style.waveTop} ${
-            isDarkTheme ? style.waveDark : style.waveLight
-          }`}
         >
-          <path
-            fillOpacity="1"
-            d="M0,256L48,224C96,192,192,128,288,133.3C384,139,480,213,576,202.7C672,192,768,96,864,69.3C960,43,1056,85,1152,122.7C1248,160,1344,192,1392,208L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          <circle
+            cx="19.8158"
+            cy="20.2368"
+            r="17.3158"
+            transform="rotate(-90 19.8158 20.2368)"
+            stroke="#3F69FF"
+            strokeWidth="4.94737"
+          />
+        </svg>
+        <svg
+          className={`${style.svg} ${style.svgRect}`}
+          width="43"
+          height="43"
+          viewBox="0 0 43 43"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="4"
+            y="21.5084"
+            width="24.7368"
+            height="24.7368"
+            transform="rotate(-45 4 21.5084)"
+            stroke="#3F69FF"
+            strokeWidth="4.94737"
           />
         </svg>
         <div
@@ -43,23 +68,43 @@ export default function WaveSection(props) {
           {children}
         </div>
         <svg
+          className={`${style.svg} ${style.svgCircle}`}
+          width="40"
+          height="41"
+          viewBox="0 0 40 41"
+          fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-          className={`${style.wave} ${style.waveBottom} ${
-            isDarkTheme ? style.waveDark : style.waveLight
-          }`}
         >
-          <path
-            fillOpacity="1"
-            d="M0,256L48,224C96,192,192,128,288,133.3C384,139,480,213,576,202.7C672,192,768,96,864,69.3C960,43,1056,85,1152,122.7C1248,160,1344,192,1392,208L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+          <circle
+            cx="19.8158"
+            cy="20.2368"
+            r="17.3158"
+            transform="rotate(-90 19.8158 20.2368)"
+            stroke="#3F69FF"
+            strokeWidth="4.94737"
+          />
+        </svg>
+        <svg
+          className={`${style.svg} ${style.svgRect}`}
+          width="4
+          
+          3"
+          height="43"
+          viewBox="0 0 43 43"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="4"
+            y="21.5084"
+            width="24.7368"
+            height="24.7368"
+            transform="rotate(-45 4 21.5084)"
+            stroke="#3F69FF"
+            strokeWidth="4.94737"
           />
         </svg>
       </div>
     </>
   );
 }
-
-WaveSection.propTypes = {
-  isDarkTheme: PropTypes.bool,
-  children: PropTypes.node,
-};

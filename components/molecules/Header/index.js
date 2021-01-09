@@ -4,43 +4,32 @@ import Link from 'next/link';
 import { useStateContext } from '../../../store/store';
 import Burger from '../../atoms/Burger';
 import style from './header.module.css';
-import { useScroll } from '../../../utils/useScroll';
 import SideNavbar from '../SideNavbar';
 import Menu from '../Menu';
 
 const Header = () => {
-  const [isHidden, setIsHidden] = useState(false);
-  const [showBurgerMenu, setShowBurgerMenu] = useState();
+  const [showMobileMenu, setShowMobileMenu] = useState();
   const [windowSize, setWindowSize] = useState();
   const { isDarkTheme } = useStateContext();
   const theme = isDarkTheme ? style.dark : style.light;
   const router = useRouter();
-  const scroll = useScroll();
-  // detect when scroll and hide the header
-  useEffect(() => {
-    if (scroll.y > 150) {
-      setIsHidden(true);
-      return;
-    }
-    setIsHidden(false);
-  }, [scroll]);
-
-  const getWindowSize = () => {
-    const size = window.innerWidth || document.body.clientWidth;
-    setWindowSize(size);
-  };
 
   useEffect(() => {
+    const getWindowSize = () => {
+      const size = window.innerWidth || document.body.clientWidth;
+      setWindowSize(size);
+    };
+    getWindowSize();
     window.addEventListener('resize', getWindowSize);
     return () => window.removeEventListener('resize', getWindowSize);
   }, []);
 
   useEffect(() => {
     if (windowSize <= 660) {
-      setShowBurgerMenu(true);
+      setShowMobileMenu(true);
       return;
     }
-    setShowBurgerMenu(false);
+    setShowMobileMenu(false);
   }, [windowSize]);
 
   useEffect(() => {
@@ -58,20 +47,20 @@ const Header = () => {
   }, [router]);
 
   return (
-    <header className={`${style.header} ${theme} ${isHidden && style.hidden}`}>
+    <header className={`${style.header} ${theme}`}>
       <div className={`${style.wrapper} `}>
         <div className={`${style.logo}`}>
           <Link href="/">
             <a>bMunz.Dev</a>
           </Link>
         </div>
-        {!showBurgerMenu && (
+        {!showMobileMenu && (
           <nav className={style.menu}>
             <Menu />
           </nav>
         )}
       </div>
-      {showBurgerMenu && (
+      {showMobileMenu && (
         <>
           <SideNavbar />
           <Burger />
