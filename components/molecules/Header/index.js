@@ -49,9 +49,11 @@ const Header = () => {
   return (
     <header className={`${style.header} ${theme}`}>
       <div className={`${style.wrapper} `}>
-        <div className={`${style.logo}`}>
+        <div>
           <Link href="/">
-            <a>bMunz.Dev</a>
+            <a>
+              <div className={`${style.logo}`} />
+            </a>
           </Link>
         </div>
         {!showMobileMenu && (

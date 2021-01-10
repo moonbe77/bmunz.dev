@@ -1,6 +1,5 @@
 .hero {
   align-items: center;
-  background-image: url('/svgs/undraw_researching_22gp.svg');
   background-position: 100% 90%;
   background-repeat: no-repeat;
   background-size: 35%;
@@ -9,17 +8,35 @@
   font-family: 'Bangers', cursive;
   height: calc(100vh - 100px);
   position: relative;
-  border: 1px solid red;
+}
+
+.heroBackgroundLight {
+  background-image: url('/svgs/undraw_researching_light.svg');
+}
+
+.heroBackgroundDark {
+  background-image: url('/svgs/undraw_researching_dark.svg');
 }
 
 .content {
-  border: 1px solid red;
   align-items: flex-start;
   display: flex;
   flex-direction: column;
   justify-content: center;
   letter-spacing: 5px;
   margin-left: 10rem;
+}
+
+.dark {
+  color: var(--textDark);
+  /* background: var(--backgroundDark); */
+  /* background-image: var(--backgroundDarkGradient); */
+}
+
+.light {
+  color: var(--textLight);
+  /* background: var(--backgroundLight); */
+  /* background-image: var(--backgroundLightGradient); */
 }
 
 .firstLine {

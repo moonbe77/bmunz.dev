@@ -16,12 +16,20 @@ export default function TextComponent() {
 
   return (
     <section className={`${style.section}`}>
+      <div className={`${style.image}`}>
+        <img
+          src="./svgs/undraw_Firmware_dark.svg"
+          alt=""
+          srcSet=""
+          width="100%"
+        />
+      </div>
       <div className={`${style.text}`}>
-        <h1> Hi, I'm Bernardo Munz it is nice to see you here</h1>
+        <h1> Hi, It is nice to see you here</h1>
         <div className={`${style.textWrapper}`}>
           <p className={style.paragraph}>
-            I’m front end developer looking for a change in my career, I’ve been
-            working in manufacturing of different kind of products since I
+            I’m a electronic technician looking for a change in my career, I’ve
+            been working in manufacturing of different kind of products since I
             started working 18 years ago, I love to solve problems and think out
             of the box to analyze and detect possible bugs.
           </p>
@@ -47,7 +55,7 @@ export default function TextComponent() {
           </p>
         </div>
       </div>
-      <div>
+      {/* <div>
         <div className={`${style.techIcons} `}>
           <DiHtml5 />
           <DiCss3 />
@@ -56,7 +64,7 @@ export default function TextComponent() {
           <DiNodejs />
           <DiMysql />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

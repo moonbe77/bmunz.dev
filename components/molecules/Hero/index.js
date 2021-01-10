@@ -1,11 +1,17 @@
 import { useSpring, animated } from 'react-spring';
 import Link from 'next/link';
-import Image from 'next/image';
 import { TiArrowDownOutline } from 'react-icons/ti';
+import { useStateContext } from '../../../store/store';
 import style from './Hero.module.css';
 
 const Hero = () => {
+  const { isDarkTheme } = useStateContext();
   const fade = useSpring({ opacity: 1, from: { opacity: 0 } });
+
+  const theme = isDarkTheme ? style.dark : style.light;
+  const background = isDarkTheme
+    ? style.heroBackgroundDark
+    : style.heroBackgroundLight;
 
   const calc = (x, y) => {
     console.log(x, y);
@@ -22,24 +28,24 @@ const Hero = () => {
   return (
     <>
       <section
-        className={style.hero}
+        className={`${style.hero} ${background}`}
         onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
         onMouseLeave={() => set({ xy: [0, 0] })}
       >
-        {/* <img src="/svgs/undraw_researching_22gp.svg" /> */}
         <animated.div style={fade}>
-          <div className={style.content}>
+          <div className={`${style.content} }`}>
             <animated.div style={{ transform: props.xy.interpolate(trans1) }}>
-              <h1 className={style.firstLine}>HEY! I'm Bernardo </h1>
+              <h1 className={`${style.firstLine} ${theme}`}>
+                HEY! I'm Bernardo{' '}
+              </h1>
             </animated.div>
             <animated.div style={{ transform: props.xy.interpolate(trans2) }}>
-              <div className={style.secondLine}>
+              <div className={`${style.secondLine} ${theme}`}>
                 a Web developer looking for job
               </div>
             </animated.div>
             <animated.div style={{ transform: props.xy.interpolate(trans3) }}>
               <div className={style.heroButton}>
-                {' '}
                 <Link href="/portfolio">Check my Portfolio</Link>{' '}
               </div>
             </animated.div>

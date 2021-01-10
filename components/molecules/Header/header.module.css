@@ -1,22 +1,22 @@
 .header {
-  align-items: center;  
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   font-family: 'Open Sans', sans-serif;
   justify-content: center;
   position: relative;
   width: 100%;
-  z-index: 1;  
+  z-index: 1;
   transition: opacity 0.3s ease-in-out;
 }
 
-.dark{
+.dark {
   color: var(--textDark);
   /* background: var(--backgroundDark); */
   /* background-image: var(--backgroundDarkGradient); */
 }
 
-.light{
+.light {
   color: var(--textLight);
   /* background: var(--backgroundLight); */
   /* background-image: var(--backgroundLightGradient); */
@@ -33,44 +33,47 @@
   /* border: 1px solid red; */
 }
 
-
-.menu ul{
+.menu ul {
   display: inline-flex;
   flex-direction: row;
 }
 
-.logo {  
+.logo {
   align-items: center;
   display: flex;
   font-family: 'Bangers', cursive !important;
   font-size: 2rem;
   height: 50px;
+  width: 150px;
   justify-content: center;
   z-index: 22;
+  margin-left: 1em;
+  background-image: url('/figma/bmunz.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
   /* border: 1px solid blue; */
 }
 
-.themeSwitch{
+.themeSwitch {
   border: 1px solid blue;
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
   opacity: 0;
   transition: all 0.3s ease-in-out;
 }
 
 @media only screen and (max-width: 1440px) {
-  .logo{
+  .logo {
     margin-left: 1rem;
   }
 }
+
 @media only screen and (max-width: 660px) {
-  .header{
+  .header {
     padding: 1rem;
   }
 }
 
-@media only screen and (max-width: 375px) {
-  
-}
+@media only screen and (max-width: 375px) {}

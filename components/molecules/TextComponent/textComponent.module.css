@@ -1,13 +1,14 @@
 .section {
-  background: var(--backgroundLightGradientTransparent);
-  margin: 0;
+  margin: 0 4rem;
   padding: 10px;
-  /* height: clac(100vh - 100px); */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  ;
 }
 
 .dark {
@@ -22,22 +23,29 @@
   background-image: var(--backgroundLightGradient);
 }
 
+.image {
+  min-width: 450px;
+  position: relative;
+  flex: 1;
+}
+
 .text {
-  flex: 3;
+  flex: 2;
   padding: 1px;
-  margin: 5rem;
+  /* margin: 5rem; */
   /* min-width: 380px; */
   /* max-width: 680px; */
   /* border: 1px solid red; */
 }
 
-.text h1 {
-  text-align: center;
-  margin-bottom: 3rem;
-}
 
 .textWrapper {
-  margin: 0 15%;
+  margin: 0 2em;
+}
+
+.text h1 {
+  text-align: center;  
+  margin-bottom: 3rem;
 }
 
 .text p {
@@ -55,6 +63,7 @@
   width: 100%;
   /* border: 1px solid red; */
 }
+
 
 @media only screen and (max-width: 970px) {
   .textWrapper {

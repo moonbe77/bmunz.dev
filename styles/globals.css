@@ -5,8 +5,7 @@ body {
   background-color: #f2f2f2;
   color: #888;
   font-family: 'Open Sans';
-  font-size: 15px;
-  background: var(--backgroundDarkGradient);
+  font-size: 16px;
   overflow-x: hidden;
 }
 
@@ -23,10 +22,9 @@ a {
   --textDark: rgb(246, 241, 247);
   --textLight: #4d4c4c;
   --backgroundLight : #f0f0f0;
-  --backgroundLightGradient: linear-gradient(to top left, #ffffff 0%, #dedede 100%);
-  --backgroundLightGradientTransparent: linear-gradient(to top left, #ffffff00 0%, #0000006b 100%);
+  --backgroundLightGradient: linear-gradient(116.93deg, #28313B 0%,#7A7F85 15%, #FFFFFF 92.3%);
   --backgroundDark : #485461;
-  --backgroundDarkGradient: linear-gradient(315deg, #485461 0%, #28313b 74%);
+  --backgroundDarkGradient:  linear-gradient(116.93deg, #B7B7B7 0%, #7A7F85 18.27%, #28313B 92.3%);
   --xSmallScreen: 375px;
   --smallScreen: 640px;
   --mediumScreen: 1007px;
