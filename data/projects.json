@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Latitud Náutica",
       "liveUrl": "https://www.latitudnautica.com.ar/",
-      "imgName": "mockup_ln.png",
+      "imgName": "ln.svg",
       "description": "e-commerce",
       "technologies": [
         "React",

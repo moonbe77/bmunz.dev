@@ -3,6 +3,7 @@ import {
   AiOutlineTwitter,
   AiOutlineGithub,
   AiOutlineLinkedin,
+  AiOutlineSend,
 } from 'react-icons/ai';
 import { useStateContext, useStateDispatch } from '../../../store/store';
 import Switch from '../../atoms/Switch';
@@ -25,6 +26,17 @@ export default function Menu() {
           <a className="link">PORTFOLIO </a>
         </Link>
         <span className={`${style.linkBorder} ${style.active}`} />
+      </li>
+      <li className={` ${style.links} `}>
+        <a
+          href="mailto:munzbe@gmail.com"
+          rel="noreferrer  noopener"
+          title="munzbe@gmail.com"
+          alt=" email: munzbe@gmail.com"
+        >
+          <AiOutlineSend />
+        </a>
+        <span className={`${style.linkBorder} `} />
       </li>
       <li className={` ${style.links} `}>
         <a

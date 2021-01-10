@@ -56,6 +56,7 @@ const Header = () => {
             </a>
           </Link>
         </div>
+        BETA - OnProgress
         {!showMobileMenu && (
           <nav className={style.menu}>
             <Menu />

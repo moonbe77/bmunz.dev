@@ -18,7 +18,7 @@ const PortfolioProject = (props) => {
         <div className={style.imageWrapper}>
           <Image
             className={style.image}
-            src={`/projects_mockups/${imgName}`}
+            src={`/figma/projects_mockups/${imgName}`}
             alt={title}
             width={450}
             height={291}
