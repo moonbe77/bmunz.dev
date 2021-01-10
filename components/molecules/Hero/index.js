@@ -51,8 +51,11 @@ const Hero = () => {
             </animated.div>
           </div>
         </animated.div>
-        <div className={style.arrowDown}>
+        <div className={style.arrowBottomHero}>
+          <div className={style.arrowAnimation}>
+
           <TiArrowDownOutline />
+          </div>
         </div>
       </section>
     </>

@@ -7,7 +7,6 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 9;
     transform: translateX(0vw);
     transition: transform 0.3s ease-in;
 }
@@ -17,7 +16,6 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    z-index: 11;
 }
 
 .menu ul li{
@@ -29,11 +27,10 @@
 }
 
 .light{
-    background: var(--backgroundLight) !important;
-    background-color: var(--backgroundLightGradient);
+    background: var(--backgroundLight);
+    /* background-color: var(--backgroundLightGradient); */
 }
 .dark{
-    background: var(--backgroundDark) !important;
-    background: red;
-    background-color: var(--backgroundDarkGradient);
+    background: var(--backgroundDark);
+    /* background-color: var(--backgroundDarkGradient); */
 }

@@ -1,4 +1,4 @@
-.bodyWrapper{
+.bodyWrapper {
   background: var(--backgroundDarkGradient);
 }
 
@@ -10,20 +10,20 @@
   position: relative;
 }
 
-.dark{
+.dark {
   /* color: var(--textDark); */
   background: var(--backgroundDark);
   background-image: var(--backgroundDarkGradient);
 }
 
-.light{
+.light {
   /* color: var(--textLight); */
   background: var(--backgroundLight);
   background-image: var(--backgroundLightGradient);
 }
 
 .content {
-  /* flex: 1; */
+  z-index: 2;
 }
 
 .footer {
@@ -45,6 +45,28 @@
 
 .footerLogo {
   height: 2em;
+}
+
+.elipse {
+  /* border: 1px solid salmon; */
+  position: absolute;
+  z-index: 1;
+}
+
+.elipse1 {
+  left: 50px;
+  top: 160px;
+}
+
+.elipse2 {
+  right: 12%;
+  top: 100px;
+}
+
+.elipse3 {
+  top: 550px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media only screen and (max-width: 780px) {}

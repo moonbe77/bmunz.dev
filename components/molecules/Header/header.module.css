@@ -5,9 +5,9 @@
   font-family: 'Open Sans', sans-serif;
   justify-content: center;
   position: relative;
-  width: 100%;
-  z-index: 1;
   transition: opacity 0.3s ease-in-out;
+  width: 100%;
+  z-index: 3;
 }
 
 .dark {
@@ -23,14 +23,15 @@
 }
 
 .wrapper {
-  width: 100%;
+  /* border: 1px solid red; */
   align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
   flex: 2;
-  /* border: 1px solid red; */
+  justify-content: space-between;
+  width: 100%;
+  z-index: 2;
 }
 
 .menu ul {
@@ -40,17 +41,17 @@
 
 .logo {
   align-items: center;
+  background-image: url('/figma/bmunz.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
   display: flex;
   font-family: 'Bangers', cursive !important;
   font-size: 2rem;
   height: 80px;
-  width: 200px;
   justify-content: center;
-  z-index: 22;
   margin-left: 1em;
-  background-image: url('/figma/bmunz.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
+  width: 200px;
+  z-index: 20;
   /* border: 1px solid blue; */
 }
 
@@ -59,9 +60,9 @@
 }
 
 .hidden {
-  visibility: hidden;
   opacity: 0;
   transition: all 0.3s ease-in-out;
+  visibility: hidden;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -75,5 +76,3 @@
     padding: 1rem;
   }
 }
-
-@media only screen and (max-width: 375px) {}

@@ -15,6 +15,15 @@ export default function Layout({ children }) {
         <footer className={style.footer}>
           Copyright 2020 - Built with Next.js
         </footer>
+        <div className={`${style.elipse} ${style.elipse1}`}>
+          <img src="/figma/elipses/Ellipse1.svg" alt="" srcSet="" />
+        </div>
+        <div className={`${style.elipse} ${style.elipse2}`}>
+          <img src="/figma/elipses/Ellipse2.svg" alt="" srcSet="" />
+        </div>
+        <div className={`${style.elipse} ${style.elipse3}`}>
+          <img src="/figma/elipses/Ellipse3.svg" alt="" srcSet="" />
+        </div>
       </div>
     </div>
   );

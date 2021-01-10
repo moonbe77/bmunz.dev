@@ -63,28 +63,35 @@
   transform: scale(1.05);
 }
 
-.arrowDown {
-  animation: pulse 2s infinite;
-  border-radius: 50%;
+.arrowBottomHero {
+  transform-origin: center;
   bottom: 5px;
   font-size: 1.5rem;
   left: 50%;
   position: absolute;
-  transform: translateX(-50%);
+  transform: translateX(-50%)
+}
+
+.arrowAnimation {
+  border-radius: 50%;
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
   0% {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(138, 47, 226, 0.7);
+    transform-origin: center;
   }
   70% {
     transform: scale(1.2);
     box-shadow: 0 0 0 15px rgba(209, 209, 209, 0);
+    transform-origin: center;
   }
   100% {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(163, 43, 43, 0);
+    transform-origin: center;
   }
 }
 
