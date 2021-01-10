@@ -1,19 +1,23 @@
+.bodyWrapper{
+  background: var(--backgroundDarkGradient);
+}
+
 .container {
   display: flex;
   flex-direction: column;
   max-width: 1440px;
   margin: auto;
   position: relative;
-  background: var(--backgroundDarkGradient);
 }
+
 .dark{
-  color: var(--textDark);
+  /* color: var(--textDark); */
   background: var(--backgroundDark);
   background-image: var(--backgroundDarkGradient);
 }
 
 .light{
-  color: var(--textLight);
+  /* color: var(--textLight); */
   background: var(--backgroundLight);
   background-image: var(--backgroundLightGradient);
 }
