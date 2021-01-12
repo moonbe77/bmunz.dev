@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
-import { useSpring, animated } from 'react-spring';
+// import { useSpring, animated } from 'react-spring';
 import PropTypes from 'prop-types';
-import style from './WaveSection.module.css';
+import style from './SectionWithBackground.module.css';
 
-export default function WaveSection(props) {
+export default function SectionWithBackground(props) {
   const { isDarkTheme, children } = props;
 
   useEffect(() => {
@@ -60,13 +60,7 @@ export default function WaveSection(props) {
             strokeWidth="4.94737"
           />
         </svg>
-        <div
-          className={`${style.content} ${
-            isDarkTheme ? style.dark : style.light
-          }`}
-        >
-          {children}
-        </div>
+        <div className={`${style.content} `}>{children}</div>
         <svg
           className={`${style.svg} ${style.svgCircle}`}
           width="40"
@@ -108,3 +102,8 @@ export default function WaveSection(props) {
     </>
   );
 }
+
+SectionWithBackground.propTypes = {
+  isDarkTheme: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+};

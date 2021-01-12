@@ -1,11 +1,21 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { useStateContext } from '../../store/store';
 import Header from '../molecules/Header';
+import { initGA, logPageView } from '../../utils/analytics';
 import style from './layout.module.css';
 
 export default function Layout({ children }) {
   const { isDarkTheme } = useStateContext();
   const theme = isDarkTheme ? style.dark : style.light;
+
+  useEffect(() => {
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+    logPageView();
+  });
 
   return (
     <div className={`${style.bodyWrapper} ${theme}`}>

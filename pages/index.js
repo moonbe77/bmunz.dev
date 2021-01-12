@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import AOS from 'aos';
 import Hero from '../components/molecules/Hero';
-import WaveSection from '../components/atoms/WaveSection';
+import SectionWithBackground from '../components/atoms/SectionWithBackground';
 import TextComponent from '../components/molecules/TextComponent';
 import { useStateContext } from '../store/store';
 
@@ -32,9 +32,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
-      <WaveSection isDarkTheme={isDarkTheme}>
+      <SectionWithBackground isDarkTheme={isDarkTheme}>
         <TextComponent />
-      </WaveSection>
+      </SectionWithBackground>
 
       {/* <Project aosEffect='fade' anchor='top-bottom' /> */}
     </>

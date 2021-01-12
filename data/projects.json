@@ -19,7 +19,7 @@
       "id": 2,
       "title": "More Clean",
       "liveUrl": "https://www.moreclean.com.ar/",
-      "imgName": "moreclean.png",
+      "imgName": "ln.svg",
       "description": "Institutional",
       "technologies": ["React", "Styled-Components", "Hosting"]
     },
@@ -27,7 +27,7 @@
       "id": 3,
       "title": "Alfredes",
       "liveUrl": "https://www.alfredes.com.ar/",
-      "imgName": "alfredes.png",
+      "imgName": "ln.svg",
       "description": "Institutional",
       "technologies": ["React", "Firebase Hosting", "Mailgun.js"]
     },
