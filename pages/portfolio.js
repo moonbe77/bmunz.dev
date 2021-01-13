@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import { useStateContext } from '../store/store';
 import PortfolioProject from '../components/molecules/PortfolioProject';
 
@@ -9,6 +10,9 @@ const Portfolio = () => {
 
   return (
     <>
+      <Head>
+        <title>Portfolio</title>
+      </Head>
       {projects.map((project) => (
         <PortfolioProject
           key={project.id}

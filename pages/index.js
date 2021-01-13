@@ -29,7 +29,6 @@ export default function Home() {
     <>
       <Head>
         <title>BMDev</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
       <SectionWithBackground isDarkTheme={isDarkTheme}>

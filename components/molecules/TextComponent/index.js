@@ -24,7 +24,7 @@ export default function TextComponent() {
           width="100%"
         />
       </div>
-      <div className={`${style.text}`}>
+      <div className={`${style.text} ${theme}`}>
         <h1> Hi, It is nice to see you here</h1>
         <div className={`${style.textWrapper}`}>
           <p className={style.paragraph}>
