@@ -7,24 +7,26 @@
   justify-content: space-around;
   overflow: hidden;
   position: relative;
-  /* background-color: #6a4949; */
   z-index: 2;
+  transition: all 0.3s ease-in-out;
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .dark {
-  background: var(--backgroundDarkGradient);
-  color: var(--textDark);
+color: var(--textDark);
 }
 
 .light {
-  background: var(--backgroundLightGradient);
+  color: var(--textLight);
+
 }
 
-.bigTextDark{
-  color: var(--textLight);
+.bigTextDark {
+  color: var(--textLight-3);
 }
-.bigTextLight{
-  color: var(--textDark);
+
+.bigTextLight {
+  color: var(--textDark-3);
 }
 
 .imageWrapper {
@@ -57,6 +59,10 @@
   right: 0;
   top: 0px;
   width: 100%;
+}
+
+.bigText span {
+  margin: 0 5px;
 }
 
 /* @media only screen and (max-width: 640px) {} */

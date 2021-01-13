@@ -34,8 +34,6 @@ export default function Home() {
       <SectionWithBackground isDarkTheme={isDarkTheme}>
         <TextComponent />
       </SectionWithBackground>
-
-      {/* <Project aosEffect='fade' anchor='top-bottom' /> */}
     </>
   );
 }

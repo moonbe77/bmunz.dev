@@ -12,14 +12,10 @@
 
 .dark {
   color: var(--textDark);
-  /* background: var(--backgroundDark); */
-  /* background-image: var(--backgroundDarkGradient); */
 }
 
 .light {
   color: var(--textLight);
-  /* background: var(--backgroundLight); */
-  /* background-image: var(--backgroundLightGradient); */
 }
 
 .wrapper {

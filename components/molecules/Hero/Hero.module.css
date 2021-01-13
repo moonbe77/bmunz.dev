@@ -50,18 +50,14 @@
 
 .heroButton {
   margin-top: 3rem;
-  background: var(--buttonGradient);
-  border-radius: 10px;
-  cursor: pointer;
-  padding: 1rem;
   transition: all .3s;
 }
 
-.heroButton:hover {
+/* .heroButton:hover {
   background-color: rgb(103, 11, 189);
   box-shadow: 0 0 10px -2px blueviolet;
   transform: scale(1.05);
-}
+} */
 
 .arrowBottomHero {
   transform-origin: center;

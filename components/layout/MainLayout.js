@@ -18,7 +18,7 @@ export default function Layout({ children }) {
   });
 
   return (
-    <div className={`${style.bodyWrapper} ${theme}`}>
+    <div className={`${theme}`}>
       <div className={`${style.container}`}>
         <Header />
         <main className={style.content}>{children}</main>

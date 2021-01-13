@@ -2,7 +2,8 @@ import { useSpring, animated } from 'react-spring';
 import Link from 'next/link';
 import { TiArrowDownOutline } from 'react-icons/ti';
 import { useStateContext } from '../../../store/store';
-import style from './Hero.module.css';
+import style from './hero.module.css';
+import Button from '../../atoms/Button';
 
 const Hero = () => {
   const { isDarkTheme } = useStateContext();
@@ -46,15 +47,16 @@ const Hero = () => {
             </animated.div>
             <animated.div style={{ transform: props.xy.interpolate(trans3) }}>
               <div className={style.heroButton}>
-                <Link href="/portfolio">Check my Portfolio</Link>{' '}
+                <Button primary size="large">
+                  <Link href="/portfolio">Check my Portfolio</Link>{' '}
+                </Button>
               </div>
             </animated.div>
           </div>
         </animated.div>
         <div className={style.arrowBottomHero}>
           <div className={style.arrowAnimation}>
-
-          <TiArrowDownOutline />
+            <TiArrowDownOutline />
           </div>
         </div>
       </section>

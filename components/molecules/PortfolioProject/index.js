@@ -32,7 +32,7 @@ const PortfolioProject = (props) => {
         </div>
         <div className={style.infoWrapper}>
           <div className="px-4 mt-5">
-            <Title>{title}</Title>
+            <Title primary>{title}</Title>
             <p className="text-grey-darker text-base text-gray-400">
               {description}
             </p>
@@ -52,7 +52,9 @@ const PortfolioProject = (props) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button primary size="medium" label="check it out" />
+              <Button primary full size="medium">
+                check it out
+              </Button>
             </a>
           </div>
         </div>

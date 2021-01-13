@@ -1,5 +1,5 @@
 .bodyWrapper {
-  background: var(--backgroundDarkGradient);
+  transition: all 0.3s ease-in-out;
 }
 
 .container {
