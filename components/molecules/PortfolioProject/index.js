@@ -25,33 +25,27 @@ const PortfolioProject = (props) => {
             className={style.image}
             src={`/figma/projects_mockups/${imgName}`}
             alt={title}
-            width={450}
-            height={291}
-            layout="responsive"
+            layout="fill"
+            objectFit="contain"
+            priority
           />
         </div>
         <div className={style.infoWrapper}>
-          <div className="px-4 mt-5">
+          <div>
             <Title primary>{title}</Title>
-            <p className="text-grey-darker text-base text-gray-400">
-              {description}
-            </p>
+            <p>{description}</p>
           </div>
           <div className={style.tecList}>
             {technologies &&
               technologies.map((item, index) => (
                 <span className="" key={index}>
+                  {' '}
                   #{item}
                 </span>
               ))}
           </div>
-          <div className="border border-red-600 text-center relative min-h-200">
-            <a
-              className="block m-5 p-2 absolute bottom-0"
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <div>
+            <a href={liveUrl} target="_blank" rel="noopener noreferrer">
               <Button primary full size="medium">
                 check it out
               </Button>

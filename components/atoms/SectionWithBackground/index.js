@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import style from './SectionWithBackground.module.css';
 
 export default function SectionWithBackground(props) {
-  const { isDarkTheme, children } = props;
+  const { children } = props;
 
   useEffect(() => {
     AOS.init({
@@ -39,7 +39,7 @@ export default function SectionWithBackground(props) {
             r="17.3158"
             transform="rotate(-90 19.8158 20.2368)"
             stroke="#3F69FF"
-            strokeWidth="4.94737"
+            strokeWidth="5"
           />
         </svg>
         <svg
@@ -57,7 +57,7 @@ export default function SectionWithBackground(props) {
             height="24.7368"
             transform="rotate(-45 4 21.5084)"
             stroke="#3F69FF"
-            strokeWidth="4.94737"
+            strokeWidth="5"
           />
         </svg>
         <div className={`${style.content} `}>{children}</div>
@@ -75,14 +75,12 @@ export default function SectionWithBackground(props) {
             r="17.3158"
             transform="rotate(-90 19.8158 20.2368)"
             stroke="#3F69FF"
-            strokeWidth="4.94737"
+            strokeWidth="5"
           />
         </svg>
         <svg
           className={`${style.svg} ${style.svgRect}`}
-          width="4
-          
-          3"
+          width="43"
           height="43"
           viewBox="0 0 43 43"
           fill="none"
@@ -91,11 +89,11 @@ export default function SectionWithBackground(props) {
           <rect
             x="4"
             y="21.5084"
-            width="24.7368"
-            height="24.7368"
+            width="24"
+            height="24"
             transform="rotate(-45 4 21.5084)"
             stroke="#3F69FF"
-            strokeWidth="4.94737"
+            strokeWidth="5"
           />
         </svg>
       </div>
@@ -104,6 +102,5 @@ export default function SectionWithBackground(props) {
 }
 
 SectionWithBackground.propTypes = {
-  isDarkTheme: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
 };

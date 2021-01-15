@@ -9,7 +9,7 @@
       "technologies": [
         "React",
         "Next.js",
-        "Server Side Rendering",
+        "Static Generetation",
         "Styled-Components",
         "Express.js",
         "MySQL"
