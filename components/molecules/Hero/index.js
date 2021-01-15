@@ -2,7 +2,7 @@ import { useSpring, animated } from 'react-spring';
 import Link from 'next/link';
 import { TiArrowDownOutline } from 'react-icons/ti';
 import { useStateContext } from '../../../store/store';
-import style from './hero.module.css';
+import style from './Hero.module.css';
 import Button from '../../atoms/Button';
 
 const Hero = () => {
@@ -27,40 +27,36 @@ const Hero = () => {
     config: { mass: 10, tension: 550, friction: 140 },
   }));
   return (
-    <>
-      <section
-        className={`${style.hero} ${background}`}
-        onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-        onMouseLeave={() => set({ xy: [0, 0] })}
-      >
-        <animated.div style={fade}>
-          <div className={`${style.content}`}>
-            <animated.div style={{ transform: props.xy.interpolate(trans1) }}>
-              <h1 className={`${style.firstLine} ${theme}`}>
-                HEY! I'm Bernardo
-              </h1>
-            </animated.div>
-            <animated.div style={{ transform: props.xy.interpolate(trans2) }}>
-              <div className={`${style.secondLine} ${theme}`}>
-                a Web developer looking for job
-              </div>
-            </animated.div>
-            <animated.div style={{ transform: props.xy.interpolate(trans3) }}>
-              <div className={style.heroButton}>
-                <Button primary size="large">
-                  <Link href="/portfolio">Check my Portfolio</Link>{' '}
-                </Button>
-              </div>
-            </animated.div>
-          </div>
-        </animated.div>
-        <div className={style.arrowBottomHero}>
-          <div className={style.arrowAnimation}>
-            <TiArrowDownOutline />
-          </div>
+    <section
+      className={`${style.hero} ${background}`}
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+      onMouseLeave={() => set({ xy: [0, 0] })}
+    >
+      <animated.div style={fade}>
+        <div className={`${style.content}`}>
+          <animated.div style={{ transform: props.xy.interpolate(trans1) }}>
+            <h1 className={`${style.firstLine} ${theme}`}>HEY! I'm Bernardo</h1>
+          </animated.div>
+          <animated.div style={{ transform: props.xy.interpolate(trans2) }}>
+            <div className={`${style.secondLine} ${theme}`}>
+              a Web developer looking for job
+            </div>
+          </animated.div>
+          <animated.div style={{ transform: props.xy.interpolate(trans3) }}>
+            <div className={style.heroButton}>
+              <Button primary size="large">
+                <Link href="/portfolio">Check my Portfolio</Link>{' '}
+              </Button>
+            </div>
+          </animated.div>
         </div>
-      </section>
-    </>
+      </animated.div>
+      <div className={style.arrowBottomHero}>
+        <div className={style.arrowAnimation}>
+          <TiArrowDownOutline />
+        </div>
+      </div>
+    </section>
   );
 };
 
