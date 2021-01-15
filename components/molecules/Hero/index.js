@@ -34,10 +34,10 @@ const Hero = () => {
         onMouseLeave={() => set({ xy: [0, 0] })}
       >
         <animated.div style={fade}>
-          <div className={`${style.content} }`}>
+          <div className={`${style.content}`}>
             <animated.div style={{ transform: props.xy.interpolate(trans1) }}>
               <h1 className={`${style.firstLine} ${theme}`}>
-                HEY! I'm Bernardo{' '}
+                HEY! I'm Bernardo
               </h1>
             </animated.div>
             <animated.div style={{ transform: props.xy.interpolate(trans2) }}>
