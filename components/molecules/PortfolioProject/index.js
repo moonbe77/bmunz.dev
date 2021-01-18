@@ -2,6 +2,7 @@ import Image from 'next/image';
 import PropTypes from 'prop-types';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
+import TechIcon from '../../atoms/TechIcon';
 import SectionWithBackground from '../../atoms/SectionWithBackground';
 import style from './portfolioProject.module.css';
 
@@ -37,12 +38,9 @@ const PortfolioProject = (props) => {
           </div>
           <div className={style.tecList}>
             {technologies &&
-              technologies.map((item, index) => (
-                <span className="" key={index}>
-                  {' '}
-                  #{item}
-                </span>
-              ))}
+              technologies
+                .sort((a, b) => a.length - b.length)
+                .map((item, index) => <span>{item}</span>)}
           </div>
           <div>
             <a href={liveUrl} target="_blank" rel="noopener noreferrer">

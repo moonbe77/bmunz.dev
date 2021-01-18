@@ -5,6 +5,7 @@ import {
   DiMysql,
   DiNodejs,
   DiCss3,
+  DiPhp,
 } from 'react-icons/di';
 import { useStateContext } from '../../../store/store';
 import style from './textComponent.module.css';
@@ -19,14 +20,25 @@ export default function TextComponent() {
       <div className={`${style.image}`}>
         <img
           src="./svgs/undraw_Firmware_dark.svg"
-          alt=""
-          srcSet=""
+          alt="Info about bernardo text"
           width="100%"
         />
       </div>
       <div className={`${style.text} ${theme}`}>
         <h1> Hi, It is nice to see you here</h1>
         <div className={`${style.textWrapper}`}>
+          {/* <p>
+            when things get tough is where I put all my focus to solve the
+            situation,
+          </p>
+          <p>
+            I'm always learning new stuff and reading o listening podcast about
+            new technologies
+          </p>
+          <p>
+            I love to tech to others, it helps a lot to get confident in your
+            skills and improve them quicker.
+          </p> */}
           <p className={style.paragraph}>
             I’m a electronic technician looking for a change in my career, I’ve
             been working in manufacturing of different kind of products since I
@@ -55,16 +67,17 @@ export default function TextComponent() {
           </p>
         </div>
       </div>
-      {/* <div>
-        <div className={`${style.techIcons} `}>
+      <div>
+        <div className={`${style.techIcons} ${theme} `}>
           <DiHtml5 />
           <DiCss3 />
           <DiJavascript1 />
           <DiReact />
           <DiNodejs />
           <DiMysql />
+          <DiPhp />
         </div>
-      </div> */}
+      </div>
     </section>
   );
 }

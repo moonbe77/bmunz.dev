@@ -14,10 +14,10 @@ const Hero = () => {
     ? style.heroBackgroundDark
     : style.heroBackgroundLight;
 
-  const calc = (x, y) => {
-    console.log(x, y);
-    return [x - window.innerWidth / 2, y - window.innerHeight / 2];
-  };
+  const calc = (x, y) => [
+    x - window.innerWidth / 2,
+    y - window.innerHeight / 2,
+  ];
   const trans1 = (x, y) => `translate3d(${x / 20}px,${y / 10}px,0)`;
   const trans2 = (x, y) => `translate3d(${x / 18}px,${y / 6}px,0)`;
   const trans3 = (x, y) => `translate3d(${x / 15}px,${y / 10}px,0)`;
@@ -35,11 +35,11 @@ const Hero = () => {
       <animated.div style={fade}>
         <div className={`${style.content}`}>
           <animated.div style={{ transform: props.xy.interpolate(trans1) }}>
-            <h1 className={`${style.firstLine} ${theme}`}>HEY! I'm Bernardo</h1>
+            <h1 className={`${style.firstLine} ${theme}`}>Hey! I'm Bernardo</h1>
           </animated.div>
           <animated.div style={{ transform: props.xy.interpolate(trans2) }}>
             <div className={`${style.secondLine} ${theme}`}>
-              a Web developer looking for job
+              Looking to change my career into Web Developing
             </div>
           </animated.div>
           <animated.div style={{ transform: props.xy.interpolate(trans3) }}>

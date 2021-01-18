@@ -10,6 +10,7 @@
   z-index: 2;
   transition: all 0.3s ease-in-out;
   background: rgba(0, 0, 0, 0.06);
+  margin: 1rem;
 }
 
 .dark {
@@ -32,7 +33,7 @@
   display: flex;
   align-items: center;
   object-fit: fill;
-  flex: 2;
+  flex: 1;
   position: relative;
   width: 100%;
 }
@@ -41,10 +42,23 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  text-align: right;
+  text-align: left;
   justify-content: space-around;
   padding: 1rem;
   z-index: 1;
+}
+
+.tecList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: end;
+  align-items: flex-start;
+}
+
+.tecList span {
+  text-align: center;
+  margin: 5px;
 }
 
 .bigText {
@@ -78,10 +92,14 @@
     flex: 1;
     text-align: center;
   }
-  .infoWrapper >div{
+  .infoWrapper>div {
     margin: 5px 0;
   }
-  .bigText     {
+  .tecList {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .bigText {
     flex-direction: column;
     font-size: 3rem;
     left: 10px;
@@ -90,6 +108,7 @@
     margin: 5px 0;
   }
 }
+
 @media only screen and (max-width: 640px) {
   .imageWrapper {
     min-height: 300px;

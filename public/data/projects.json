@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Latitud Náutica",
+      "liveUrl": "https://www.latitudnautica.com.ar/",
+      "imgName": "ln.svg",
+      "description": "e-commerce",
+      "technologies": [
+        "react",
+        "next",
+        "StaticGeneration",
+        "styledComponents",
+        "Express",
+        "Mysql",
+        "CustomCMS"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "More Clean",
+      "liveUrl": "https://www.moreclean.com.ar/",
+      "imgName": "mc.svg",
+      "description": "Institutional",
+      "technologies": ["React", "StyledComponents", "Hosting"]
+    },
+    {
+      "id": 3,
+      "title": "Alfredes",
+      "liveUrl": "https://www.alfredes.com.ar/",
+      "imgName": "alfredes.svg",
+      "description": "Institutional",
+      "technologies": ["React", "Firebase Hosting", "Mailgun.js"]
+    },
+    {
+      "id": 4,
+      "title": "Club Náutico San Martin",
+      "liveUrl": "http://cnsm.org.ar",
+      "imgName": "cnsm.svg",
+      "description": "Institutional",
+      "technologies": ["HTML", "jQuery", "Hosting", "Mailchimp", "PHP"]
+    },
+    {
+      "id": 5,
+      "title": "Crucero de la Amistad",
+      "liveUrl": "http://crucerodelaamistad.com",
+      "imgName": "cdla.svg",
+      "description": "Institutional",
+      "technologies": ["HTML", "jQuery", "Hosting", "Mail Setup"]
+    },
+    {
+      "id": 6,
+      "title": "Frontend Mentor",
+      "liveUrl": "#",
+      "imgName": "mockup_ln.png",
+      "description": "Institutional",
+      "technologies": ["HTML","CSS","JavaScript","styledComponents"]
+    }
+  ]
+}

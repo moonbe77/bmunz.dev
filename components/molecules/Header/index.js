@@ -5,6 +5,7 @@ import { useStateContext } from '../../../store/store';
 import Burger from '../../atoms/Burger';
 import style from './header.module.css';
 import SideNavbar from '../SideNavbar';
+import Switch from '../../atoms/Switch';
 import Menu from '../Menu';
 
 const Header = () => {
@@ -56,19 +57,19 @@ const Header = () => {
             </a>
           </Link>
         </div>
-        BETA - OnProgress
         {!showMobileMenu && (
           <nav className={style.menu}>
             <Menu />
           </nav>
         )}
+        {showMobileMenu && (
+          <>
+            <SideNavbar />
+            <Burger />
+          </>
+        )}
+        <Switch />
       </div>
-      {showMobileMenu && (
-        <>
-          <SideNavbar />
-          <Burger />
-        </>
-      )}
     </header>
   );
 };

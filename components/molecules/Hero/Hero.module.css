@@ -46,6 +46,7 @@
 
 .secondLine {
   font-size: 2rem;
+  max-width: 450px;
 }
 
 .heroButton {

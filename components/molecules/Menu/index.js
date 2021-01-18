@@ -68,9 +68,6 @@ export default function Menu() {
         </a>
         <span className={`${style.linkBorder}`} />
       </li>
-      <li className={`${style.links}`}>
-        <Switch />
-      </li>
     </ul>
   );
 }

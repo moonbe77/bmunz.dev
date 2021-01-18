@@ -1,5 +1,5 @@
 import { useReducer, createContext, useContext } from 'react';
-import projects from '../data/projects.json';
+import projects from '../public/data/projects.json';
 
 const StateContext = createContext();
 const StateDispatcher = createContext();
