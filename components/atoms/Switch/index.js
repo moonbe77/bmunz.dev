@@ -15,21 +15,18 @@ export default function Switch() {
   }
 
   const changeThemeShortCut = (e) => {
-    // console.log(e);
+    e.preventDefault();
   };
 
-  const shadow = isDarkTheme ? style.shadowDark : style.shadowLight;
   return (
-    <>
-      <div
-        className={`${style.switch} ${shadow}`}
-        onClick={handleChange}
-        onKeyDown={changeThemeShortCut}
-        role="option"
-        tabIndex={0}
-      >
-        {isDarkTheme ? <HiSun /> : <HiMoon />}
-      </div>
-    </>
+    <div
+      className={`${style.switch}`}
+      onClick={handleChange}
+      onKeyDown={changeThemeShortCut}
+      // role="option"
+      // tabIndex={0}
+    >
+      {isDarkTheme ? <HiSun /> : <HiMoon />}
+    </div>
   );
 }

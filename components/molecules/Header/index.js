@@ -50,25 +50,29 @@ const Header = () => {
   return (
     <header className={`${style.header} ${theme}`}>
       <div className={`${style.wrapper} `}>
+        {/* logo */}
         <div>
           <Link href="/">
-            <a>
-              <div className={`${style.logo}`} />
+            <a className={style.logo}>
+              <img src="./figma/bmunz.svg" alt="bmunz.dev logo svg" />
             </a>
           </Link>
         </div>
-        {!showMobileMenu && (
-          <nav className={style.menu}>
-            <Menu />
-          </nav>
-        )}
-        {showMobileMenu && (
-          <>
-            <SideNavbar />
-            <Burger />
-          </>
-        )}
-        <Switch />
+        {/* menuGroup */}
+        <div className={style.menuGroup}>
+          {!showMobileMenu && (
+            <nav className={style.menu}>
+              <Menu />
+            </nav>
+          )}
+          {showMobileMenu && (
+            <>
+              <SideNavbar />
+              <Burger />
+            </>
+          )}
+          <Switch />
+        </div>
       </div>
     </header>
   );
