@@ -23,8 +23,8 @@ export default function Switch() {
       className={`${style.switch}`}
       onClick={handleChange}
       onKeyDown={changeThemeShortCut}
-      // role="option"
-      // tabIndex={0}
+      role="button"
+      tabIndex="0"
     >
       {isDarkTheme ? <HiSun /> : <HiMoon />}
     </div>

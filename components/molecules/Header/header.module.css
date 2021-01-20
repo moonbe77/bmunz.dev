@@ -9,7 +9,6 @@
   height: 100px;
   width: 100%;
   z-index: 3;
-  border: 1px solid red;
 }
 
 .dark {
@@ -43,6 +42,7 @@
 }
 
 .logo {
+  position: relative;
   align-items: center;  
   /* height: 80px; */
   margin-left: 1rem;

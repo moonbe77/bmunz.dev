@@ -2,13 +2,13 @@
 .menu {
   list-style: none;
   padding-top: 10px;
-  /* border: 1px solid rgb(0, 255, 64); */
+  /* position: fixed; */
 }
 
-
 /*li elements*/
+
 .links {
-  position: relative;   
+  position: relative;
   font-size: 1rem;
   margin: 0 2.5px;
   margin: 5px;
@@ -16,13 +16,15 @@
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
-.links  svg{
+
+.links svg {
   font-size: 1.6rem;
   /* height: 50px; */
 }
 
 /*span element inside li*/
-.linkBorder{ 
+
+.linkBorder {
   position: absolute;
   left: .6em;
   right: .6em;

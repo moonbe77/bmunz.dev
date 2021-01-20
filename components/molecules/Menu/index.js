@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import Link from 'next/link';
 import {
   AiOutlineTwitter,
@@ -6,7 +8,6 @@ import {
   AiOutlineSend,
 } from 'react-icons/ai';
 import { useStateContext, useStateDispatch } from '../../../store/store';
-import Switch from '../../atoms/Switch';
 import style from './Menu.module.css';
 
 export default function Menu() {
