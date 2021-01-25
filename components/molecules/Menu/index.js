@@ -1,12 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import Link from 'next/link';
-import {
-  AiOutlineTwitter,
-  AiOutlineGithub,
-  AiOutlineLinkedin,
-  AiOutlineSend,
-} from 'react-icons/ai';
+import { FaGithub, FaTwitter, FaEnvelope, FaLinkedinIn } from 'react-icons/fa';
 import { useStateContext, useStateDispatch } from '../../../store/store';
 import style from './Menu.module.css';
 
@@ -35,7 +30,7 @@ export default function Menu() {
           title="munzbe@gmail.com"
           alt=" email: munzbe@gmail.com"
         >
-          <AiOutlineSend />
+          <FaEnvelope />
         </a>
         <span className={`${style.linkBorder} `} />
       </li>
@@ -45,7 +40,7 @@ export default function Menu() {
           target="_blank"
           rel="noreferrer  noopener"
         >
-          <AiOutlineGithub />
+          <FaGithub />
         </a>
         <span className={`${style.linkBorder} `} />
       </li>
@@ -55,7 +50,7 @@ export default function Menu() {
           target="_blank"
           rel="noreferrer  noopener"
         >
-          <AiOutlineLinkedin />
+          <FaLinkedinIn />
         </a>
         <span className={`${style.linkBorder}`} />
       </li>
@@ -65,7 +60,7 @@ export default function Menu() {
           target="_blank"
           rel="noreferrer  noopener"
         >
-          <AiOutlineTwitter />
+          <FaTwitter />
         </a>
         <span className={`${style.linkBorder}`} />
       </li>
