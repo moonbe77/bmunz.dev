@@ -50,11 +50,21 @@
     },
     {
       "id": 6,
-      "title": "Frontend Mentor",
-      "liveUrl": "#",
-      "imgName": "mockup_ln.png",
-      "description": "Institutional",
-      "technologies": ["HTML","CSS","JavaScript","styledComponents"]
+      "title": "FM Testimonial Slider",
+      "liveUrl": "https://moonbe77.github.io/FM_testimonials_slider/",
+      "gh_url":"https://github.com/moonbe77/FM_testimonials_slider",
+      "imgName": "fm_1.svg",
+      "description": "Frontend Mentor",
+      "technologies": ["React","JavaScript","styledComponents"]
+    },
+    {
+      "id": 7,
+      "title": "FM Social Media Dashboard",
+      "liveUrl": "https://fm-social-media-dasboard.now.sh/",
+      "gh_url":"https://github.com/moonbe77/FM-social-media-dasboard",
+      "imgName": "fm_2.svg",
+      "description": "Frontend Mentor challenge with dark mode",
+      "technologies": ["React","JavaScript","styledComponents"]
     }
   ]
 }
