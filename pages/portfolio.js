@@ -1,4 +1,3 @@
-import React from 'react';
 import Head from 'next/head';
 import { useStateContext } from '../store/store';
 import PortfolioProject from '../components/molecules/PortfolioProject';

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import Head from 'next/head';
 import { StateProvider } from '../store/store';
 import Layout from '../components/layout/MainLayout';

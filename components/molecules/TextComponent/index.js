@@ -7,12 +7,9 @@ import {
   DiCss3,
   DiPhp,
 } from 'react-icons/di';
-import { useStateContext } from '../../../store/store';
 import style from './textComponent.module.css';
 
-export default function TextComponent() {
-  const state = useStateContext();
-  const { isDarkTheme } = state;
+export default function TextComponent({ isDarkTheme }) {
   const theme = isDarkTheme ? style.dark : style.light;
 
   return (

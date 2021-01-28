@@ -36,6 +36,7 @@ a {
   --xSmallScreen: 375px;
   --smallScreen: 640px;
   --mediumScreen: 1007px;
+  
   --buttonGradient: linear-gradient(90deg, #575988 0%, #6C63FF 100%);
   --random-x1: 2em; 
   --random-y1: 5em; 
