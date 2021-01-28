@@ -1,9 +1,13 @@
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
-import SectionWithBackground from '../../atoms/SectionWithBackground';
 import style from './portfolioProject.module.css';
+
+const SectionObserved = dynamic(() => import('../../atoms/SectionObserved'), {
+  ssr: false,
+});
 
 const PortfolioProject = (props) => {
   const { project } = props;
@@ -13,7 +17,7 @@ const PortfolioProject = (props) => {
   const colorBigText = isDarkTheme ? style.bigTextDark : style.bigTextLight;
 
   return (
-    <SectionWithBackground>
+    <SectionObserved>
       <div className={`${style.content} ${theme}`}>
         <div className={`${style.bigText} ${colorBigText} `}>
           {title.split('').map((letter) => (
@@ -50,7 +54,7 @@ const PortfolioProject = (props) => {
           </div>
         </div>
       </div>
-    </SectionWithBackground>
+    </SectionObserved>
   );
 };
 

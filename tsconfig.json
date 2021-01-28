@@ -16,7 +16,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "paths": {
+      "@/components/atoms/*": ["components/atoms/*"],
+      "@/molecules/*": ["/components/molecules/*"],
+      "@/layout/*": ["/components/layout/*"],
+      "@/utils/*": ["/utils/*"],
+      "@/store/*": ["/store/*"],
+    }
   },
   "include": [
     "next-env.d.ts",
