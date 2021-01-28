@@ -9,15 +9,15 @@
   /* z-index: 99; */
 }
 
-.svgCircle {
-  animation-delay: 0.3s;
-  top: 5rem;
-  left: 10rem;
-}
+
 
 .svgRect {
-  bottom: 1rem;
-  right: 20rem;
+  bottom: var(--random-x2);
+  right: var(--random-x2);
+}
+.svgRect2 {
+  bottom: var(--random-x3);
+  right: var(--random-x3);
 }
 
 .content {
@@ -72,26 +72,3 @@
     transform: translate(1.5px, 1.5px);
   }
 }
-
-/* .wave {
-  position: relative;
-  z-index: 0;
-}
-
-.waveTop {
-  transform-origin: bottom;
-  transform: translateY(40px);
-}
-
-.waveBottom {
-  transform-origin: bottom;
-  transform: translateY(-30px);
-}
-
-.waveDark {
-  fill: var(--backgroundDark)
-}
-
-.waveLight {
-  fill: var(--backgroundLight)
-} */

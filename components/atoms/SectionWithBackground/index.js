@@ -6,6 +6,18 @@ import style from './SectionWithBackground.module.css';
 
 export default function SectionWithBackground(props) {
   const { children } = props;
+  const time = () => Math.random();
+  // useEffect(() => {
+  //   const circle = document.querySelector('#svgCircle');
+  //   const rect1 = document.querySelector('#svgRect1');
+  //   const rect2 = document.querySelector('#svgRect2');
+  //   circle.style.setProperty('--random-x1', `${time}em`);
+  //   circle.style.setProperty('--random-y1', `${time * 10}em`);
+  //   rect1.style.setProperty('--random-x1', `${time}em`);
+  //   rect1.style.setProperty('--random-y1', `${time * 10}em`);
+  //   rect2.style.setProperty('--random-x1', `${time}em`);
+  //   rect2.style.setProperty('--random-y1', `${time * -10}em`);
+  // });
 
   useEffect(() => {
     AOS.init({
@@ -25,77 +37,10 @@ export default function SectionWithBackground(props) {
   return (
     <>
       <div className={`${style.container} `} data-aos="fade-up">
-        <svg
-          className={`${style.svg} ${style.svgCircle}`}
-          width="40"
-          height="41"
-          viewBox="0 0 40 41"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="19.8158"
-            cy="20.2368"
-            r="17.3158"
-            transform="rotate(-90 19.8158 20.2368)"
-            stroke="#3F69FF"
-            strokeWidth="5"
-          />
-        </svg>
-        <svg
-          className={`${style.svg} ${style.svgRect}`}
-          width="43"
-          height="43"
-          viewBox="0 0 43 43"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            x="4"
-            y="21.5084"
-            width="24.7368"
-            height="24.7368"
-            transform="rotate(-45 4 21.5084)"
-            stroke="#3F69FF"
-            strokeWidth="5"
-          />
-        </svg>
+     
+       
+      
         <div className={`${style.content} `}>{children}</div>
-        <svg
-          className={`${style.svg} ${style.svgCircle}`}
-          width="40"
-          height="41"
-          viewBox="0 0 40 41"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="19.8158"
-            cy="20.2368"
-            r="17.3158"
-            transform="rotate(-90 19.8158 20.2368)"
-            stroke="#3F69FF"
-            strokeWidth="5"
-          />
-        </svg>
-        <svg
-          className={`${style.svg} ${style.svgRect}`}
-          width="43"
-          height="43"
-          viewBox="0 0 43 43"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            x="4"
-            y="21.5084"
-            width="24"
-            height="24"
-            transform="rotate(-45 4 21.5084)"
-            stroke="#3F69FF"
-            strokeWidth="5"
-          />
-        </svg>
       </div>
     </>
   );
@@ -104,3 +49,5 @@ export default function SectionWithBackground(props) {
 SectionWithBackground.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
+

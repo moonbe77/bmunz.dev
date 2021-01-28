@@ -2,7 +2,6 @@ import Image from 'next/image';
 import PropTypes from 'prop-types';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
-import TechIcon from '../../atoms/TechIcon';
 import SectionWithBackground from '../../atoms/SectionWithBackground';
 import style from './portfolioProject.module.css';
 
