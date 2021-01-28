@@ -2,6 +2,9 @@
   position: relative;
   margin: 5rem 0;
 }
+.container:last-child{
+  margin-bottom: 25vh;
+}
 
 .svg {
   position: absolute;

@@ -4,7 +4,6 @@ export const useIntersect = ({ root = null, rootMargin, threshold = 0 }) => {
   const [entry, updateEntry] = useState({});
   const [node, setNode] = useState(null);
 
-
   const observer = useRef(
     new window.IntersectionObserver(([entry]) => updateEntry(entry), {
       root,
