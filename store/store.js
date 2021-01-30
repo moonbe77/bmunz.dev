@@ -22,20 +22,6 @@ const initialState = {
   isDarkTheme: true,
   projects: projects.data,
   showSideMenu: false,
-  theme: {
-    lightTheme: {
-      colors: {
-        text: 'rgb(246, 241, 247)',
-        backgroundColor: '#2d2d2d',
-      },
-    },
-    darkTheme: {
-      colors: {
-        text: '#2d2d2d',
-        backgroundColor: 'rgb(246, 241, 247)',
-      },
-    },
-  },
 };
 
 export const StateProvider = ({ children }) => {

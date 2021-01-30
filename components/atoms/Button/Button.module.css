@@ -9,16 +9,15 @@
   line-height: 1;
   position: relative;
   text-transform: uppercase;
+  margin: 5px ;
 }
 
-.button:hover{
+.button:hover  {
   background: linear-gradient(90deg, #575988 40%, #6C63FF 100%);
-
-
 }
 
 .primary {
-  color: white;
+  color: var(--mainColor);
   background-color: var(--mainColor);
 }
 

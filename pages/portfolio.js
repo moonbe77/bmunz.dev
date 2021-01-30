@@ -12,12 +12,8 @@ const Portfolio = () => {
       <Head>
         <title>Portfolio</title>
       </Head>
-      {projects.map((project) => (
-        <PortfolioProject
-          key={project.id}
-          project={project}
-          isDarkTheme={isDarkTheme}
-        />
+      {projects.map((project, i) => (
+        <PortfolioProject key={i} project={project} isDarkTheme={isDarkTheme} />
       ))}
     </>
   );

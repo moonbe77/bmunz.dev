@@ -38,7 +38,6 @@ const Header = () => {
     links.forEach((link) => {
       const border = link.nextSibling;
       if (link.pathname === router.pathname) {
-        console.log(link.pathname === router.pathname);
         border.style.transform = 'scaleX(1)';
       } else {
         border.style.removeProperty('transform');

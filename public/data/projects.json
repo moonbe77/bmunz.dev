@@ -52,7 +52,7 @@
       "id": 6,
       "title": "FM Testimonial Slider",
       "liveUrl": "https://moonbe77.github.io/FM_testimonials_slider/",
-      "gh_url":"https://github.com/moonbe77/FM_testimonials_slider",
+      "ghUrl":"https://github.com/moonbe77/FM_testimonials_slider",
       "imgName": "fm_mockup.png",
       "description": "Frontend Mentor",
       "technologies": ["React","JavaScript","styledComponents"]
@@ -61,7 +61,7 @@
       "id": 7,
       "title": "FM Social Media Dashboard",
       "liveUrl": "https://fm-social-media-dasboard.now.sh/",
-      "gh_url":"https://github.com/moonbe77/FM-social-media-dasboard",
+      "ghUrl":"https://github.com/moonbe77/FM-social-media-dasboard",
       "imgName": "fm_social_dashboard_mockup.png",
       "description": "Frontend Mentor challenge with dark mode",
       "technologies": ["React","JavaScript","styledComponents"]

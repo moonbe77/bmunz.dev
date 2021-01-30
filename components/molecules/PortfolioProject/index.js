@@ -11,7 +11,7 @@ const SectionObserved = dynamic(() => import('../../atoms/SectionObserved'), {
 
 const PortfolioProject = (props) => {
   const { project } = props;
-  const { title, imgName, description, liveUrl, technologies } = project;
+  const { title, imgName, description, liveUrl, technologies, ghUrl } = project;
   const { isDarkTheme } = props;
   const theme = isDarkTheme ? style.dark : style.light;
   const colorBigText = isDarkTheme ? style.bigTextDark : style.bigTextLight;
@@ -20,8 +20,8 @@ const PortfolioProject = (props) => {
     <SectionObserved>
       <div className={`${style.content} ${theme}`}>
         <div className={`${style.bigText} ${colorBigText} `}>
-          {title.split('').map((letter) => (
-            <span>{letter}</span>
+          {title.split('').map((letter, i) => (
+            <span key={letter + i}>{letter}</span>
           ))}
         </div>
         <div className={style.imageWrapper}>
@@ -43,14 +43,21 @@ const PortfolioProject = (props) => {
             {technologies &&
               technologies
                 .sort((a, b) => a.length - b.length)
-                .map((item, index) => <span>{item}</span>)}
+                .map((item, i) => <span key={i}>{item}</span>)}
           </div>
           <div>
             <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-              <Button primary full size="medium">
+              <Button primary size="medium">
                 check it out
               </Button>
             </a>
+            {ghUrl && (
+              <a href={ghUrl} target="_blank" rel="noopener noreferrer">
+                <Button size="medium" primary>
+                  GitHub
+                </Button>
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -67,6 +74,7 @@ PortfolioProject.propTypes = {
     imgName: PropTypes.string,
     description: PropTypes.string,
     liveUrl: PropTypes.string,
+    ghUrl: PropTypes.string,
     technologies: PropTypes.arrayOf(PropTypes.string),
   }),
 };
