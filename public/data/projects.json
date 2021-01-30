@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Latitud Náutica",
       "liveUrl": "https://www.latitudnautica.com.ar/",
-      "imgName": "ln.svg",
+      "imgName": "ln_mockup.png",
       "description": "e-commerce",
       "technologies": [
         "react",
@@ -20,7 +20,7 @@
       "id": 2,
       "title": "More Clean",
       "liveUrl": "https://www.moreclean.com.ar/",
-      "imgName": "mc.svg",
+      "imgName": "mc_mockup.png",
       "description": "Institutional",
       "technologies": ["React", "StyledComponents", "Hosting"]
     },
@@ -28,7 +28,7 @@
       "id": 3,
       "title": "Alfredes",
       "liveUrl": "https://www.alfredes.com.ar/",
-      "imgName": "alfredes.svg",
+      "imgName": "alfredes_mockup.png",
       "description": "Institutional",
       "technologies": ["React", "Firebase Hosting", "Mailgun.js"]
     },
@@ -36,16 +36,16 @@
       "id": 4,
       "title": "Club Náutico San Martin",
       "liveUrl": "http://cnsm.org.ar",
-      "imgName": "cnsm.svg",
+      "imgName": "cnsm_mockup.png",
       "description": "Institutional",
       "technologies": ["HTML", "jQuery", "Hosting", "Mailchimp", "PHP"]
     },
     {
       "id": 5,
-      "title": "Crucero de la Amistad",
-      "liveUrl": "http://crucerodelaamistad.com",
-      "imgName": "cdla.svg",
-      "description": "Institutional",
+      "title": "TicTacToe",
+      "liveUrl": "#",
+      "imgName": "ln_mockup.png",
+      "description": "Tic tac toe with minimax algorithm",
       "technologies": ["HTML", "jQuery", "Hosting", "Mail Setup"]
     },
     {
@@ -53,7 +53,7 @@
       "title": "FM Testimonial Slider",
       "liveUrl": "https://moonbe77.github.io/FM_testimonials_slider/",
       "gh_url":"https://github.com/moonbe77/FM_testimonials_slider",
-      "imgName": "fm_1.svg",
+      "imgName": "fm_mockup.png",
       "description": "Frontend Mentor",
       "technologies": ["React","JavaScript","styledComponents"]
     },
@@ -62,7 +62,7 @@
       "title": "FM Social Media Dashboard",
       "liveUrl": "https://fm-social-media-dasboard.now.sh/",
       "gh_url":"https://github.com/moonbe77/FM-social-media-dasboard",
-      "imgName": "fm_2.svg",
+      "imgName": "fm_social_dashboard_mockup.png",
       "description": "Frontend Mentor challenge with dark mode",
       "technologies": ["React","JavaScript","styledComponents"]
     }
