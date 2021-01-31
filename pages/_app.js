@@ -31,6 +31,7 @@ function MyApp({ Component, pageProps }) {
         <link
           href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans&display=swap"
           rel="stylesheet"
+          // crossOrigin
         />
       </Head>
       <StateProvider>

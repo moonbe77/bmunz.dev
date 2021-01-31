@@ -70,7 +70,7 @@ const Header = () => {
               <Burger />
             </>
           )}
-          <Switch />
+          <Switch isDarkTheme={isDarkTheme} />
         </div>
       </div>
     </header>

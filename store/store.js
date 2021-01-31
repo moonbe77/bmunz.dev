@@ -1,7 +1,7 @@
 import { useReducer, createContext, useContext } from 'react';
 import projects from '../public/data/projects.json';
 
-const StateContext = createContext();
+export const StateContext = createContext();
 const StateDispatcher = createContext();
 
 const reducer = (state, action) => {

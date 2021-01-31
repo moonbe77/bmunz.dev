@@ -1,10 +1,8 @@
 import { HiSun, HiMoon } from 'react-icons/hi';
-import { useStateContext, useStateDispatch } from '../../../store/store';
+import { useStateDispatch } from '../../../store/store';
 import style from './switch.module.css';
 
-export default function Switch() {
-  const state = useStateContext();
-  const { isDarkTheme } = state;
+export default function Switch({ isDarkTheme }) {
   const dispatch = useStateDispatch();
 
   function handleChange() {
@@ -25,6 +23,7 @@ export default function Switch() {
       onKeyDown={changeThemeShortCut}
       role="button"
       tabIndex="0"
+      data-testid="switch"
     >
       {isDarkTheme ? <HiSun /> : <HiMoon />}
     </div>
