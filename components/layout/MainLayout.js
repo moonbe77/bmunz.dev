@@ -32,8 +32,7 @@ export default function Layout({ children }) {
       .then((res) => res.json())
       .then((res) => setPlaying(res))
       .catch((err) => console.log(err));
-  }, [setLastSong]);
-
+  }, [setPlaying]);
   return (
     <div className={`${theme}`}>
       <div className={`${style.container}`}>
@@ -49,8 +48,9 @@ export default function Layout({ children }) {
             </h1>
             <h4>
               <FaPlayCircle />
-              {playing &&
-                ` ${playing.title} - ${playing.album} - ${playing.artist}`}
+              {playing && playing.isPlaying === true
+                ? ` ${playing.title} - ${playing.album} - ${playing.artist}`
+                : ' -'}
             </h4>
             <h4>Last 10 Songs Listened</h4>
             <ul className={style.spotifyList}>
