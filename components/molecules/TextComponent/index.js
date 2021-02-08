@@ -64,7 +64,7 @@ export default function TextComponent({ isDarkTheme }) {
           </p>
         </div>
       </div>
-      <div>
+      {/* <div>
         <div className={`${style.techIcons} ${theme} `}>
           <DiHtml5 />
           <DiCss3 />
@@ -74,7 +74,7 @@ export default function TextComponent({ isDarkTheme }) {
           <DiMysql />
           <DiPhp />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

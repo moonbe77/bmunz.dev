@@ -6,8 +6,8 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
+  background: var(--backgroundTransparent);
+  border-radius: var(--borderRadius);
   ;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .image {
-  min-width: 450px;
+  /* min-width: 450px; */
   position: relative;
   flex: 1;
 }
@@ -38,13 +38,12 @@
   /* border: 1px solid red; */
 }
 
-
 .textWrapper {
   margin: 0 2em;
 }
 
 .text h1 {
-  text-align: center;  
+  text-align: center;
   margin-bottom: 3rem;
 }
 
@@ -61,17 +60,13 @@
   padding: 1rem;
   font-size: 6rem;
   width: 100%;
-  /* border: 1px solid red; */
 }
-
 
 @media only screen and (max-width: 970px) {
   .textWrapper {
     margin: 0 5%;
   }
-}
 
-@media only screen and (max-width: 780px) {
   .section {
     flex-direction: column;
   }

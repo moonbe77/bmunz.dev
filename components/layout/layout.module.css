@@ -12,13 +12,13 @@
 }
 
 .dark {
-  /* color: var(--textDark); */
+  color: var(--textDark);
   background: var(--backgroundDark);
   background-image: var(--backgroundDarkGradient);
 }
 
 .light {
-  /* color: var(--textLight); */
+  color: var(--textLight);
   background: var(--backgroundLight);
   background-image: var(--backgroundLightGradient);
 }
@@ -29,23 +29,25 @@
 
 .footer {
   align-items: center;
+  flex-direction: row;
   display: flex;
-  justify-content: center;
-  min-height: 100px;
+  justify-content: space-around;
+  margin-top: 1rem;
+  background-color: var(--backgroundTransparent);
+  border-radius: var(--borderRadius);
 }
 
-.footer img {
-  margin-left: 0.5rem;
+.spotify {
+  margin-top: 1rem;
+  text-align: center;
 }
 
-.footer a {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+.spotifyList{
+  list-style: decimal;
 }
 
-.footerLogo {
-  height: 2em;
+.spotifyList > li{
+  text-align: left;
 }
 
 .elipse {
@@ -69,7 +71,3 @@
   left: 50%;
   transform: translateX(-50%);
 }
-
-@media only screen and (max-width: 780px) {}
-
-@media only screen and (max-width: 640px) {}

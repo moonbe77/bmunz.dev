@@ -1,3 +1,3 @@
 module.exports = {
-  // config: { experimental: { modern: false } },
+  env: {},
 };
