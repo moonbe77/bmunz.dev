@@ -20,9 +20,7 @@ export default function Home() {
         <title>bMunz.dev</title>
       </Head>
       <Hero />
-      <SectionObserved isDarkTheme={isDarkTheme}>
-        <TextComponent isDarkTheme={isDarkTheme} />
-      </SectionObserved>
+      <TextComponent isDarkTheme={isDarkTheme} />
     </>
   );
 }
