@@ -9,7 +9,7 @@ const SectionObserved = dynamic(() => import('../../atoms/SectionObserved'), {
   ssr: false,
 });
 
-const PortfolioProject = (props) => {
+const PortfolioProjectFullWidth = (props) => {
   const { project } = props;
   const { title, imgName, description, liveUrl, technologies, ghUrl } = project;
   const { isDarkTheme } = props;
@@ -65,9 +65,9 @@ const PortfolioProject = (props) => {
   );
 };
 
-export default PortfolioProject;
+export default PortfolioProjectFullWidth;
 
-PortfolioProject.propTypes = {
+PortfolioProjectFullWidth.propTypes = {
   isDarkTheme: PropTypes.bool,
   project: PropTypes.shape({
     title: PropTypes.string,

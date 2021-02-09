@@ -55,8 +55,8 @@ export default function Layout({ children }) {
             <h4>Last 10 Songs Listened</h4>
             <ul className={style.spotifyList}>
               {lastSong &&
-                lastSong.tracks.map((song) => (
-                  <li>
+                lastSong.tracks.map((song, i) => (
+                  <li key={i}>
                     <a
                       href={song.songUrl}
                       target="_blank"

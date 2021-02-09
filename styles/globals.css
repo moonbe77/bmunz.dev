@@ -33,8 +33,8 @@ a {
   /* --backgroundLightGradient: linear-gradient(116.93deg, #28313B 0%,#7A7F85 15%, #FFFFFF 92.3%); */
   /* --backgroundDarkGradient:  linear-gradient(116.93deg, #B7B7B7 0%, #7A7F85 18.27%, #28313B 92.3%); */
   --xSmallScreen: 375px;
-  --smallScreen: 640px;
-  --mediumScreen: 1007px;
+  --smallScreen: 780px;
+  --mediumScreen: 1024px;
   --buttonGradient: linear-gradient(90deg, #575988 0%, #6C63FF 100%);
   --random-x1: 2em;
   --random-y1: 5em;

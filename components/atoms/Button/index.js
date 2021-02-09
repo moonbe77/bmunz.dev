@@ -35,8 +35,8 @@ const Button = ({ primary, backgroundColor, size, children, ...props }) => {
 export default Button;
 
 Button.propTypes = {
-  primary: PropTypes.string,
+  primary: PropTypes.bool,
   backgroundColor: PropTypes.string,
   size: PropTypes.string,
-  children: PropTypes.string,
+  children: PropTypes.node,
 };

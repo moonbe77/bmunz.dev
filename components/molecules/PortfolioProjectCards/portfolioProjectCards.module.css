@@ -1,0 +1,133 @@
+.dark {
+  color: var(--textDark);
+}
+
+.light {
+  color: var(--textLight);
+}
+
+.bigTextDark {
+  color: var(--textLight-3);
+}
+
+.bigTextLight {
+  color: var(--textDark-3);
+}
+
+.card {
+  background: var(--backgroundTransparent);
+  border-radius: var(--borderRadius);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0 1rem;
+  min-width: 250px;
+  padding: 1rem;
+  position: relative;
+  width: 480px;
+}
+
+.card:hover>.infoWrapper {
+  display: flex;
+  opacity: 1;
+}
+
+.card:hover>.imageWrapper {
+  opacity: 0.1;
+}
+
+.title {
+  display: inline-block;
+}
+
+.imageWrapper {
+  align-items: center;
+  object-fit: fill;
+  display: block;
+  transition: opacity 250ms ease-in-out;
+}
+
+.infoWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  transition: opacity 350ms ease-in-out;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tecList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.tecList span {
+  text-align: center;
+  margin: 5px;
+}
+
+/* 
+.bigText {
+  display: flex;
+  font-family: Bangers, cursive, sans-serif;
+  font-size: 10rem;
+  justify-content: space-evenly;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  width: 100%;
+}
+
+.bigText span {
+  margin: 0 5px;
+}
+
+@media only screen and (max-width: 720px) {
+  .content {
+    flex-direction: column;
+    height: 100%;
+  }
+  .imageWrapper {
+    min-height: 400px;
+    align-items: center;
+    flex: 1;
+    position: relative;
+  }
+  .infoWrapper {
+    flex: 1;
+    text-align: center;
+  }
+  .infoWrapper>div {
+    margin: 5px 0;
+  }
+  .tecList {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .bigText {
+    flex-direction: column;
+    font-size: 3rem;
+    left: 10px;
+  }
+  .bigText span {
+    margin: 5px 0;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .imageWrapper {
+    min-height: 300px;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .imageWrapper {
+    min-height: 200px;
+  }
+} */

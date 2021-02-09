@@ -1,15 +1,7 @@
-import {
-  DiReact,
-  DiJavascript1,
-  DiHtml5,
-  DiMysql,
-  DiNodejs,
-  DiCss3,
-  DiPhp,
-} from 'react-icons/di';
+import PropTypes from 'prop-types';
 import style from './textComponent.module.css';
 
-export default function TextComponent({ isDarkTheme }) {
+export default function AboutMe({ isDarkTheme }) {
   const theme = isDarkTheme ? style.dark : style.light;
 
   return (
@@ -78,3 +70,7 @@ export default function TextComponent({ isDarkTheme }) {
     </section>
   );
 }
+
+AboutMe.propTypes = {
+  isDarkTheme: PropTypes.bool,
+};

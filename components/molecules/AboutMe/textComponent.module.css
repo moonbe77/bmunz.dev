@@ -8,7 +8,6 @@
   align-items: center;
   background: var(--backgroundTransparent);
   border-radius: var(--borderRadius);
-  ;
 }
 
 .dark {
@@ -66,9 +65,9 @@
   .textWrapper {
     margin: 0 5%;
   }
-
   .section {
     flex-direction: column;
+    margin: 0 2rem
   }
   .text {
     margin: 0 2rem;
@@ -77,5 +76,11 @@
     flex-direction: row;
     padding: 0;
     font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .section {
+    margin: 0;
   }
 }

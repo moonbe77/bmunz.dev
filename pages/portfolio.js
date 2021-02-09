@@ -1,20 +1,29 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import { useStateContext } from '../store/store';
-import PortfolioProject from '../components/molecules/PortfolioProject';
+import PortfolioWrapper from '../components/molecules/PortfolioWrapperCards';
 
-// import 'aos/dist/aos.css';
 const Portfolio = () => {
   const state = useStateContext();
   const { projects, isDarkTheme } = state;
+  const [cardLayout, setCardLayout] = useState(true);
 
+  const handleLayoutSwitch = () => {
+    setCardLayout((prev) => !prev);
+  };
   return (
     <>
       <Head>
         <title>Portfolio</title>
       </Head>
-      {projects.map((project, i) => (
-        <PortfolioProject key={i} project={project} isDarkTheme={isDarkTheme} />
-      ))}
+      <div>
+        there are the projects that I worked on, all of them are made by myself
+        totally.
+        <button type="button" onClick={handleLayoutSwitch}>
+          {cardLayout ? 'card' : 'list'}
+        </button>
+      </div>
+      <PortfolioWrapper isDarkTheme={isDarkTheme} projects={projects} />
     </>
   );
 };
