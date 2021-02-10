@@ -12,9 +12,9 @@ const PortfolioProjectCards = (props) => {
 
   return (
     <article className={`${style.card} ${theme}`}>
-      <div className={style.title}>
-        <Title primary>{title}</Title>
-        {description}
+      <div className={`${style.header}`}>
+        <div className={style.title}>{title}</div>
+        <div className={style.subTitle}>{description}</div>
       </div>
       <div className={style.imageWrapper}>
         <Image

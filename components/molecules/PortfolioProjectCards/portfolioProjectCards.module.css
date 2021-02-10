@@ -25,6 +25,11 @@
   padding: 1rem;
   position: relative;
   width: 480px;
+  overflow: hidden;
+}
+
+.card:hover{
+
 }
 
 .card:hover>.infoWrapper {
@@ -36,9 +41,33 @@
   opacity: 0.1;
 }
 
+.card:hover  .subTitle {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  align-items: baseline;
+}
+
 .title {
+  font-size: 1.7rem;
   display: inline-block;
 }
+
+.subTitle {
+  display: inline-block;
+  margin-left: 10px;
+  transform: translateY(-1000%);
+  transition: all 300ms ease-in-out;
+  opacity: 0;
+
+}
+
 
 .imageWrapper {
   align-items: center;
