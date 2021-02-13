@@ -3,9 +3,10 @@
     {
       "id": 1,
       "title": "Latitud Náutica",
+      "subTitle": "E-Commerce",
       "liveUrl": "https://www.latitudnautica.com.ar/",
       "imgName": "ln_mockup.png",
-      "description": "e-commerce",
+      "description": "This project is made in Next.js with an API made in Express.js",
       "technologies": [
         "react",
         "next",
@@ -18,7 +19,8 @@
     },
     {
       "id": 2,
-      "title": "More Clean",
+      "title": "More Clean",      
+      "subTitle": "Landing Page",
       "liveUrl": "https://www.moreclean.com.ar/",
       "imgName": "mc_mockup.png",
       "description": "Institutional",
@@ -27,6 +29,7 @@
     {
       "id": 3,
       "title": "Alfredes",
+      "subTitle": "Institutional Website",
       "liveUrl": "https://www.alfredes.com.ar/",
       "imgName": "alfredes_mockup.png",
       "description": "Institutional",
@@ -35,6 +38,7 @@
     {
       "id": 4,
       "title": "Club Náutico San Martin",
+      "subTitle": "Institutional Website",
       "liveUrl": "http://cnsm.org.ar",
       "imgName": "cnsm_mockup.png",
       "description": "Institutional",
@@ -43,6 +47,7 @@
     {
       "id": 5,
       "title": "TicTacToe",
+      "subTitle": "Game in JS",
       "liveUrl": "#",
       "imgName": "ln_mockup.png",
       "description": "Tic tac toe with minimax algorithm",
@@ -51,6 +56,7 @@
     {
       "id": 6,
       "title": "FM Testimonial Slider",
+      "subTitle": "Frontend Mentor",
       "liveUrl": "https://moonbe77.github.io/FM_testimonials_slider/",
       "ghUrl":"https://github.com/moonbe77/FM_testimonials_slider",
       "imgName": "fm_mockup.png",
@@ -60,6 +66,7 @@
     {
       "id": 7,
       "title": "FM Social Media Dashboard",
+      "subTitle": "Frontend Mentor",
       "liveUrl": "https://fm-social-media-dasboard.now.sh/",
       "ghUrl":"https://github.com/moonbe77/FM-social-media-dasboard",
       "imgName": "fm_social_dashboard_mockup.png",

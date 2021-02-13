@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
@@ -8,18 +8,35 @@ import style from './portfolioProjectCards.module.css';
 const PortfolioProjectCards = (props) => {
   const [isHover, setIsHover] = useState(false);
   const { project } = props;
-  const { title, imgName, description, liveUrl, technologies, ghUrl } = project;
+  const {
+    title,
+    subTitle,
+    imgName,
+    description,
+    liveUrl,
+    technologies,
+    ghUrl,
+  } = project;
   const { isDarkTheme } = props;
   const theme = isDarkTheme ? style.dark : style.light;
 
   const opacity = useSpring({ opacity: 1, from: { opacity: 0 } });
   const move = (x, y) => `translate3D(${x}px,${y}px,0)`;
-  const fadeOut = useSpring({
-    opacity: isHover ? `0.3` : `1`,
+
+  const slideOut = useSpring({
+    transform: isHover ? `translateX(400px)` : `translateX(0px)`,
+    opacity: isHover ? 0.2 : 1,
     config: {
-      tension: 170,
+      tension: 190,
+      friction: 20,
+    },
+  });
+  const slideIn = useSpring({
+    transform: isHover ? `translateX(0px)` : `translateX(-200px)`,
+    config: {
+      tension: 100,
       friction: 27,
-      duration: 300,
+      // duration: 300,
     },
   });
 
@@ -52,11 +69,11 @@ const PortfolioProjectCards = (props) => {
           style={{ transform: settings.xy.interpolate(move) }}
           className={style.subTitle}
         >
-          {description}
+          {subTitle}
         </animated.div>
       </div>
 
-      <animated.div className={style.imageWrapper} style={fadeOut}>
+      <animated.div className={style.imageWrapper} style={slideOut}>
         <Image
           className={style.image}
           src={`/figma/projects_mockups/${imgName}`}
@@ -68,13 +85,14 @@ const PortfolioProjectCards = (props) => {
           priority
         />
       </animated.div>
-      <div className={style.infoWrapper}>
-        <div className={style.tecList}>
-          {technologies &&
+      <animated.div className={style.infoWrapper} style={slideIn}>
+        {description}
+        {/* <div className={style.tecList}>
+          {techno
             technologies
               .sort((a, b) => a.length - b.length)
               .map((item, i) => <span key={i}>{item}</span>)}
-        </div>
+        </div> */}
         <div>
           <a href={liveUrl} target="_blank" rel="noopener noreferrer">
             <Button primary size="medium">
@@ -89,9 +107,22 @@ const PortfolioProjectCards = (props) => {
             </a>
           )}
         </div>
-      </div>
+      </animated.div>
     </animated.article>
   );
 };
 
 export default PortfolioProjectCards;
+
+PortfolioProjectCards.propTypes = {
+  isDarkTheme: PropTypes.bool,
+  project: PropTypes.shape({
+    title: PropTypes.string,
+    subTitle: PropTypes.string,
+    imgName: PropTypes.string,
+    description: PropTypes.string,
+    liveUrl: PropTypes.string,
+    ghUrl: PropTypes.string,
+    technologies: PropTypes.arrayOf(PropTypes.string),
+  }),
+};
