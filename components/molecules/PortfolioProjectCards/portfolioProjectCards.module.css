@@ -37,34 +37,24 @@
   opacity: 1;
 }
 
-.card:hover>.imageWrapper {
+/* .card:hover>.imageWrapper {
   opacity: 0.1;
-}
+} */
 
-.card:hover  .subTitle {
+/* .card:hover  .subTitle {
   transform: translateY(0%);
   opacity: 1;
-}
+} */
 
 .header {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   position: relative;
-  align-items: baseline;
 }
 
 .title {
   font-size: 1.7rem;
-  display: inline-block;
 }
 
 .subTitle {
-  display: inline-block;
-  margin-left: 10px;
-  transform: translateY(-1000%);
-  transition: all 300ms ease-in-out;
-  opacity: 0;
 
 }
 

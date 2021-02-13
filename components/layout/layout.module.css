@@ -52,22 +52,22 @@
 
 .elipse {
   /* border: 1px solid salmon; */
-  position: absolute;
+  position: fixed;
   z-index: 1;
 }
 
 .elipse1 {
-  left: 50px;
-  top: 160px;
+  left: 10vw;
+  top: 20vh;
 }
 
 .elipse2 {
-  right: 12%;
-  top: 100px;
+  right: 10vw;
+  top: 15vh;
 }
 
 .elipse3 {
-  top: 550px;
-  left: 50%;
+  top: 75vh;
+  left: 50vw;
   transform: translateX(-50%);
 }

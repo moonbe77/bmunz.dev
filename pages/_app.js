@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        {/* <link
+        <link
           rel="apple-touch-icon"
           sizes="180x180"
           href="/favicon/apple-touch-icon.png"
@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
           type="image/png"
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
-        /> */}
+        />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
