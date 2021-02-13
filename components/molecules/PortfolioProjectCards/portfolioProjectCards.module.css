@@ -61,12 +61,10 @@
   height: 100%;
 }
 
-.tecList {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+.description {
   align-items: center;
+  display: block;
+  margin: 1rem;
 }
 
 .tecList span {

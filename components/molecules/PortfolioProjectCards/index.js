@@ -8,47 +8,28 @@ import style from './portfolioProjectCards.module.css';
 const PortfolioProjectCards = (props) => {
   const [isHover, setIsHover] = useState(false);
   const { project } = props;
-  const {
-    title,
-    subTitle,
-    imgName,
-    description,
-    liveUrl,
-    technologies,
-    ghUrl,
-  } = project;
+  const { title, subTitle, imgName, description, liveUrl, ghUrl } = project;
   const { isDarkTheme } = props;
   const theme = isDarkTheme ? style.dark : style.light;
 
   const opacity = useSpring({ opacity: 1, from: { opacity: 0 } });
-  const move = (x, y) => `translate3D(${x}px,${y}px,0)`;
-
   const slideOut = useSpring({
     transform: isHover ? `translateX(400px)` : `translateX(0px)`,
     opacity: isHover ? 0.2 : 1,
     config: {
-      tension: 190,
-      friction: 20,
+      tension: 280,
+      friction: 100,
     },
   });
   const slideIn = useSpring({
     transform: isHover ? `translateX(0px)` : `translateX(-200px)`,
     config: {
-      tension: 100,
+      tension: 130,
       friction: 27,
-      // duration: 300,
     },
   });
 
-  useEffect(() => {
-    console.log(isHover);
-  }, [isHover]);
-
-  const [settings, setSettings] = useSpring(() => ({
-    xy: [-150, 0],
-    opacity: 1,
-    config: { mass: 10, tension: 550, friction: 140 },
-  }));
+  // useEffect(() => {}, [isHover]);
 
   return (
     <animated.article
@@ -56,19 +37,14 @@ const PortfolioProjectCards = (props) => {
       className={`${style.card} ${theme}`}
       onMouseEnter={() => {
         setIsHover(true);
-        setSettings({ xy: [0, 0] });
       }}
       onMouseLeave={() => {
         setIsHover(false);
-        setSettings({ xy: [-150, 0] });
       }}
     >
       <div className={`${style.header}`}>
         <div className={style.title}>{title}</div>
-        <animated.div
-          style={{ transform: settings.xy.interpolate(move) }}
-          className={style.subTitle}
-        >
+        <animated.div style={slideIn} className={style.subTitle}>
           {subTitle}
         </animated.div>
       </div>
@@ -86,13 +62,7 @@ const PortfolioProjectCards = (props) => {
         />
       </animated.div>
       <animated.div className={style.infoWrapper} style={slideIn}>
-        {description}
-        {/* <div className={style.tecList}>
-          {techno
-            technologies
-              .sort((a, b) => a.length - b.length)
-              .map((item, i) => <span key={i}>{item}</span>)}
-        </div> */}
+        <div className={style.description}>{description}</div>
         <div>
           <a href={liveUrl} target="_blank" rel="noopener noreferrer">
             <Button primary size="medium">
@@ -123,6 +93,6 @@ PortfolioProjectCards.propTypes = {
     description: PropTypes.string,
     liveUrl: PropTypes.string,
     ghUrl: PropTypes.string,
-    technologies: PropTypes.arrayOf(PropTypes.string),
+    // technologies: PropTypes.arrayOf(PropTypes.string),
   }),
 };
