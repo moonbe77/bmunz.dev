@@ -35,11 +35,14 @@ const Hero = () => {
       <animated.div style={fade}>
         <div className={`${style.content}`}>
           <animated.div style={{ transform: props.xy.interpolate(trans1) }}>
-            <h1 className={`${style.firstLine} ${theme}`}>Hey! I'm Bernardo</h1>
+            <h1 className={`${style.firstLine} ${theme}`}>
+              Hey! I'm Bernardo
+              <span>Frontend web Developer</span>
+            </h1>
           </animated.div>
           <animated.div style={{ transform: props.xy.interpolate(trans2) }}>
             <div className={`${style.secondLine} ${theme}`}>
-              Looking to change my career into Web Developing
+              Walking the steps to change my career into Web Developing
             </div>
           </animated.div>
           <animated.div style={{ transform: props.xy.interpolate(trans3) }}>

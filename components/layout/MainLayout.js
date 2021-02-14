@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { FaSpotify, FaPlayCircle } from 'react-icons/fa';
 import { useStateContext } from '../../store/store';
 import Header from '../molecules/Header';
@@ -38,6 +38,7 @@ export default function Layout({ children }) {
       <div className={`${style.container}`}>
         <Header />
         <main className={style.content}>{children}</main>
+
         <footer className={style.footer}>
           <div>
             <div>Copyright 2020</div>
@@ -68,9 +69,11 @@ export default function Layout({ children }) {
             </ul>
           </div>
         </footer>
+
         <div className={`${style.elipse} ${style.elipse1}`}>
           <img src="/figma/elipses/Ellipse1.svg" alt="" srcSet="" />
         </div>
+
         <div className={`${style.elipse} ${style.elipse2}`}>
           <img src="/figma/elipses/Ellipse2.svg" alt="" srcSet="" />
         </div>

@@ -44,6 +44,11 @@
   margin: 0 0 10px 0;
 }
 
+.firstLine>span {
+  display: block;
+  font-size: 0.7em;
+}
+
 .secondLine {
   font-size: 2rem;
   max-width: 450px;

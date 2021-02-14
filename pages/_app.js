@@ -33,6 +33,31 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
           // crossOrigin
         />
+        <title>Bernardo Munz Frontend Web Developer</title>
+        <meta
+          name="description"
+          content="I am very passionate about coding and the endless possibilities it has, this is why I am pushing for this change. 
+          I'm a quick learner with a big enthusiasm for creating, solving problems and keen attention for details.
+My experience as a web developer includes institutional websites for local businesses in Argentina helping them to improve their presence on the internet."
+        />
+        <meta
+          name="og:title"
+          property="og:title"
+          content="Bernardo Munz Frontend Web Developer"
+        />
+        <meta property="og:image" content="./figma/bmunz.png" />
+        <meta property="og:image:type" content="image/png" />
+
+        <meta
+          property="og:description"
+          content="Description that will show in the preview"
+        />
+        <meta
+          property="og:url"
+          content="I am very passionate about coding and the endless possibilities it has, this is why I am pushing for this change. 
+          I'm a quick learner with a big enthusiasm for creating, solving problems and keen attention for details.
+My experience as a web developer includes institutional websites for local businesses in Argentina helping them to improve their presence on the internet."
+        />
       </Head>
       <StateProvider>
         <Layout>
