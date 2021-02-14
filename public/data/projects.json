@@ -45,15 +45,6 @@
       "technologies": ["HTML", "jQuery", "Hosting", "Mailchimp", "PHP"]
     },
     {
-      "id": 5,
-      "title": "TicTacToe",
-      "subTitle": "Game in JS",
-      "liveUrl": "#",
-      "imgName": "ln_mockup.png",
-      "description": "Tic tac toe with minimax algorithm",
-      "technologies": ["HTML", "jQuery", "Hosting", "Mail Setup"]
-    },
-    {
       "id": 6,
       "title": "FM Testimonial Slider",
       "subTitle": "Frontend Mentor",
