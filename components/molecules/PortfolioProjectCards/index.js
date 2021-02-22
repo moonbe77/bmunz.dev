@@ -14,15 +14,16 @@ const PortfolioProjectCards = (props) => {
 
   const opacity = useSpring({ opacity: 1, from: { opacity: 0 } });
   const slideOut = useSpring({
-    transform: isHover ? `translateX(400px)` : `translateX(0px)`,
+    transform: isHover ? `translateX(410px)` : `translateX(0px)`,
     opacity: isHover ? 0.2 : 1,
     config: {
-      tension: 280,
-      friction: 100,
+      tension: 130,
+      friction: 27,
     },
   });
   const slideIn = useSpring({
     transform: isHover ? `translateX(0px)` : `translateX(-200px)`,
+    opacity: isHover ? 1 : 0,
     config: {
       tension: 130,
       friction: 27,

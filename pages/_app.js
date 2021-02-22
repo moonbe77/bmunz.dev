@@ -38,8 +38,7 @@ function MyApp({ Component, pageProps }) {
         <title>Bernardo Munz Frontend Web Developer</title>
         <meta
           name="description"
-          content="I am an electronic technician persuading a change of career into Frontend developing, My experience as a web developer includes institutional websites for local businesses in Argentina
-"
+          content="I am Bernardo an electronic technician persuading a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
         />
 
         {/* <!-- Facebook Meta Tags --> */}
@@ -51,8 +50,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="og:description"
-          content="I am an electronic technician persuading a change of career into Frontend developing, My experience as a web developer includes institutional websites for local businesses in Argentina
-"
+          content="I am Bernardo an electronic technician persuading a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
         />
         <meta property="og:image" content="./figma/bmunz.png" />
 
@@ -66,10 +64,15 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           name="twitter:description"
-          content="I am an electronic technician persuading a change of career into Frontend developing, My experience as a web developer includes institutional websites for local businesses in Argentina
-"
+          content="I am Bernardo an electronic technician persuading a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
         />
         <meta name="twitter:image" content="./figma/bmunz.png" />
+        <script
+          type="text/javascript"
+          src="https://platform.linkedin.com/badges/js/profile.js"
+          async
+          defer
+        />
       </Head>
       <StateProvider>
         <Layout>

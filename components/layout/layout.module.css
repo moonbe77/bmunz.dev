@@ -28,7 +28,6 @@
 }
 
 .footer {
-  align-items: center;
   flex-direction: row;
   display: flex;
   justify-content: space-around;
@@ -37,16 +36,24 @@
   border-radius: var(--borderRadius);
 }
 
-.spotify {
-  margin-top: 1rem;
-  text-align: center;
+.contact {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-evenly;
 }
 
-.spotifyList{
+.spotify {
+  text-align: center;
+  flex: 1;
+}
+
+.spotifyList {
   list-style: decimal;
 }
 
-.spotifyList > li{
+.spotifyList>li {
   text-align: left;
 }
 

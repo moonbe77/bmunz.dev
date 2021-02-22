@@ -40,18 +40,32 @@ export default function Layout({ children }) {
         <main className={style.content}>{children}</main>
 
         <footer className={style.footer}>
-          <div>
-            <div>Copyright 2020</div>
+          <div className={style.contact}>
+            <div
+              className="LI-profile-badge"
+              data-version="v1"
+              data-size="medium"
+              data-locale="es_ES"
+              data-type="horizontal"
+              data-theme="dark"
+              data-vanity="munzbe"
+            >
+              <a
+                className="LI-simple-link"
+                href="https://au.linkedin.com/in/munzbe?trk=profile-badge"
+              >
+                Bernardo Munz
+              </a>
+            </div>
+            <div>2021</div>
           </div>
           <div className={style.spotify}>
             <h1>
               <FaSpotify />
             </h1>
             <h4>
-              <FaPlayCircle />
-              {playing && playing.isPlaying === true
-                ? ` ${playing.title} - ${playing.album} - ${playing.artist}`
-                : ' -'}
+              <FaPlayCircle /> {playing?.title} - {playing?.album} -{' '}
+              {playing?.artist}
             </h4>
             <h4>Last 10 Songs Listened</h4>
             <ul className={style.spotifyList}>
@@ -73,7 +87,6 @@ export default function Layout({ children }) {
         <div className={`${style.elipse} ${style.elipse1}`}>
           <img src="/figma/elipses/Ellipse1.svg" alt="" srcSet="" />
         </div>
-
         <div className={`${style.elipse} ${style.elipse2}`}>
           <img src="/figma/elipses/Ellipse2.svg" alt="" srcSet="" />
         </div>
@@ -84,7 +97,3 @@ export default function Layout({ children }) {
     </div>
   );
 }
-
-Layout.propTypes = {
-  children: PropTypes.node,
-};
