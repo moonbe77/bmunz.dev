@@ -26,6 +26,7 @@
   position: relative;
   width: 480px;
   overflow: hidden;
+  touch-action:   pan-y;
 }
 
 /*.card:hover {}
@@ -56,12 +57,13 @@
   align-items: center;
   flex-direction: column;
   position: absolute;
-  top:  40px;
+  top: 40px;
   opacity: 0;
   width: 90%;
   height: 80%;
   margin: 0 10px;
-  line-height: 25px;;
+  line-height: 25px;
+  ;
 }
 
 .description {
