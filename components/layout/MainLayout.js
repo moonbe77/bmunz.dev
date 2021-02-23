@@ -60,27 +60,32 @@ export default function Layout({ children }) {
             <div>2021</div>
           </div>
           <div className={style.spotify}>
-            <h1>
+            <div className={style.spotifyIcon}>
               <FaSpotify />
-            </h1>
-            <h4>
-              <FaPlayCircle /> {playing?.title} - {playing?.album} -{' '}
-              {playing?.artist}
-            </h4>
-            <h4>Last 10 Songs Listened</h4>
-            <ul className={style.spotifyList}>
-              {lastSong &&
-                lastSong.tracks.map((song, i) => (
-                  <li key={i}>
-                    <a
-                      href={song.songUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      alt={`link to ${song.title}`}
-                    >{`${song.title} - ${song.artist}`}</a>
-                  </li>
-                ))}
-            </ul>
+            </div>
+            <div className={style.spotifyPlayingNow}>
+              <h4>Playing now:</h4>
+              <div>
+                <FaPlayCircle /> {playing?.title} - {playing?.album} -{' '}
+                {playing?.artist}
+              </div>
+            </div>
+            <div>
+              <h4>My top 10 Songs Listened</h4>
+              <ul className={style.spotifyList}>
+                {lastSong &&
+                  lastSong.tracks.map((song, i) => (
+                    <li key={i}>
+                      <a
+                        href={song.songUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        alt={`link to ${song.title}`}
+                      >{`${song.title} - ${song.artist}`}</a>
+                    </li>
+                  ))}
+              </ul>
+            </div>
           </div>
         </footer>
 

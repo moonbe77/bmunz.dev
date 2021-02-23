@@ -33,8 +33,7 @@ const PortfolioProjectCards = (props) => {
 
   useEffect(() => {
     ref(card.current);
-    console.log(ref);
-  }, []);
+  }, [ref]);
 
   const opacity = useSpring({ opacity: 1, from: { opacity: 0 } });
   const slideOut = useSpring({
