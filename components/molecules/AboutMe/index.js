@@ -5,7 +5,7 @@ export default function AboutMe({ isDarkTheme }) {
   const theme = isDarkTheme ? style.dark : style.light;
 
   return (
-    <section className={`${style.section}`}>
+    <section id="about" className={`${style.section}`}>
       <div className={`${style.image}`}>
         <img
           src="./svgs/undraw_Firmware_dark.svg"
@@ -16,18 +16,6 @@ export default function AboutMe({ isDarkTheme }) {
       <div className={`${style.text} ${theme}`}>
         <h1> Hi, It is nice to see you here</h1>
         <div className={`${style.textWrapper}`}>
-          {/* <p>
-            when things get tough is where I put all my focus to solve the
-            situation,
-          </p>
-          <p>
-            I'm always learning new stuff and reading o listening podcast about
-            new technologies
-          </p>
-          <p>
-            I love to tech to others, it helps a lot to get confident in your
-            skills and improve them quicker.
-          </p> */}
           <p className={style.paragraph}>
             I’m a electronic technician looking for a change in my career, I’ve
             been working in manufacturing of different kind of products since I
@@ -56,17 +44,6 @@ export default function AboutMe({ isDarkTheme }) {
           </p>
         </div>
       </div>
-      {/* <div>
-        <div className={`${style.techIcons} ${theme} `}>
-          <DiHtml5 />
-          <DiCss3 />
-          <DiJavascript1 />
-          <DiReact />
-          <DiNodejs />
-          <DiMysql />
-          <DiPhp />
-        </div>
-      </div> */}
     </section>
   );
 }
