@@ -18,7 +18,7 @@ export default function Menu() {
   return (
     <ul className={style.menu} onClick={handleSideMenu}>
       <li className={`${style.links}`}>
-        <Link href="/portfolio">
+        <Link href="/projects">
           <a className="link">Projects </a>
         </Link>
         <span className={`${style.linkBorder} ${style.active}`} />

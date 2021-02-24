@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { FaSpotify, FaPlayCircle } from 'react-icons/fa';
 import { useStateContext } from '../../store/store';
@@ -11,15 +12,16 @@ export default function Layout({ children }) {
   const theme = isDarkTheme ? style.dark : style.light;
   const [lastSong, setLastSong] = useState(null);
   const [playing, setPlaying] = useState(null);
-
+  const router = useRouter();
   useEffect(() => {
     if (!window.GA_INITIALIZED) {
       initGA();
       window.GA_INITIALIZED = true;
     }
     logPageView();
-  }, []);
+  }, [router]);
 
+  // spotify
   useEffect(() => {
     fetch('/api/top-tracks')
       .then((res) => res.json())
@@ -27,6 +29,7 @@ export default function Layout({ children }) {
       .catch((err) => console.log(err));
   }, [setLastSong]);
 
+  // spotify
   useEffect(() => {
     fetch('/api/playing-now')
       .then((res) => res.json())
