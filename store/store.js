@@ -1,5 +1,6 @@
 import { useReducer, createContext, useContext } from 'react';
 import projects from '../public/data/projects.json';
+import { menuItems } from '../utils/menuData';
 
 export const StateContext = createContext();
 const StateDispatcher = createContext();
@@ -22,6 +23,7 @@ const initialState = {
   isDarkTheme: true,
   projects: projects.data,
   showSideMenu: false,
+  menu: [...menuItems],
 };
 
 export const StateProvider = ({ children }) => {

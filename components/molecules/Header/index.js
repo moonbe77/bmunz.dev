@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useStateContext } from '../../../store/store';
 import Burger from '../../atoms/Burger';
@@ -13,7 +12,6 @@ const Header = () => {
   const [windowSize, setWindowSize] = useState();
   const { isDarkTheme } = useStateContext();
   const theme = isDarkTheme ? style.dark : style.light;
-  const router = useRouter();
 
   useEffect(() => {
     const getWindowSize = () => {
@@ -26,25 +24,12 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    if (windowSize <= 660) {
+    if (windowSize <= 840) {
       setShowMobileMenu(true);
       return;
     }
     setShowMobileMenu(false);
   }, [windowSize]);
-
-  useEffect(() => {
-    const links = document.querySelectorAll('.link');
-    links.forEach((link) => {
-      const border = link.nextSibling;
-      if (link.pathname === router.pathname) {
-        border.style.transform = 'scaleX(1)';
-      } else {
-        border.style.removeProperty('transform');
-        border.style.transform = 'null';
-      }
-    });
-  }, [router]);
 
   return (
     <header className={`${style.header} ${theme}`}>

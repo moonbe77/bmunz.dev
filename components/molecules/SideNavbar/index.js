@@ -39,46 +39,20 @@ function Trail({ open, children, ...props }) {
 }
 
 export default function SideNavbar() {
-  const [show, setShow] = useState(false);
-  const { isDarkTheme, showSideMenu } = useStateContext();
+  const { isDarkTheme, showSideMenu, menu } = useStateContext();
   const theme = isDarkTheme ? style.dark : style.light;
   const Router = useRouter();
   const dispatch = useStateDispatch();
 
   const slide = useSpring({
-    transform: show ? 'translateX(0vw)' : 'translateX(100vw)',
-    delay: show ? 0 : 500,
+    transform: showSideMenu ? 'translateX(0vw)' : 'translateX(100vw)',
+    opacity: 1,
+    // from: {
+    //   opacity: 0,
+    // },
+    delay: showSideMenu ? 0 : 500,
     config: { mass: 5, tension: 2000, friction: 200 },
   });
-
-  const navItems = [
-    {
-      text: 'Projects',
-      link: '/projects',
-      style: {
-        opacity: 1,
-      },
-    },
-    {
-      text: 'About Me',
-      link: '/#about',
-      style: {
-        opacity: 1,
-      },
-    },
-    {
-      text: 'github',
-      link: '/github',
-      style: {
-        opacity: 1,
-      },
-    },
-  ];
-
-  useEffect(() => {
-    console.log(showSideMenu);
-    setShow(showSideMenu);
-  }, [showSideMenu]);
 
   useEffect(() => {
     if (showSideMenu) {
@@ -86,10 +60,12 @@ export default function SideNavbar() {
     } else {
       disableScroll.off();
     }
-  });
+  }, [showSideMenu]);
 
   useEffect(() => {
-    if (show) {
+    console.log('rote changed');
+    console.log(Router);
+    if (showSideMenu) {
       dispatch({
         type: 'TOGGLE_SIDE_MENU',
         payload: !showSideMenu,
@@ -100,10 +76,12 @@ export default function SideNavbar() {
   return (
     <animated.div style={slide} className={`${style.wrapper} ${theme} `}>
       <div className={style.menu}>
-        <Trail open={show}>
-          {navItems.map((item, index) => (
+        <Trail open={showSideMenu}>
+          {menu.map((item, index) => (
             <Link key={index} href={item.link}>
-              {item.text}
+              <a target={item.target}>
+                {item.icon}{item.textMobile}
+              </a>
             </Link>
           ))}
         </Trail>
