@@ -48,7 +48,7 @@ const Hero = () => {
           <animated.div style={{ transform: props.xy.interpolate(trans3) }}>
             <div className={style.heroButton}>
               <Button primary size="large">
-                <Link href="/portfolio">Check my Portfolio</Link>{' '}
+                <Link href="/projects">Check my Portfolio</Link>{' '}
               </Button>
             </div>
           </animated.div>
