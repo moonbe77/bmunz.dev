@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import disableScroll from 'disable-scroll';
-import { useSpring, useTrail, animated, config } from 'react-spring';
+import { useRouter } from 'next/router';
+import { useSpring, useTrail, animated } from 'react-spring';
 import Link from 'next/link';
-import { useStateContext } from '../../../store/store';
+import { useStateContext, useStateDispatch } from '../../../store/store';
+
 import style from './SideNavbar.module.css';
 
 function Trail({ open, children, ...props }) {
@@ -12,23 +14,26 @@ function Trail({ open, children, ...props }) {
     opacity: open ? 1 : 0,
     x: open ? 0 : 200,
     height: open ? 50 : 0,
-    delay: 150,
-    from: { opacity: 0, x: 20, height: 0 },
+    delay: open ? 150 : 0,
+    from: { opacity: 0, x: -200, height: 0 },
   });
+
   return (
     <>
-      {trail.map(({ x, height, ...rest }, index) => (
-        <animated.ul
-          key={index}
-          className={style.what}
-          style={{
-            ...rest,
-            transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
-          }}
-        >
-          <animated.li style={{ height }}>{items[index]}</animated.li>
-        </animated.ul>
-      ))}
+      <animated.ul>
+        {trail.map(({ x, height, ...rest }, index) => (
+          <animated.li
+            key={index}
+            style={{
+              ...rest,
+              height,
+              transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
+            }}
+          >
+            {items[index]}
+          </animated.li>
+        ))}
+      </animated.ul>
     </>
   );
 }
@@ -37,10 +42,13 @@ export default function SideNavbar() {
   const [show, setShow] = useState(false);
   const { isDarkTheme, showSideMenu } = useStateContext();
   const theme = isDarkTheme ? style.dark : style.light;
+  const Router = useRouter();
+  const dispatch = useStateDispatch();
 
   const slide = useSpring({
     transform: show ? 'translateX(0vw)' : 'translateX(100vw)',
-    config: config.stiff,
+    delay: show ? 0 : 500,
+    config: { mass: 5, tension: 2000, friction: 200 },
   });
 
   const navItems = [
@@ -80,12 +88,21 @@ export default function SideNavbar() {
     }
   });
 
+  useEffect(() => {
+    if (show) {
+      dispatch({
+        type: 'TOGGLE_SIDE_MENU',
+        payload: !showSideMenu,
+      });
+    }
+  }, [Router]);
+
   return (
     <animated.div style={slide} className={`${style.wrapper} ${theme} `}>
       <div className={style.menu}>
-        <Trail open={show} >
+        <Trail open={show}>
           {navItems.map((item, index) => (
-            <Link key={index} href={item.link} onClick={() => setShow(false)}>
+            <Link key={index} href={item.link}>
               {item.text}
             </Link>
           ))}

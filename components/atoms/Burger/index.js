@@ -11,7 +11,6 @@ export default function Burger() {
   const line1 = useSpring({
     transform: showSideMenu ? 'rotate(45deg)' : 'rotate(0deg)',
   });
-
   const line2 = useSpring({
     opacity: showSideMenu ? 0 : 1,
   });
