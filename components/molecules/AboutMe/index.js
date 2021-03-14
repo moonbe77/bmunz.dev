@@ -17,26 +17,27 @@ export default function AboutMe({ isDarkTheme }) {
         <h1> Hi, It is nice to see you here</h1>
         <div className={`${style.textWrapper}`}>
           <p className={style.paragraph}>
-            I’m a electronic technician looking for a change in my career, I’ve
-            been working in manufacturing of different kind of products since I
-            started working 18 years ago, I love to solve problems and think out
-            of the box to analyze and detect possible bugs.
+            I’m looking for a position as a front end web developer, this will
+            be my first full-time position as a programmer. I want to start
+            applying what I learned and continue improving my skills and growing
+            in this field.
           </p>
           <p className={style.paragraph}>
-            My curiosity is what pushes me to learn and keeps me motivated to
-            continue in the learning loop. I started learning web development 6
-            years ago self tough being curious in how is the life cycle of the
-            web.
+            I’m an electronic technician looking for a change in my career, I’ve
+            been working in manufacturing & testing of high tech, solving
+            problems, debugging and thinking out of the box is some of the
+            things that I learned and will carry with me in this new journey.
           </p>
           <p className={style.paragraph}>
-            It started as a Hobbies, but after making some projects for close
-            people I understand that it is what I want to do, it is what wakes
-            me up early in the morning and keeps my mind busy in solving
-            problems.
+            I'm a very curious person this is what pushes me to learn and keeps
+            me motivated, I started learning web development 6 years ago self
+            tough being curious about how is internet able to show me web pages.
           </p>
           <p className={style.paragraph}>
-            I’m looking for a position as a web developer I want to start
-            applying what I learned and continue improving my skills.
+            After making some projects for close people and small local
+            businesses in Argentina as a freelance I found that this is my
+            passion and I want to apply what I learned and help people to
+            connect to this always evolving world of technology.
           </p>
           <p className={style.paragraph}>
             I love to create responsive and functional websites that are easy to

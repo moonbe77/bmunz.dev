@@ -6,7 +6,7 @@
       "subTitle": "E-Commerce",
       "liveUrl": "https://www.latitudnautica.com.ar/",
       "imgName": "ln_mockup.png",
-      "description": "This project is made in Next.js with an REST API in Express.js using a MYSQL database and sequelize.js as ORM. With a custom CMS made by my self to upload and edit the products",
+      "description": "This project is made in Next.js with an REST API in Express.js using a MYSQL database and sequelize.js as ORM. With a custom CMS to upload and edit the products",
       "technologies": [
         "react",
         "next",
@@ -23,7 +23,7 @@
       "subTitle": "Landing Page",
       "liveUrl": "https://www.moreclean.com.ar/",
       "imgName": "mc_mockup.png",
-      "description": "Institutional website of a small business in Argentina. Made in React.js with style-components and hosted in a shared hosting with a simple setup of emails and google analytics",
+      "description": "Institutional website of a small business in Argentina. Made in React.js with style-components and hosted in a shared hosting with a setup of emails and google analytics",
       "technologies": ["React", "StyledComponents", "Hosting"]
     },
     {
@@ -32,7 +32,7 @@
       "subTitle": "Institutional Website",
       "liveUrl": "https://www.alfredes.com.ar/",
       "imgName": "alfredes_mockup.png",
-      "description": "Institutional website of a rental place of cabins in the delta of Buenos Aires, Made in React.js with style-components",
+      "description": "Institutional website of a rental of a cabin in the delta of Buenos Aires, Made in React.js with style-components",
       "technologies": ["React", "Firebase Hosting", "Mailgun.js"]
     },
     {
@@ -41,7 +41,7 @@
       "subTitle": "Institutional Website",
       "liveUrl": "http://cnsm.org.ar",
       "imgName": "cnsm_mockup.png",
-      "description": "Institutional website of a sling club, with a cms system made in PHP to manage booking of services it also has a page with real time data of the tide.",
+      "description": "Institutional website of a sailing club, with a cms system made in PHP to manage booking of services, it also has a page with real time data of the tide on the club.",
       "technologies": ["HTML", "jQuery", "Hosting", "Mailchimp", "PHP"]
     },
     {

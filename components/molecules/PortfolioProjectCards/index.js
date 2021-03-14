@@ -10,6 +10,7 @@ const PortfolioProjectCards = (props) => {
   const card = useRef(null);
   const [isHover, setIsHover] = useState(false);
   const [cardDimensions, setCardDimensions] = useState(null);
+
   const { project } = props;
   const { title, subTitle, imgName, description, liveUrl, ghUrl } = project;
   const { isDarkTheme } = props;
@@ -23,17 +24,19 @@ const PortfolioProjectCards = (props) => {
     rotationAngle: 0, // set a rotation angle
   };
 
-  const { ref } = useSwipeable({
-    onSwiped: (eventData) => console.log('User Swiped!', eventData),
+  const { ref: swipe } = useSwipeable({
+    // onSwiped: (eventData) => {    },
     onSwipedRight: () => setIsHover(true),
     onSwipedLeft: () => setIsHover(false),
-    onTap: () => setIsHover((prev) => !prev),
+    onTap: () => {
+      setIsHover((prev) => !prev);
+    },
     ...swipeableConfig,
   });
 
   useEffect(() => {
-    ref(card.current);
-  }, [ref]);
+    swipe(card.current);
+  }, [swipe]);
 
   const opacity = useSpring({ opacity: 1, from: { opacity: 0 } });
   const slideOut = useSpring({
@@ -57,6 +60,25 @@ const PortfolioProjectCards = (props) => {
     },
   });
 
+  const touchSlideSettings = {
+    reset: true,
+    delay: 1000,
+    from: {
+      transform: isHover ? 'translateX(100px)' : 'translateX(-50px)',
+      opacity: 1,
+    },
+    transform: isHover ? 'translateX(-50px)' : 'translateX(100px)',
+    opacity: 0,
+    config: {
+      tension: 130,
+      friction: 27,
+    },
+  };
+
+  const [touchSlide, setTouchSlide, stop] = useSpring(() => ({
+    ...touchSlideSettings,
+  }));
+
   useEffect(() => {
     setCardDimensions(card.current.getBoundingClientRect());
   }, [isHover]);
@@ -64,7 +86,7 @@ const PortfolioProjectCards = (props) => {
   return (
     <animated.article
       // eslint-disable-next-line react/jsx-props-no-spreading
-      {...ref}
+      {...swipe}
       ref={card}
       style={opacity}
       className={`${style.card} ${theme}`}
@@ -80,6 +102,7 @@ const PortfolioProjectCards = (props) => {
     >
       <div className={`${style.header}`}>
         <div className={style.title}>{title}</div>
+        {isHover ? 'true' : 'false'}
         <animated.div style={slideIn} className={style.subTitle}>
           {subTitle}
         </animated.div>
@@ -114,21 +137,12 @@ const PortfolioProjectCards = (props) => {
           )}
         </div>
       </animated.div>
+      <animated.div className={style.touchHint} style={touchSlide}>
+        <div className={style.circle} />
+        <div className={style.slideEffect} />
+      </animated.div>
     </animated.article>
   );
 };
 
 export default PortfolioProjectCards;
-
-PortfolioProjectCards.propTypes = {
-  isDarkTheme: PropTypes.bool,
-  project: PropTypes.shape({
-    title: PropTypes.string,
-    subTitle: PropTypes.string,
-    imgName: PropTypes.string,
-    description: PropTypes.string,
-    liveUrl: PropTypes.string,
-    ghUrl: PropTypes.string,
-    // technologies: PropTypes.arrayOf(PropTypes.string),
-  }),
-};
