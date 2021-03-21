@@ -1,5 +1,6 @@
 import Head from 'next/head';
 // import dynamic from 'next/dynamic';
+import TicTacToe from '../components/molecules/TicTacToe';
 import Hero from '../components/molecules/Hero';
 import AboutMe from '../components/molecules/AboutMe';
 import { useStateContext } from '../store/store';
@@ -11,11 +12,16 @@ import { useStateContext } from '../store/store';
 //   }
 // );
 
+// const TicTacToe = dynamic(() => import('../components/molecules/TicTacToe'), {
+//   ssr: false,
+// });
+
 export default function Home() {
   const { isDarkTheme } = useStateContext();
 
   return (
     <>
+      <TicTacToe />
       <Head>
         <title>bMunz.dev</title>
       </Head>
