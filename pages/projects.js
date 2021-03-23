@@ -1,7 +1,7 @@
 import Head from 'next/head';
-// import { useState } from 'react';
 import { useStateContext } from '../store/store';
 import PortfolioWrapper from '../components/molecules/PortfolioWrapperCards';
+import TicTacToe from '../components/molecules/TicTacToe';
 
 const Portfolio = () => {
   const state = useStateContext();
@@ -24,6 +24,7 @@ const Portfolio = () => {
         </button>
       </div> */}
       <PortfolioWrapper isDarkTheme={isDarkTheme} projects={projects} />
+      <TicTacToe />
     </>
   );
 };

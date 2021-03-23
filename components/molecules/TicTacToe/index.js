@@ -1,6 +1,6 @@
-import next from 'next';
 import { useState, useEffect } from 'react';
 import { checkWinner, nextMove } from '../../../utils/ticTacToeLogic';
+import Button from '../../atoms/Button';
 
 import styles from './ticTacToe.module.css';
 
@@ -8,10 +8,11 @@ function TicTacToe() {
   const [turn, setTurn] = useState(false);
   const [winner, setWinner] = useState(null);
   const [huPlayer, setHuPlayer] = useState('X');
-  const [aiPlayer, setSiPlayer] = useState('O');
+  const [aiPlayer, setAiPlayer] = useState('O');
+  const [startPlayer, setStartPlayer] = useState(huPlayer);
   const [player, setPlayer] = useState(huPlayer);
   const [moves, setMoves] = useState(0);
-  const [startPlayer, setStartPlayer] = useState(huPlayer);
+  const [isGameUpdated, setIsGameUpdated] = useState(0);
   const [game, setGame] = useState([
     ['', '', ''],
     ['', '', ''],
@@ -28,11 +29,10 @@ function TicTacToe() {
     isWinner: false,
     isTie: false,
     moves: 0,
-    startPlayer: huPlayer,
+    startPlayer,
   };
 
   const drawGame = (board) => {
-    console.log('draw game board', board);
     board[0].forEach((e, i) => {
       if (e != '') {
         switch (i) {
@@ -91,27 +91,30 @@ function TicTacToe() {
     });
   };
 
-  const update = () => {
-    console.log('update');
-    if (checkWinner(game)) {
+  const updateGame = () => {
+    console.log('update game');
+    const isWinner = checkWinner(game, player);
+
+    if (isWinner) {
+      drawGame(game);
       setWinner(player);
     } else {
+      drawGame(game);
       setTurn((prev) => !prev);
+      setMoves((move) => move + 1);
     }
   };
 
   const recordMove = (row, col) => {
-    console.log('record move');
-    setGame((prev) => {
-      prev[row][col] = player;
-      return prev;
+    setGame((board) => {
+      board[row][col] = player;
+      return board;
     });
-    update();
+    setIsGameUpdated((value) => value + 1);
   };
 
   const handleClick = (e) => {
     if (winner) return;
-
     const { row } = e.target.dataset;
     const { col } = e.target.dataset;
     // TODO: add feedback to user that the cell is already filled
@@ -120,15 +123,17 @@ function TicTacToe() {
   };
 
   useEffect(() => {
+    updateGame();
+  }, [isGameUpdated]);
+
+  useEffect(() => {
+    console.log('turn', turn);
     setPlayer(turn ? aiPlayer : huPlayer);
-    drawGame(game);
   }, [turn]);
 
   useEffect(() => {
-    if (player === aiPlayer) {
-      console.log('ai moved');
+    if (player === aiPlayer && moves !== 9 && !winner) {
       const aiMove = nextMove(game, aiPlayer, huPlayer);
-      console.log(aiMove);
       const row = aiMove[0];
       const col = aiMove[1];
       recordMove(row, col, player);
@@ -140,6 +145,8 @@ function TicTacToe() {
     setPlayer(config.startPlayer);
     setGame(config.resetGame);
     setWinner(false);
+    setMoves(0);
+
     const board = document.getElementById('board').children;
     const boardArray = Array.from(board);
     boardArray.forEach((element) => {
@@ -148,7 +155,7 @@ function TicTacToe() {
   };
 
   return (
-    <section className={styles.section}>
+    <div className={styles.section}>
       <h1>Tic Tac Toe</h1>
       <div className={styles.gameWrapper}>
         <div className={styles.gameStats}>
@@ -158,23 +165,35 @@ function TicTacToe() {
               id="player1"
               title="click to change name"
             >
-              p1: {huPlayer}
+              p1:{' '}
+              <span
+              // contentEditable="false"
+              // onBlur={(e) => {
+              //   setHuPlayer(e.target.innerText);
+              // }}
+              >
+                {huPlayer}
+              </span>
             </div>
             <div
               className={styles.player}
               id="player2"
               title="click to change name"
             >
-              p2: {aiPlayer}
+              p2:{' '}
+              <span
+              // contentEditable="false"
+              // onBlur={(e) => {
+              //   setAiPlayer(e.target.innerText);
+              // }}
+              >
+                {aiPlayer}
+              </span>
             </div>
-            Winner: {winner}
           </div>
           <div className="stats">
             <div>Turn: {player}</div>
-            <div>
-              Moves Left: <span id="moves" />
-            </div>
-            <div id="turn" />
+            <div>Moves Left: {9 - moves}</div>
           </div>
         </div>
         <div className={styles.boardWrapper}>
@@ -255,11 +274,16 @@ function TicTacToe() {
         </div>
       </div>
       <div className="modal">
-        <button id="reset_game_button" onClick={handleResetGame}>
-          Play Again
-        </button>
+        {winner && <div>Winner: {winner}</div>}
+        {(winner || moves === 9) && (
+          <div>
+            <Button id="reset_game_button" onClick={handleResetGame}>
+              Play Again
+            </Button>
+          </div>
+        )}
       </div>
-    </section>
+    </div>
   );
 }
 

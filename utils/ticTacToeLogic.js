@@ -8,7 +8,6 @@ const availableMoves = (board) => {
       e == '' && emptyCells.push([index, i]);
     });
   });
-
   return emptyCells;
 };
 
@@ -73,10 +72,10 @@ function minimax(newBoard, player, aiPlayer, huPlayer) {
     newBoard[availSpots[i][0]][availSpots[i][1]] = player;
 
     if (player === aiPlayer) {
-      const result = minimax(newBoard, huPlayer);
+      const result = minimax(newBoard, huPlayer, aiPlayer, huPlayer);
       move.score = result.score;
     } else {
-      const result = minimax(newBoard, aiPlayer);
+      const result = minimax(newBoard, aiPlayer, aiPlayer, huPlayer);
       move.score = result.score;
     }
 
@@ -110,7 +109,6 @@ function minimax(newBoard, player, aiPlayer, huPlayer) {
 export const nextMove = (game, aiPlayer, huPlayer) => {
   const copyGame = [...game];
   const bestMove = minimax(copyGame, aiPlayer, aiPlayer, huPlayer).index;
-  console.log('minimax', bestMove);
 
   return bestMove;
 
