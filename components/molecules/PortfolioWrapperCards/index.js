@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import PortfolioProjectCards from '../PortfolioProjectCards';
+import PortfolioProjectCard from '../PortfolioProjectCard';
 import style from './portfolioWrapperCards.module.css';
 
 const PortfolioWrapperCards = ({ projects, isDarkTheme }) => (
   <section className={style.cardsWrapper}>
     {projects.map((project, i) => (
-      <PortfolioProjectCards
+      <PortfolioProjectCard
         key={i}
         project={project}
         isDarkTheme={isDarkTheme}

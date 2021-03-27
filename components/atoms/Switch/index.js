@@ -1,14 +1,14 @@
-import { HiSun, HiMoon } from 'react-icons/hi';
 import { useStateDispatch } from '../../../store/store';
 import style from './switch.module.css';
 
-export default function Switch({ isDarkTheme }) {
+export default function Switch(props) {
   const dispatch = useStateDispatch();
+  const { value, type, children } = props;
 
   function handleChange() {
     dispatch({
-      type: 'SWITCH_THEME',
-      payload: !isDarkTheme,
+      type,
+      payload: value,
     });
   }
 
@@ -25,7 +25,7 @@ export default function Switch({ isDarkTheme }) {
       tabIndex="0"
       data-testid="switch"
     >
-      {isDarkTheme ? <HiSun /> : <HiMoon />}
+      {children}
     </div>
   );
 }

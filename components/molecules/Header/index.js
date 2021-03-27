@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { HiSun, HiMoon } from 'react-icons/hi';
 import { useStateContext } from '../../../store/store';
 import Burger from '../../atoms/Burger';
 import style from './header.module.css';
@@ -10,7 +11,7 @@ import Menu from '../Menu';
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState();
   const [windowSize, setWindowSize] = useState();
-  const { isDarkTheme } = useStateContext();
+  const { isDarkTheme, showTicTacToe } = useStateContext();
   const theme = isDarkTheme ? style.dark : style.light;
 
   useEffect(() => {
@@ -55,7 +56,12 @@ const Header = () => {
               <Burger />
             </>
           )}
-          <Switch isDarkTheme={isDarkTheme} />
+          <Switch value={!isDarkTheme} type="SWITCH_THEME">
+            {isDarkTheme ? <HiSun /> : <HiMoon />}
+          </Switch>
+          <Switch value={!showTicTacToe} type="SWITCH_GAME">
+            #
+          </Switch>
         </div>
       </div>
     </header>

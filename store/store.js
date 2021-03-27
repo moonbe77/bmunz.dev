@@ -6,13 +6,14 @@ export const StateContext = createContext();
 const StateDispatcher = createContext();
 
 const reducer = (state, action) => {
+  console.log(action);
   switch (action.type) {
-    case 'UPDATE_NAME':
-      return { name: action.payload };
     case 'TOGGLE_SIDE_MENU':
       return { ...state, showSideMenu: action.payload };
     case 'SWITCH_THEME':
       return { ...state, isDarkTheme: action.payload };
+    case 'SWITCH_GAME':
+      return { showTicTacToe: action.payload };
     default:
       throw new Error(`Unknown action: ${action.type}`);
   }
@@ -24,6 +25,7 @@ const initialState = {
   projects: projects.data,
   showSideMenu: false,
   menu: [...menuItems],
+  showTicTacToe: true,
 };
 
 export const StateProvider = ({ children }) => {

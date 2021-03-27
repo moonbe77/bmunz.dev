@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
 import { useSwipeable } from 'react-swipeable';
 import Button from '../../atoms/Button';
-import style from './portfolioProjectCards.module.css';
+import style from './portfolioProjectCard.module.css';
 
-const PortfolioProjectCards = (props) => {
+const PortfolioProjectCard = (props) => {
   const card = useRef(null);
   const [isHover, setIsHover] = useState(false);
   const [cardDimensions, setCardDimensions] = useState(null);
@@ -145,4 +145,4 @@ const PortfolioProjectCards = (props) => {
   );
 };
 
-export default PortfolioProjectCards;
+export default PortfolioProjectCard;

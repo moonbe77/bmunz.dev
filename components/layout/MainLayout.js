@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import { FaSpotify, FaPlayCircle } from 'react-icons/fa';
 import { useStateContext } from '../../store/store';
 import Header from '../molecules/Header';
+import TicTacToe from '../molecules/TicTacToe';
 import { initGA, logPageView } from '../../utils/analytics';
 import style from './layout.module.css';
 
 export default function Layout({ children }) {
-  const { isDarkTheme } = useStateContext();
+  const { isDarkTheme, showTicTacToe } = useStateContext();
   const theme = isDarkTheme ? style.dark : style.light;
   const [lastSong, setLastSong] = useState(null);
   const [playing, setPlaying] = useState(null);
@@ -21,7 +22,7 @@ export default function Layout({ children }) {
     logPageView();
   }, [router]);
 
-  // spotify
+  // spotify top 10 tracks
   useEffect(() => {
     fetch('/api/top-tracks')
       .then((res) => res.json())
@@ -29,18 +30,20 @@ export default function Layout({ children }) {
       .catch((err) => console.log(err));
   }, [setLastSong]);
 
-  // spotify
+  // spotify playing now
   useEffect(() => {
     fetch('/api/playing-now')
       .then((res) => res.json())
       .then((res) => setPlaying(res))
       .catch((err) => console.log(err));
   }, [setPlaying]);
+
   return (
     <div className={`${theme}`}>
       <div className={`${style.container}`}>
         <Header />
         <main className={style.content}>{children}</main>
+        {showTicTacToe && <TicTacToe />}
 
         <footer className={style.footer}>
           <div className={style.contact}>

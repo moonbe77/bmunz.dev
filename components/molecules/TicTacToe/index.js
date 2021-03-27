@@ -1,18 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import { checkWinner, nextMove } from '../../../utils/ticTacToeLogic';
 import Button from '../../atoms/Button';
 
 import styles from './ticTacToe.module.css';
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'TOGGLE_TURN':
+      return !state;
+    default:
+      throw new Error();
+  }
+};
+
 function TicTacToe() {
-  const [turn, setTurn] = useState(false);
+  const [turn, dispatch] = useReducer(reducer, false);
   const [winner, setWinner] = useState(null);
   const [huPlayer, setHuPlayer] = useState('X');
   const [aiPlayer, setAiPlayer] = useState('O');
   const [startPlayer, setStartPlayer] = useState(huPlayer);
-  const [player, setPlayer] = useState(huPlayer);
+  // const [player, setPlayer] = useState(huPlayer);
   const [moves, setMoves] = useState(0);
-  const [isGameUpdated, setIsGameUpdated] = useState(0);
+  const [movesHistory, setMovesHistory] = useState([]);
+  const [isGameRecorded, setIsGameRecorded] = useState(0);
   const [game, setGame] = useState([
     ['', '', ''],
     ['', '', ''],
@@ -91,26 +101,47 @@ function TicTacToe() {
     });
   };
 
-  const updateGame = () => {
-    console.log('update game');
-    const isWinner = checkWinner(game, player);
+  // const updateGame = () => {
+  //   console.log('update game fn');
+  //   const player = turn ? aiPlayer : huPlayer;
+  //   const isWinner = checkWinner(game, player);
+  //   console.log('isWinner', isWinner);
 
-    if (isWinner) {
-      drawGame(game);
-      setWinner(player);
-    } else {
-      drawGame(game);
-      setTurn((prev) => !prev);
-      setMoves((move) => move + 1);
-    }
-  };
+  //   if (isWinner) {
+  //     setWinner(player);
+  //   } else {
+  //     setMoves((move) => move + 1);
+  //   }
+  // };
 
-  const recordMove = (row, col) => {
+  const recordMove = (row, col, p) => {
+    console.log('record move fn');
+    const player = turn ? aiPlayer : huPlayer;
+
     setGame((board) => {
       board[row][col] = player;
       return board;
     });
-    setIsGameUpdated((value) => value + 1);
+    setMoves((move) => move + 1);
+    setMovesHistory((prev) => [...prev, [row, col, player]]);
+    const isWinner = checkWinner(game, player);
+    console.log('isWinner', isWinner);
+    if (isWinner) {
+      setWinner(player);
+    } else {
+      setIsGameRecorded((prev) => prev + 1);
+    }
+  };
+
+  const aiMakesMove = () => {
+    if (moves !== 9 && !winner) {
+      console.log('ai makes move');
+      const aiMove = nextMove(game, aiPlayer, huPlayer);
+      const row = aiMove[0];
+      const col = aiMove[1];
+      recordMove(row, col);
+      dispatch({ type: 'TOGGLE_TURN' });
+    }
   };
 
   const handleClick = (e) => {
@@ -120,29 +151,38 @@ function TicTacToe() {
     // TODO: add feedback to user that the cell is already filled
     if (e.target.innerText !== '') return; // prevent click on filled cell
     recordMove(row, col);
+    dispatch({ type: 'TOGGLE_TURN' });
   };
 
   useEffect(() => {
-    updateGame();
-  }, [isGameUpdated]);
+    // this is to skip the asynchronous of hooks
+    console.log('isGameRecorded useEffect');
+    drawGame(game);
+    // const player = turn ? huPlayer : aiPlayer;
+    // console.log(game, player);
+    // const isWinner = checkWinner(game, player);
+    // console.log('isWinner', isWinner);
+
+    // if (isWinner) {
+    //   setWinner(player);
+    // } else {
+    //   setMoves((move) => move + 1);
+    // }
+  }, [isGameRecorded]);
 
   useEffect(() => {
-    console.log('turn', turn);
-    setPlayer(turn ? aiPlayer : huPlayer);
+    console.log('useEffect turn >>>> ', turn);
+
+    if (turn) {
+      aiMakesMove();
+    } else {
+      console.log('waiting for use move');
+    }
   }, [turn]);
 
-  useEffect(() => {
-    if (player === aiPlayer && moves !== 9 && !winner) {
-      const aiMove = nextMove(game, aiPlayer, huPlayer);
-      const row = aiMove[0];
-      const col = aiMove[1];
-      recordMove(row, col, player);
-    }
-  }, [player]);
-
   const handleResetGame = () => {
-    setTurn(false);
-    setPlayer(config.startPlayer);
+    dispatch({ type: 'TOGGLE_TURN' });
+    // setPlayer(config.startPlayer);
     setGame(config.resetGame);
     setWinner(false);
     setMoves(0);
@@ -156,7 +196,11 @@ function TicTacToe() {
 
   return (
     <div className={styles.section}>
-      <h1>Tic Tac Toe</h1>
+      <div>
+        <h2>TicTacToe - minimax algo</h2>
+        <h4>play it against the computer</h4>
+      </div>
+
       <div className={styles.gameWrapper}>
         <div className={styles.gameStats}>
           <div className={styles.players}>
@@ -192,8 +236,8 @@ function TicTacToe() {
             </div>
           </div>
           <div className="stats">
-            <div>Turn: {player}</div>
-            <div>Moves Left: {9 - moves}</div>
+            <div>Turn: {turn ? aiPlayer : huPlayer}</div>
+            <div>Moves : {moves}</div>
           </div>
         </div>
         <div className={styles.boardWrapper}>
