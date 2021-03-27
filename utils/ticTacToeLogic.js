@@ -11,7 +11,7 @@ const availableMoves = (board) => {
   return emptyCells;
 };
 
-export const checkWinner = (board, ply) => {
+export const checkWinner = (board, ply) => {  
   const r1c1 = board[0][0] === ply;
   const r1c2 = board[0][1] === ply;
   const r1c3 = board[0][2] === ply;

@@ -5,15 +5,52 @@ import { menuItems } from '../utils/menuData';
 export const StateContext = createContext();
 const StateDispatcher = createContext();
 
+const gameReset = {
+  game: [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', ''],
+  ],
+  gTurn: false,
+  gWinner: null,
+  gMovesHistory: null,
+  gMoves: 0,
+};
 const reducer = (state, action) => {
-  console.log(action);
   switch (action.type) {
     case 'TOGGLE_SIDE_MENU':
       return { ...state, showSideMenu: action.payload };
     case 'SWITCH_THEME':
       return { ...state, isDarkTheme: action.payload };
     case 'SWITCH_GAME':
-      return { showTicTacToe: action.payload };
+      return { ...state, showTicTacToe: action.payload };
+    case 'ADD_GAME_MOVE':
+      return { ...state, game: action.payload };
+    case 'ADD_GAME_HISTORY':
+      return {
+        ...state,
+        gMovesHistory: [state.gMovesHistory, action.payload],
+      };
+    case 'TOGGLE_GAME_TURN':
+      return { ...state, gTurn: !state.gTurn };
+    case 'RESET_GAME':
+      const reset = gameReset;
+      return {
+        ...state,
+        ...{
+          game: [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', ''],
+          ],
+          gTurn: false,
+          gWinner: null,
+          gMovesHistory: null,
+          gMoves: 0,
+        },
+      };
+    case 'ADD_GAME_WINNER':
+      return { ...state, gWinner: action.payload };
     default:
       throw new Error(`Unknown action: ${action.type}`);
   }
@@ -25,7 +62,16 @@ const initialState = {
   projects: projects.data,
   showSideMenu: false,
   menu: [...menuItems],
-  showTicTacToe: true,
+  showTicTacToe: false,
+  game: [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', ''],
+  ],
+  gTurn: false, // game turn
+  gWinner: null,
+  gMovesHistory: null,
+  gMoves: 0,
 };
 
 export const StateProvider = ({ children }) => {

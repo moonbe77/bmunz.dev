@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useStateContext, useStateDispatch } from '../../../store/store';
+import { useStateContext } from '../../../store/store';
 import style from './Menu.module.css';
 
 export default function Menu() {

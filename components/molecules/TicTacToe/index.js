@@ -1,46 +1,30 @@
 import { useState, useEffect, useReducer } from 'react';
 import { checkWinner, nextMove } from '../../../utils/ticTacToeLogic';
+import { useStateContext, useStateDispatch } from '../../../store/store';
 import Button from '../../atoms/Button';
 
 import styles from './ticTacToe.module.css';
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'TOGGLE_TURN':
-      return !state;
-    default:
-      throw new Error();
-  }
-};
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case 'TOGGLE_TURN':
+//       return !state;
+//     default:
+//       throw new Error();
+//   }
+// };
 
 function TicTacToe() {
-  const [turn, dispatch] = useReducer(reducer, false);
-  const [winner, setWinner] = useState(null);
+  const { game, gTurn, gWinner } = useStateContext();
+  const dispatch = useStateDispatch();
+
+  // const [winner, setWinner] = useState(null);
   const [huPlayer, setHuPlayer] = useState('X');
   const [aiPlayer, setAiPlayer] = useState('O');
   const [startPlayer, setStartPlayer] = useState(huPlayer);
-  // const [player, setPlayer] = useState(huPlayer);
   const [moves, setMoves] = useState(0);
   const [movesHistory, setMovesHistory] = useState([]);
   const [isGameRecorded, setIsGameRecorded] = useState(0);
-  const [game, setGame] = useState([
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', ''],
-  ]);
-
-  const config = {
-    resetGame: [
-      ['', '', ''],
-      ['', '', ''],
-      ['', '', ''],
-    ],
-    turn: false,
-    isWinner: false,
-    isTie: false,
-    moves: 0,
-    startPlayer,
-  };
 
   const drawGame = (board) => {
     board[0].forEach((e, i) => {
@@ -101,91 +85,62 @@ function TicTacToe() {
     });
   };
 
-  // const updateGame = () => {
-  //   console.log('update game fn');
-  //   const player = turn ? aiPlayer : huPlayer;
-  //   const isWinner = checkWinner(game, player);
-  //   console.log('isWinner', isWinner);
-
-  //   if (isWinner) {
-  //     setWinner(player);
-  //   } else {
-  //     setMoves((move) => move + 1);
-  //   }
-  // };
-
-  const recordMove = (row, col, p) => {
+  const recordMove = (row, col, player) => {
     console.log('record move fn');
-    const player = turn ? aiPlayer : huPlayer;
-
-    setGame((board) => {
-      board[row][col] = player;
-      return board;
-    });
-    setMoves((move) => move + 1);
-    setMovesHistory((prev) => [...prev, [row, col, player]]);
+    const newBoard = [...game];
+    newBoard[row][col] = player;
+    dispatch({ type: 'ADD_GAME_MOVE', payload: [...newBoard] });
+    dispatch({ type: 'ADD_GAME_HISTORY', payload: [row, col, player] });
     const isWinner = checkWinner(game, player);
-    console.log('isWinner', isWinner);
     if (isWinner) {
-      setWinner(player);
+      drawGame(game);
+      dispatch({ type: 'ADD_GAME_WINNER', payload: player });
     } else {
       setIsGameRecorded((prev) => prev + 1);
     }
   };
 
   const aiMakesMove = () => {
-    if (moves !== 9 && !winner) {
+    if (moves !== 9 && !gWinner) {
       console.log('ai makes move');
+      console.log(game);
       const aiMove = nextMove(game, aiPlayer, huPlayer);
       const row = aiMove[0];
       const col = aiMove[1];
-      recordMove(row, col);
-      dispatch({ type: 'TOGGLE_TURN' });
+      recordMove(row, col, aiPlayer);
+      dispatch({ type: 'TOGGLE_GAME_TURN' });
     }
   };
 
   const handleClick = (e) => {
-    if (winner) return;
+    if (gWinner) return;
     const { row } = e.target.dataset;
     const { col } = e.target.dataset;
     // TODO: add feedback to user that the cell is already filled
     if (e.target.innerText !== '') return; // prevent click on filled cell
-    recordMove(row, col);
-    dispatch({ type: 'TOGGLE_TURN' });
+    recordMove(row, col, huPlayer);
+    dispatch({
+      type: 'TOGGLE_GAME_TURN',
+    });
   };
 
   useEffect(() => {
     // this is to skip the asynchronous of hooks
-    console.log('isGameRecorded useEffect');
     drawGame(game);
-    // const player = turn ? huPlayer : aiPlayer;
-    // console.log(game, player);
-    // const isWinner = checkWinner(game, player);
-    // console.log('isWinner', isWinner);
-
-    // if (isWinner) {
-    //   setWinner(player);
-    // } else {
-    //   setMoves((move) => move + 1);
-    // }
   }, [isGameRecorded]);
 
   useEffect(() => {
-    console.log('useEffect turn >>>> ', turn);
+    console.log('useEffect turn >>>> ', gTurn);
 
-    if (turn) {
+    if (gTurn) {
       aiMakesMove();
     } else {
       console.log('waiting for use move');
     }
-  }, [turn]);
+  }, [gTurn]);
 
   const handleResetGame = () => {
-    dispatch({ type: 'TOGGLE_TURN' });
-    // setPlayer(config.startPlayer);
-    setGame(config.resetGame);
-    setWinner(false);
-    setMoves(0);
+    dispatch({ type: 'RESET_GAME' });
 
     const board = document.getElementById('board').children;
     const boardArray = Array.from(board);
@@ -236,7 +191,7 @@ function TicTacToe() {
             </div>
           </div>
           <div className="stats">
-            <div>Turn: {turn ? aiPlayer : huPlayer}</div>
+            <div>Turn: {gTurn ? aiPlayer : huPlayer}</div>
             <div>Moves : {moves}</div>
           </div>
         </div>
@@ -318,8 +273,8 @@ function TicTacToe() {
         </div>
       </div>
       <div className="modal">
-        {winner && <div>Winner: {winner}</div>}
-        {(winner || moves === 9) && (
+        {gWinner && <div>Winner: {gWinner}</div>}
+        {(gWinner || moves === 9) && (
           <div>
             <Button id="reset_game_button" onClick={handleResetGame}>
               Play Again

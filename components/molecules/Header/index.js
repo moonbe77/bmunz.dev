@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { HiSun, HiMoon } from 'react-icons/hi';
+import { GiTicTacToe } from 'react-icons/gi';
 import { useStateContext } from '../../../store/store';
 import Burger from '../../atoms/Burger';
 import style from './header.module.css';
@@ -60,7 +61,7 @@ const Header = () => {
             {isDarkTheme ? <HiSun /> : <HiMoon />}
           </Switch>
           <Switch value={!showTicTacToe} type="SWITCH_GAME">
-            #
+            <GiTicTacToe />
           </Switch>
         </div>
       </div>
