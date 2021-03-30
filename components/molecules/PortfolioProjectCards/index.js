@@ -102,7 +102,6 @@ const PortfolioProjectCards = (props) => {
     >
       <div className={`${style.header}`}>
         <div className={style.title}>{title}</div>
-        {isHover ? 'true' : 'false'}
         <animated.div style={slideIn} className={style.subTitle}>
           {subTitle}
         </animated.div>
