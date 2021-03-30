@@ -24,7 +24,7 @@ export default function AboutMe({ isDarkTheme }) {
           </p>
           <p className={style.paragraph}>
             I’m an electronic technician looking for a change in my career, I’ve
-            been working in manufacturing & testing of high tech, solving
+            been working in manufacturing & testing of high tech products for 16 years, solving
             problems, debugging and thinking out of the box is some of the
             things that I learned and will carry with me in this new journey.
           </p>
