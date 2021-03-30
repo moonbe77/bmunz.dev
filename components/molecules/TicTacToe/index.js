@@ -16,12 +16,22 @@ import styles from './ticTacToe.module.css';
 // };
 
 function TicTacToe() {
-  const { game, gTurn, gWinner, gMoves, gIsTie } = useStateContext();
+  const {
+    game,
+    gTurn,
+    gWinner,
+    gMoves,
+    gIsTie,
+    isDarkTheme,
+  } = useStateContext();
   const dispatch = useStateDispatch();
-  const [huPlayer, setHuPlayer] = useState('X');
-  const [aiPlayer, setAiPlayer] = useState('O');
+  const [huPlayer, setHuPlayer] = useState('🤩');
+  const [aiPlayer, setAiPlayer] = useState('🤖');
   const [moves, setMoves] = useState(0);
   const [isGameRecorded, setIsGameRecorded] = useState(0);
+
+  const theme = isDarkTheme ? styles.dark : styles.light;
+  const themeInverted = !isDarkTheme ? styles.dark : styles.light;
 
   const drawGame = (board) => {
     // TODO:improve this function
@@ -126,7 +136,7 @@ function TicTacToe() {
 
   useEffect(() => {
     if (gTurn && gMoves < 9) {
-      aiMakesMove();
+      setTimeout(aiMakesMove(), 5000);
     }
 
     if (gMoves === 9 && !gWinner) {
@@ -147,58 +157,60 @@ function TicTacToe() {
   const handleKeydown = (e) => {
     console.log(e);
   };
+  const handleCloseGame = () => {
+    dispatch({ type: 'SWITCH_GAME' });
+  };
 
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} ${theme}`}>
+      <div
+        className={styles.closeButton}
+        onClick={handleCloseGame}
+        onKeyDown={handleKeydown}
+        role="button"
+        aria-pressed="false"
+        tabIndex="0"
+        aria-label=" Tic Tac Toe Close Button"
+      >
+        &#10007;
+      </div>
       <div>
-        <h2>TicTacToe - minimax algo</h2>
-        <h4>play it against the computer</h4>
+        <h2>Tic Tac Toe</h2>
+        <h4>play against the machine</h4>
       </div>
 
       <div className={styles.gameWrapper}>
         <div className={styles.gameStats}>
           <div className={styles.players}>
             <div
-              className={styles.player}
+              className={styles.statsBox}
               id="player1"
               title="click to change name"
             >
-              p1:{' '}
-              <span
-              // contentEditable="false"
-              // onBlur={(e) => {
-              //   setHuPlayer(e.target.innerText);
-              // }}
-              >
-                {huPlayer}
-              </span>
+              Human: <span>{huPlayer}</span>
             </div>
             <div
-              className={styles.player}
+              className={styles.statsBox}
               id="player2"
               title="click to change name"
             >
-              p2:{' '}
-              <span
-              // contentEditable="false"
-              // onBlur={(e) => {
-              //   setAiPlayer(e.target.innerText);
-              // }}
-              >
-                {aiPlayer}
-              </span>
+              Computer: <span>{aiPlayer}</span>
             </div>
           </div>
           <div className="stats">
-            <div>Turn: {gTurn ? aiPlayer : huPlayer}</div>
-            <div>Moves : {moves}</div>
+            {/* <div className={styles.statsBox}>
+              Turn: {gTurn ? aiPlayer : huPlayer}
+            </div> */}
+            <div className={styles.statsBox}>Moves Left: {9 - gMoves}</div>
           </div>
         </div>
         <div className={styles.boardWrapper}>
           <div id="board" className={styles.board}>
             {Array.of(1, 2, 3).map((item, i) => (
               <Cell
+                key={item}
                 id={item}
+                className={`${theme}`}
                 dataRow={0}
                 dataCol={i}
                 handleClick={handleClick}
@@ -207,6 +219,7 @@ function TicTacToe() {
             ))}
             {Array.of(4, 5, 6).map((item, i) => (
               <Cell
+                key={item}
                 id={item}
                 dataRow={1}
                 dataCol={i}
@@ -216,6 +229,7 @@ function TicTacToe() {
             ))}
             {Array.of(7, 8, 9).map((item, i) => (
               <Cell
+                key={item}
                 id={item}
                 dataRow={2}
                 dataCol={i}
@@ -226,8 +240,8 @@ function TicTacToe() {
           </div>
         </div>
       </div>
-      <div className="modal">
-        {gWinner && <div>Winner: {gWinner}</div>}
+      <div className={`${styles.gameReset}`}>
+        {gWinner && <div>The Winner Is {gWinner}</div>}
         {gIsTie && <div> game is draw</div>}
         {(gWinner || gIsTie) && (
           <div>

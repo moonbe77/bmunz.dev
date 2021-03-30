@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import Head from 'next/head';
 import { StateProvider } from '../store/store';
-import Layout from '../components/layout/MainLayout';
+import Layout from '../components/Layout';
 import '../styles/normalize.css';
 import '../styles/globals.css';
 

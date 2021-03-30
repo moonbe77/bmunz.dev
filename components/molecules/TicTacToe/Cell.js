@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './ticTacToe.module.css';
 
 function Cell(props) {
   const { handleClick, dataRow, dataCol, handleKeydown, id } = props;
@@ -7,7 +8,7 @@ function Cell(props) {
   return (
     <div
       id={id}
-      className="cell"
+      className={styles.cell}
       role="button"
       onClick={handleClick}
       data-row={dataRow}

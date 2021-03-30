@@ -27,13 +27,14 @@ a {
   --textLight-7: rgba(77, 76, 76, 0.7);
   --backgroundLight: #f0f0f0;
   --backgroundDark: #485461;
-  --backgroundTransparent: rgba(0, 0, 0, 0.06 );
+  --backgroundTransparent: rgba(0, 0, 0, 0.06);
   --backgroundLightGradient: linear-gradient(116.93deg, #5192DB 0%, #8CBCF1 30.28%, #B5D6FB 71.63%, #D3E8FF 92.3%);
   --backgroundDarkGradient: linear-gradient(116.93deg, #D3E8FF 0%, #5B8DC4 19.23%, #245892 45.19%, #143D6B 67.78%, #041F3C 92.3%);
   /* --backgroundLightGradient: linear-gradient(116.93deg, #28313B 0%,#7A7F85 15%, #FFFFFF 92.3%); */
   /* --backgroundDarkGradient:  linear-gradient(116.93deg, #B7B7B7 0%, #7A7F85 18.27%, #28313B 92.3%); */
   --xSmallScreen: 375px;
   --smallScreen: 780px;
+  --mediumLarge: 840px;
   --mediumScreen: 1024px;
   --buttonGradient: linear-gradient(90deg, #575988 0%, #6C63FF 100%);
   --random-x1: 2em;

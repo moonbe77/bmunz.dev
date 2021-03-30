@@ -26,7 +26,7 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    if (windowSize <= 840) {
+    if (windowSize <= 875) {
       setShowMobileMenu(true);
       return;
     }

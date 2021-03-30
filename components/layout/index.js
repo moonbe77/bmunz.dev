@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { FaSpotify, FaPlayCircle } from 'react-icons/fa';
+import { useTransition, useSpring, animated } from 'react-spring';
 import { useStateContext } from '../../store/store';
 import Header from '../molecules/Header';
 import TicTacToe from '../molecules/TicTacToe';
@@ -14,6 +15,14 @@ export default function Layout({ children }) {
   const [lastSong, setLastSong] = useState(null);
   const [playing, setPlaying] = useState(null);
   const router = useRouter();
+  const fade = useSpring({ opacity: 1, from: { opacity: 0 } });
+
+  const transitions = useTransition(showTicTacToe, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  });
+
   useEffect(() => {
     if (!window.GA_INITIALIZED) {
       initGA();
@@ -39,12 +48,22 @@ export default function Layout({ children }) {
   }, [setPlaying]);
 
   return (
-    <div className={`${theme}`}>
+    <animated.div style={fade} className={`${theme}`}>
       <div className={`${style.container}`}>
         <Header />
         <main className={style.content}>{children}</main>
-        {showTicTacToe && <TicTacToe />}
-
+        {transitions.map(
+          ({ item, key, props }) =>
+            item && (
+              <animated.div
+                className={style.gameWrapper}
+                key={key}
+                style={props}
+              >
+                <TicTacToe />
+              </animated.div>
+            )
+        )}
         <footer className={style.footer}>
           <div className={style.contact}>
             <div
@@ -94,7 +113,6 @@ export default function Layout({ children }) {
             </div>
           </div>
         </footer>
-
         <div className={`${style.elipse} ${style.elipse1}`}>
           <img src="/figma/elipses/Ellipse1.svg" alt="" srcSet="" />
         </div>
@@ -105,6 +123,10 @@ export default function Layout({ children }) {
           <img src="/figma/elipses/Ellipse3.svg" alt="" srcSet="" />
         </div>
       </div>
-    </div>
+    </animated.div>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.node,
+};
