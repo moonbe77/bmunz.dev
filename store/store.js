@@ -62,7 +62,7 @@ const initialState = {
   projects: projects.data,
   showSideMenu: false,
   menu: [...menuItems],
-  showTicTacToe: false,
+  showTicTacToe: falsegit p,
   game: [
     ['', '', ''],
     ['', '', ''],
