@@ -5,17 +5,6 @@ import { menuItems } from '../utils/menuData';
 export const StateContext = createContext();
 const StateDispatcher = createContext();
 
-const gameReset = {
-  game: [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', ''],
-  ],
-  gTurn: false,
-  gWinner: null,
-  gMovesHistory: null,
-  gMoves: 0,
-};
 const reducer = (state, action) => {
   switch (action.type) {
     case 'TOGGLE_SIDE_MENU':
@@ -25,7 +14,10 @@ const reducer = (state, action) => {
     case 'SWITCH_GAME':
       return { ...state, showTicTacToe: action.payload };
     case 'ADD_GAME_MOVE':
-      return { ...state, game: action.payload };
+      return {
+        ...state,
+        ...{ game: action.payload, gMoves: state.gMoves + 1 },
+      };
     case 'ADD_GAME_HISTORY':
       return {
         ...state,
@@ -33,8 +25,11 @@ const reducer = (state, action) => {
       };
     case 'TOGGLE_GAME_TURN':
       return { ...state, gTurn: !state.gTurn };
+    case 'ADD_GAME_WINNER':
+      return { ...state, gWinner: action.payload };
+    case 'ADD_GAME_DRAW':
+      return { ...state, gIsTie: action.payload };
     case 'RESET_GAME':
-      const reset = gameReset;
       return {
         ...state,
         ...{
@@ -45,12 +40,11 @@ const reducer = (state, action) => {
           ],
           gTurn: false,
           gWinner: null,
+          gIsTie: false,
           gMovesHistory: null,
           gMoves: 0,
         },
       };
-    case 'ADD_GAME_WINNER':
-      return { ...state, gWinner: action.payload };
     default:
       throw new Error(`Unknown action: ${action.type}`);
   }
@@ -62,7 +56,7 @@ const initialState = {
   projects: projects.data,
   showSideMenu: false,
   menu: [...menuItems],
-  showTicTacToe: false,
+  showTicTacToe: true,
   game: [
     ['', '', ''],
     ['', '', ''],
@@ -70,6 +64,7 @@ const initialState = {
   ],
   gTurn: false, // game turn
   gWinner: null,
+  gIsTie: false,
   gMovesHistory: null,
   gMoves: 0,
 };

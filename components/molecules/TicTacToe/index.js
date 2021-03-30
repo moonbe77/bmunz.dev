@@ -1,6 +1,7 @@
 import { useState, useEffect, useReducer } from 'react';
 import { checkWinner, nextMove } from '../../../utils/ticTacToeLogic';
 import { useStateContext, useStateDispatch } from '../../../store/store';
+import Cell from './Cell';
 import Button from '../../atoms/Button';
 
 import styles from './ticTacToe.module.css';
@@ -15,18 +16,15 @@ import styles from './ticTacToe.module.css';
 // };
 
 function TicTacToe() {
-  const { game, gTurn, gWinner } = useStateContext();
+  const { game, gTurn, gWinner, gMoves, gIsTie } = useStateContext();
   const dispatch = useStateDispatch();
-
-  // const [winner, setWinner] = useState(null);
   const [huPlayer, setHuPlayer] = useState('X');
   const [aiPlayer, setAiPlayer] = useState('O');
-  const [startPlayer, setStartPlayer] = useState(huPlayer);
   const [moves, setMoves] = useState(0);
-  const [movesHistory, setMovesHistory] = useState([]);
   const [isGameRecorded, setIsGameRecorded] = useState(0);
 
   const drawGame = (board) => {
+    // TODO:improve this function
     board[0].forEach((e, i) => {
       if (e != '') {
         switch (i) {
@@ -86,7 +84,6 @@ function TicTacToe() {
   };
 
   const recordMove = (row, col, player) => {
-    console.log('record move fn');
     const newBoard = [...game];
     newBoard[row][col] = player;
     dispatch({ type: 'ADD_GAME_MOVE', payload: [...newBoard] });
@@ -102,8 +99,6 @@ function TicTacToe() {
 
   const aiMakesMove = () => {
     if (moves !== 9 && !gWinner) {
-      console.log('ai makes move');
-      console.log(game);
       const aiMove = nextMove(game, aiPlayer, huPlayer);
       const row = aiMove[0];
       const col = aiMove[1];
@@ -130,12 +125,12 @@ function TicTacToe() {
   }, [isGameRecorded]);
 
   useEffect(() => {
-    console.log('useEffect turn >>>> ', gTurn);
-
-    if (gTurn) {
+    if (gTurn && gMoves < 9) {
       aiMakesMove();
-    } else {
-      console.log('waiting for use move');
+    }
+
+    if (gMoves === 9 && !gWinner) {
+      dispatch({ type: 'ADD_GAME_DRAW', payload: true });
     }
   }, [gTurn]);
 
@@ -147,6 +142,10 @@ function TicTacToe() {
     boardArray.forEach((element) => {
       element.innerText = '';
     });
+  };
+
+  const handleKeydown = (e) => {
+    console.log(e);
   };
 
   return (
@@ -197,84 +196,40 @@ function TicTacToe() {
         </div>
         <div className={styles.boardWrapper}>
           <div id="board" className={styles.board}>
-            <div
-              className="cell"
-              id="1"
-              onClick={handleClick}
-              role="button"
-              data-row="0"
-              data-col="0"
-            />
-            <div
-              className="cell"
-              id="2"
-              onClick={handleClick}
-              role="button"
-              data-row="0"
-              data-col="1"
-            />
-            <div
-              className="cell"
-              id="3"
-              onClick={handleClick}
-              role="button"
-              data-row="0"
-              data-col="2"
-            />
-            <div
-              className="cell"
-              id="4"
-              onClick={handleClick}
-              role="button"
-              data-row="1"
-              data-col="0"
-            />
-            <div
-              className="cell"
-              id="5"
-              onClick={handleClick}
-              role="button"
-              data-row="1"
-              data-col="1"
-            />
-            <div
-              className="cell"
-              id="6"
-              onClick={handleClick}
-              role="button"
-              data-row="1"
-              data-col="2"
-            />
-            <div
-              className="cell"
-              id="7"
-              onClick={handleClick}
-              role="button"
-              data-row="2"
-              data-col="0"
-            />
-            <div
-              className="cell"
-              id="8"
-              onClick={handleClick}
-              role="button"
-              data-row="2"
-              data-col="1"
-            />
-            <div
-              className="cell"
-              id="9"
-              onClick={handleClick}
-              role="button"
-              data-row="2"
-              data-col="2"
-            />
+            {Array.of(1, 2, 3).map((item, i) => (
+              <Cell
+                id={item}
+                dataRow={0}
+                dataCol={i}
+                handleClick={handleClick}
+                handleKeydown={handleKeydown}
+              />
+            ))}
+            {Array.of(4, 5, 6).map((item, i) => (
+              <Cell
+                id={item}
+                dataRow={1}
+                dataCol={i}
+                handleClick={handleClick}
+                handleKeydown={handleKeydown}
+              />
+            ))}
+            {Array.of(7, 8, 9).map((item, i) => (
+              <Cell
+                id={item}
+                dataRow={2}
+                dataCol={i}
+                handleClick={handleClick}
+                handleKeydown={handleKeydown}
+              />
+            ))}
           </div>
         </div>
       </div>
       <div className="modal">
         {gWinner && <div>Winner: {gWinner}</div>}
-        {(gWinner || moves === 9) && (
+        {gIsTie && <div> game is draw</div>}
+        {(gWinner || gIsTie) && (
           <div>
             <Button id="reset_game_button" onClick={handleResetGame}>
               Play Again
