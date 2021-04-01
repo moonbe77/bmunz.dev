@@ -180,26 +180,14 @@ function TicTacToe() {
       </div>
       <div className={styles.gameWrapper}>
         <div className={styles.gameStats}>
-          <div className={styles.players}>
-            <div
-              className={styles.statsBox}
-              id="player1"
-              title="click to change name"
-            >
-              <span>{huPlayer}</span>
-            </div>
-            <div
-              className={styles.statsBox}
-              id="player2"
-              title="click to change name"
-            >
-              <span>{aiPlayer}</span>
+          <div className={styles.statsBox}>
+            <div className={styles.players}>
+              <span className={styles.p1}>{huPlayer}</span>
+              <span>vs</span>
+              <span className={styles.p2}>{aiPlayer}</span>
             </div>
           </div>
           <div className="stats">
-            {/* <div className={styles.statsBox}>
-              Turn: {gTurn ? aiPlayer : huPlayer}
-            </div> */}
             <div className={styles.statsBox}>Moves Left: {9 - gMoves}</div>
           </div>
         </div>
