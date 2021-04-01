@@ -174,10 +174,11 @@ function TicTacToe() {
       >
         &#10007;
       </div>
-      <div className={styles.header}>
+      <div>
         <h2>Tic Tac Toe</h2>
         <h4>play against the machine</h4>
       </div>
+
       <div className={styles.gameWrapper}>
         <div className={styles.gameStats}>
           <div className={styles.players}>
@@ -186,14 +187,14 @@ function TicTacToe() {
               id="player1"
               title="click to change name"
             >
-              <span>{huPlayer}</span>
+              Human: <span>{huPlayer}</span>
             </div>
             <div
               className={styles.statsBox}
               id="player2"
               title="click to change name"
             >
-              <span>{aiPlayer}</span>
+              Computer: <span>{aiPlayer}</span>
             </div>
           </div>
           <div className="stats">
@@ -241,7 +242,7 @@ function TicTacToe() {
       </div>
       <div className={`${styles.gameReset}`}>
         {gWinner && <div>The Winner Is {gWinner}</div>}
-        {gIsTie && <div> game is tie</div>}
+        {gIsTie && <div> game is draw</div>}
         {(gWinner || gIsTie) && (
           <div>
             <Button id="reset_game_button" onClick={handleResetGame}>
