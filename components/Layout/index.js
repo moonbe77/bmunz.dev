@@ -56,7 +56,7 @@ export default function Layout({ children }) {
 
           <footer className={style.footer}>
             <div className={style.contact}>
-              <div
+              {/* <div
                 className="LI-profile-badge"
                 data-version="v1"
                 data-size="medium"
@@ -65,13 +65,14 @@ export default function Layout({ children }) {
                 data-theme="dark"
                 data-vanity="munzbe"
               >
-                <a
-                  className="LI-simple-link"
-                  href="https://au.linkedin.com/in/munzbe?trk=profile-badge"
-                >
-                  Bernardo Munz
-                </a>
-              </div>
+            </div> */}
+              Linkedin:{' '}
+              <a
+                className="LI-simple-link"
+                href="https://au.linkedin.com/in/munzbe?trk=profile-badge"
+              >
+                Bernardo Munz
+              </a>
               <div>2021</div>
             </div>
             <div className={style.spotify}>
