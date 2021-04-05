@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Button from '../components/atoms/Button';
 
 export default {
@@ -7,9 +6,9 @@ export default {
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
+    isDarkTheme: { control: 'boolean' },
   },
 };
-
 const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});

@@ -1,10 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useStateContext } from '../../../store/store';
 import style from './Button.module.css';
 
 const Button = ({ primary, backgroundColor, size, children, ...props }) => {
   const mode = primary ? style.primary : style.secondary;
+  const { isDarkTheme } = useStateContext();
+  const theme = isDarkTheme ? style.dark : style.light;
   let buttonSize;
 
   if (size === 'small') {
@@ -22,7 +25,7 @@ const Button = ({ primary, backgroundColor, size, children, ...props }) => {
   return (
     <button
       type="button"
-      className={`${style.button} ${mode} ${buttonSize} `}
+      className={`${style.button} ${mode} ${buttonSize} ${theme}`}
       style={backgroundColor && { backgroundColor }}
       {...props}
       data-testid="button"

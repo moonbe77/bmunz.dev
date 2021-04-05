@@ -1,7 +1,6 @@
 .button {
-  background: linear-gradient(90deg, #575988 0%, #6C63FF 100%);
+  /* background: linear-gradient(90deg, #575988 0%, #6C63FF 100%); */
   border-radius: 8px;
-  border: 0;
   cursor: pointer;
   font-family: 'bangers';
   font-weight: 700;
@@ -9,20 +8,30 @@
   line-height: 1;
   position: relative;
   text-transform: uppercase;
-  margin: 5px ;
+  margin: 5px;
 }
 
-.button:hover  {
-  background: linear-gradient(90deg, #575988 40%, #6C63FF 100%);
+.dark {
+  border: 1px solid var(--textOutstandingDark);
+  color: var(--textOutstandingDark);
+}
+
+.light {
+  border: 1px solid var(--textOutstandingLight);
+  color: var(--textOutstandingLight);
+}
+
+.button:hover {
+  border: 2px solid inherit;
 }
 
 .primary {
-  color: var(--mainColor);
+  /* color: var(--mainColor); */
   background-color: var(--mainColor);
 }
 
 .secondary {
-  color: #333;
+  /* color: #333; */
   background-color: transparent;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }

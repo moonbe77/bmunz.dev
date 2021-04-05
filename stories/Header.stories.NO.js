@@ -4,6 +4,7 @@ import Header from '../components/molecules/Header';
 export default {
   title: 'Design System/Molecules/Header',
   component: Header,
+  isDarkTheme: false,
 };
 
 const Template = (args) => <Header {...args} />;
