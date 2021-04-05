@@ -12,11 +12,11 @@ export default {
 };
 
 const Template = (args) => <Button {...args} />;
-Template.parameters = {
-  initialState: {
-    isDarkTheme: true,
-  },
-};
+// Template.parameters = {
+//   initialState: {
+//     isDarkTheme: true,
+//   },
+// };
 
 export const Primary = Template.bind({});
 Primary.args = {

@@ -1,12 +1,17 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStateContext } from '../../../store/store';
 import style from './Button.module.css';
 
-const Button = ({ primary, backgroundColor, size, children, ...props }) => {
+const Button = ({
+  primary,
+  backgroundColor,
+  size,
+  children,
+  isDarkTheme,
+  ...props
+}) => {
   const mode = primary ? style.primary : style.secondary;
-  const { isDarkTheme } = useStateContext();
   const theme = isDarkTheme ? style.dark : style.light;
   let buttonSize;
 
@@ -39,6 +44,7 @@ export default Button;
 
 Button.propTypes = {
   primary: PropTypes.bool,
+  isDarkTheme: PropTypes.bool,
   backgroundColor: PropTypes.string,
   size: PropTypes.string,
   children: PropTypes.node,

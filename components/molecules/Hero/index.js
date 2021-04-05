@@ -47,7 +47,7 @@ const Hero = () => {
           </animated.div>
           <animated.div style={{ transform: props.xy.interpolate(trans3) }}>
             <div className={style.heroButton}>
-              <Button primary size="large">
+              <Button primary size="large" isDarkTheme={isDarkTheme}>
                 <Link href="mailto:munzbe@gmail.com">Contact Me</Link>{' '}
               </Button>
             </div>

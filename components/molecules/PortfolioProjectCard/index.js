@@ -123,7 +123,7 @@ const PortfolioProjectCard = (props) => {
         <div className={style.description}>{description}</div>
         <div>
           <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-            <Button primary size="medium">
+            <Button primary size="medium" isDarkTheme={isDarkTheme}>
               check it out
             </Button>
           </a>
