@@ -37,18 +37,18 @@ const Hero = () => {
           <animated.div style={{ transform: props.xy.interpolate(trans1) }}>
             <h1 className={`${style.firstLine} ${theme}`}>
               Hey! I'm Bernardo
-              <span>Frontend web Developer</span>
+              <span>Frontend Web Developer</span>
             </h1>
           </animated.div>
           <animated.div style={{ transform: props.xy.interpolate(trans2) }}>
-            <div className={`${style.secondLine} ${theme}`}>
-              Walking the steps to change my career into Web Developing
-            </div>
+            <h2 className={`${style.secondLine} ${theme}`}>
+              Looking for a position as junior frontend in sydney, au.
+            </h2>
           </animated.div>
           <animated.div style={{ transform: props.xy.interpolate(trans3) }}>
             <div className={style.heroButton}>
               <Button primary size="large">
-                <Link href="/projects">Check my Portfolio</Link>{' '}
+                <Link href="mailto:munzbe@gmail.com">Contact Me</Link>{' '}
               </Button>
             </div>
           </animated.div>

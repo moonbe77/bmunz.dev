@@ -46,11 +46,11 @@
 
 .firstLine>span {
   display: block;
-  font-size: 0.7em;
+  font-size: 0.6em;
 }
 
 .secondLine {
-  font-size: 2rem;
+  font-size: 1.7rem;
   max-width: 450px;
 }
 

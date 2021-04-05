@@ -37,18 +37,32 @@
   /* border: 1px solid red; */
 }
 
-.textWrapper {
+.paragraphWrapper {
   margin: 0 2em;
 }
 
-.text h1 {
+.text h3 {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
-.text p {
-  line-height: 1.4em;
+.paragraph {
+  line-height: 1.5em;
   letter-spacing: 1px;
+}
+
+.paragraph a {
+  text-decoration: underline;
+}
+
+.textOutstandingDark {
+  font-weight: bold;
+  color: var(--textOutstandingDark);
+}
+
+.textOutstandingLight {
+  font-weight: bold;
+  color: var(--textOutstandingLight);
 }
 
 .techIcons {
