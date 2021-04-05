@@ -9,6 +9,7 @@
   position: relative;
   text-transform: uppercase;
   margin: 5px;
+  transition: all 0.3s ease-in-out;
 }
 
 .dark {
@@ -21,8 +22,13 @@
   color: var(--textOutstandingLight);
 }
 
-.button:hover {
-  border: 2px solid inherit;
+.dark:hover {
+  background-color: var(--textOutstandingLight);
+}
+
+
+.light:hover {
+  background-color: var(--textOutstandingDark);
 }
 
 .primary {
