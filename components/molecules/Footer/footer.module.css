@@ -1,0 +1,17 @@
+.footer {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  background-color: var(--backgroundTransparent);
+  border-radius: var(--borderRadius);
+}
+
+.contact {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  gap: 1rem;
+}

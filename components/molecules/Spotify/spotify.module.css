@@ -1,0 +1,22 @@
+
+.spotify {
+  margin-top: 1rem;
+  text-align: center;
+  flex: 1;
+}
+
+.spotifyIcon {
+  font-size: 3rem;
+}
+
+.spotifyPlayingNow>div {
+  font-size: 0.8rem;
+}
+
+.spotifyList {
+  list-style: decimal;
+}
+
+.spotifyList>li {
+  text-align: left;
+}

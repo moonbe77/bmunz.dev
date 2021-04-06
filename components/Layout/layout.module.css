@@ -37,45 +37,6 @@
   background-color: rgba(190, 187, 187, 0.39);
 }
 
-.footer {
-  flex-direction: row;
-  display: flex;
-  justify-content: space-around;
-  margin-top: 1rem;
-  background-color: var(--backgroundTransparent);
-  border-radius: var(--borderRadius);
-}
-
-.contact {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.spotify {
-  margin-top: 1rem;
-  text-align: center;
-  flex: 1;
-}
-
-.spotifyIcon {
-  font-size: 3rem;
-}
-
-.spotifyPlayingNow>div {
-  font-size: 0.8rem;
-}
-
-.spotifyList {
-  list-style: decimal;
-}
-
-.spotifyList>li {
-  text-align: left;
-}
 
 .elipse {
   /* border: 1px solid salmon; */
