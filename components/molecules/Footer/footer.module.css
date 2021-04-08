@@ -1,17 +1,48 @@
 .footer {
-  flex-direction: row;
-  display: flex;
-  justify-content: space-around;
   margin-top: 1rem;
   background-color: var(--backgroundTransparent);
   border-radius: var(--borderRadius);
+  min-height: 462px;
+}
+
+.wrapper {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
 }
 
 .contact {
-  align-items: center;
   display: flex;
+  align-items: center;
   flex-direction: column;
   flex: 1;
   justify-content: center;
   gap: 1rem;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.spotify {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem;
+  flex: 1;
+}
+
+.copyright {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width:680px) {
+  .footer {
+    min-height: none;
+  }
+  .wrapper {
+    flex-direction: column;
+  }
+  .spotify {
+    flex-direction: column;
+  }
 }

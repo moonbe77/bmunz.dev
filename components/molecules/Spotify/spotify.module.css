@@ -6,15 +6,16 @@
 }
 
 .spotifyIcon {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .spotifyPlayingNow>div {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .spotifyList {
   list-style: decimal;
+  font-size:0.9rem;
 }
 
 .spotifyList>li {

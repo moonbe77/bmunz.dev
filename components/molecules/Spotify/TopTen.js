@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from './spotify.module.css';
 
-function TopTen(props) {
+function TopTen() {
   const [lastSong, setLastSong] = useState(null);
   // spotify top 10 tracks
   useEffect(() => {

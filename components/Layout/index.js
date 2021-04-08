@@ -35,7 +35,7 @@ export default function Layout({ children }) {
         <div className={`${styles.container}`}>
           <Header />
           <main className={styles.content}>{children}</main>
-          <Footer />
+          <Footer isDarkTheme={isDarkTheme} />
           <div className={`${styles.elipse} ${styles.elipse1}`}>
             <img src="/figma/elipses/Ellipse1.svg" alt="" srcSet="" />
           </div>
