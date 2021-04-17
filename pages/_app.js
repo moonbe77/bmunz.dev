@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { Html } from 'next/document';
 import Head from 'next/head';
 import { StateProvider } from '../store/store';
 import Layout from '../components/Layout';
@@ -32,7 +31,7 @@ function MyApp({ Component, pageProps }) {
         <link
           href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans&display=swap"
           rel="stylesheet"
-          // crossOrigin
+        // crossOrigin
         />
 
         {/* <!-- HTML Meta Tags --> */}

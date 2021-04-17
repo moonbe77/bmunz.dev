@@ -37,13 +37,13 @@ export default function Layout({ children }) {
           <main className={styles.content}>{children}</main>
           <Footer isDarkTheme={isDarkTheme} />
           <div className={`${styles.elipse} ${styles.elipse1}`}>
-            <img src="/figma/elipses/Ellipse1.svg" alt="" srcSet="" />
+            <img src="/figma/elipses/Ellipse1.svg" alt="background ellipsis 1" srcSet="" />
           </div>
           <div className={`${styles.elipse} ${styles.elipse2}`}>
-            <img src="/figma/elipses/Ellipse2.svg" alt="" srcSet="" />
+            <img src="/figma/elipses/Ellipse2.svg" alt="background ellipsis 2" srcSet="" />
           </div>
           <div className={`${styles.elipse} ${styles.elipse3}`}>
-            <img src="/figma/elipses/Ellipse3.svg" alt="" srcSet="" />
+            <img src="/figma/elipses/Ellipse3.svg" alt="background ellipsis 3" srcSet="" />
           </div>
         </div>
       </animated.div>

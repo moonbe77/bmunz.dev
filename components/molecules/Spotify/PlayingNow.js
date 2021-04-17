@@ -24,7 +24,11 @@ function PlayingNow(props) {
         <div>
           <FaPlayCircle /> {data?.title} - {data?.album} - {data?.artist}
         </div>
-        <img src={data?.albumImageUrl} width="100" />
+        <img
+          src={data?.albumImageUrl}
+          width="100"
+          alt="Front of album from spotify"
+        />
       </div>
     </div>
   );
