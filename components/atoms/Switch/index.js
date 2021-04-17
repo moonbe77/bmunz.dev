@@ -23,7 +23,7 @@ export default function Switch(props) {
       onKeyDown={changeThemeShortCut}
       role="button"
       tabIndex="0"
-      data-testid="switch"
+      data-testid="switchTheme"
     >
       {children}
     </div>

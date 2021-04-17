@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import { Html } from 'next/document';
 import Head from 'next/head';
 import { StateProvider } from '../store/store';
 import Layout from '../components/Layout';
@@ -7,7 +8,7 @@ import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <html lang="en">
       <Head>
         <link
           rel="apple-touch-icon"
@@ -79,7 +80,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </Layout>
       </StateProvider>
-    </>
+    </html>
   );
 }
 
