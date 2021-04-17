@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import { useEffect, useState } from 'react';
 import { set } from 'react-ga';
 import { FaSpotify, FaPlayCircle } from 'react-icons/fa';
@@ -24,11 +25,13 @@ function PlayingNow(props) {
         <div>
           <FaPlayCircle /> {data?.title} - {data?.album} - {data?.artist}
         </div>
-        <img
-          src={data?.albumImageUrl}
-          width="100"
-          alt="Front of album from spotify"
-        />
+        {data.album && (
+          <img
+            src={data?.albumImageUrl}
+            width="100"
+            alt={`${data?.album} album cover from spotify`}
+          />
+        )}
       </div>
     </div>
   );
