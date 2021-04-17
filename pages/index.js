@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>bMunz.dev</title>
+        <title>bMunz.dev - Frontend Developer</title>
       </Head>
       <Hero />
       <AboutMe isDarkTheme={isDarkTheme} />

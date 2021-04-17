@@ -12,21 +12,21 @@ function MyApp({ Component, pageProps }) {
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/favicon/apple-touch-icon.png"
+          href="/icons/icon-96x96.png"
         />
-        <link
+        {/* <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/favicon/favicon-32x32.png"
-        />
+          href="/icons/icon-32x32.png"
+        /> */}
         <link
           rel="icon"
           type="image/png"
-          sizes="16x16"
-          href="/favicon/favicon-16x16.png"
+          sizes="72x72"
+          href="/icons/icon-72x72.png"
         />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans&display=swap"
@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
         />
 
         {/* <!-- HTML Meta Tags --> */}
-        <title>Bernardo Munz Frontend Web Developer</title>
+        <title>Bernardo Munz Frontend Developer</title>
         <meta
           name="description"
           content="I am Bernardo an electronic technician persuading a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
