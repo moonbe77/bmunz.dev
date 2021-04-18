@@ -9,6 +9,7 @@ const Button = ({
   size,
   children,
   isDarkTheme,
+  disabled,
   ...props
 }) => {
   const mode = primary ? style.primary : style.secondary;
@@ -34,6 +35,7 @@ const Button = ({
       style={backgroundColor && { backgroundColor }}
       {...props}
       data-testid="button"
+      disabled={disabled}
     >
       {children}
     </button>
@@ -48,4 +50,8 @@ Button.propTypes = {
   backgroundColor: PropTypes.string,
   size: PropTypes.string,
   children: PropTypes.node,
+  disabled: PropTypes.bool,
+};
+Button.defaultProps = {
+  disabled: false,
 };

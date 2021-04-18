@@ -1,9 +1,19 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../Button';
+import { useSpring, animated } from 'react-spring';
+import Button from '../../atoms/Button';
 import styles from './form.module.css';
 
-const Spinner = () => <div className={styles.spinner}>Sending...</div>;
+const Spinner = ({ toggle }) => {
+  const [fade, set, stop] = useSpring(() => ({ opacity: 0 }));
+  set({ opacity: toggle ? 1 : 0 });
+  const pulse = '';
+  return (
+    <animated.span className={styles.spinner} style={fade}>
+      🤩 Sending
+    </animated.span>
+  );
+};
 
 function Form({ isDarkTheme }) {
   const [isSent, setIsSent] = useState(false);
@@ -42,7 +52,6 @@ function Form({ isDarkTheme }) {
   return (
     <div className={styles.formWrapper}>
       <h3>Contact Me</h3>
-      {isSending && <Spinner />}
       {sendError && (
         <div className={styles.error}>Error sending the message</div>
       )}
@@ -53,37 +62,51 @@ function Form({ isDarkTheme }) {
         </div>
       ) : (
         <form className={styles.form} onSubmit={handleSubmit}>
+          <label className={styles.label} htmlFor="name">
+            Name
+          </label>
           <input
             type="text"
             name="name"
             id="name"
-            placeholder="Name"
             value={form?.name}
             onChange={handleChange}
             required
           />
+          <label className={styles.label} htmlFor="email">
+            Email
+          </label>
           <input
             type="email"
             name="email"
             id="email"
             value={form?.email}
-            placeholder="Email"
             onChange={handleChange}
             required
           />
+          <label className={styles.label} htmlFor="message">
+            Message
+          </label>
           <textarea
             name="message"
             id="message"
             cols="30"
             rows="10"
             value={form?.message}
-            placeholder=""
             onChange={handleChange}
             required
           />
-          <Button type="submit" size="large" isDarkTheme={isDarkTheme}>
-            Submit
-          </Button>
+          <div>
+            <Button
+              type="submit"
+              size="medium"
+              isDarkTheme={isDarkTheme}
+              disabled={isSending}
+            >
+              Submit Message
+            </Button>
+            <Spinner toggle={isSending} />
+          </div>
         </form>
       )}
     </div>

@@ -1,6 +1,5 @@
 import querystring from 'querystring';
 
-// console.log(process.env);
 const clientId = process.env.SPOTIFY_CLIENT_ID;
 const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
 const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN;

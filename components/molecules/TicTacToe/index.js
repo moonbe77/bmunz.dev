@@ -155,7 +155,7 @@ function TicTacToe() {
   };
 
   const handleKeydown = (e) => {
-    console.log(e);
+    // console.log(e);
   };
   const handleCloseGame = () => {
     dispatch({ type: 'SWITCH_GAME' });

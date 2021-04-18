@@ -1,5 +1,5 @@
 import { TopTen, PlayingNow } from '../Spotify';
-import Form from '../../atoms/Form';
+import Form from '../../molecules/Form';
 import styles from './footer.module.css';
 
 function Footer({ isDarkTheme }) {

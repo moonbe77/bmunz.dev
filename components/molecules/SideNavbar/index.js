@@ -63,8 +63,6 @@ export default function SideNavbar() {
   }, [showSideMenu]);
 
   useEffect(() => {
-    console.log('rote changed');
-    console.log(Router);
     if (showSideMenu) {
       dispatch({
         type: 'TOGGLE_SIDE_MENU',

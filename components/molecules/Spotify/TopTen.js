@@ -8,7 +8,7 @@ function TopTen() {
     fetch('/api/top-tracks')
       .then((res) => res.json())
       .then((res) => setLastSong(res))
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }, [setLastSong]);
 
   return (

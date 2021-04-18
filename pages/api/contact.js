@@ -25,7 +25,7 @@ export default async function (req, res) {
   return new Promise((resolve, reject) => {
     mg.messages
       .create(process.env.MAILGUN_DOMAIN_NAME, {
-        from: 'bMunz.dev <munz@gmail.com>',
+        from: 'bMunz.dev <contact@bmunz.dev>',
         to: ['munzbe@gmail.com'],
         subject: 'Message from bMunz.dev',
         text: msgText,

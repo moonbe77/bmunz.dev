@@ -60,3 +60,7 @@
 .full {
   width: 100%;
 }
+
+.button:disabled {
+  color: gray;
+}
