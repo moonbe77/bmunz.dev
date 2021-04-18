@@ -33,16 +33,16 @@ export default function AboutMe({ isDarkTheme }) {
           <p className={style.paragraph}>
             <span className={textOutstanding}>Semantics HTML</span>,{' '}
             <span className={textOutstanding}>Javascript</span>,{' '}
-            <span className={textOutstanding}>CSS</span>,{' '}
-            <span className={textOutstanding}>MongoDB</span>, is what I will
-            bring to my next job as web developer. I also have experience with
-            backend my last project is an e-commerce made with{' '}
+            <span className={textOutstanding}>React.js</span>,{' '}
+            <span className={textOutstanding}>CSS</span>, is what I will bring
+            to my next job as frontend developer. I also have experience with backend
+            my last project is an e-commerce made with{' '}
             <span className={textOutstanding}>Next.js</span> on the frontend and
             a <span className={textOutstanding}>Rest-API</span> in{' '}
             <span className={textOutstanding}>Node.js</span> with{' '}
             <span className={textOutstanding}>Express.js</span> and{' '}
             <span className={textOutstanding}>Sequelize.js</span> to connect to
-            a<span className={textOutstanding}> MySql </span>db.
+            a<span className={textOutstanding}> MySql </span>database.
           </p>
 
           <p className={style.paragraph}>
@@ -55,9 +55,10 @@ export default function AboutMe({ isDarkTheme }) {
           <p className={style.paragraph}>
             Check my{' '}
             <Link href="/projects">
-              <a>portfolio</a>
+              <a className={textOutstanding}>portfolio</a>
             </Link>{' '}
-            there are my last projects for small local businesses in Argentina.
+            there are some of my last projects for small local businesses in
+            Argentina.
           </p>
           <p className={style.paragraph}>
             I love to create responsive and functional websites that are easy to

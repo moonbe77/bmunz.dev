@@ -229,10 +229,14 @@ function TicTacToe() {
       </div>
       <div className={`${styles.gameReset}`}>
         {gWinner && <div>The Winner Is {gWinner}</div>}
-        {gIsTie && <div> game is tie</div>}
+        {gIsTie && <div>It's a tie</div>}
         {(gWinner || gIsTie) && (
           <div>
-            <Button id="reset_game_button" onClick={handleResetGame}>
+            <Button
+              id="reset_game_button"
+              isDarkTheme={isDarkTheme}
+              onClick={handleResetGame}
+            >
               Play Again
             </Button>
           </div>
