@@ -34,7 +34,7 @@ const Button = ({
       className={`${style.button} ${mode} ${buttonSize} ${theme}`}
       style={backgroundColor && { backgroundColor }}
       {...props}
-      data-testid="button"
+      data-testid="button-component"
       disabled={disabled}
     >
       {children}

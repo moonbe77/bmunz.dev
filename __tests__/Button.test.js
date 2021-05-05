@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
-import Button from './index';
+import Button from '../components/atoms/Button/index';
 
 test('should not have class = primary', () => {
   const { container } = render(<Button />);
 
   //   container.getByTestId('button');
-  expect(container.firstChild).not.+toHaveClass('primary');
+  expect(container.firstChild).not.toHaveClass('primary');
 });
 
 test('button should render with the class full ', () => {
