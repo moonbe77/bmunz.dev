@@ -3,7 +3,11 @@ module.exports = {
     '**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
     '!**/node_modules/**',
+    '!**/.vscode/**',
+    '!**/.next/**',
+    '!**/coverage/**',
   ],
+  coverageDirectory: './coverage',
   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   transform: {

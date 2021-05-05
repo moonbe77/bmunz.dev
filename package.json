@@ -8,7 +8,7 @@
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test:coverage": "jest",
+    "test:coverage": "jest --coverage",
     "test": "jest --watch"
   },
   "dependencies": {
