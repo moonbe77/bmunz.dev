@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { getRoles } from '@testing-library/dom';
 import Burger from '../components/atoms/Burger';
 
 test('should be in the document', () => {
@@ -18,4 +19,10 @@ test('should be clicked', () => {
     })
   );
   expect(handleClick).toHaveBeenCalledTimes(1);
+});
+
+test('should have aria-role="switch"', () => {
+  render(<Burger />);
+  const burger = screen.getByRole('switch');
+  expect(burger).toBeInTheDocument();
 });
