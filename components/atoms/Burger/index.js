@@ -1,12 +1,11 @@
 // Burger.js
+import PropTypes from 'prop-types';
 import { useSpring, animated } from 'react-spring';
-import { useStateContext, useStateDispatch } from '../../../store/store';
+import { useStateDispatch } from '../../../store/store';
 import style from './Burger.module.css';
 
-export default function Burger() {
-  const { isDarkTheme, showSideMenu } = useStateContext();
+const Burger = ({ isDarkTheme, showSideMenu, handleSideMenu }) => {
   const theme = isDarkTheme ? style.dark : style.light;
-  const dispatch = useStateDispatch();
 
   const line1 = useSpring({
     transform: showSideMenu ? 'rotate(45deg)' : 'rotate(0deg)',
@@ -18,18 +17,31 @@ export default function Burger() {
     transform: showSideMenu ? 'rotate(-45deg)' : 'rotate(0deg)',
   });
 
-  const handleSideMenu = () => {
-    dispatch({
-      type: 'TOGGLE_SIDE_MENU',
-      payload: !showSideMenu,
-    });
+  const handleKeyDown = (e) => {
+    console.log(e.target);
   };
 
   return (
-    <div className={style.burger} onClick={handleSideMenu} >
+    <div
+      className={style.burger}
+      role="switch"
+      aria-checked={showSideMenu}
+      onClick={handleSideMenu}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      data-testid="burger"
+    >
       <animated.div style={line1} className={`${style.line} ${theme}`} />
       <animated.div style={line2} className={`${style.line} ${theme}`} />
       <animated.div style={line3} className={`${style.line} ${theme}`} />
     </div>
   );
-}
+};
+
+export default Burger;
+
+Burger.propTypes = {
+  isDarkTheme: PropTypes.bool,
+  showSideMenu: PropTypes.bool,
+  handleSideMenu: PropTypes.func,
+};

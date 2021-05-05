@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { HiSun, HiMoon } from 'react-icons/hi';
 import { GiTicTacToe } from 'react-icons/gi';
-import { useStateContext } from '../../../store/store';
+import { useStateContext, useStateDispatch } from '../../../store/store';
 import Burger from '../../atoms/Burger';
 import style from './header.module.css';
 import SideNavbar from '../SideNavbar';
@@ -12,8 +12,9 @@ import Menu from '../Menu';
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = useState();
   const [windowSize, setWindowSize] = useState();
-  const { isDarkTheme, showTicTacToe } = useStateContext();
+  const { isDarkTheme, showTicTacToe, showSideMenu } = useStateContext();
   const theme = isDarkTheme ? style.dark : style.light;
+  const dispatch = useStateDispatch();
 
   useEffect(() => {
     const getWindowSize = () => {
@@ -32,6 +33,14 @@ const Header = () => {
     }
     setShowMobileMenu(false);
   }, [windowSize]);
+
+  const handleSideMenu = () => {
+    dispatch({
+      type: 'TOGGLE_SIDE_MENU',
+      payload: !showSideMenu,
+    });
+    return 'clicked';
+  };
 
   return (
     <header className={`${style.header} ${theme}`}>
@@ -54,7 +63,11 @@ const Header = () => {
           {showMobileMenu && (
             <>
               <SideNavbar />
-              <Burger />
+              <Burger
+                isDarkTheme={isDarkTheme}
+                showSideMenu={showSideMenu}
+                handleSideMenu={handleSideMenu}
+              />
             </>
           )}
           <Switch value={!isDarkTheme} type="SWITCH_THEME">
