@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types';
 import { useStateDispatch } from '../../../store/store';
 import style from './switch.module.css';
 
-export default function Switch(props) {
+function Switch({ value, type, children }) {
   const dispatch = useStateDispatch();
-  const { value, type, children } = props;
 
   function handleChange() {
     dispatch({
@@ -23,9 +23,17 @@ export default function Switch(props) {
       onKeyDown={changeThemeShortCut}
       role="button"
       tabIndex="0"
-      data-testid="switchTheme"
+      data-testid="switch-button"
     >
       {children}
     </div>
   );
 }
+
+export default Switch;
+
+Switch.propTypes = {
+  value: PropTypes.string,
+  type: PropTypes.string,
+  children: PropTypes.node,
+};

@@ -37,7 +37,7 @@ export default async function (req, res) {
       })
       .catch((err) => {
         res.status(500).json({ status: err.status, ...err });
-        return resolve();
+        return reject();
       });
   });
 }

@@ -50,7 +50,7 @@ function Form({ isDarkTheme }) {
   };
 
   return (
-    <div className={styles.formWrapper}>
+    <div className={styles.formWrapper} id="footer_form">
       <h3>Contact Me</h3>
       {sendError && (
         <div className={styles.error}>Error sending the message</div>
