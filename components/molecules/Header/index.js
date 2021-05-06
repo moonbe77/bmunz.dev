@@ -42,6 +42,20 @@ const Header = () => {
     return 'clicked';
   };
 
+  function handleChangeTheme() {
+    dispatch({
+      type: 'SWITCH_THEME',
+      payload: !isDarkTheme,
+    });
+  }
+
+  function handleShowGame() {
+    dispatch({
+      type: 'SWITCH_GAME',
+      payload: !showTicTacToe,
+    });
+  }
+
   return (
     <header className={`${style.header} ${theme}`}>
       <div className={`${style.wrapper} `}>
@@ -70,10 +84,10 @@ const Header = () => {
               />
             </>
           )}
-          <Switch value={!isDarkTheme} type="SWITCH_THEME">
+          <Switch onClick={handleChangeTheme}>
             {isDarkTheme ? <HiSun /> : <HiMoon />}
           </Switch>
-          <Switch value={!showTicTacToe} type="SWITCH_GAME">
+          <Switch onClick={handleShowGame}>
             <GiTicTacToe />
           </Switch>
         </div>

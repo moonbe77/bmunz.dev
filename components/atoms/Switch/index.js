@@ -1,16 +1,7 @@
 import PropTypes from 'prop-types';
-import { useStateDispatch } from '../../../store/store';
 import style from './switch.module.css';
 
-function Switch({ value, type, children }) {
-  const dispatch = useStateDispatch();
-
-  function handleChange() {
-    dispatch({
-      type,
-      payload: value,
-    });
-  }
+function Switch({ children, onClick }) {
 
   const changeThemeShortCut = (e) => {
     e.preventDefault();
@@ -19,7 +10,7 @@ function Switch({ value, type, children }) {
   return (
     <div
       className={`${style.switch}`}
-      onClick={handleChange}
+      onClick={onClick}
       onKeyDown={changeThemeShortCut}
       role="button"
       tabIndex="0"
@@ -33,7 +24,6 @@ function Switch({ value, type, children }) {
 export default Switch;
 
 Switch.propTypes = {
-  value: PropTypes.string,
-  type: PropTypes.string,
   children: PropTypes.node,
+  onClick: PropTypes.func,
 };
