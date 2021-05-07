@@ -3,7 +3,7 @@ import projects from '../public/data/projects.json';
 import { menuItems } from '../utils/menuData';
 
 export const StateContext = createContext();
-const StateDispatcher = createContext();
+export const StateDispatcher = createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -51,7 +51,7 @@ const reducer = (state, action) => {
 };
 
 const initialState = {
-  name: 'bMunz.Dev',
+  name: 'bMunz.dev',
   isDarkTheme: true,
   projects: projects.data,
   showSideMenu: false,

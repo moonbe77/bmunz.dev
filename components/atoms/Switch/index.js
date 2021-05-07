@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import style from './switch.module.css';
 
 function Switch({ children, onClick }) {
-
   const changeThemeShortCut = (e) => {
     e.preventDefault();
   };
@@ -14,7 +13,7 @@ function Switch({ children, onClick }) {
       onKeyDown={changeThemeShortCut}
       role="button"
       tabIndex="0"
-      data-testid="switch-button"
+      data-testid="switch"
     >
       {children}
     </div>

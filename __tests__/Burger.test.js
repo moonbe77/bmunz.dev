@@ -1,10 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { getRoles } from '@testing-library/dom';
+// import { getRoles } from '@testing-library/dom';
 import Burger from '../components/atoms/Burger';
 
-
-describe("Burguer Button ", () => {
-
+describe('Burger Button', () => {
   test('should be in the document', () => {
     render(<Burger isDarkTheme={false} />);
     expect(screen.getByTestId('burger')).toBeInTheDocument();
