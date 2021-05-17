@@ -1,14 +1,11 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { StateProvider, StateContext, StateDispatcher } from '../store/store';
-// import { getRoles } from '@testing-library/dom';
 import Switch from '../components/atoms/Switch';
-
 afterEach(cleanup);
+
 
 describe('Switch Button', () => {
   test('should be on screen', () => {
-    render(<Switch />);
+    render(<Switch testid='switch'/>);
     expect(screen.getByTestId('switch')).toBeInTheDocument();
   });
 
@@ -18,9 +15,10 @@ describe('Switch Button', () => {
   });
 
   test('to have role : button', () => {
-    render(<Switch>demo text</Switch>);
+    render(<Switch  testid='test-id'>demo text</Switch>);
     // action elements should have aria button role.
     expect(screen.getByRole('button')).toBeInTheDocument();
-    expect(screen.getByTestId('switch')).toHaveAttribute('tabindex');
+    expect(screen.getByTestId('test-id')).toHaveAttribute('tabindex');
   });
 });
+

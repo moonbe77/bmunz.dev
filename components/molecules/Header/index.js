@@ -84,10 +84,10 @@ const Header = () => {
               />
             </>
           )}
-          <Switch onClick={handleChangeTheme} data-testid="switch-theme">
+          <Switch onClick={handleChangeTheme} testid="switch-theme">
             {isDarkTheme ? <HiSun /> : <HiMoon />}
           </Switch>
-          <Switch onClick={handleShowGame} data-testid="switch-game">
+          <Switch onClick={handleShowGame} testid="switch-game">
             <GiTicTacToe />
           </Switch>
         </div>

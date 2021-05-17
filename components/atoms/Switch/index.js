@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import style from './switch.module.css';
 
-function Switch({ children, onClick }) {
-  const changeThemeShortCut = (e) => {
+function Switch({ children, onClick, testid }) {
+  const changeThemeKeyShortcut = (e) => {
     e.preventDefault();
   };
 
@@ -10,10 +10,10 @@ function Switch({ children, onClick }) {
     <div
       className={`${style.switch}`}
       onClick={onClick}
-      onKeyDown={changeThemeShortCut}
+      onKeyDown={changeThemeKeyShortcut}
       role="button"
       tabIndex="0"
-      data-testid="switch"
+      data-testid={testid}
     >
       {children}
     </div>
