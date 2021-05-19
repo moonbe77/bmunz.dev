@@ -1,0 +1,12 @@
+.resourcesList {}
+
+.listItem {
+  /* border: 1px solid red; */
+  margin-top: 1rem;
+}
+
+.table {
+  background-color: white;
+  color: black;
+  width: 100%;
+}
