@@ -25,6 +25,7 @@
 
 .content {
   z-index: 2;
+  flex: 3;
 }
 
 .gameWrapper {

@@ -14,12 +14,6 @@ function MyApp({ Component, pageProps }) {
           sizes="180x180"
           href="/icons/icon-96x96.png"
         />
-        {/* <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/icons/icon-32x32.png"
-        /> */}
         <link
           rel="icon"
           type="image/png"
@@ -52,7 +46,7 @@ function MyApp({ Component, pageProps }) {
           property="og:description"
           content="I am Bernardo an electronic technician persuading a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
         />
-        <meta property="og:image" content="./figma/bmunz.png" />
+        <meta property="og:image" content="https://www.bmunz.dev/figma/bmunz.png" />
 
         {/* <!-- Twitter Meta Tags --> */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -66,13 +60,7 @@ function MyApp({ Component, pageProps }) {
           name="twitter:description"
           content="I am Bernardo an electronic technician persuading a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
         />
-        <meta name="twitter:image" content="./figma/bmunz.png" />
-        <script
-          type="text/javascript"
-          src="https://platform.linkedin.com/badges/js/profile.js"
-          async
-          defer
-        />
+        <meta name="twitter:image" content="https://www.bmunz.dev/figma/bmunz.png" />    
       </Head>
       <StateProvider>
         <Layout>

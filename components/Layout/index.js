@@ -33,8 +33,8 @@ export default function Layout({ children }) {
     <>
       <animated.div style={fade} className={`${theme}`}>
         <div className={`${styles.container}`}>
-          <Header />
-          <main className={styles.content}>{children}</main>
+          <Header isDarkTheme={isDarkTheme} />
+          <main isDarkTheme={isDarkTheme} className={styles.content}>{children}</main>
           <Footer isDarkTheme={isDarkTheme} />
           <div className={`${styles.elipse} ${styles.elipse1}`}>
             <img src="/figma/elipses/Ellipse1.svg" alt="background ellipsis 1" srcSet="" />

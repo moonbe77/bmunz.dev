@@ -1,0 +1,39 @@
+.table {
+  background-color: rgb(44, 41, 41);
+  /* color: black; */
+  width: 100%;
+  border-radius: var(--borderRadius);
+  padding: 1rem;
+}
+
+.table>tbody {
+  text-align: left;
+}
+
+.tableColumnHeader {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.tableColumnHeader>th {
+  border-bottom: 2px solid rgb(88, 85, 85);
+}
+
+/*tr*/
+
+.listItem>td {
+  padding: 10px 0;
+  border-bottom: 1px solid rgb(128, 125, 125);
+}
+
+.sortButton {
+  display: inline-block;
+}
+
+.dark {
+  background-color: var(--backgroundDark);
+}
+
+.light {
+  background-color: var(--backgroundLight);
+}
