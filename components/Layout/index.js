@@ -15,7 +15,6 @@ export default function Layout({ children }) {
   const theme = isDarkTheme ? styles.dark : styles.light;
   const router = useRouter();
   const fade = useSpring({ opacity: 1, from: { opacity: 0 } });
-  console.log('showTicTacToe', showTicTacToe);
 
   const transitions = useTransition(showTicTacToe, {
     from: { opacity: 0 },

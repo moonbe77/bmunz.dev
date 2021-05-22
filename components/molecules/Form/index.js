@@ -4,9 +4,9 @@ import { useSpring, animated } from 'react-spring';
 import Button from '../../atoms/Button';
 import styles from './form.module.css';
 
-const Spinner = ({ toggle }) => {
-  const [fade, set, stop] = useSpring(() => ({ opacity: 0 }));
-  set({ opacity: toggle ? 1 : 0 });
+const FormFeedback = ({ toggle }) => {
+  const [fade,api] = useSpring(() => ({ opacity: 0 }));
+  api.set({ opacity: toggle ? 1 : 0 });
   const pulse = '';
   return (
     <animated.span className={styles.spinner} style={fade}>
@@ -105,7 +105,7 @@ function Form({ isDarkTheme }) {
             >
               Submit Message
             </Button>
-            <Spinner toggle={isSending} />
+            <FormFeedback toggle={isSending} />
           </div>
         </form>
       )}

@@ -27,7 +27,7 @@ export default function Menu() {
     <ul className={style.menu}>
       {menu.map((item, index) => (
         <li key={index} className={`${style.links}`}>
-          <Link href={item.link}>
+          <Link href={item.link} >
             <a className="link" target={item.target}>
               {item.textDesktop}
             </a>

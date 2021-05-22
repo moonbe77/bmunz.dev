@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import useSWR from 'swr';
 import { useStateContext } from '../store/store';
-import ResourcesTable from '../components/molecules/ResourcesTable';
+import ResourceCard from '../components/molecules/ResourceCard';
 import styles from '../styles/resources.module.css';
 
 const Resources = () => {
@@ -24,15 +24,21 @@ const Resources = () => {
     <div>
       <h1>Resources</h1>
       <h3>List of Resources for quick access</h3>
+      <button type="button" className={styles.sortButton} onClick={handleSort}>
+        sort
+      </button>
 
       {/* TODO: add component that handles all the business logic here */}
 
-      <div className={styles.resourcesList}>
-        <ResourcesTable
-          data={data}
-          isDarkTheme={isDarkTheme}
-          handleSort={handleSort}
-        />
+      <div className={styles.cardsWrapper}>
+        {data &&
+          data.results.map((item) => (
+            <ResourceCard
+              item={item}
+              isDarkTheme={isDarkTheme}
+              handleSort={handleSort}
+            />
+          ))}
       </div>
     </div>
   );

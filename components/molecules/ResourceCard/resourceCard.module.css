@@ -1,0 +1,14 @@
+.card{
+  max-width: 20vw;
+  width: 250px;
+  padding: 1rem;
+  border-radius: var(--borderRadius);
+}
+
+.dark {
+  background-color: var(--backgroundDark);
+}
+
+.light {
+  background-color: var(--backgroundLight);
+}
