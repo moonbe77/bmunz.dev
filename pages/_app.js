@@ -7,7 +7,7 @@ import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <html lang="en">
+    <>
       <Head>
         <link
           rel="apple-touch-icon"
@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </Layout>
       </StateProvider>
-    </html>
+      </>
   );
 }
 

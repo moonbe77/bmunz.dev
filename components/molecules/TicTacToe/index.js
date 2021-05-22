@@ -16,14 +16,8 @@ import styles from './ticTacToe.module.css';
 // };
 
 function TicTacToe() {
-  const {
-    game,
-    gTurn,
-    gWinner,
-    gMoves,
-    gIsTie,
-    isDarkTheme,
-  } = useStateContext();
+  const { game, gTurn, gWinner, gMoves, gIsTie, isDarkTheme } =
+    useStateContext();
   const dispatch = useStateDispatch();
   const [huPlayer, setHuPlayer] = useState('🤩');
   const [aiPlayer, setAiPlayer] = useState('🤖');
@@ -99,6 +93,7 @@ function TicTacToe() {
     dispatch({ type: 'ADD_GAME_MOVE', payload: [...newBoard] });
     dispatch({ type: 'ADD_GAME_HISTORY', payload: [row, col, player] });
     const isWinner = checkWinner(game, player);
+
     if (isWinner) {
       drawGame(game);
       dispatch({ type: 'ADD_GAME_WINNER', payload: player });
@@ -158,7 +153,7 @@ function TicTacToe() {
     // console.log(e);
   };
   const handleCloseGame = () => {
-    dispatch({ type: 'SWITCH_GAME' });
+    dispatch({ type: 'SWITCH_GAME', payload: false });
   };
 
   return (

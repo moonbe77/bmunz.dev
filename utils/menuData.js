@@ -32,6 +32,13 @@ export const menuItems = [
     link: '/#about',
   },
   {
+    text: 'Resources',
+    textDesktop: 'Resources',
+    textMobile: 'Resources',
+    icon: <FaRProject />,
+    link: '/resources',
+  },
+  {
     text: 'Email',
     textDesktop: <FaEnvelope />,
     icon: <FaEnvelope />,
@@ -46,7 +53,7 @@ export const menuItems = [
     textMobile: 'Github',
     link: 'https://github.com/moonbe77',
     target: '_blank',
-    linkAtrributes: {
+    linkAttributes: {
       target: '_blank',
       rel: 'noreferrer  noopener',
       title: 'munzbe@gmail.com',

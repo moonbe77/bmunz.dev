@@ -11,14 +11,17 @@ import styles from './layout.module.css';
 
 export default function Layout({ children }) {
   const { isDarkTheme, showTicTacToe } = useStateContext();
+
   const theme = isDarkTheme ? styles.dark : styles.light;
   const router = useRouter();
   const fade = useSpring({ opacity: 1, from: { opacity: 0 } });
+  console.log('showTicTacToe', showTicTacToe);
 
-  const transitions = useTransition(showTicTacToe, null, {
+  const transitions = useTransition(showTicTacToe, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
+    reverse: showTicTacToe,
   });
 
   useEffect(() => {
@@ -34,27 +37,37 @@ export default function Layout({ children }) {
       <animated.div style={fade} className={`${theme}`}>
         <div className={`${styles.container}`}>
           <Header isDarkTheme={isDarkTheme} />
-          <main isDarkTheme={isDarkTheme} className={styles.content}>{children}</main>
+          <main isDarkTheme={isDarkTheme} className={styles.content}>
+            {children}
+          </main>
           <Footer isDarkTheme={isDarkTheme} />
           <div className={`${styles.elipse} ${styles.elipse1}`}>
-            <img src="/figma/elipses/Ellipse1.svg" alt="background ellipsis 1" srcSet="" />
+            <img
+              src="/figma/elipses/Ellipse1.svg"
+              alt="background ellipsis 1"
+              srcSet=""
+            />
           </div>
           <div className={`${styles.elipse} ${styles.elipse2}`}>
-            <img src="/figma/elipses/Ellipse2.svg" alt="background ellipsis 2" srcSet="" />
+            <img
+              src="/figma/elipses/Ellipse2.svg"
+              alt="background ellipsis 2"
+              srcSet=""
+            />
           </div>
           <div className={`${styles.elipse} ${styles.elipse3}`}>
-            <img src="/figma/elipses/Ellipse3.svg" alt="background ellipsis 3" srcSet="" />
+            <img
+              src="/figma/elipses/Ellipse3.svg"
+              alt="background ellipsis 3"
+              srcSet=""
+            />
           </div>
         </div>
       </animated.div>
-      {transitions.map(
-        ({ item, key, props }) =>
+      {transitions(
+        (props, item) =>
           item && (
-            <animated.div
-              className={styles.gameWrapper}
-              key={key}
-              style={props}
-            >
+            <animated.div className={styles.gameWrapper} style={props}>
               <TicTacToe />
             </animated.div>
           )
