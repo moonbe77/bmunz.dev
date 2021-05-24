@@ -1,6 +1,22 @@
 .cardsWrapper {
   display: grid;
- grid-template-columns: repeat(6 , 1fr) ;
- grid-template-rows: auto;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  margin: 2px;
 }
 
+@media only screen and (max-width: 680px) {
+  .cardsWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .cardsWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .cardsWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,8 +1,13 @@
 .card{
-  max-width: 20vw;
-  width: 250px;
   padding: 1rem;
   border-radius: var(--borderRadius);
+  margin: 5px;
+  border: 2px solid greenyellow;
+}
+
+.header{
+  font-size: 1.5rem;  
+  margin-bottom: 0.7rem;
 }
 
 .dark {

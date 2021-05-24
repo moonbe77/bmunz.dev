@@ -9,25 +9,23 @@ const ResourceCard = ({ item, isDarkTheme, }) => {
 
   const [fade, api] = useSpring(() => ({ from: { opacity: 0 }, to: { opacity: 1 } }));
 
-  // useEffect(() => {
-  //   console.log('calling api');
-  //   api.set({ opacity: 1 })
-  // }, [item, api])
-
   return (
       <animated.div
         style={fade}
         className={`${styles.card} ${theme}`}
         key={item.id}
       >
-        <div>
+        <header className={styles.header}>
           {item.properties.name?.title[0]?.plain_text || 'Name is not logged'}
-        </div>
+        </header>
         <div>
+          {item.properties.comments.text.length > 0 && item.properties.comments.text[0].plain_text}
+        </div>
+        <footer>
           {item.properties.tags?.multi_select?.map(
             (tag) => `${tag.name}, `
           ) || '-'}
-        </div>
+        </footer>
         <div>
           {item.properties.url ? (
             <a
@@ -50,9 +48,7 @@ export default ResourceCard;
 
 ResourceCard.propTypes = {
   isDarkTheme: PropTypes.bool,
-  item: PropTypes.object,
-  handleSort: PropTypes.func,
-  
+  item: PropTypes.object,  
 };
 
 
