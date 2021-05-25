@@ -4,24 +4,16 @@ import styles from './skeleton.module.css';
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 
-const fadeInUp = {
-  initial: {
-    y: 30,
-    opacity: 0,
-    transition: { duration: 0.6, ease: easing },
-  },
+const stagger = {
   animate: {
-    y: 0,
-    opacity: 1,
     transition: {
-      duration: 0.6,
-      ease: easing,
+      staggerChildren: 0.5,
     },
   },
 };
 
 export const SkeletonCard = () => (
-  <motion.div variants={fadeInUp} className={styles.card}>
+  <motion.div variants={stagger} className={styles.card}>
     <SkeletonElement type="title" />
     <SkeletonElement type="text" />
     <SkeletonElement type="text" />

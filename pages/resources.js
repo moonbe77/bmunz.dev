@@ -15,7 +15,7 @@ const stagger = {
 };
 
 const Resources = () => {
-  const [sort, setSort] = useState('descending');
+  const [sort, setSort] = useState('');
   const [tagFilter, setTagFilter] = useState('');
   // const [notionData, setNotionData] = useState()
   const { isDarkTheme } = useStateContext();
@@ -69,7 +69,7 @@ const Resources = () => {
         )}
       </div>
       <AnimateSharedLayout>
-        <motion.div layout className={styles.cardsWrapper} variants={stagger}>
+        <motion.div className={styles.cardsWrapper} variants={stagger}>
           {!data && Array.from(Array(7)).map(() => <SkeletonCard />)}
           {/* TODO: add component that handles all the business logic here */}
           <AnimatePresence>
