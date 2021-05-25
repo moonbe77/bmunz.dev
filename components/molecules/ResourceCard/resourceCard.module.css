@@ -1,13 +1,42 @@
-.card{
-  padding: 1rem;
+.card {
   border-radius: var(--borderRadius);
-  margin: 5px;
   border: 2px solid greenyellow;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 1rem;
 }
 
-.header{
-  font-size: 1.5rem;  
+.header {
+  font-size: 1.5rem;
   margin-bottom: 0.7rem;
+  flex: 1;
+}
+
+.body {
+  flex: 3;
+}
+
+.footer {
+  flex: 1;
+  margin-top: 1rem;
+  border-top: 1px solid gray;
+  /* padding-top: 1rem; */
+}
+
+.tag {
+  border: 0.5px solid gray;
+  border-radius: var(--borderRadius);
+  padding: 0.3rem;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  display: inline-block;
+  margin:  0.1rem;
+  cursor: pointer;
+}
+
+.tag:hover{
+  border: 0.5px solid #fff;
 }
 
 .dark {
