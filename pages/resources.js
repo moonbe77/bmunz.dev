@@ -20,25 +20,30 @@ const Resources = () => {
   const { isDarkTheme } = useStateContext();
 
   const fetcher = (...args) => fetch(...args).then((resp) => resp.json());
-  const { data, error } = useSWR(`/api/notion?sort=${sort}&tag=${tagFilter}`, fetcher); // ascending || descending
-
-  // useEffect(() => {
-  //   setNotionData(data)
-  // }, [sort,data])
+  const { data, error } = useSWR(
+    `/api/notion?sort=${sort}&tag=${tagFilter}`,
+    fetcher
+  );
 
   // TODO: query filtered list when click on a tag
-  // TODO: query sorted list ascendent or descendent when click on button :_pending => styling of button;
+  // TODO: add loading skeleton
   if (error) return <div>failed to load</div>;
-  if (!data) return <div>no data</div>;
-  console.log(data);
+  if (!data)
+    return (
+      <div>
+        {Array(10).map(() => (
+          <div>Loading ...</div>
+        ))}
+      </div>
+    );
 
   const handleSort = () => {
     setSort((prev) => (prev === 'ascending' ? 'descending' : 'ascending'));
   };
 
   const handleTagFilter = (tag) => {
-    setTagFilter(tag)
-  }
+    setTagFilter(tag);
+  };
 
   return (
     <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
@@ -57,14 +62,25 @@ const Resources = () => {
         >
           sort
         </button>
+        {tagFilter.length > 0 && (
+          <span>
+            <button
+              onClick={() => {
+                setTagFilter('');
+              }}
+            >
+              Clear Filter
+            </button>
+          </span>
+        )}
       </div>
 
       {/* TODO: add component that handles all the business logic here */}
 
-      <motion.div className={styles.cardsWrapper} variants={stagger}>
+      <motion.div layout className={styles.cardsWrapper} variants={stagger}>
         {data &&
           data.results.map((item) => (
-            <ResourceCard
+            <ResourceCard layout
               key={item.id}
               item={item}
               isDarkTheme={isDarkTheme}

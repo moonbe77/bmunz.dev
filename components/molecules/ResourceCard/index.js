@@ -41,8 +41,7 @@ const ResourceCard = ({ item, isDarkTheme, handleTagFilter }) => {
         </a>
       </header>
       <div className={styles.body}>
-        {item.properties.comments.text.length > 0 &&
-          item.properties.comments.text[0].plain_text}
+        {item.properties.comments?.rich_text[0]?.plain_text || 'no comment'}
       </div>
       <footer className={styles.footer}>
         {item.properties.tags?.multi_select?.map((tag) => (
