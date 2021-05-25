@@ -5,6 +5,7 @@
   flex-direction: column;
   margin: 5px;
   padding: 1rem;
+  min-height: 240px;
 }
 
 .header {

@@ -1,0 +1,36 @@
+.skeleton{
+  background-color: #ddd;
+  border-radius: var(--borderRadius); 
+  padding: 5px;
+}
+
+.title{
+  background-color: #999;
+  width: 50%;
+  height: 22px;
+  margin-bottom: 5px;
+}
+
+.text{
+  background-color: #aaa;
+  width: 100%;
+  height: 12px;
+  margin: 8px 0;
+}
+
+.card{
+  border-radius: var(--borderRadius);
+  border: 2px solid greenyellow;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 1rem;
+}
+
+.dark {
+  background-color: var(--backgroundDark);
+}
+
+.light {
+  background-color: var(--backgroundLight);
+}

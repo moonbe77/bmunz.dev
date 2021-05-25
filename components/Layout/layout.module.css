@@ -8,7 +8,6 @@
   max-width: 1440px;
   margin: auto;
   position: relative;
-  min-height: 100vh;
 }
 
 .dark {
@@ -24,8 +23,9 @@
 }
 
 .content {
+  min-height: 100vh;
   z-index: 2;
-  flex: 3;
+  flex: 1 0 auto;
 }
 
 .gameWrapper {

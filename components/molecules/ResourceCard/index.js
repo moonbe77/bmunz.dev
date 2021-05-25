@@ -7,7 +7,7 @@ const easing = [0.6, -0.05, 0.01, 0.99];
 
 const fadeInUp = {
   initial: {
-    y: 60,
+    y: 30,
     opacity: 0,
     transition: { duration: 0.6, ease: easing },
   },
@@ -26,6 +26,7 @@ const ResourceCard = ({ item, isDarkTheme, handleTagFilter }) => {
 
   return (
     <motion.div
+      layout
       variants={fadeInUp}
       className={`${styles.card} ${theme}`}
       key={item.id}
@@ -44,8 +45,12 @@ const ResourceCard = ({ item, isDarkTheme, handleTagFilter }) => {
         {item.properties.comments?.rich_text[0]?.plain_text || 'no comment'}
       </div>
       <footer className={styles.footer}>
-        {item.properties.tags?.multi_select?.map((tag) => (
-          <div className={styles.tag} onClick={() => handleTagFilter(tag.name)}>
+        {item.properties.tags?.multi_select?.map((tag, i) => (
+          <div
+            key={i}
+            className={styles.tag}
+            onClick={() => handleTagFilter(tag.name)}
+          >
             {tag.name}
           </div>
         ))}

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import useSWR from 'swr';
-import { motion, AnimateSharedLayout } from 'framer-motion';
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
 import { useStateContext } from '../store/store';
 import ResourceCard from '../components/molecules/ResourceCard';
+import { SkeletonCard } from '../components/molecules/Skeleton';
 import styles from '../styles/resources.module.css';
 
 const stagger = {
@@ -28,14 +29,6 @@ const Resources = () => {
   // TODO: query filtered list when click on a tag
   // TODO: add loading skeleton
   if (error) return <div>failed to load</div>;
-  if (!data)
-    return (
-      <div>
-        {Array(10).map(() => (
-          <div>Loading ...</div>
-        ))}
-      </div>
-    );
 
   const handleSort = () => {
     setSort((prev) => (prev === 'ascending' ? 'descending' : 'ascending'));
@@ -65,6 +58,7 @@ const Resources = () => {
         {tagFilter.length > 0 && (
           <span>
             <button
+              type="button"
               onClick={() => {
                 setTagFilter('');
               }}
@@ -74,20 +68,23 @@ const Resources = () => {
           </span>
         )}
       </div>
-
-      {/* TODO: add component that handles all the business logic here */}
-
-      <motion.div layout className={styles.cardsWrapper} variants={stagger}>
-        {data &&
-          data.results.map((item) => (
-            <ResourceCard layout
-              key={item.id}
-              item={item}
-              isDarkTheme={isDarkTheme}
-              handleTagFilter={handleTagFilter}
-            />
-          ))}
-      </motion.div>
+      <AnimateSharedLayout>
+        <motion.div layout className={styles.cardsWrapper} variants={stagger}>
+          {!data && Array.from(Array(7)).map(() => <SkeletonCard />)}
+          {/* TODO: add component that handles all the business logic here */}
+          <AnimatePresence>
+            {data &&
+              data.results.map((item) => (
+                <ResourceCard
+                  key={item.id}
+                  item={item}
+                  isDarkTheme={isDarkTheme}
+                  handleTagFilter={handleTagFilter}
+                />
+              ))}
+          </AnimatePresence>
+        </motion.div>
+      </AnimateSharedLayout>
     </motion.div>
   );
 };
