@@ -1,5 +1,5 @@
 import { TopTen, PlayingNow } from '../Spotify';
-import Form from '../../molecules/Form';
+import Form from '../Form';
 import styles from './footer.module.css';
 
 function Footer({ isDarkTheme }) {
@@ -15,6 +15,11 @@ function Footer({ isDarkTheme }) {
         </div>
       </div>
       <div className={styles.copyright}>Bernardo Munz © 2021</div>
+      <div className={styles.deployment}>
+        <span>{process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF}</span>
+        <span>{process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_MESSAGE}</span>
+        <span>{process.env.NEXT_PUBLIC_VERCEL_ENV}</span>
+      </div>
     </footer>
   );
 }

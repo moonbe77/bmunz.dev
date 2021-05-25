@@ -35,6 +35,13 @@
   margin-bottom: 1rem;
 }
 
+.deployment{
+  text-align: center;
+}
+.deployment >span{
+  margin: 0 5px;
+}
+
 @media only screen and (max-width:680px) {
   .footer {
     min-height: none;
