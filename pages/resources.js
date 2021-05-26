@@ -70,7 +70,7 @@ const Resources = () => {
       </div>
       <AnimateSharedLayout>
         <motion.div className={styles.cardsWrapper} variants={stagger}>
-          {!data && Array.from(Array(7)).map(() => <SkeletonCard />)}
+          {!data && Array.from(Array(7)).map((i) => <SkeletonCard key={i} />)}
           {/* TODO: add component that handles all the business logic here */}
           <AnimatePresence>
             {data &&
