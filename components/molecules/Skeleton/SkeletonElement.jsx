@@ -5,18 +5,17 @@ import styles from './skeleton.module.css';
 
 const SkeletonElement = ({ type }) => {
   const [state, setState] = useState(true);
-  const x = useSpring(0);
+  const x = useSpring(0, { stiffness: 15 });
 
-  const background = useTransform(x, [-10, 10], ['#7e7e7e', '#313131']);
+  const background = useTransform(x, [-10, 10], ['#c7c2c2', '#313131']);
 
   useEffect(() => {
     let direction = false;
     let value = -10;
 
-    const changeValue = () => {
-      value === 10 && (direction = true);
-      value === -10 && (direction = false);
-
+    const pulseEffect = () => {
+      if (value === 10) direction = true;
+      if (value === -10) direction = false;
       if (direction) {
         value = (value % 360) - 1;
       } else {
@@ -25,14 +24,14 @@ const SkeletonElement = ({ type }) => {
       setState(value);
     };
 
-    const interval = setInterval(changeValue, 50);
+    const interval = setInterval(pulseEffect, 40);
 
     return () => window.clearInterval(interval);
   }, []);
 
   useEffect(() => {
     x.set(state);
-  }, [state]);
+  }, [state, x]);
 
   return (
     <motion.div

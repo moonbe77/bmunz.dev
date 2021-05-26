@@ -20,7 +20,6 @@
 
 .card{
   border-radius: var(--borderRadius);
-  border: 2px solid greenyellow;
   display: flex;
   flex-direction: column;
   margin: 5px;

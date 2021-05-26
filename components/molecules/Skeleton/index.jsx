@@ -13,9 +13,9 @@ const stagger = {
 };
 
 export const SkeletonCard = () => (
-  <motion.div variants={stagger} className={styles.card}>
+  <motion.div layout variants={stagger} className={styles.card}>
     <SkeletonElement type="title" />
-    <SkeletonElement type="text" />
+    <SkeletonElement type="text" style={{ width: '70%' }} />
     <SkeletonElement type="text" />
     <SkeletonElement type="text" />
     <SkeletonElement type="text" />
