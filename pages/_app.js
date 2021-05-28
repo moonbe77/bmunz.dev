@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
         <title>Bernardo Munz Frontend Developer</title>
         <meta
           name="description"
-          content="I am Bernardo an electronic technician persuading a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
+          content="Semantics HTML, Javascript, React.js, CSS, is what I will bring to my next job as frontend developer. I also have experience with backend my last project is an e-commerce made with Next.js on the frontend and a Rest-API in Node.js with Express.js and Sequelize.js to connect to a MySql database."
         />
 
         {/* <!-- Facebook Meta Tags --> */}
@@ -44,9 +44,12 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="og:description"
-          content="I am Bernardo an electronic technician persuading a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
+          content="Semantics HTML, Javascript, React.js, CSS, is what I will bring to my next job as frontend developer. I also have experience with backend my last project is an e-commerce made with Next.js on the frontend and a Rest-API in Node.js with Express.js and Sequelize.js to connect to a MySql database."
         />
-        <meta property="og:image" content="https://www.bmunz.dev/figma/bmunz.png" />
+        <meta
+          property="og:image"
+          content="https://www.bmunz.dev/figma/bmunz.png"
+        />
 
         {/* <!-- Twitter Meta Tags --> */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -58,16 +61,19 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           name="twitter:description"
-          content="I am Bernardo an electronic technician persuading a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
+          content="Semantics HTML, Javascript, React.js, CSS, is what I will bring to my next job as frontend developer. I also have experience with backend my last project is an e-commerce made with Next.js on the frontend and a Rest-API in Node.js with Express.js and Sequelize.js to connect to a MySql database."
         />
-        <meta name="twitter:image" content="https://www.bmunz.dev/figma/bmunz.png" />    
+        <meta
+          name="twitter:image"
+          content="https://www.bmunz.dev/figma/bmunz.png"
+        />
       </Head>
       <StateProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </StateProvider>
-      </>
+    </>
   );
 }
 
