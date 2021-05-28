@@ -5,7 +5,7 @@ import Button from '../../atoms/Button';
 import styles from './form.module.css';
 
 const FormFeedback = ({ toggle }) => {
-  const [fade,api] = useSpring(() => ({ opacity: 0 }));
+  const [fade, api] = useSpring(() => ({ opacity: 0 }));
   api.set({ opacity: toggle ? 1 : 0 });
   const pulse = '';
   return (

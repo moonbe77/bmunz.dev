@@ -35,8 +35,8 @@ export default function AboutMe({ isDarkTheme }) {
             <span className={textOutstanding}>Javascript</span>,{' '}
             <span className={textOutstanding}>React.js</span>,{' '}
             <span className={textOutstanding}>CSS</span>, is what I will bring
-            to my next job as frontend developer. I also have experience with backend
-            my last project is an e-commerce made with{' '}
+            to my next job as frontend developer. I also have experience with
+            backend my last project is an e-commerce made with{' '}
             <span className={textOutstanding}>Next.js</span> on the frontend and
             a <span className={textOutstanding}>Rest-API</span> in{' '}
             <span className={textOutstanding}>Node.js</span> with{' '}

@@ -1,4 +1,6 @@
+import { Client } from '@notionhq/client';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import useSWR from 'swr';
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
 import { useStateContext } from '../store/store';
@@ -9,25 +11,48 @@ import styles from '../styles/resources.module.css';
 const stagger = {
   animate: {
     transition: {
-      staggerChildren: 0.05,
+      staggerChildren: 0.1,
     },
   },
 };
 
-const Resources = () => {
+const fetcher = (...args) => fetch(...args).then((resp) => resp.json());
+
+const useResources = (url) => {
+  const { data, error } = useSWR(url, fetcher);
+
+  return {
+    data,
+    isLoading: !error && !data,
+    isError: error,
+  };
+};
+
+const Resources = ({ resources }) => {
+  const { isDarkTheme } = useStateContext();
   const [sort, setSort] = useState('');
   const [tagFilter, setTagFilter] = useState('');
-  // const [notionData, setNotionData] = useState()
-  const { isDarkTheme } = useStateContext();
+  const [search, setSearch] = useState('');
+  const [resourcesData, setResourcesData] = useState(resources);
 
-  const fetcher = (...args) => fetch(...args).then((resp) => resp.json());
-  const { data, error } = useSWR(
+  const { data, isLoading, error } = useResources(
     `/api/notion?sort=${sort}&tag=${tagFilter}`,
-    fetcher
+    resources
   );
 
-  // TODO: query filtered list when click on a tag
-  // TODO: add loading skeleton
+  useEffect(() => {
+    setResourcesData(data);
+  }, [data]);
+
+  useEffect(() => {
+    fetch(`/api/search_db?query=${search}`)
+      .then((resp) => resp.json())
+      .then((resp) => {
+        console.log(resp);
+        setResourcesData(resp);
+      });
+  }, [search]);
+
   if (error) return <div>failed to load</div>;
 
   const handleSort = () => {
@@ -36,6 +61,13 @@ const Resources = () => {
 
   const handleTagFilter = (tag) => {
     setTagFilter(tag);
+  };
+
+  const handleChange = (event) => {
+    const query = event.target.value;
+    if (query.length >= 3) {
+      setSearch(query);
+    }
   };
 
   return (
@@ -47,7 +79,7 @@ const Resources = () => {
         maybe they can help someone else to discover something new.
       </h4>
       <div className={styles.options}>
-        <input type="text" placeholder="search" />
+        <input type="text" placeholder="search" onChange={handleChange} />
         <button
           type="button"
           className={styles.sortButton}
@@ -70,19 +102,18 @@ const Resources = () => {
       </div>
       <AnimateSharedLayout>
         <motion.div className={styles.cardsWrapper} variants={stagger}>
-          {!data && Array.from(Array(7)).map((i) => <SkeletonCard key={i} />)}
+          {isLoading &&
+            Array.from(Array(7)).map((i) => <SkeletonCard key={i} />)}
 
-          <AnimatePresence>
-            {data &&
-              data.results.map((item) => (
-                <ResourceCard
-                  key={item.id}
-                  item={item}
-                  isDarkTheme={isDarkTheme}
-                  handleTagFilter={handleTagFilter}
-                />
-              ))}
-          </AnimatePresence>
+          {resourcesData &&
+            resourcesData.results.map((item) => (
+              <ResourceCard
+                key={item.id}
+                item={item}
+                isDarkTheme={isDarkTheme}
+                handleTagFilter={handleTagFilter}
+              />
+            ))}
         </motion.div>
       </AnimateSharedLayout>
     </motion.div>
@@ -90,3 +121,31 @@ const Resources = () => {
 };
 
 export default Resources;
+
+Resources.propTypes = {
+  resources: PropTypes.object,
+};
+
+export async function getStaticProps() {
+  // Initializing a client
+  const notion = new Client({
+    auth: process.env.NOTION_TOKEN,
+  });
+  const resources = await notion.databases.query({
+    database_id: process.env.NOTION_DB,
+    filter: {
+      property: 'onWeb',
+      checkbox: {
+        equals: true,
+      },
+    },
+    sorts: [
+      {
+        property: 'name',
+        direction: 'ascending', // ascending || descending
+      },
+    ],
+  });
+
+  return { props: { resources } };
+}
