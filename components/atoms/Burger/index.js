@@ -18,7 +18,7 @@ const Burger = ({ isDarkTheme, showSideMenu, handleSideMenu }) => {
   });
 
   const handleKeyDown = (e) => {
-    console.log(e.target);
+    e.preventDefault();
   };
 
   return (

@@ -50,6 +50,9 @@ const ResourceCard = ({ item, isDarkTheme, handleTagFilter }) => {
             key={i}
             className={styles.tag}
             onClick={() => handleTagFilter(tag.name)}
+            onKeyDown={(e) => {
+              console.log(e);
+            }}
           >
             {tag.name}
           </div>

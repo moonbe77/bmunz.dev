@@ -5,6 +5,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 1440px;
   margin: auto;
   position: relative;
@@ -24,8 +25,8 @@
 
 .content {
   min-height: 100vh;
-  z-index: 2;
-  flex: 1 0 auto;
+  z-index: 1;
+  /* flex: 1 0 auto; */
 }
 
 .gameWrapper {
@@ -42,7 +43,7 @@
 .elipse {
   /* border: 1px solid salmon; */
   position: fixed;
-  z-index: 1;
+  z-index: 0;
 }
 
 .elipse1 {
