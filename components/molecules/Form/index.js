@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useSpring, animated } from 'react-spring';
+import { motion } from 'framer-motion';
 import Button from '../../atoms/Button';
 import styles from './form.module.css';
 
-const Spinner = ({ toggle }) => {
-  const [fade, set, stop] = useSpring(() => ({ opacity: 0 }));
-  set({ opacity: toggle ? 1 : 0 });
-  const pulse = '';
-  return (
-    <animated.span className={styles.spinner} style={fade}>
-      🤩 Sending
-    </animated.span>
-  );
-};
+const Spinner = ({ toggle }) => (
+  <>
+    {toggle && (
+      <motion.span className={styles.spinner} animate={{ opacity: 1 }}>
+        🤩 Sending
+      </motion.span>
+    )}
+  </>
+);
 
 function Form({ isDarkTheme }) {
   const [isSent, setIsSent] = useState(false);

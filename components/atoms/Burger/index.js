@@ -1,21 +1,19 @@
 // Burger.js
 import PropTypes from 'prop-types';
-import { useSpring, animated } from 'react-spring';
-import { useStateDispatch } from '../../../store/store';
 import style from './Burger.module.css';
 
 const Burger = ({ isDarkTheme, showSideMenu, handleSideMenu }) => {
   const theme = isDarkTheme ? style.dark : style.light;
 
-  const line1 = useSpring({
-    transform: showSideMenu ? 'rotate(45deg)' : 'rotate(0deg)',
-  });
-  const line2 = useSpring({
-    opacity: showSideMenu ? 0 : 1,
-  });
-  const line3 = useSpring({
-    transform: showSideMenu ? 'rotate(-45deg)' : 'rotate(0deg)',
-  });
+  // const line1 = useSpring({
+  //   transform: showSideMenu ? 'rotate(45deg)' : 'rotate(0deg)',
+  // });
+  // const line2 = useSpring({
+  //   opacity: showSideMenu ? 0 : 1,
+  // });
+  // const line3 = useSpring({
+  //   transform: showSideMenu ? 'rotate(-45deg)' : 'rotate(0deg)',
+  // });
 
   const handleKeyDown = (e) => {
     console.log(e.target);
