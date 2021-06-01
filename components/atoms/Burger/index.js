@@ -1,4 +1,6 @@
 // Burger.js
+import { useEffect } from 'react';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import PropTypes from 'prop-types';
 import style from './Burger.module.css';
 
@@ -14,25 +16,69 @@ const Burger = ({ isDarkTheme, showSideMenu, handleSideMenu }) => {
   // const line3 = useSpring({
   //   transform: showSideMenu ? 'rotate(-45deg)' : 'rotate(0deg)',
   // });
+  const controls = useAnimation();
+  useEffect(() => {
+    controls.start((i) => {
+      if (i === 0) {
+        return {
+          opacity: 1,
+          rotate: showSideMenu ? -45 : 0,
+          y: showSideMenu ? 10 : 0,
+          originX: 'center',
+          transition: { delay: 0.3 },
+        };
+      }
+      if (i === 2) {
+        return {
+          opacity: 1,
+          rotate: showSideMenu ? 45 : 0,
+          y: showSideMenu ? -10 : 0,
+          originX: 'center',
+          transition: { delay: 0.3 },
+        };
+      }
+      return {
+        opacity: showSideMenu ? 0 : 1,
+        transition: showSideMenu ? { delay: 0 } : { delay: 0.3 },
+      };
+    });
+  }, [showSideMenu, controls]);
 
   const handleKeyDown = (e) => {
     console.log(e.target);
   };
 
   return (
-    <div
-      className={style.burger}
-      role="switch"
-      aria-checked={showSideMenu}
-      onClick={handleSideMenu}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
-      data-testid="burger"
-    >
-      <animated.div style={line1} className={`${style.line} ${theme}`} />
-      <animated.div style={line2} className={`${style.line} ${theme}`} />
-      <animated.div style={line3} className={`${style.line} ${theme}`} />
-    </div>
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className={style.burger}
+        role="switch"
+        aria-checked={showSideMenu}
+        onClick={handleSideMenu}
+        onKeyDown={handleKeyDown}
+        tabIndex={0}
+        data-testid="burger"
+      >
+        <motion.div
+          custom={0}
+          animate={controls}
+          className={`${style.line} ${theme}`}
+        />
+        <motion.div
+          custom={1}
+          animate={controls}
+          className={`${style.line} ${theme}`}
+        />
+        <motion.div
+          custom={2}
+          animate={controls}
+          className={`${style.line} ${theme}`}
+        />
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
