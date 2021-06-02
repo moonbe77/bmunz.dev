@@ -12,7 +12,7 @@ import Menu from '../Menu';
 const Header = () => {
   const [windowSize, setWindowSize] = useState();
   const { isDarkTheme, showTicTacToe, showSideMenu } = useStateContext();
-  const [showMobileMenu, setShowMobileMenu] = useState(null);
+  const [showMobileMenu, setShowMobileMenu] = useState(null); // true if window size <= 875px
   const theme = isDarkTheme ? style.dark : style.light;
   const dispatch = useStateDispatch();
 

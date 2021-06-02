@@ -15,7 +15,7 @@ const Burger = ({ isDarkTheme, showSideMenu, handleSideMenu }) => {
           opacity: 1,
           rotate: showSideMenu ? -45 : 0,
           y: showSideMenu ? 11 : 0,
-          origin: 'center',
+          originX: 'center',
           transition: { delay: 0.3 },
         };
       }
@@ -24,7 +24,7 @@ const Burger = ({ isDarkTheme, showSideMenu, handleSideMenu }) => {
           opacity: 1,
           rotate: showSideMenu ? 45 : 0,
           y: showSideMenu ? -11 : 0,
-          origin: 'center',
+          originX: 'center',
           transition: { delay: 0.3 },
         };
       }
