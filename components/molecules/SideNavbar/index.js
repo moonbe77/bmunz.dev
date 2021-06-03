@@ -87,9 +87,9 @@ export default function SideNavbar() {
 
   return (
     <motion.nav
+      variants={sidebar}
       animate={isOpen ? 'open' : 'closed'}
       initial={false}
-      variants={sidebar}
       className={`${style.wrapper} ${theme} `}
     >
       <motion.div className={style.menu}>
