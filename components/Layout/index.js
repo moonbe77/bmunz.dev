@@ -24,10 +24,12 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <motion.div animate={{ opacity: 1 }} className={`${theme}`}>
+      <motion.div className={`${theme}`}>
         <div className={`${styles.container}`}>
           <Header />
-          <main className={styles.content}>{children}</main>
+          <motion.main animate={{ opacity: 1 }} className={styles.content}>
+            {children}
+          </motion.main>
           <Footer isDarkTheme={isDarkTheme} />
           <div className={`${styles.elipse} ${styles.elipse1}`}>
             <img

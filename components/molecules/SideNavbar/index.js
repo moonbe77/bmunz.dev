@@ -38,7 +38,7 @@ export default function SideNavbar() {
     },
     closed: {
       opacity: 0,
-      x: 250,
+      x: 450,
       transition: {
         delay: 0.2,
         type: 'spring',
