@@ -8,11 +8,17 @@
 
 /*li elements*/
 
+
+.dropdown  {
+  :after  {
+    content: '⏬';
+  }
+}
+
 .links {
   position: relative;
   font-size: 1rem;
   margin: 0 2.5px;
-  margin: 5px;
   padding: 0px 10px 10px;
   text-decoration: none;
   transition: all 0.3s ease-in-out;

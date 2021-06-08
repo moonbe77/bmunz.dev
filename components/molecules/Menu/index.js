@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useStateContext } from '../../../store/store';
-import style from './Menu.module.css';
+import styles from './Menu.module.scss';
 
 export default function Menu() {
   const { menu } = useStateContext();
@@ -24,17 +24,42 @@ export default function Menu() {
   }, [router]);
 
   return (
-    <ul className={style.menu}>
-      {menu.map((item, index) => (
-        <li key={index} className={`${style.links}`}>
-          <Link href={item.link}>
-            <a className="link" target={item.target}>
-              {item.textDesktop}
-            </a>
-          </Link>
-          <span className={`${style.linkBorder}`} />
-        </li>
-      ))}
+    <ul className={styles.menu}>
+      {menu.map((item, index) => {
+        console.log(item);
+        if (item.type === 'dropdown') {
+          return (
+            <li className={styles.dropdown}>
+              {item.text}
+              <ul>
+                {item.items.map((item, index) => {
+                  <li>
+                    <li key={index} className={`${styles.links}`}>
+                      <Link href={item.link}>
+                        <a className="link" target={item.target}>
+                          {item.textDesktop}
+                        </a>
+                      </Link>
+                      <span className={`${styles.linkBorder}`} />
+                    </li>
+                  </li>;
+                })}
+              </ul>
+            </li>
+          );
+        }
+
+        return (
+          <li key={index} className={`${styles.links}`}>
+            <Link href={item.link}>
+              <a className="link" target={item.target}>
+                {item.textDesktop}
+              </a>
+            </Link>
+            <span className={`${styles.linkBorder}`} />
+          </li>
+        );
+      })}
     </ul>
   );
 }
