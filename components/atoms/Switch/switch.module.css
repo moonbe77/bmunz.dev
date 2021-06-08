@@ -6,3 +6,6 @@
   outline: none;
   cursor: pointer;
 }
+.switch:hover{
+  color: var(--textDark-5);
+}

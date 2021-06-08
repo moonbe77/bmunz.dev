@@ -7,6 +7,7 @@ import {
   FaRProject,
   FaDrawPolygon,
   FaPencilRuler,
+  FaPaperclip,
 } from 'react-icons/fa';
 
 export const menuItems = [
@@ -30,6 +31,14 @@ export const menuItems = [
     textMobile: 'About Me',
     icon: <FaPencilRuler />,
     link: '/#about',
+  },
+  {
+    text: 'Resume',
+    textDesktop: 'Resume',
+    textMobile: 'Resume',
+    icon: <FaPaperclip />,
+    link: 'https://www.notion.so/Bernardo-Munz-19ae892703ee404a958f0c3aaca8db5e',
+    target: '_blank',
   },
   {
     text: 'Email',

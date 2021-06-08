@@ -1,4 +1,5 @@
 /*ul element*/
+
 .menu {
   list-style: none;
   padding-top: 10px;
@@ -6,6 +7,7 @@
 }
 
 /*li elements*/
+
 .links {
   position: relative;
   font-size: 1rem;
@@ -38,7 +40,7 @@
 }
 
 .links:hover {
-  color: rgb(128, 128, 128);
+  color: var(--textDark-5);
 }
 
 .links:hover .linkBorder {
