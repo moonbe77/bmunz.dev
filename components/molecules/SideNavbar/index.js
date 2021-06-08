@@ -5,11 +5,11 @@ import { motion, useCycle } from 'framer-motion';
 import Link from 'next/link';
 import { useStateContext, useStateDispatch } from '../../../store/store';
 
-import style from './SideNavbar.module.css';
+import styles from './SideNavbar.module.css';
 
 export default function SideNavbar() {
   const { isDarkTheme, showSideMenu, menu } = useStateContext();
-  const theme = isDarkTheme ? style.dark : style.light;
+  const theme = isDarkTheme ? styles.dark : styles.light;
   const Router = useRouter();
   const dispatch = useStateDispatch();
   const [isOpen, toggleOpen] = useCycle(false, true);
@@ -57,7 +57,7 @@ export default function SideNavbar() {
     },
   };
 
-  const item = {
+  const motionItem = {
     open: {
       x: 0,
       opacity: 1,
@@ -90,26 +90,47 @@ export default function SideNavbar() {
       variants={sidebar}
       animate={isOpen ? 'open' : 'closed'}
       initial={false}
-      className={`${style.wrapper} ${theme} `}
+      className={`${styles.wrapper} ${theme} `}
     >
-      <motion.div className={style.menu}>
+      <motion.div className={styles.menu}>
         <motion.ul variants={list}>
-          {menu.map((menuItem, index) => (
-            <motion.li
-              custom={index}
-              variants={item}
-              key={index}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link href={menuItem.link}>
-                <a target={menuItem.target}>
-                  {menuItem.icon}
-                  {menuItem.textMobile}
-                </a>
-              </Link>
-            </motion.li>
-          ))}
+          {menu.map((item, index) => {
+            if (item.type === 'dropdown') {
+              return item.dropdownItems.map((item) => (
+                <motion.li
+                  custom={index}
+                  variants={motionItem}
+                  key={item.id}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link href={item.link}>
+                    <a target={item.linkAttributes?.target}>
+                      {item.icon}
+                      {item.textMobile}
+                    </a>
+                  </Link>
+                </motion.li>
+              ));
+            }
+
+            return (
+              <motion.li
+                custom={index}
+                variants={motionItem}
+                key={item.id}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link href={item.link}>
+                  <a target={item.linkAttributes?.target}>
+                    {item.icon}
+                    {item.textMobile}
+                  </a>
+                </Link>
+              </motion.li>
+            );
+          })}
         </motion.ul>
       </motion.div>
     </motion.nav>
