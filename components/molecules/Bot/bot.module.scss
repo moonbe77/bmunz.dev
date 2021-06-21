@@ -1,0 +1,115 @@
+.botContainer{
+  background-color: #333;
+  bottom: 0;
+  height: 70vh;
+  margin: 0 10%;
+  margin: auto;  
+  padding-bottom: 3rem;
+  position: relative;
+  right: 0;
+  width: 75%;
+  z-index: 99999999999;
+}
+
+.form {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.15);
+  bottom: 0;
+  box-sizing: border-box;
+  display: flex;
+  height: 3rem;
+  left: 0;
+  padding: 0.25rem;
+  position: absolute;
+  right: 0;
+  
+  input {
+    border: none;
+    padding: 0 1rem;
+    flex-grow: 1;
+    border-radius: 2rem;
+    margin: 0.25rem;
+    
+    focus {
+      outline: none;
+    }
+    
+  }
+  button {
+    background: #333;
+    border: none;
+    padding: 0 1rem;
+    margin: 0.25rem;
+    border-radius: 3px;
+    outline: none;
+    color: #fff;
+  }
+}
+
+.messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.myMessage {
+  text-align: right;
+}
+
+.incomingMessage {
+  text-align: left;
+}
+
+.messages>li {
+  padding: 0.5rem 1rem;
+}
+
+.messages>li:nth-child(odd) {
+  background: #2b2a2a;
+}
+
+.stats {
+  background-color: #333;
+  color: aliceblue;
+  width: 100%;
+  padding: 5px;
+  display: flex;
+}
+
+.stats>span {
+  margin: 0 10px;
+}
+
+.connections,
+.users {
+
+  margin: 3px;
+}
+
+.connections::before {
+  content: 'Connected: ';
+}
+
+.users::before {
+  content: 'Users: ';
+}
+
+.suggestions {
+  position: absolute;
+  bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  background-color: lightgrey;
+  gap: 10px;
+  justify-content: center;
+  padding: 5px 0px;
+  width: 100%;
+  padding: 5px 0;
+}
+
+.suggestionTag {
+  background-color: pink;
+  border-radius: 50px;
+  border: 1px solid lightsalmon;
+  padding: 2.5px 10px;
+}
