@@ -18,6 +18,12 @@ const Bot = () => {
     console.log(message);
     if (message.fulfillmentMessages) {
       message.fulfillmentMessages.map((type) => {
+        if (type.message === 'text') {
+          console.log(type);
+        }
+        if (type.message === 'card') {
+          console.log(type);
+        }
         if (type.message === 'quickReplies') {
           console.log(type);
         }
