@@ -7,7 +7,7 @@ import { useStateContext } from '../../store/store';
 import Header from '../molecules/Header';
 import TicTacToe from '../molecules/TicTacToe';
 import { initGA, logPageView } from '../../utils/analytics';
-import styles from './layout.module.css';
+import styles from './layout.module.scss';
 
 export default function Layout({ children }) {
   const { isDarkTheme, showTicTacToe } = useStateContext();

@@ -1,32 +1,75 @@
 import { useState, useEffect, useRef } from 'react';
-import { useAskToBot } from '../../../utils/askToBot';
+import { askToBot } from '../../../utils/askToBot';
 import styles from './bot.module.scss';
 
+const MyMessage = (message) => <li className={styles.myMessage}>{message}</li>;
+
 const Bot = () => {
-  const [response, setResponse] = useState(null);
+  const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
-  const messagesRef = useRef();
+  const messagesContainer = useRef();
+
+  useEffect(() => {
+    messagesContainer.current.scrollTop =
+      messagesContainer.current.scrollHeight + 35;
+  }, [messages]);
+
+  const addMessage = (message, origin) => {
+    console.log(message);
+    if (message.fulfillmentMessages) {
+      message.fulfillmentMessages.map((type) => {
+        if (type.message === 'quickReplies') {
+          console.log(type);
+        }
+      });
+    }
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: Date.now(),
+        text: typeof message === 'object' ? message.fulfillmentText : message,
+        sender: origin,
+      },
+    ]);
+  };
 
   const handleInput = (e) => {
     setInputValue(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (inputValue) {
-      const data = await useAskToBot(inputValue); // useAskToBot returns a promise
+      addMessage(inputValue);
       setInputValue('');
-      console.log(data);
+
+      // useAskToBot returns a promise
+      askToBot(inputValue).then((data) => {
+        addMessage(data, 'bot');
+      });
     }
   };
 
   return (
     <div className={styles.botContainer}>
       <h1>BotMunz</h1>
-      <ul className={styles.messages} ref={messagesRef}>
-        <li className={styles.incomingMessage}>text 1</li>
-        <li className={styles.myMessage}>text 2</li>
+      <ul className={styles.messagesContainer} ref={messagesContainer}>
+        {messages &&
+          messages.map((message) => (
+            <li
+              key={message.id}
+              className={
+                message.sender === 'bot'
+                  ? styles.botMessage
+                  : styles.userMessage
+              }
+            >
+              {message.text}
+            </li>
+          ))}
+        {/* <li style={{ float: 'left', clear: 'both' }}  /> */}
       </ul>
       <form onSubmit={handleSubmit} className={styles.form}>
         <input

@@ -4,24 +4,33 @@
   height: 70vh;
   margin: 0 10%;
   margin: auto;  
-  padding-bottom: 3rem;
   position: relative;
   right: 0;
   width: 75%;
   z-index: 99999999999;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--borderRadius);
+
+  h1{
+    text-align: center;
+  }
 }
 
 .form {
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.15);
-  bottom: 0;
   box-sizing: border-box;
   display: flex;
   height: 3rem;
-  left: 0;
+  // bottom: 0;
+  // right: 0;
+  // left: 0;
   padding: 0.25rem;
-  position: absolute;
-  right: 0;
+  // position: absolute;
+  flex: 10%;
+  border-radius: var(--borderRadius);
+
   
   input {
     border: none;
@@ -35,6 +44,7 @@
     }
     
   }
+  
   button {
     background: #333;
     border: none;
@@ -46,25 +56,28 @@
   }
 }
 
-.messages {
+.messagesContainer { /*ul element*/
   list-style-type: none;
   margin: 0;
   padding: 0;
+  flex: 90%;
+  overflow-y: scroll;
+  scrollbar-width: thin;
 }
 
-.myMessage {
+.userMessage {
   text-align: right;
 }
 
-.incomingMessage {
+.botMessage {
   text-align: left;
 }
 
-.messages>li {
+.messagesContainer>li {
   padding: 0.5rem 1rem;
 }
 
-.messages>li:nth-child(odd) {
+.messagesContainer>li:nth-child(odd) {
   background: #2b2a2a;
 }
 
