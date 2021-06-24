@@ -46,4 +46,5 @@ a {
   --random-x3: -2em;
   --random-y3: -2em;
   --borderRadius: 10px;
+  --shadow: 0 0 14px -3px gray;
 }

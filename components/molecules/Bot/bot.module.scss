@@ -17,54 +17,56 @@
   }
 }
 
-.form {
+.formWrapper{
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
-  display: flex;
-  height: 3rem;
-  // bottom: 0;
-  // right: 0;
-  // left: 0;
-  padding: 0.25rem;
-  // position: absolute;
-  flex: 10%;
-  border-radius: var(--borderRadius);
 
-  
-  input {
-    border: none;
-    padding: 0 1rem;
-    flex-grow: 1;
-    border-radius: 2rem;
-    margin: 0.25rem;
+  .form {
+    display: flex;
+    height: 3rem;  
+    padding: 0.25rem;
+    flex: 10%;
+    border-radius: var(--borderRadius);
     
-    focus {
-      outline: none;
+    
+    input {
+      border: none;
+      padding: 0 1rem;
+      flex-grow: 1;
+      border-radius: 2rem;
+      margin: 0.25rem;
+      
+      focus {
+        outline: none;
+      }
+      
     }
     
+    button {
+      background: #333;
+      border: none;
+      padding: 0 1rem;
+      margin: 0.25rem;
+      border-radius: 3px;
+      outline: none;
+      color: #fff;
+    }
+  }
+}
+.waiting{
+  border-top: 2px solid red;
+}
+  
+  .messagesContainer { /*ul element*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    flex: 90%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
   }
   
-  button {
-    background: #333;
-    border: none;
-    padding: 0 1rem;
-    margin: 0.25rem;
-    border-radius: 3px;
-    outline: none;
-    color: #fff;
-  }
-}
-
-.messagesContainer { /*ul element*/
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  flex: 90%;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-}
-
 .userMessage {
   text-align: right;
 }
@@ -108,21 +110,23 @@
 }
 
 .suggestions {
-  position: absolute;
-  bottom: 50px;
   display: flex;
   flex-direction: row;
-  background-color: lightgrey;
   gap: 10px;
-  justify-content: center;
+  justify-content: space-around;
   padding: 5px 0px;
   width: 100%;
   padding: 5px 0;
 }
 
 .suggestionTag {
-  background-color: pink;
+  background-color: rgb(29, 29, 29);
   border-radius: 50px;
-  border: 1px solid lightsalmon;
-  padding: 2.5px 10px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  
+  &:hover{
+    box-shadow: var(--shadow);
+  }
 }
