@@ -1,5 +1,5 @@
 .botContainer{
-  background-color: #333;
+  background-color: rgb(226, 234, 236);
   bottom: 0;
   height: 70vh;
   margin: 0 10%;
@@ -54,34 +54,52 @@
     }
   }
 }
+
 .waiting{
   border-top: 2px solid red;
 }
   
-  .messagesContainer { /*ul element*/
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    flex: 90%;
-    overflow-y: scroll;
-    scrollbar-width: thin;
-  }
-  
+.messagesContainer { /*ul element*/
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  flex: 90%;
+  flex-direction: column;
+  overflow-y: auto;
+  position: relative;
+  scrollbar-width: thin;
+}
+
+.messageWrapper{
+  display: block;
+  position: relative;
+  padding: 0.5rem 1rem;
+  margin: 0 0 25px 0;
+}
+
+.message{
+  border: 1px solid rgb(185, 196, 206);
+  padding: 5px 15px ;
+  position: absolute;
+  max-width: 48%;
+  border-radius: 8px;
+  color: #333;
+  box-shadow: -1px -1px 10px -5px #ffffff;
+}
+
 .userMessage {
-  text-align: right;
+  // text-align: right;
+  right: 10px;
+  background-color: #b6d8f8;
+
 }
 
 .botMessage {
-  text-align: left;
+  // text-align: left;
+  left: 10px;
+  background-color: #c8f0c8;
 }
 
-.messagesContainer>li {
-  padding: 0.5rem 1rem;
-}
-
-.messagesContainer>li:nth-child(odd) {
-  background: #2b2a2a;
-}
 
 .stats {
   background-color: #333;

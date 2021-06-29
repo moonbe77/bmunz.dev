@@ -3,9 +3,19 @@ import { askToBot } from '../../../utils/askToBot';
 import styles from './bot.module.scss';
 import Button from '../../atoms/Button';
 
-const TextMessage = (message) => (
-  <li className={styles.myMessage}>{message}</li>
+const TextMessage = (props) => (
+  <div className={`${styles.message} ${props.className}`}>{props.message}</div>
 );
+const CardMessage = (props) => {
+  const { title, subtitle, imageUri } = props.data.card;
+  return (
+    <div className={`${styles.message} ${props.className}`}>
+      <div>{title}</div>
+      <div>{subtitle}</div>
+      <img src={imageUri} />
+    </div>
+  );
+};
 
 const Suggestions = ({ data, action }) => {
   if (!data) return 'loading..';
@@ -30,32 +40,62 @@ const Bot = () => {
   const messagesContainer = useRef();
   const isWaiting = isWaitingAnswer ? styles.waiting : '';
 
-  const messageParser = (message, origin) => {
+  // this function should create the message creator that is gonna be render in the chat
+  const messageParser = (message, sender) => {
     // pareced of the message to be added in the chat
-    console.log(message);
     if (message.fulfillmentMessages) {
-      message.fulfillmentMessages.map((type) => {
-        if (type.message === 'text') {
-          type.text.text.map((txt) => {
+      message.fulfillmentMessages.map((fulfillmentMessage) => {
+        if (fulfillmentMessage.message === 'text') {
+          fulfillmentMessage.text.text.map((txt) => {
             setMessages((prev) => [
               ...prev,
               {
                 id: Date.now(),
                 text: txt,
-                sender: 'bot',
+                component: (
+                  <TextMessage
+                    message={txt}
+                    className={`                  
+                      ${
+                        sender === 'bot'
+                          ? styles.botMessage
+                          : styles.userMessage
+                      }
+                    `}
+                  />
+                ),
+                sender,
+                type: 'text',
               },
             ]);
           });
           return;
         }
 
-        if (type.message === 'card') {
-          console.log(type);
+        if (fulfillmentMessage.message === 'card') {
+          setMessages((prev) => [
+            ...prev,
+            {
+              id: Date.now(),
+              text: 'card',
+              component: (
+                <CardMessage
+                  key={message.id}
+                  data={fulfillmentMessage}
+                  className={`                  
+                ${sender === 'bot' ? styles.botMessage : styles.userMessage}
+              `}
+                />
+              ),
+              sender: 'bot',
+              type: 'card',
+            },
+          ]);
         }
 
-        if (type.message === 'quickReplies') {
-          console.log(type);
-          setSuggestions(type.quickReplies.quickReplies);
+        if (fulfillmentMessage.message === 'quickReplies') {
+          // console.log(type);
+          setSuggestions(fulfillmentMessage.quickReplies.quickReplies);
         }
       });
     } else {
@@ -64,7 +104,16 @@ const Bot = () => {
         {
           id: Date.now(),
           text: typeof message === 'object' ? message.fulfillmentText : message,
-          sender: origin,
+          component: (
+            <TextMessage
+              key={message.id}
+              message={message}
+              className={
+                sender === 'bot' ? styles.botMessage : styles.userMessage
+              }
+            />
+          ),
+          sender,
         },
       ]);
     }
@@ -82,9 +131,9 @@ const Bot = () => {
     });
   }
 
-  function addUserQueryToChat(message) {
+  function addUserQueryToChat(message, sender) {
     setIsWaitingAnswer(true);
-    messageParser(message, origin);
+    messageParser(message, sender);
     askToBotHandler(message);
   }
 
@@ -112,18 +161,10 @@ const Bot = () => {
       <ul className={styles.messagesContainer} ref={messagesContainer}>
         {messages &&
           messages.map((message) => (
-            <li
-              key={message.id}
-              className={
-                message.sender === 'bot'
-                  ? styles.botMessage
-                  : styles.userMessage
-              }
-            >
-              {message.text}
+            <li key={message.id} className={`${styles.messageWrapper}`}>
+              {message.component}
             </li>
           ))}
-        {/* <li style={{ float: 'left', clear: 'both' }}  /> */}
       </ul>
       <div className={`${styles.formWrapper} ${isWaiting}`}>
         <div>
@@ -141,6 +182,15 @@ const Bot = () => {
           <button>submit</button>
         </form>
       </div>
+      {/* <div>
+        <h1>test</h1>
+        <ul>
+          {messageComponent.map((mess) => {
+            console.log(mess);
+            return mess;
+          })}
+        </ul>
+      </div> */}
     </div>
   );
 };
