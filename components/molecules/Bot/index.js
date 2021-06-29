@@ -1,18 +1,22 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect, useRef } from 'react';
 import { askToBot } from '../../../utils/askToBot';
 import styles from './bot.module.scss';
 import Button from '../../atoms/Button';
 
-const TextMessage = (props) => (
-  <div className={`${styles.message} ${props.className}`}>{props.message}</div>
-);
+const TextMessage = (props) => {
+  const { className, message } = props;
+  return <div className={`${styles.message} ${className}`}>{message}</div>;
+};
+
 const CardMessage = (props) => {
-  const { title, subtitle, imageUri } = props.data.card;
+  const { className, data } = props;
+  const { title, subtitle, imageUri } = data.card;
   return (
-    <div className={`${styles.message} ${props.className}`}>
+    <div className={`${styles.message} ${className}`}>
       <div>{title}</div>
       <div>{subtitle}</div>
-      <img src={imageUri} />
+      <img src={imageUri} alt={title} />
     </div>
   );
 };
