@@ -4,7 +4,7 @@ const dialogflowGateway =
 
 export async function askToBot(query) {
   const response = await fetch(
-    dialogflowGateway, // TODO: make it env variable
+    process.env.NEXT_PUBLIC_DIALOGFLOW_GATEWAY, // TODO: make it env variable
     {
       method: 'post',
       headers: {
