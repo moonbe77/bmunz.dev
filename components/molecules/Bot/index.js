@@ -5,18 +5,65 @@ import styles from './bot.module.scss';
 import Button from '../../atoms/Button';
 
 const TextMessage = (props) => {
-  const { className, message } = props;
-  return <div className={`${styles.message} ${className}`}>{message}</div>;
+  const { message, sender } = props;
+  return (
+    <div
+      className={`${styles.message} ${sender === 'bot'
+          ? styles.incomingTextMessage
+          : styles.outgoingTextMessage
+        }`}
+    >
+      <span className={styles.tail}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 8 13"
+          width="8"
+          height="13"
+        >
+          <path
+            opacity=".13"
+            fill="#0000000"
+            d="M1.533 3.568L8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z"
+          />
+          <path
+            fill="currentColor"
+            d="M1.533 2.568L8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z"
+          />
+        </svg>
+      </span>
+      {message}
+    </div>
+  );
 };
 
 const CardMessage = (props) => {
-  const { className, data } = props;
-  const { title, subtitle, imageUri } = data.card;
+  const { sender, data } = props;
+  const { title, subtitle, imageUri, buttons } = data.card;
+  console.log(data);
   return (
-    <div className={`${styles.message} ${className}`}>
-      <div>{title}</div>
-      <div>{subtitle}</div>
-      <img src={imageUri} alt={title} />
+    <div
+      className={`${styles.message} ${sender === 'bot'
+          ? styles.incomingTextMessage
+          : styles.outgoingTextMessage
+        }`}
+    >
+      <div className={styles.cardImage}>
+        <img src={imageUri} alt={title} />
+      </div>
+      <div className={styles.cardTitle}>{title}</div>
+      <div className={styles.cardSubTitle}>{subtitle}</div>
+      <div className={styles.cardButtons}>
+        {buttons.forEach((btn) => (
+          <button
+            type="button"
+            onClick={() => {
+              console.log(btn.postback);
+            }}
+          >
+            {btn.text}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
@@ -48,26 +95,15 @@ const Bot = () => {
   const messageParser = (message, sender) => {
     // pareced of the message to be added in the chat
     if (message.fulfillmentMessages) {
-      message.fulfillmentMessages.map((fulfillmentMessage) => {
+      message.fulfillmentMessages.forEach((fulfillmentMessage) => {
         if (fulfillmentMessage.message === 'text') {
-          fulfillmentMessage.text.text.map((txt) => {
+          fulfillmentMessage.text.text.forEach((txt) => {
             setMessages((prev) => [
               ...prev,
               {
                 id: Date.now(),
                 text: txt,
-                component: (
-                  <TextMessage
-                    message={txt}
-                    className={`                  
-                      ${
-                        sender === 'bot'
-                          ? styles.botMessage
-                          : styles.userMessage
-                      }
-                    `}
-                  />
-                ),
+                component: <TextMessage message={txt} sender={sender} />,
                 sender,
                 type: 'text',
               },
@@ -86,9 +122,7 @@ const Bot = () => {
                 <CardMessage
                   key={message.id}
                   data={fulfillmentMessage}
-                  className={`                  
-                ${sender === 'bot' ? styles.botMessage : styles.userMessage}
-              `}
+                  sender={sender}
                 />
               ),
               sender: 'bot',
@@ -108,15 +142,7 @@ const Bot = () => {
         {
           id: Date.now(),
           text: typeof message === 'object' ? message.fulfillmentText : message,
-          component: (
-            <TextMessage
-              key={message.id}
-              message={message}
-              className={
-                sender === 'bot' ? styles.botMessage : styles.userMessage
-              }
-            />
-          ),
+          component: <TextMessage key={message.id} message={message} />,
           sender,
         },
       ]);
@@ -161,15 +187,21 @@ const Bot = () => {
 
   return (
     <div className={styles.botContainer}>
-      <h1>Munz_Bot</h1>
-      <ul className={styles.messagesContainer} ref={messagesContainer}>
+      <div className="header">
+        <h1>Munz_Bot</h1>
+      </div>
+      <div className={styles.messagesContainer} ref={messagesContainer}>
         {messages &&
           messages.map((message) => (
-            <li key={message.id} className={`${styles.messageWrapper}`}>
+            <div
+              key={message.id}
+              className={`${styles.messageWrapper} ${message.sender === 'bot' ? styles.messageIn : styles.messageOut
+                }`}
+            >
               {message.component}
-            </li>
+            </div>
           ))}
-      </ul>
+      </div>
       <div className={`${styles.formWrapper} ${isWaiting}`}>
         <div>
           {suggestions && (

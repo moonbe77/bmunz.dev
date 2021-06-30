@@ -12,10 +12,15 @@
   flex-direction: column;
   border-radius: var(--borderRadius);
 
-  h1{
-    text-align: center;
-  }
 }
+  // .header{
+  //   text-align: center;
+  //   border: 1px solid red;
+  //   h1{
+  //     color: #333;
+  //   }
+  // }
+
 
 .formWrapper{
   backdrop-filter: blur(10px);
@@ -63,43 +68,85 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  flex: 90%;
+  flex: 1 1 0;
   flex-direction: column;
   overflow-y: auto;
   position: relative;
-  scrollbar-width: thin;
 }
 
 .messageWrapper{
-  display: block;
+  color: #333;
   position: relative;
-  padding: 0.5rem 1rem;
-  margin: 0 0 25px 0;
+    display: flex;
+    flex-direction: column;    
+    user-select: text;
+    margin-bottom: 12px;
 }
 
-.message{
-  border: 1px solid rgb(185, 196, 206);
+.messageOut {
+  align-items: flex-end;
+}
+
+.messageIn {
+  align-items: flex-start;
+}
+
+//  common to all the message
+.message{  
   padding: 5px 15px ;
-  position: absolute;
+  margin: 0 15px;
   max-width: 48%;
   border-radius: 8px;
-  color: #333;
   box-shadow: -1px -1px 10px -5px #ffffff;
+  align-items: flex-end;
+  position: relative;
 }
 
-.userMessage {
-  // text-align: right;
-  right: 10px;
-  background-color: #b6d8f8;
+.incomingTextMessage{
+  background-color: #c8f0c8;  
 
+  .tail{
+    position: absolute;
+    top: 0;
+    left: -5px;
+    z-index: 100;
+    display: block;
+    width: 8px;
+    height: 13px;
+  }
 }
 
-.botMessage {
-  // text-align: left;
-  left: 10px;
-  background-color: #c8f0c8;
+.outgoingTextMessage{
+  background-color: #b6d8f8;  
+  .tail{
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    display: block;
+    width: 8px;
+    height: 13px;
+  }
 }
 
+.cardImage{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.cardButtons{
+  display: flex;
+}
+
+.cardTitle{ 
+  font-size: 1.1rem; 
+  font-weight: 600;
+  margin: 10px ;
+}
+
+.cardSubTitle{
+  background-color: cornsilk;
+  padding: 15px;
+}
 
 .stats {
   background-color: #333;
