@@ -23,6 +23,6 @@ const SuggestionsBox = ({ data, action }) => {
 export default SuggestionsBox;
 
 SuggestionsBox.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.array,
   action: PropTypes.func,
 };

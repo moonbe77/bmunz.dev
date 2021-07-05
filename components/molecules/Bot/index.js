@@ -70,7 +70,9 @@ const Bot = () => {
         {
           id: Date.now(),
           text: typeof message === 'object' ? message.fulfillmentText : message,
-          component: <TextMessage key={message.id} message={message} />,
+          component: (
+            <TextMessage key={message.id} message={message} sender={sender} />
+          ),
           sender,
         },
       ]);
@@ -95,10 +97,7 @@ const Bot = () => {
       type: 'IS_WAITING',
       payload: true,
     });
-    botDispatch({
-      type: 'ADD_MESSAGE',
-      payload: message,
-    });
+
     messageParser(message, sender);
     askToBotHandler(message);
   }
@@ -117,12 +116,16 @@ const Bot = () => {
 
   const handleClickSuggestion = (e) => {
     setIsWaitingAnswer(true);
+    botDispatch({
+      type: 'IS_WAITING',
+      payload: true,
+    });
     const value = e.target.innerText.toLowerCase();
     addUserQueryToChat(value, 'user');
-    botDispatch({
-      type: 'ADD_MESSAGE',
-      payload: value,
-    });
+    // botDispatch({
+    //   type: 'ADD_MESSAGE',
+    //   payload: value,
+    // });
   };
 
   return (

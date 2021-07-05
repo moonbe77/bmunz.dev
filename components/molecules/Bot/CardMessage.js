@@ -32,5 +32,5 @@ export default CardMessage;
 
 CardMessage.propTypes = {
   sender: PropTypes.oneOf(['user', 'bot']).isRequired,
-  data: PropTypes.object,
+  data: PropTypes.array,
 };
