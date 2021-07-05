@@ -8,10 +8,11 @@ const TextMessage = (props) => {
   const { message, sender } = props;
   return (
     <div
-      className={`${styles.message} ${sender === 'bot'
+      className={`${styles.message} ${
+        sender === 'bot'
           ? styles.incomingTextMessage
           : styles.outgoingTextMessage
-        }`}
+      }`}
     >
       <span className={styles.tail}>
         <svg
@@ -22,11 +23,11 @@ const TextMessage = (props) => {
         >
           <path
             opacity=".13"
-            fill="#0000000"
+            // fill="#0000000"
             d="M1.533 3.568L8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z"
           />
           <path
-            fill="currentColor"
+            // fill="currentColor"
             d="M1.533 2.568L8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z"
           />
         </svg>
@@ -42,10 +43,11 @@ const CardMessage = (props) => {
   console.log(data);
   return (
     <div
-      className={`${styles.message} ${sender === 'bot'
+      className={`${styles.message} ${
+        sender === 'bot'
           ? styles.incomingTextMessage
           : styles.outgoingTextMessage
-        }`}
+      }`}
     >
       <div className={styles.cardImage}>
         <img src={imageUri} alt={title} />
@@ -195,8 +197,9 @@ const Bot = () => {
           messages.map((message) => (
             <div
               key={message.id}
-              className={`${styles.messageWrapper} ${message.sender === 'bot' ? styles.messageIn : styles.messageOut
-                }`}
+              className={`${styles.messageWrapper} ${
+                message.sender === 'bot' ? styles.messageIn : styles.messageOut
+              }`}
             >
               {message.component}
             </div>
@@ -215,18 +218,9 @@ const Bot = () => {
             onChange={handleInput}
             value={inputValue}
           />
-          <button>submit</button>
+          <button type="button">submit</button>
         </form>
       </div>
-      {/* <div>
-        <h1>test</h1>
-        <ul>
-          {messageComponent.map((mess) => {
-            console.log(mess);
-            return mess;
-          })}
-        </ul>
-      </div> */}
     </div>
   );
 };
