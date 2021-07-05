@@ -10,7 +10,7 @@ export default function Home() {
       <Head>
         <title>bMunz.dev - Frontend Developer</title>
       </Head>
-      <Bot />
+      <Bot isDarkTheme={isDarkTheme} />
     </>
   );
 }

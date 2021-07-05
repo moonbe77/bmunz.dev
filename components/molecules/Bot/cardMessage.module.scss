@@ -1,0 +1,19 @@
+.cardImage{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.cardButtons{
+  display: flex;
+}
+
+.cardTitle{ 
+  font-size: 1.1rem; 
+  font-weight: 600;
+  margin: 10px ;
+}
+
+.cardSubTitle{
+  background-color: cornsilk;
+  padding: 15px;
+}

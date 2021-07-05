@@ -1,0 +1,38 @@
+//  common to all the message
+.message{  
+  padding: 5px 15px ;
+  margin: 0 15px;
+  max-width: 80%;  
+  box-shadow: -1px -1px 10px -5px #959670;
+  align-items: flex-end;
+  position: relative;
+}
+
+.incomingTextMessage{
+  background-color: #c8f0c8;  
+  border-radius: 0 8px  8px 8px;
+
+  .tail{
+    position: absolute;
+    top: -2px;
+    left: -8px;
+    width: 8px;
+    height: 13px;    
+    fill: #c8f0c8;     
+  }
+}
+
+.outgoingTextMessage{
+  background-color: #b6d8f8;  
+  border-radius: 8px 0 8px 8px;
+
+  .tail{
+    position: absolute;
+    top: -2px;
+    right: -7px;
+    width: 8px;
+    height: 13px;
+    transform: rotateY(180deg);
+    fill: #b6d8f8;
+  }
+}

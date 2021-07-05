@@ -26,5 +26,5 @@ export async function askToBot(query) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
 
-  return await response.json();
+  return response.json();
 }

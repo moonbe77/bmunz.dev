@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import Head from 'next/head';
 import { StateProvider } from '../store/store';
+import { BotStateProvider } from '../store/botContext';
 import Layout from '../components/Layout';
 import '../styles/normalize.css';
 import '../styles/globals.css';
@@ -75,9 +76,11 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <StateProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <BotStateProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </BotStateProvider>
       </StateProvider>
     </>
   );

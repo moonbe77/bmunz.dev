@@ -2,87 +2,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { askToBot } from '../../../utils/askToBot';
 import styles from './bot.module.scss';
-import Button from '../../atoms/Button';
-
-const TextMessage = (props) => {
-  const { message, sender } = props;
-  return (
-    <div
-      className={`${styles.message} ${
-        sender === 'bot'
-          ? styles.incomingTextMessage
-          : styles.outgoingTextMessage
-      }`}
-    >
-      <span className={styles.tail}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 8 13"
-          width="8"
-          height="13"
-        >
-          <path
-            opacity=".13"
-            // fill="#0000000"
-            d="M1.533 3.568L8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z"
-          />
-          <path
-            // fill="currentColor"
-            d="M1.533 2.568L8 11.193V0H2.812C1.042 0 .474 1.156 1.533 2.568z"
-          />
-        </svg>
-      </span>
-      {message}
-    </div>
-  );
-};
-
-const CardMessage = (props) => {
-  const { sender, data } = props;
-  const { title, subtitle, imageUri, buttons } = data.card;
-  console.log(data);
-  return (
-    <div
-      className={`${styles.message} ${
-        sender === 'bot'
-          ? styles.incomingTextMessage
-          : styles.outgoingTextMessage
-      }`}
-    >
-      <div className={styles.cardImage}>
-        <img src={imageUri} alt={title} />
-      </div>
-      <div className={styles.cardTitle}>{title}</div>
-      <div className={styles.cardSubTitle}>{subtitle}</div>
-      <div className={styles.cardButtons}>
-        {buttons.forEach((btn) => (
-          <button
-            type="button"
-            onClick={() => {
-              console.log(btn.postback);
-            }}
-          >
-            {btn.text}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const Suggestions = ({ data, action }) => {
-  if (!data) return 'loading..';
-
-  return (
-    <div className={styles.suggestions}>
-      {data.map((slug, i) => (
-        <Button key={i} onClick={action} role="button">
-          {slug}
-        </Button>
-      ))}
-    </div>
-  );
-};
+import CardMessage from './CardMessage';
+import TextMessage from './TextMessage';
+import SuggestionsBox from './SuggestionsBox';
+import { useBotDispatch, useBotContext } from '../../../store/botContext';
 
 const Bot = () => {
   const [messages, setMessages] = useState([]);
@@ -92,6 +15,9 @@ const Bot = () => {
   const [isWaitingAnswer, setIsWaitingAnswer] = useState(false);
   const messagesContainer = useRef();
   const isWaiting = isWaitingAnswer ? styles.waiting : '';
+
+  const botDispatch = useBotDispatch();
+  const botContext = useBotContext();
 
   // this function should create the message creator that is gonna be render in the chat
   const messageParser = (message, sender) => {
@@ -154,7 +80,7 @@ const Bot = () => {
   useEffect(() => {
     messagesContainer.current.scrollTop =
       messagesContainer.current.scrollHeight + 35;
-  }, [messages]);
+  }, [botContext.messages]);
 
   function askToBotHandler(query) {
     askToBot(query).then((data) => {
@@ -165,6 +91,14 @@ const Bot = () => {
 
   function addUserQueryToChat(message, sender) {
     setIsWaitingAnswer(true);
+    botDispatch({
+      type: 'IS_WAITING',
+      payload: true,
+    });
+    botDispatch({
+      type: 'ADD_MESSAGE',
+      payload: message,
+    });
     messageParser(message, sender);
     askToBotHandler(message);
   }
@@ -185,6 +119,10 @@ const Bot = () => {
     setIsWaitingAnswer(true);
     const value = e.target.innerText.toLowerCase();
     addUserQueryToChat(value, 'user');
+    botDispatch({
+      type: 'ADD_MESSAGE',
+      payload: value,
+    });
   };
 
   return (
@@ -208,7 +146,7 @@ const Bot = () => {
       <div className={`${styles.formWrapper} ${isWaiting}`}>
         <div>
           {suggestions && (
-            <Suggestions data={suggestions} action={handleClickSuggestion} />
+            <SuggestionsBox data={suggestions} action={handleClickSuggestion} />
           )}
         </div>
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -218,7 +156,7 @@ const Bot = () => {
             onChange={handleInput}
             value={inputValue}
           />
-          <button type="button">submit</button>
+          <button type="submit">submit</button>
         </form>
       </div>
     </div>

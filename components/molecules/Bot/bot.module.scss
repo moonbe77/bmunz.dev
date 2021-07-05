@@ -2,8 +2,7 @@
   background-color: #373737;
   bottom: 0;
   height: 70vh;
-  margin: 0 10%;
-  margin: auto;  
+  margin: 20px auto;
   position: relative;
   right: 0;
   max-width: 500px;
@@ -11,6 +10,7 @@
   display: flex;
   flex-direction: column;
   border-radius: var(--borderRadius);
+  border: 1px solid red;
 
 }
   // .header{
@@ -96,7 +96,7 @@
   padding: 5px 15px ;
   margin: 0 15px;
   max-width: 80%;  
-  box-shadow: -1px -1px 10px -5px #ffffff;
+  box-shadow: -1px -1px 10px -5px #959670;
   align-items: flex-end;
   position: relative;
 }
@@ -109,8 +109,6 @@
     position: absolute;
     top: -2px;
     left: -8px;
-    z-index: 100;
-    display: block;
     width: 8px;
     height: 13px;    
     fill: #c8f0c8;     
@@ -120,12 +118,11 @@
 .outgoingTextMessage{
   background-color: #b6d8f8;  
   border-radius: 8px 0 8px 8px;
+
   .tail{
     position: absolute;
-    top: -3px;
+    top: -2px;
     right: -7px;
-    z-index: 100;
-    display: block;
     width: 8px;
     height: 13px;
     transform: rotateY(180deg);
@@ -133,25 +130,7 @@
   }
 }
 
-.cardImage{
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.cardButtons{
-  display: flex;
-}
 
-.cardTitle{ 
-  font-size: 1.1rem; 
-  font-weight: 600;
-  margin: 10px ;
-}
-
-.cardSubTitle{
-  background-color: cornsilk;
-  padding: 15px;
-}
 
 .stats {
   background-color: #333;
@@ -179,24 +158,3 @@
   content: 'Users: ';
 }
 
-.suggestions {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  justify-content: space-around;
-  padding: 5px 0px;
-  width: 100%;
-  padding: 5px 0;
-}
-
-.suggestionTag {
-  background-color: rgb(29, 29, 29);
-  border-radius: 50px;
-  padding: 0.5rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  
-  &:hover{
-    box-shadow: var(--shadow);
-  }
-}
