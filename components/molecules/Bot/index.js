@@ -8,7 +8,7 @@ import SuggestionsBox from './SuggestionsBox';
 import { useBotDispatch, useBotContext } from '../../../store/botContext';
 
 const Bot = () => {
-  const [messages, setMessages] = useState([]);
+  // const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   // const [ask, setAsk] = useState('hello');
   const [suggestions, setSuggestions] = useState(null);
@@ -18,32 +18,43 @@ const Bot = () => {
 
   const botDispatch = useBotDispatch();
   const botContext = useBotContext();
+  console.log(botContext);
 
   // this function should create the message creator that is gonna be render in the chat
   const messageParser = (message, sender) => {
-    // pareced of the message to be added in the chat
+    // parsing of the message to be added in the chat
     if (message.fulfillmentMessages) {
       message.fulfillmentMessages.forEach((fulfillmentMessage) => {
         if (fulfillmentMessage.message === 'text') {
           fulfillmentMessage.text.text.forEach((txt) => {
-            setMessages((prev) => [
-              ...prev,
-              {
+            botDispatch({
+              type: 'ADD_MESSAGE',
+              payload: {
                 id: Date.now(),
                 text: txt,
                 component: <TextMessage message={txt} sender={sender} />,
                 sender,
                 type: 'text',
               },
-            ]);
+            });
+            // setMessages((prev) => [
+            //   ...prev,
+            //   {
+            //     id: Date.now(),
+            //     text: txt,
+            //     component: <TextMessage message={txt} sender={sender} />,
+            //     sender,
+            //     type: 'text',
+            //   },
+            // ]);
           });
           return;
         }
 
         if (fulfillmentMessage.message === 'card') {
-          setMessages((prev) => [
-            ...prev,
-            {
+          botDispatch({
+            type: 'ADD_MESSAGE',
+            payload: {
               id: Date.now(),
               text: 'card',
               component: (
@@ -56,7 +67,23 @@ const Bot = () => {
               sender: 'bot',
               type: 'card',
             },
-          ]);
+          });
+          // setMessages((prev) => [
+          //   ...prev,
+          //   {
+          //     id: Date.now(),
+          //     text: 'card',
+          //     component: (
+          //       <CardMessage
+          //         key={message.id}
+          //         data={fulfillmentMessage}
+          //         sender={sender}
+          //       />
+          //     ),
+          //     sender: 'bot',
+          //     type: 'card',
+          //   },
+          // ]);
         }
 
         if (fulfillmentMessage.message === 'quickReplies') {
@@ -65,9 +92,9 @@ const Bot = () => {
         }
       });
     } else {
-      setMessages((prev) => [
-        ...prev,
-        {
+      botDispatch({
+        type: 'ADD_MESSAGE',
+        payload: {
           id: Date.now(),
           text: typeof message === 'object' ? message.fulfillmentText : message,
           component: (
@@ -75,7 +102,19 @@ const Bot = () => {
           ),
           sender,
         },
-      ]);
+      });
+
+      // setMessages((prev) => [
+      //   ...prev,
+      //   {
+      //     id: Date.now(),
+      //     text: typeof message === 'object' ? message.fulfillmentText : message,
+      //     component: (
+      //       <TextMessage key={message.id} message={message} sender={sender} />
+      //     ),
+      //     sender,
+      //   },
+      // ]);
     }
   };
 
@@ -122,10 +161,6 @@ const Bot = () => {
     });
     const value = e.target.innerText.toLowerCase();
     addUserQueryToChat(value, 'user');
-    // botDispatch({
-    //   type: 'ADD_MESSAGE',
-    //   payload: value,
-    // });
   };
 
   return (
@@ -134,17 +169,20 @@ const Bot = () => {
         <h1>Munz_Bot</h1>
       </div>
       <div className={styles.messagesContainer} ref={messagesContainer}>
-        {messages &&
-          messages.map((message) => (
-            <div
-              key={message.id}
-              className={`${styles.messageWrapper} ${
-                message.sender === 'bot' ? styles.messageIn : styles.messageOut
-              }`}
-            >
-              {message.component}
-            </div>
-          ))}
+        {botContext.messages.length > 0
+          ? botContext.messages.map((message) => (
+              <div
+                key={message.id}
+                className={`${styles.messageWrapper} ${
+                  message.sender === 'bot'
+                    ? styles.messageIn
+                    : styles.messageOut
+                }`}
+              >
+                {message.component}
+              </div>
+            ))
+          : 'Hey ask something to the bot'}
       </div>
       <div className={`${styles.formWrapper} ${isWaiting}`}>
         <div>
@@ -159,7 +197,7 @@ const Bot = () => {
             onChange={handleInput}
             value={inputValue}
           />
-          <button type="submit">submit</button>
+          <button type="submit">send</button>
         </form>
       </div>
     </div>

@@ -61,6 +61,30 @@
   transform: translateX(-50%);
 }
 
+.botButton{
+  align-items: center;
+  background-color: aliceblue;
+  border-radius: 50%;
+  bottom: 10px;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  position: fixed;
+  right: 50px;
+  width: 100px;
+  
+  &:before{
+    content: "🤖";
+    position: absolute;
+    border: 1px solid red;
+    z-index: 999;
+  }
+
+  &:hover{
+    background-color: aqua;
+  }
+}
+
 @media only screen and (max-width: 780px) {
   .footer {
     flex-direction: column;

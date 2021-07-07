@@ -9,6 +9,8 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'TOGGLE_SIDE_MENU':
       return { ...state, showSideMenu: action.payload };
+    case 'SHOW_BOT':
+      return { ...state, showBot: action.payload };
     case 'SWITCH_THEME':
       return { ...state, isDarkTheme: action.payload };
     case 'SWITCH_GAME':
@@ -55,6 +57,7 @@ const initialState = {
   isDarkTheme: true,
   projects: projects.data,
   showSideMenu: false,
+  showBot: false,
   menu: [...menuItems],
   showTicTacToe: false,
   game: [

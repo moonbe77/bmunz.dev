@@ -3,14 +3,16 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import Footer from '../molecules/Footer';
-import { useStateContext } from '../../store/store';
+import { useStateContext, useStateDispatch } from '../../store/store';
 import Header from '../molecules/Header';
 import TicTacToe from '../molecules/TicTacToe';
+import Bot from '../molecules/Bot';
 import { initGA, logPageView } from '../../utils/analytics';
 import styles from './layout.module.scss';
 
 export default function Layout({ children }) {
-  const { isDarkTheme, showTicTacToe } = useStateContext();
+  const { isDarkTheme, showTicTacToe, showBot } = useStateContext();
+  const dispatch = useStateDispatch();
   const theme = isDarkTheme ? styles.dark : styles.light;
   const router = useRouter();
 
@@ -21,6 +23,13 @@ export default function Layout({ children }) {
     }
     logPageView();
   }, [router]);
+
+  const handleShowBot = () => {
+    dispatch({
+      type: 'SHOW_BOT',
+      payload: !showBot,
+    });
+  };
 
   return (
     <>
@@ -52,6 +61,7 @@ export default function Layout({ children }) {
               srcSet=""
             />
           </div>
+          <div className={styles.botButton} onClick={handleShowBot} />
         </div>
       </motion.div>
       {showTicTacToe && (
@@ -64,6 +74,7 @@ export default function Layout({ children }) {
           <TicTacToe />
         </motion.div>
       )}
+      {showBot && <Bot />}
     </>
   );
 }

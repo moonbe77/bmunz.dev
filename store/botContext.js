@@ -4,14 +4,22 @@ export const BotStateContext = createContext();
 export const BotStateDispatcher = createContext();
 
 const reducer = (state, action) => {
+  console.log(action);
   switch (action.type) {
-    case 'ADD_MESSAGE':
-      return { ...state, messages: [...state.messages, action.payload] };
+    case 'ADD_MESSAGE': {
+      const messages = [...state.messages, action.payload];
+      return {
+        ...state,
+        messages,
+      };
+    }
+
     case 'ADD_SUGGESTIONS':
       // should receive an array
       return { ...state, suggestions: [...action.payload] };
+
     case 'IS_WAITING':
-      return { ...state, messages: action.payload };
+      return { ...state, isWaitingAnswer: action.payload };
 
     default:
       throw new Error(

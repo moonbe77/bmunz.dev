@@ -10,7 +10,6 @@
   display: flex;
   flex-direction: column;
   border-radius: var(--borderRadius);
-
 }
   // .header{
   //   text-align: center;
@@ -48,13 +47,17 @@
     }
     
     button {
-      background: #333;
+      background: rgb(33, 35, 58);
       border: none;
       padding: 0 1rem;
       margin: 0.25rem;
       border-radius: 3px;
       outline: none;
       color: #fff;
+      
+      &:hover{
+        background: rgb(29, 44, 77);
+      }
     }
   }
 }
