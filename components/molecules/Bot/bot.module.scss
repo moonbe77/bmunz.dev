@@ -1,30 +1,38 @@
 .botContainer{
   background-color: #373737;
-  bottom: 0;
+  bottom: 50px;
   height: 70vh;
-  margin: 20px auto;
-  position: relative;
-  right: 0;
-  max-width: 500px;
-  z-index: 999;
+  position: fixed;
+  right: 10px;
+  min-width: 400px;
+  max-width: 25vw;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   border-radius: var(--borderRadius);
 }
-  // .header{
-  //   text-align: center;
-  //   border: 1px solid red;
-  //   h1{
-  //     color: #333;
-  //   }
-  // }
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;  
+
+  h1{
+    color: rgb(240, 235, 235);
+  flex: 2;
+    text-align: center;
+  }
+  div{
+    flex: 1;
+  }
+}
 
 
 .formWrapper{
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
-
+  
   .form {
     display: flex;
     height: 3rem;  
@@ -65,24 +73,28 @@
 .waiting{
   border-top: 2px solid red;
 }
-  
-.messagesContainer { /*ul element*/
-  list-style-type: none;
+
+.messagesContainer { 
   margin: 0;
   padding: 0;
   flex: 1 1 0;
   flex-direction: column;
   overflow-y: auto;
   position: relative;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: none ;
+  overscroll-behavior-y: none;
 }
 
 .messageWrapper{
+  scroll-snap-align: end;
   color: #333;
   position: relative;
-    display: flex;
-    flex-direction: column;    
-    user-select: text;
-    margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;    
+  user-select: text;
+  margin-bottom: 12px;
 }
 
 .messageOut {
@@ -160,3 +172,23 @@
   content: 'Users: ';
 }
 
+
+
+@media only screen and (max-width: 680px) {
+  .botContainer {
+    max-width: 75%;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .botContainer {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    margin: 0;
+    right: 0;
+    bottom: 0;
+    height: 90vh;
+    border-radius: 0;
+  }
+}

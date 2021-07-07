@@ -6,6 +6,7 @@ import CardMessage from './CardMessage';
 import TextMessage from './TextMessage';
 import SuggestionsBox from './SuggestionsBox';
 import { useBotDispatch, useBotContext } from '../../../store/botContext';
+import { useStateDispatch, useStateContext } from '../../../store/store';
 
 const Bot = () => {
   // const [messages, setMessages] = useState([]);
@@ -17,8 +18,9 @@ const Bot = () => {
   const isWaiting = isWaitingAnswer ? styles.waiting : '';
 
   const botDispatch = useBotDispatch();
+  const dispatch = useStateDispatch();
   const botContext = useBotContext();
-  console.log(botContext);
+  const { showBot } = useStateContext();
 
   // this function should create the message creator that is gonna be render in the chat
   const messageParser = (message, sender) => {
@@ -163,10 +165,20 @@ const Bot = () => {
     addUserQueryToChat(value, 'user');
   };
 
+  const handleShowBot = () => {
+    dispatch({
+      type: 'SHOW_BOT',
+      payload: !showBot,
+    });
+  };
+
   return (
     <div className={styles.botContainer}>
-      <div className="header">
+      <div className={styles.header}>
         <h1>Munz_Bot</h1>
+        <div on onClick={handleShowBot}>
+          ❌
+        </div>
       </div>
       <div className={styles.messagesContainer} ref={messagesContainer}>
         {botContext.messages.length > 0

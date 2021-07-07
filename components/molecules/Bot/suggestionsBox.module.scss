@@ -1,17 +1,17 @@
 .suggestions {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  flex-wrap: wrap;
   justify-content: space-around;
   padding: 5px 0px;
   width: 100%;
-  padding: 5px 0;
 }
 
 .suggestionTag {
   background-color: rgb(146, 146, 146);
-  border-radius: 50px;
-  padding: 0.5rem;
+  border-radius: 12px;
+  padding: 0.4rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.3s;
   

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import Button from '../../atoms/Button';
-import styles from './form.module.css';
+import styles from './form.module.scss';
 
 const Spinner = ({ toggle }) => (
   <>

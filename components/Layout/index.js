@@ -61,7 +61,9 @@ export default function Layout({ children }) {
               srcSet=""
             />
           </div>
-          <div className={styles.botButton} onClick={handleShowBot} />
+          <div className={styles.botButton} onClick={handleShowBot}>
+            {!showBot ? '🤖' : '❌'}
+          </div>
         </div>
       </motion.div>
       {showTicTacToe && (
@@ -74,7 +76,15 @@ export default function Layout({ children }) {
           <TicTacToe />
         </motion.div>
       )}
-      {showBot && <Bot />}
+      {showBot && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Bot />
+        </motion.div>
+      )}
     </>
   );
 }
