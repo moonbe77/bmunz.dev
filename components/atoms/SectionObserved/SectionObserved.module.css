@@ -9,7 +9,6 @@
 .svg {
   position: absolute;
   animation: pulse 5s infinite;
-  /* z-index: 99; */
 }
 
 

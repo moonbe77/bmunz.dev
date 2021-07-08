@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './ticTacToe.module.css';
+import styles from './ticTacToe.module.scss';
 
 function Cell(props) {
   const { handleClick, dataRow, dataCol, handleKeydown, id } = props;

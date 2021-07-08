@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
-import style from './portfolioProject.module.css';
+import style from './portfolioProject.module.scss';
 
 const SectionObserved = dynamic(() => import('../../atoms/SectionObserved'), {
   ssr: false,

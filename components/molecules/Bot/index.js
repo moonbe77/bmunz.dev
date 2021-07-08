@@ -39,16 +39,6 @@ const Bot = () => {
                 type: 'text',
               },
             });
-            // setMessages((prev) => [
-            //   ...prev,
-            //   {
-            //     id: Date.now(),
-            //     text: txt,
-            //     component: <TextMessage message={txt} sender={sender} />,
-            //     sender,
-            //     type: 'text',
-            //   },
-            // ]);
           });
           return;
         }
@@ -70,26 +60,9 @@ const Bot = () => {
               type: 'card',
             },
           });
-          // setMessages((prev) => [
-          //   ...prev,
-          //   {
-          //     id: Date.now(),
-          //     text: 'card',
-          //     component: (
-          //       <CardMessage
-          //         key={message.id}
-          //         data={fulfillmentMessage}
-          //         sender={sender}
-          //       />
-          //     ),
-          //     sender: 'bot',
-          //     type: 'card',
-          //   },
-          // ]);
         }
 
         if (fulfillmentMessage.message === 'quickReplies') {
-          // console.log(type);
           setSuggestions(fulfillmentMessage.quickReplies.quickReplies);
         }
       });
@@ -105,18 +78,6 @@ const Bot = () => {
           sender,
         },
       });
-
-      // setMessages((prev) => [
-      //   ...prev,
-      //   {
-      //     id: Date.now(),
-      //     text: typeof message === 'object' ? message.fulfillmentText : message,
-      //     component: (
-      //       <TextMessage key={message.id} message={message} sender={sender} />
-      //     ),
-      //     sender,
-      //   },
-      // ]);
     }
   };
 
@@ -176,9 +137,9 @@ const Bot = () => {
     <div className={styles.botContainer}>
       <div className={styles.header}>
         <h1>Munz_Bot</h1>
-        <div on onClick={handleShowBot}>
+        <button role="button" onClick={handleShowBot}>
           ❌
-        </div>
+        </button>
       </div>
       <div className={styles.messagesContainer} ref={messagesContainer}>
         {botContext.messages.length > 0

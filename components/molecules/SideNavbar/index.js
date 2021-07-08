@@ -5,7 +5,7 @@ import { motion, useCycle } from 'framer-motion';
 import Link from 'next/link';
 import { useStateContext, useStateDispatch } from '../../../store/store';
 
-import styles from './SideNavbar.module.css';
+import styles from './SideNavbar.module.scss';
 
 export default function SideNavbar() {
   const { isDarkTheme, showSideMenu, menu } = useStateContext();

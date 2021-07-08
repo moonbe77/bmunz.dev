@@ -4,7 +4,7 @@ import { useStateContext, useStateDispatch } from '../../../store/store';
 import Cell from './Cell';
 import Button from '../../atoms/Button';
 
-import styles from './ticTacToe.module.css';
+import styles from './ticTacToe.module.scss';
 
 // const reducer = (state, action) => {
 //   switch (action.type) {

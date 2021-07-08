@@ -4,10 +4,10 @@ import { HiSun, HiMoon } from 'react-icons/hi';
 import { GiTicTacToe } from 'react-icons/gi';
 import { useStateContext, useStateDispatch } from '../../../store/store';
 import Burger from '../../atoms/Burger';
-import style from './header.module.css';
 import SideNavbar from '../SideNavbar';
 import Switch from '../../atoms/Switch';
 import Menu from '../Menu';
+import style from './header.module.scss';
 
 const Header = () => {
   const [windowSize, setWindowSize] = useState();

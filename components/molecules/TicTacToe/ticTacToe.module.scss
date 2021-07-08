@@ -1,5 +1,4 @@
 .section {
-  /* margin-top: 2rem; */
   align-items: center;
   border-radius: var(--borderRadius);
   display: flex;
@@ -14,7 +13,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 50vw;
-  z-index: 20;
+  // z-index: 20;
 }
 
 .closeButton {
@@ -40,7 +39,6 @@
 }
 
 .gameWrapper {
-  /* align-items: center; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
