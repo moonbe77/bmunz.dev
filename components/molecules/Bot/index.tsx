@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { useRef } from 'react';
 import { motion, useCycle } from 'framer-motion';
 import { useDimensions } from '../../../utils/useDimensions';
