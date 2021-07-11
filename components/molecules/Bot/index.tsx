@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useCycle } from 'framer-motion';
 import { useDimensions } from '../../../utils/useDimensions';
 import BotContainer from './BotContainer';
@@ -7,7 +7,7 @@ import styles from './bot.module.scss';
 
 const botAnimation = {
   open: ({ x = 0, y = 0 }) => ({
-    clipPath: `ellipse(800px 1000px at 100% 100%)`,
+    clipPath: `ellipse(1200px 1000px at 100% 100%)`,
     transition: {
       type: 'spring',
       stiffness: 20,
@@ -17,7 +17,7 @@ const botAnimation = {
   closed: ({ x = 0, y = 0 }) => ({
     clipPath: `ellipse(80px 80px at 100% 100%)`,
     transition: {
-      delay: 0.5,
+      delay: 0.2,
       type: 'spring',
       stiffness: 400,
       damping: 40,
@@ -28,9 +28,7 @@ const botAnimation = {
 const Bot = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const ButtonRef = useRef();
-  // const botDimensions = useDimensions(containerRef);
   const botTogglePosition = useDimensions(ButtonRef);
-  console.log({ botTogglePosition });
 
   return (
     <div>

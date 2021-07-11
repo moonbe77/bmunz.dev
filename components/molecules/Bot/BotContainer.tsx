@@ -7,7 +7,7 @@ import CardMessage from './CardMessage';
 import TextMessage from './TextMessage';
 import SuggestionsBox from './SuggestionsBox';
 import { useBotDispatch, useBotContext } from '../../../store/botContext';
-import { useStateDispatch, useStateContext } from '../../../store/store';
+import { useStateContext } from '../../../store/store';
 
 const variants = {
   open: {
@@ -27,17 +27,27 @@ const variants = {
   },
 };
 
+const Path = (props) => (
+  <motion.path
+    fill="transparent"
+    strokeWidth="3"
+    stroke="#887b7b"
+    strokeLinecap="round"
+    {...props}
+  />
+);
+
 const Bot = ({ toggle }) => {
   const [inputValue, setInputValue] = useState(''); // TODO: move to component
   const [suggestions, setSuggestions] = useState(null); // TODO: move logic to component
-  const [isWaitingAnswer, setIsWaitingAnswer] = useState(false);
   const messagesContainer = useRef();
-  const isWaiting = isWaitingAnswer ? styles.waiting : '';
   const botDispatch = useBotDispatch();
-  const dispatch = useStateDispatch();
-  const botContext = useBotContext();
-  const { showBot } = useStateContext();
+  const { messages, isWaitingAnswer } = useBotContext();
+  const { isDarkTheme } = useStateContext();
 
+  const darkTheme = isDarkTheme ? styles.dark : styles.light;
+
+  const isWaiting = isWaitingAnswer ? styles.waiting : '';
   // this function should create the message creator that is gonna be render in the chat
   const messageParser = (message, sender) => {
     // parsing of the message to be added in the chat
@@ -100,17 +110,15 @@ const Bot = ({ toggle }) => {
   useEffect(() => {
     messagesContainer.current.scrollTop =
       messagesContainer.current.scrollHeight + 35;
-  }, [botContext.messages]);
+  }, [messages]);
 
   function askToBotHandler(query) {
     askToBot(query).then((data) => {
-      setIsWaitingAnswer(false);
       messageParser(data, 'bot');
     });
   }
 
   function addUserQueryToChat(message, sender) {
-    setIsWaitingAnswer(true);
     botDispatch({
       type: 'IS_WAITING',
       payload: true,
@@ -133,7 +141,6 @@ const Bot = ({ toggle }) => {
   };
 
   const handleClickSuggestion = (e) => {
-    setIsWaitingAnswer(true);
     botDispatch({
       type: 'IS_WAITING',
       payload: true,
@@ -142,22 +149,49 @@ const Bot = ({ toggle }) => {
     addUserQueryToChat(value, 'user');
   };
 
-  const handleShowBot = () => {
-    dispatch({
-      type: 'SHOW_BOT',
-      payload: !showBot,
-    });
-  };
+  // const handleShowBot = () => {
+  //   dispatch({
+  //     type: 'SHOW_BOT',
+  //     payload: !showBot,
+  //   });
+  // };
 
   return (
-    <motion.div variants={variants} className={styles.botContainer}>
-      <div className={styles.header}>
+    <motion.div
+      variants={variants}
+      className={`${styles.botContainer} ${darkTheme}`}
+    >
+      <div className={`${styles.header}`}>
         <h3>Munz_Bot</h3>
-        <button onClick={toggle}>Close</button>
+        <h5>Get to know Bernardo making question to this bot</h5>
+        <motion.div onClick={toggle} className={styles.botCloseButton}>
+          <svg width="23" height="23" viewBox="0 0 23 23">
+            <Path
+              variants={{
+                closed: { d: 'M 2 2.5 L 20 2.5' },
+                open: { d: 'M 3 16.5 L 17 2.5' },
+              }}
+            />
+            <Path
+              d="M 2 9.423 L 20 9.423"
+              variants={{
+                closed: { opacity: 1 },
+                open: { opacity: 0 },
+              }}
+              transition={{ duration: 0.1 }}
+            />
+            <Path
+              variants={{
+                closed: { d: 'M 2 16.346 L 20 16.346' },
+                open: { d: 'M 3 2.5 L 17 16.346' },
+              }}
+            />
+          </svg>
+        </motion.div>
       </div>
       <div className={styles.messagesContainer} ref={messagesContainer}>
-        {botContext.messages.length > 0
-          ? botContext.messages.map((message) => (
+        {messages.length > 0
+          ? messages.map((message) => (
               <div
                 key={message.id}
                 className={`${styles.messageWrapper} ${
