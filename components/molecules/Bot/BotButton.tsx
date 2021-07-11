@@ -12,7 +12,6 @@ function BotButton({ toggle, reference }) {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       ref={reference}
-      type="button"
       variants={{
         closed: { opacity: 1, x: 0 },
         open: { opacity: 0, x: 100 },
