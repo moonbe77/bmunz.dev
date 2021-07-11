@@ -33,13 +33,12 @@ const Bot = () => {
   return (
     <div>
       <motion.div
-        className={styles.botWrapper}
+        className={`${styles.botWrapper} ${styles.background}`}
         initial={false}
         animate={isOpen ? 'open' : 'closed'}
         custom={botTogglePosition}
         // ref={containerRef}
         variants={botAnimation}
-        className={styles.background}
       >
         <BotContainer toggle={() => toggleOpen()} />
         <BotButton toggle={() => toggleOpen()} reference={ButtonRef} />
