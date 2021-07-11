@@ -33,6 +33,7 @@ const Path = (props) => (
     strokeWidth="3"
     stroke="#887b7b"
     strokeLinecap="round"
+    // eslint-disable-next-line react/jsx-props-no-spreading
     {...props}
   />
 );
@@ -40,7 +41,7 @@ const Path = (props) => (
 const Bot = ({ toggle }) => {
   const [inputValue, setInputValue] = useState(''); // TODO: move to component
   const [suggestions, setSuggestions] = useState(null); // TODO: move logic to component
-  const messagesContainer = useRef();
+  const messagesContainer = useRef<HTMLDivElement>(null);
   const botDispatch = useBotDispatch();
   const { messages, isWaitingAnswer } = useBotContext();
   const { isDarkTheme } = useStateContext();
