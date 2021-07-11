@@ -58,23 +58,7 @@
   transform: translateX(-50%);
 }
 
-.botButton{
-  align-items: center;
-  background-color: aliceblue;
-  border-radius: 50%;
-  bottom: 10px;
-  display: flex;
-  height: 50px;
-  justify-content: center;
-  position: fixed;
-  right: 50px;
-  width: 50px;
-  z-index: 11;
-  
-  &:hover{
-    background-color: aqua;
-  }
-}
+
 
 @media only screen and (max-width: 780px) {
   .footer {

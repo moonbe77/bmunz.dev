@@ -4,7 +4,7 @@ import { StateProvider } from '../store/store';
 import { BotStateProvider } from '../store/botContext';
 import Layout from '../components/Layout';
 import '../styles/normalize.css';
-import '../styles/globals.css';
+import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {
   return (

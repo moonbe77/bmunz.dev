@@ -9,10 +9,11 @@ import TicTacToe from '../molecules/TicTacToe';
 import Bot from '../molecules/Bot';
 import Footer from '../molecules/Footer';
 import styles from './layout.module.scss';
+import BotButton from '../molecules/Bot/BotButton';
 
 export default function Layout({ children }) {
   const { isDarkTheme, showTicTacToe, showBot } = useStateContext();
-  const dispatch = useStateDispatch();
+
   const theme = isDarkTheme ? styles.dark : styles.light;
   const router = useRouter();
   const mainScrollRef = useRef();
@@ -24,13 +25,6 @@ export default function Layout({ children }) {
     }
     logPageView();
   }, [router]);
-
-  const handleShowBot = () => {
-    dispatch({
-      type: 'SHOW_BOT',
-      payload: !showBot,
-    });
-  };
 
   return (
     <>
@@ -45,9 +39,6 @@ export default function Layout({ children }) {
             {children}
           </motion.main>
           <Footer isDarkTheme={isDarkTheme} />
-          <div className={styles.botButton} onClick={handleShowBot}>
-            {!showBot ? '🤖' : '❌'}
-          </div>
         </div>
       </motion.div>
       {showTicTacToe && (
@@ -60,15 +51,7 @@ export default function Layout({ children }) {
           <TicTacToe />
         </motion.div>
       )}
-      {showBot && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <Bot />
-        </motion.div>
-      )}
+      <Bot />
       <div className={`${styles.elipse} ${styles.elipse1}`}>
         <img
           src="/figma/elipses/Ellipse1.svg"

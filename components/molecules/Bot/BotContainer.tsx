@@ -1,22 +1,38 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { askToBot } from '../../../utils/askToBot';
-import styles from './bot.module.scss';
+import styles from './botContainer.module.scss';
 import CardMessage from './CardMessage';
 import TextMessage from './TextMessage';
 import SuggestionsBox from './SuggestionsBox';
 import { useBotDispatch, useBotContext } from '../../../store/botContext';
 import { useStateDispatch, useStateContext } from '../../../store/store';
 
-const Bot = () => {
-  // const [messages, setMessages] = useState([]);
-  const [inputValue, setInputValue] = useState('');
-  // const [ask, setAsk] = useState('hello');
-  const [suggestions, setSuggestions] = useState(null);
+const variants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.8,
+      y: { stiffness: 1000, velocity: -100 },
+    },
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
+  },
+};
+
+const Bot = ({ toggle }) => {
+  const [inputValue, setInputValue] = useState(''); // TODO: move to component
+  const [suggestions, setSuggestions] = useState(null); // TODO: move logic to component
   const [isWaitingAnswer, setIsWaitingAnswer] = useState(false);
   const messagesContainer = useRef();
   const isWaiting = isWaitingAnswer ? styles.waiting : '';
-
   const botDispatch = useBotDispatch();
   const dispatch = useStateDispatch();
   const botContext = useBotContext();
@@ -134,12 +150,10 @@ const Bot = () => {
   };
 
   return (
-    <div className={styles.botContainer}>
+    <motion.div variants={variants} className={styles.botContainer}>
       <div className={styles.header}>
-        <h1>Munz_Bot</h1>
-        <button role="button" onClick={handleShowBot}>
-          ❌
-        </button>
+        <h3>Munz_Bot</h3>
+        <button onClick={toggle}>Close</button>
       </div>
       <div className={styles.messagesContainer} ref={messagesContainer}>
         {botContext.messages.length > 0
@@ -173,7 +187,7 @@ const Bot = () => {
           <button type="submit">send</button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
