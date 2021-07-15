@@ -39,47 +39,42 @@ const Project = (props) => {
   } = project;
   const theme = isDarkTheme ? styles.dark : styles.light;
 
-  const imageVariant = {
+  const cardVariant = {
     open: {
-      // opacity: 0.05,
-      // x: -10,
-      scale: 1,
+      width: '100%',
+      transition: {
+        delayChildren: 0.5,
+      },
     },
     close: {
-      // opacity: 1,
-      // x: 0,
-      scale: 0.95,
+      width: '500px',
     },
   };
 
+  const imageVariant = {
+    open: { scale: 1 },
+    close: { scale: 0.95 },
+  };
+
   const infoVariant = {
-    open: {
-      // opacity: 1,
-      x: 10,
-    },
-    close: {
-      // opacity: 0,
-      x: -0,
-    },
+    open: { x: 10 },
+    close: { x: -0 },
   };
 
   const techVariant = {
     open: {
-      // x: -15,
-      // scale: 1.1,
       transition: {
         when: 'beforeChildren',
         staggerChildren: 0.1,
       },
     },
     close: {
-      // scale: 0.8,
-      // x: 0,
       transition: {
         when: 'afterChildren',
       },
     },
   };
+
   const techItem = {
     open: { opacity: 1, x: -15, scale: 1.3 },
     close: { opacity: 0.5, x: 0, scale: 1 },
@@ -88,11 +83,17 @@ const Project = (props) => {
   return (
     <motion.article
       className={`${styles.card} ${theme}`}
+      initial="close"
+      animate="open"
+      variants={cardVariant}
       onHoverStart={() => {
         setAnimateCard(1); // open
       }}
       onHoverEnd={() => {
         setAnimateCard(0); // close
+      }}
+      onTap={() => {
+        setAnimateCard((prev) => (prev === 0 ? 1 : 0)); // close
       }}
     >
       <motion.div
@@ -148,7 +149,7 @@ const Project = (props) => {
           layout
         >
           {technologies.map((tech) => (
-            <motion.div variants={techItem}>
+            <motion.div variants={techItem} whileHover={{ rotate: 5 }}>
               <TechnologyIcon tech={tech} />
             </motion.div>
           ))}
@@ -159,3 +160,15 @@ const Project = (props) => {
 };
 
 export default Project;
+
+Project.propTypes = {
+  project: PropTypes.object,
+  isDarkTheme: PropTypes.bool,
+  title: PropTypes.string,
+  subTitle: PropTypes.string,
+  imgName: PropTypes.string,
+  description: PropTypes.string,
+  liveUrl: PropTypes.string,
+  ghUrl: PropTypes.string,
+  technologies: PropTypes.string,
+};
