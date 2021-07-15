@@ -41,13 +41,13 @@ const Project = (props) => {
 
   const cardVariant = {
     open: {
-      width: '100%',
+      opacity: 1,
       transition: {
         delayChildren: 0.5,
       },
     },
     close: {
-      width: '500px',
+      opacity: 0,
     },
   };
 
