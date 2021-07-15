@@ -22,16 +22,15 @@ const PortfolioProjectsWrapper = ({ projects, isDarkTheme }) => {
     <motion.section className={style.projectsWrapper}>
       <AnimatePresence>
         <h1>What I've Been Doing</h1>
-        <div>
+        {/* <div>
           click on the icon to filter <span>🎈🧨🎗🎟🎏</span>
-        </div>
+        </div> */}
         <div>
           {projects.map((project, i) => (
             <Project
               key={project.id}
               project={project}
               isDarkTheme={isDarkTheme}
-              
             />
           ))}
         </div>
