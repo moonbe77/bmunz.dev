@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import { motion, useCycle } from 'framer-motion';
+import { motion, useCycle, AnimateSharedLayout } from 'framer-motion';
 import Button from '../../atoms/Button';
-import style from './project.module.scss';
+import TechnologyIcon from '../../atoms/TechnologyIcon';
+import styles from './project.module.scss';
 
 const shimmer = (w, h) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -27,39 +28,66 @@ const Project = (props) => {
   const [animateCard, setAnimateCard] = useCycle(false, true);
 
   const { project, isDarkTheme } = props;
-  const { title, subTitle, imgName, description, liveUrl, ghUrl } = project;
-  const theme = isDarkTheme ? style.dark : style.light;
+  const {
+    title,
+    subTitle,
+    imgName,
+    description,
+    liveUrl,
+    ghUrl,
+    technologies,
+  } = project;
+  const theme = isDarkTheme ? styles.dark : styles.light;
 
   const imageVariant = {
     open: {
       // opacity: 0.05,
-      // x: 400,
+      // x: -10,
       scale: 1,
     },
     close: {
       // opacity: 1,
       // x: 0,
-      scale: 0.8,
+      scale: 0.95,
     },
   };
 
   const infoVariant = {
     open: {
-      opacity: 1,
-      x: 0,
+      // opacity: 1,
+      x: 10,
     },
     close: {
-      opacity: 0,
-      x: -400,
+      // opacity: 0,
+      x: -0,
     },
+  };
+
+  const techVariant = {
+    open: {
+      // x: -15,
+      // scale: 1.1,
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.1,
+      },
+    },
+    close: {
+      // scale: 0.8,
+      // x: 0,
+      transition: {
+        when: 'afterChildren',
+      },
+    },
+  };
+  const techItem = {
+    open: { opacity: 1, x: -15, scale: 1.3 },
+    close: { opacity: 0.5, x: 0, scale: 1 },
   };
 
   return (
     <motion.article
-      className={`${style.card} ${theme}`}
-      onClick={() => {
-        setAnimateCard((prev) => !prev);
-      }}
+      className={`${styles.card} ${theme}`}
       onHoverStart={() => {
         setAnimateCard(1); // open
       }}
@@ -68,12 +96,14 @@ const Project = (props) => {
       }}
     >
       <motion.div
-        className={style.imageWrapper}
+        className={styles.imageWrapper}
         variants={imageVariant}
         animate={animateCard ? 'open' : 'close'}
+        layout
+        transition={{ duration: 0.2 }}
       >
         <Image
-          className={style.image}
+          className={styles.image}
           src={`/figma/projects_mockups/${imgName}`}
           alt={title}
           layout="fill"
@@ -81,26 +111,24 @@ const Project = (props) => {
           blurDataURL={`data:image/svg+xml;base64,${toBase64(
             shimmer(700, 475)
           )}`}
-          // width="300"
-          // height="200"
-          objectFit="scale-down"
+          objectFit="contain"
           priority
         />
       </motion.div>
       <motion.div
-        // animate={animateCard ? 'open' : 'close'}
-        // variants={infoVariant}
-        className={style.infoWrapper}
+        animate={animateCard ? 'open' : 'close'}
+        variants={infoVariant}
+        className={styles.infoWrapper}
       >
-        <div className={`${style.header}`}>
-          <div className={style.title}>{title}</div>
-          <div className={style.subTitle}>{subTitle}</div>
+        <div className={`${styles.header}`}>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.subTitle}>{subTitle}</div>
         </div>
-        <div className={style.description}>{description}</div>
+        <div className={styles.description}>{description}</div>
         <div>
           <a href={liveUrl} target="_blank" rel="noopener noreferrer">
             <Button primary size="medium" isDarkTheme={isDarkTheme}>
-              check it out
+              View
             </Button>
           </a>
           {ghUrl && (
@@ -112,13 +140,22 @@ const Project = (props) => {
           )}
         </div>
       </motion.div>
+      <AnimateSharedLayout>
+        <motion.div
+          className={styles.technologies}
+          animate={animateCard ? 'open' : 'close'}
+          variants={techVariant}
+          layout
+        >
+          {technologies.map((tech) => (
+            <motion.div variants={techItem}>
+              <TechnologyIcon tech={tech} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimateSharedLayout>
     </motion.article>
   );
 };
 
 export default Project;
-
-Project.propTypes = {
-  project: PropTypes.object,
-  isDarkTheme: PropTypes.bool,
-};

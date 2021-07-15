@@ -8,13 +8,11 @@
       "imgName": "ln_mockup.png",
       "description": "This project is made in Next.js with an REST API in Express.js using a MYSQL database and sequelize.js as ORM. With a custom CMS to upload and edit the products",
       "technologies": [
-        "react",
-        "next",
-        "StaticGeneration",
-        "styledComponents",
-        "Express",
-        "Mysql",
-        "CustomCMS"
+        "React.js",
+        "Next.js",
+        "Styled Components",
+        "Express.js",
+        "MySQL"
       ]
     },
     {
@@ -24,7 +22,7 @@
       "liveUrl": "https://www.moreclean.com.ar/",
       "imgName": "mc_mockup.png",
       "description": "Institutional website of a small business in Argentina. Made in React.js with style-components and hosted in a shared hosting with a setup of emails and google analytics",
-      "technologies": ["React", "StyledComponents", "Hosting"]
+      "technologies": ["React.js", "Styled Components", "Hosting"]
     },
     {
       "id": 3,
@@ -32,8 +30,8 @@
       "subTitle": "Institutional Website",
       "liveUrl": "https://www.alfredes.com.ar/",
       "imgName": "alfredes_mockup.png",
-      "description": "Institutional website of a rental of a cabin in the delta of Buenos Aires, Made in React.js with style-components",
-      "technologies": ["React", "Firebase Hosting", "Mailgun.js"]
+      "description": "Institutional website of a rental of a cabin in the delta of Buenos Aires, Made in React.js.js with style-components",
+      "technologies": ["React.js", "Firebase", "Mailgun.js", "CSS"]
     },
     {
       "id": 4,
@@ -42,7 +40,7 @@
       "liveUrl": "http://cnsm.org.ar",
       "imgName": "cnsm_mockup.png",
       "description": "Institutional website of a sailing club, with a cms system made in PHP to manage booking of services, it also has a page with real time data of the tide on the club.",
-      "technologies": ["HTML", "jQuery", "Hosting", "Mailchimp", "PHP"]
+      "technologies": ["HTML5", "jQuery", "Hosting", "Mailchimp", "PHP"]
     },
     {
       "id": 6,
@@ -52,7 +50,7 @@
       "ghUrl":"https://github.com/moonbe77/FM_testimonials_slider",
       "imgName": "fm_mockup.png",
       "description": "Frontend Mentor challenge",
-      "technologies": ["React","JavaScript","styledComponents"]
+      "technologies": ["React.js","JavaScript","Styled Components"]
     },
     {
       "id": 7,
@@ -62,7 +60,7 @@
       "ghUrl":"https://github.com/moonbe77/FM-social-media-dasboard",
       "imgName": "fm_social_dashboard_mockup.png",
       "description": "Frontend Mentor challenge with dark mode",
-      "technologies": ["React","JavaScript","styledComponents"]
+      "technologies": ["React.js","JavaScript","Styled Components"]
     }
   ]
 }
