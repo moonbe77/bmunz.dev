@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useStateContext } from '../store/store';
-import PortfolioWrapper from '../components/molecules/PortfolioWrapperCards';
+import PortfolioProjectsWrapper from '../components/molecules/PortfolioProjectWrapper';
 
 const Portfolio = () => {
   const state = useStateContext();
@@ -9,9 +9,9 @@ const Portfolio = () => {
   return (
     <>
       <Head>
-        <title>Portfolio</title>
+        <title>Projects - bmunz.dev</title>
       </Head>
-      <PortfolioWrapper isDarkTheme={isDarkTheme} projects={projects} />
+      <PortfolioProjectsWrapper isDarkTheme={isDarkTheme} projects={projects} />
     </>
   );
 };

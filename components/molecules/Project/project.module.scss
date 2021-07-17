@@ -1,0 +1,164 @@
+.card {
+  background: var(--backgroundTransparent);
+  border-radius: var(--borderRadius);
+  display: flex;
+  flex-direction: row;
+  min-height: 250px;
+  margin: 1rem auto;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+  padding: 1rem;  
+}
+
+.dark {
+  color: var(--textDark);
+}
+
+.light {
+  color: var(--textLight);
+}
+
+.bigTextDark {
+  color: var(--textLight-3);
+}
+
+.bigTextLight {
+  color: var(--textDark-3);
+}
+
+.header {
+  position: relative;
+}
+
+.title {
+  font-size: 1.7rem;
+}
+
+.imageWrapper {
+  flex: 1;
+  width: 100%;
+  flex-basis: 250px;
+  position: relative;
+}
+
+.infoWrapper {
+  flex: 2;
+  margin: 0 1.2rem;
+}
+
+.description {
+  align-items: center;
+  display: block;
+  margin: 1rem;
+  margin-right: 5rem;
+  // max-width: 400px;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.technologies{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  right: 10px;
+  top: 0;
+  height: 100%;
+  
+  div{
+    margin: 5px 0;
+    span{
+      font-size: 0.8rem;
+    }
+    svg{
+      font-size: 2.5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .card {
+    flex-direction: row;
+    min-height: 300px;
+    margin: 1rem auto;
+    position: relative;
+  }
+
+  .description {
+    align-items: center;
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .imageWrapper{
+    flex: 1;
+  }
+
+  .infoWrapper{
+    flex: 1;
+  }
+  
+  .technologies{
+    flex-direction: row;
+    margin-top: 15px;
+    bottom: 0;
+    left: 0;
+    right: initial;
+    top: initial;
+    width: 100%;
+    justify-content: center;
+    height: initial;
+
+    div{
+      margin: 0 10px ;
+      span{
+        font-size: 0.8rem;
+      }
+      svg{
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .card {
+    flex-direction: column;
+    min-height: 300px;
+    margin: 1rem auto; 
+    padding: 10px;
+  }
+
+  .imageWrapper {
+    flex-basis: 250px;
+    margin-bottom: 1rem;
+  }
+.infoWrapper{
+  margin-bottom: 4rem;
+}
+ 
+  .description {
+    max-width: inherit;    
+    width: 100%;
+    margin: 1rem initial;
+  }
+
+  .technologies{
+    font-size: 0.5rem;
+    bottom: 5px;
+    div{
+      margin: 0 10px ;
+      span{
+        font-size: 0.5rem;
+      }
+      svg{
+        font-size: 1.5rem;
+      }
+    }
+  }
+  
+}

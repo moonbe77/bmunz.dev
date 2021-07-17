@@ -41,10 +41,9 @@ export default function Menu() {
   //   });
   // }, [router]);
 
-  // const handleDropdown = (e, state) => {
-  //   console.log(e.target);
-  //   setShowDropdown(state);
-  // };
+  const handleDropdown = () => {
+    setShowDropdown((prev) => !prev);
+  };
 
   return (
     <ul className={styles.menu}>
@@ -57,6 +56,7 @@ export default function Menu() {
               key={item.id}
               onHoverStart={() => setShowDropdown(1)}
               onHoverEnd={() => setShowDropdown(0)}
+              onTap={handleDropdown}
             >
               {item.text}
               <motion.ul variants={dropdown} className={styles.dropdown}>
