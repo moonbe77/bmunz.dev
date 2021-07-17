@@ -5,14 +5,14 @@
   bottom: 50px;
   width: 400px;  
   z-index: 20;
-  // height: 70vh; 
-  border: 1px solid rgb(212, 250, 0);
+  height: 80vh;
+  border-radius: var(--borderRadius);
 }
 
 .background {
   bottom: 0px;
+  border-radius: var(--borderRadius);
   z-index: 20;
-  height: 80vh;
   position: fixed;
   right: 0px;
   min-width: 400px;
@@ -28,4 +28,12 @@
 .light{
   background-color: var(--backgroundLight);
   color: var(--textLight);
+}
+
+@media only screen and (max-width: 420px) {
+  
+  .botWrapper{
+    height: calc(100vh - 100px ); /* 100px =  header hight*/
+  }
+
 }

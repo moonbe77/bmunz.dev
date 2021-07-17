@@ -6,17 +6,18 @@ import BotContainer from './BotContainer';
 import BotButton from './BotButton';
 import styles from './bot.module.scss';
 
+// motion animation of clippath
 const botAnimation = {
-  open: ({ x = 0, y = 0 }) => ({
-    clipPath: `ellipse(1200px 1000px at 100% 100%)`,
+  open: () => ({
+    clipPath: `circle(100% at 50% 50%)`,
     transition: {
       type: 'spring',
       stiffness: 20,
       restDelta: 2,
     },
   }),
-  closed: ({ x = 0, y = 0 }) => ({
-    clipPath: `ellipse(80px 80px at 100% 100%)`,
+  closed: () => ({
+    clipPath: `circle(2% at 91.2% 95.5%)`,
     transition: {
       delay: 0.2,
       type: 'spring',
@@ -28,23 +29,23 @@ const botAnimation = {
 
 const Bot = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const ButtonRef = useRef();
-  const botTogglePosition = useDimensions(ButtonRef);
+  const BotWrapperRef = useRef();
+  const botDimensions = useDimensions(BotWrapperRef);
 
   return (
-    <div>
+    <motion.div animate={isOpen ? 'open' : 'closed'}>
       <motion.div
-        className={`${styles.botWrapper} ${styles.background}`}
-        initial={false}
-        animate={isOpen ? 'open' : 'closed'}
-        custom={botTogglePosition}
         // ref={containerRef}
+        className={`${styles.botWrapper} ${styles.background}`}
+        custom={botDimensions}
+        initial={false}
+        ref={BotWrapperRef}
         variants={botAnimation}
       >
         <BotContainer toggle={() => toggleOpen()} />
-        <BotButton toggle={() => toggleOpen()} reference={ButtonRef} />
       </motion.div>
-    </div>
+      <BotButton toggle={() => toggleOpen()} botHeight={botDimensions.height} />
+    </motion.div>
   );
 };
 

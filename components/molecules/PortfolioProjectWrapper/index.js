@@ -19,21 +19,21 @@ const PortfolioProjectsWrapper = ({ projects, isDarkTheme }) => (
   //   show: { opacity: 1 },
   // };
   <motion.section className={style.projectsWrapper}>
-    <AnimatePresence>
-      <h1>What I've Been Doing</h1>
-      {/* <div>
+    {/* <AnimatePresence> */}
+    <h1>What I've Been Doing</h1>
+    {/* <div>
           click on the icon to filter <span>🎈🧨🎗🎟🎏</span>
         </div> */}
-      <div>
-        {projects.map((project) => (
-          <Project
-            key={project.id}
-            project={project}
-            isDarkTheme={isDarkTheme}
-          />
-        ))}
-      </div>
-    </AnimatePresence>
+    <div>
+      {projects.map((project, i) => (
+        <Project
+          key={project.id || i}
+          project={project}
+          isDarkTheme={isDarkTheme}
+        />
+      ))}
+    </div>
+    {/* </AnimatePresence> */}
   </motion.section>
 );
 export default PortfolioProjectsWrapper;

@@ -1,35 +1,36 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { set } from 'react-ga';
 
 // Naive implementation - in reality would want to attach
 // a window or resize listener. Also use state/layoutEffect instead of ref/effect
 // if this is important to know on initial client render.
 // It would be safer to  return null for unmeasured states.
+
 export const useDimensions = (ref) => {
   // if (ref.current === null) throw new Error('Missing ref value');
-
-  const dimensions = useRef({
+  const [dimensions, setDimentions] = useState({
     width: 0,
     height: 0,
-    bottom: 0,
-    right: 0,
-    top: 0,
-    left: 0,
-    x: 0,
-    y: 0,
   });
 
   useEffect(() => {
-    const elementPosition = ref.current.getBoundingClientRect();
-    // const scroll = { x: window.scrollX, Y: window.scrollY };
-    // console.log(scroll);
+    // const elementPosition = ref.current.getBoundingClientRect();
+    const resize = () => {
+      setDimentions({
+        width: ref.current.offsetWidth,
+        height: ref.current.offsetHeight,
+        // x: ref.current.x,
+        // y: ref.current.y,
+        // left: ref.current.left,
+        // top: elementPosition.top,
+      });
+    };
 
-    dimensions.current.width = ref.current.offsetWidth;
-    dimensions.current.height = ref.current.offsetHeight;
-    dimensions.current.x = elementPosition.x;
-    dimensions.current.y = elementPosition.y;
-    dimensions.current.left = elementPosition.left;
-    dimensions.current.top = elementPosition.top;
-  }, []);
+    window.addEventListener('resize', resize);
 
-  return dimensions.current;
+    resize();
+    return () => window.removeEventListener('resize', resize);
+  }, [ref]);
+
+  return dimensions;
 };

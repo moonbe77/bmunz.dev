@@ -9,7 +9,7 @@ import TicTacToe from '../molecules/TicTacToe';
 import Bot from '../molecules/Bot';
 import Footer from '../molecules/Footer';
 import styles from './layout.module.scss';
-import BotButton from '../molecules/Bot/BotButton';
+// import BotButton from '../molecules/Bot/BotButton';
 
 export default function Layout({ children }) {
   const { isDarkTheme, showTicTacToe, showBot } = useStateContext();
