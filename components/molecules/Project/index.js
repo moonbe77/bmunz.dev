@@ -110,7 +110,7 @@ const Project = (props) => {
           layout="fill"
           placeholder="blur"
           blurDataURL={`data:image/svg+xml;base64,${toBase64(
-            shimmer(700, 475)
+            shimmer(200, 200)
           )}`}
           objectFit="contain"
           priority
@@ -148,11 +148,18 @@ const Project = (props) => {
           variants={techVariant}
           layout
         >
-          {technologies.map((tech) => (
-            <motion.div variants={techItem} whileHover={{ rotate: 5 }}>
-              <TechnologyIcon tech={tech} />
-            </motion.div>
-          ))}
+          {technologies.map((tech, i) => {
+            const techKey = `tech-${i}`;
+            return (
+              <motion.div
+                key={techKey}
+                variants={techItem}
+                whileHover={{ rotate: 5 }}
+              >
+                <TechnologyIcon tech={tech} />
+              </motion.div>
+            );
+          })}
         </motion.div>
       </AnimateSharedLayout>
     </motion.article>
