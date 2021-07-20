@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { askToBot } from '../../../utils/askToBot';
 import styles from './botContainer.module.scss';
+import LoadingBar from '../../atoms/LoadingBar';
 import CardMessage from './CardMessage';
 import TextMessage from './TextMessage';
 import SuggestionsBox from './SuggestionsBox';
@@ -158,37 +159,13 @@ const Bot = ({ toggle }) => {
   // };
 
   return (
-    <motion.div
-      variants={variants}
+    <div
+      // variants={variants}
       className={`${styles.botContainer} ${darkTheme}`}
     >
       <div className={`${styles.header}`}>
         <h3>Munz_Bot</h3>
         <h5>Get to know Bernardo making question to this bot</h5>
-        <motion.div onClick={toggle} className={styles.botCloseButton}>
-          <svg width="23" height="23" viewBox="0 0 23 23">
-            <Path
-              variants={{
-                closed: { d: 'M 2 2.5 L 20 2.5' },
-                open: { d: 'M 3 16.5 L 17 2.5' },
-              }}
-            />
-            <Path
-              d="M 2 9.423 L 20 9.423"
-              variants={{
-                closed: { opacity: 1 },
-                open: { opacity: 0 },
-              }}
-              transition={{ duration: 0.1 }}
-            />
-            <Path
-              variants={{
-                closed: { d: 'M 2 16.346 L 20 16.346' },
-                open: { d: 'M 3 2.5 L 17 16.346' },
-              }}
-            />
-          </svg>
-        </motion.div>
       </div>
       <div className={styles.messagesContainer} ref={messagesContainer}>
         {messages.length > 0
@@ -206,7 +183,8 @@ const Bot = ({ toggle }) => {
             ))
           : 'Hey ask something to the bot'}
       </div>
-      <div className={`${styles.formWrapper} ${isWaiting}`}>
+      <div className={`${styles.formWrapper}`}>
+        <LoadingBar loading={isWaiting} />
         <div>
           {suggestions && (
             <SuggestionsBox data={suggestions} action={handleClickSuggestion} />
@@ -218,11 +196,12 @@ const Bot = ({ toggle }) => {
             type="text"
             onChange={handleInput}
             value={inputValue}
+            autoComplete="false"
           />
           <button type="submit">send</button>
         </form>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

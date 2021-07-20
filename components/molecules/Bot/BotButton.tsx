@@ -6,35 +6,21 @@ import { useStateContext } from '../../../store/store';
 const BotButton = ({ toggle, botHeight }) => {
   const { isDarkTheme } = useStateContext();
   const controls = useAnimation();
-  // const y = useMotionValue(0);
-  // console.log(y.get());
+  const theme = isDarkTheme ? styles.dark : styles.light;
 
   const effect = {
     closed: {
       y: 0,
     },
-    open: (i) => {
-      console.log(i);
-
-      return {
-        y: -i + 60,
-      };
-    },
+    open: (i) => ({
+      // i = bot container height
+      y: -i + 65,
+    }),
   };
-
-  // useEffect(() => {
-  //   // y.set(-positionY);
-  //   // // update motion y vlaue on botHight change
-  //   // controls.start({
-  //   //   y: -positionY,
-  //   // });
-  // }, [botHeight]);
 
   return (
     <motion.div
-      // style={{ y }}
-      // animate={controls}
-      className={styles.botButton}
+      className={`${styles.botButton} ${theme}`}
       onClick={toggle}
       variants={effect}
       whileHover={{ scale: 1.05 }}

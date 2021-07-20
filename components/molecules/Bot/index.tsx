@@ -17,7 +17,7 @@ const botAnimation = {
     },
   }),
   closed: () => ({
-    clipPath: `circle(2% at 91.2% 95.5%)`,
+    clipPath: `circle(0% at 92.5% 102.8%)`,
     transition: {
       delay: 0.2,
       type: 'spring',
@@ -35,9 +35,7 @@ const Bot = () => {
   return (
     <motion.div animate={isOpen ? 'open' : 'closed'}>
       <motion.div
-        // ref={containerRef}
-        className={`${styles.botWrapper} ${styles.background}`}
-        custom={botDimensions}
+        className={`${styles.botWrapper}`}
         initial={false}
         ref={BotWrapperRef}
         variants={botAnimation}

@@ -4,21 +4,24 @@
   right: 0;
   bottom: 50px;
   width: 400px;  
+  min-width: 400px;
+  max-width: 400px;
   z-index: 20;
   height: 80vh;
   border-radius: var(--borderRadius);
+  transition: background-color 0.5s ease;
 }
 
-.background {
-  bottom: 0px;
-  border-radius: var(--borderRadius);
-  z-index: 20;
-  position: fixed;
-  right: 0px;
-  min-width: 400px;
-  max-width: 400px;
-  background: rgba(255, 255, 255, 0.815);
-}
+// .background {
+//   bottom: 0px;
+//   border-radius: var(--borderRadius);
+//   z-index: 20;
+//   position: fixed;
+//   right: 0px;
+//   min-width: 400px;
+//   max-width: 400px;
+//   background: rgba(255, 255, 255, 0.815);
+// }
 
 .dark{
   background-color: var(--backgroundDark);

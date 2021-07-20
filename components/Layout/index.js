@@ -3,16 +3,16 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { initGA, logPageView } from '../../utils/analytics';
-import { useStateContext, useStateDispatch } from '../../store/store';
+import { useStateContext } from '../../store/store';
 import Header from '../molecules/Header';
 import TicTacToe from '../molecules/TicTacToe';
-import Bot from '../molecules/Bot';
+import Bot from '../molecules/Bot/index';
 import Footer from '../molecules/Footer';
 import styles from './layout.module.scss';
 // import BotButton from '../molecules/Bot/BotButton';
 
 export default function Layout({ children }) {
-  const { isDarkTheme, showTicTacToe, showBot } = useStateContext();
+  const { isDarkTheme, showTicTacToe } = useStateContext();
 
   const theme = isDarkTheme ? styles.dark : styles.light;
   const router = useRouter();
