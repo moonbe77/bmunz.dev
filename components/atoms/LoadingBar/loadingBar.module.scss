@@ -6,7 +6,7 @@
 
 .loadingBar {
   width: 100%;
-  height: 10px;
+  height: 7px;
   overflow: hidden;
   background-color: gray;
 }
@@ -16,46 +16,13 @@
   width: 4000px;
   transform: translateX(0px);
 
-  background: hsla(136, 74%, 32%, 1);
+  background: hsla(263, 90%, 48%, 1);
 
-  background: linear-gradient(
-    0deg,
-    hsla(136, 74%, 32%, 1) 0%,
-    hsla(80, 81%, 54%, 1) 15%,
-    hsla(102, 37%, 45%, 1) 30%,
-    hsla(0, 79%, 40%, 1) 45%,
-    hsla(202, 66%, 25%, 1) 50%,
-    hsla(0, 79%, 40%, 1) 55%,
-    hsla(102, 37%, 45%, 1) 75%,
-    hsla(80, 81%, 54%, 1) 85%,
-    hsla(136, 74%, 32%, 1) 100%
-  );
-
-  background: -moz-linear-gradient(
-    0deg,
-    hsla(136, 74%, 32%, 1) 0%,
-    hsla(80, 81%, 54%, 1) 15%,
-    hsla(102, 37%, 45%, 1) 30%,
-    hsla(0, 79%, 40%, 1) 45%,
-    hsla(202, 66%, 25%, 1) 50%,
-    hsla(0, 79%, 40%, 1) 55%,
-    hsla(102, 37%, 45%, 1) 75%,
-    hsla(80, 81%, 54%, 1) 85%,
-    hsla(136, 74%, 32%, 1) 100%
-  );
-
-  background: -webkit-linear-gradient(
-    0deg,
-    hsla(136, 74%, 32%, 1) 0%,
-    hsla(80, 81%, 54%, 1) 15%,
-    hsla(102, 37%, 45%, 1) 30%,
-    hsla(0, 79%, 40%, 1) 45%,
-    hsla(202, 66%, 25%, 1) 50%,
-    hsla(0, 79%, 40%, 1) 55%,
-    hsla(102, 37%, 45%, 1) 75%,
-    hsla(80, 81%, 54%, 1) 85%,
-    hsla(136, 74%, 32%, 1) 100%
-  );
-
-  // filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#158C35", endColorstr="#A9E929", GradientType=1 );
+  background: radial-gradient(circle, hsla(263, 90%, 48%, 1) 0%, hsla(13, 94%, 48%, 1) 50%, hsla(263, 90%, 48%, 1) 100%);
+  
+  background: -moz-radial-gradient(circle, hsla(263, 90%, 48%, 1) 0%, hsla(13, 94%, 48%, 1) 50%, hsla(263, 90%, 48%, 1) 100%);
+  
+  background: -webkit-radial-gradient(circle, hsla(263, 90%, 48%, 1) 0%, hsla(13, 94%, 48%, 1) 50%, hsla(263, 90%, 48%, 1) 100%);
+  
+  // filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#600CE8", endColorstr="#F03A07", GradientType=1 );
 }
