@@ -76,7 +76,7 @@ const Project = (props) => {
   };
 
   const techItem = {
-    open: { opacity: 1, x: -15, scale: 1.3 },
+    open: { opacity: 1, x: 0, scale: 1.3 },
     close: { opacity: 0.5, x: 0, scale: 1 },
   };
 

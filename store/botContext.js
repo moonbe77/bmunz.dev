@@ -4,7 +4,6 @@ export const BotStateContext = createContext();
 export const BotStateDispatcher = createContext();
 
 const reducer = (state, action) => {
-  console.log(action);
   switch (action.type) {
     case 'ADD_MESSAGE': {
       const messages = [...state.messages, action.payload];

@@ -12,7 +12,7 @@ const botAnimation = {
     clipPath: `circle(100% at 50% 50%)`,
     transition: {
       type: 'spring',
-      stiffness: 20,
+      stiffness: 50,
       restDelta: 2,
     },
   }),
