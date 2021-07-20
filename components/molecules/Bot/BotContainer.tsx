@@ -39,7 +39,7 @@ const Path = (props) => (
   />
 );
 
-const Bot = ({ toggle }) => {
+const Bot = () => {
   const [inputValue, setInputValue] = useState(''); // TODO: move to component
   const [suggestions, setSuggestions] = useState(null); // TODO: move logic to component
   const messagesContainer = useRef<HTMLDivElement>(null);
@@ -49,7 +49,6 @@ const Bot = ({ toggle }) => {
 
   const darkTheme = isDarkTheme ? styles.dark : styles.light;
 
-  const isWaiting = isWaitingAnswer ? styles.waiting : '';
   // this function should create the message creator that is gonna be render in the chat
   const messageParser = (message, sender) => {
     // parsing of the message to be added in the chat
@@ -115,9 +114,17 @@ const Bot = ({ toggle }) => {
   }, [messages]);
 
   function askToBotHandler(query) {
-    askToBot(query).then((data) => {
-      messageParser(data, 'bot');
-    });
+    askToBot(query)
+      .then((data) => {
+        messageParser(data, 'bot');
+      })
+      .then(() => {
+        botDispatch({
+          // add this to a function so it is clear when it is invoked
+          type: 'IS_WAITING',
+          payload: false,
+        });
+      });
   }
 
   function addUserQueryToChat(message, sender) {
@@ -151,13 +158,6 @@ const Bot = ({ toggle }) => {
     addUserQueryToChat(value, 'user');
   };
 
-  // const handleShowBot = () => {
-  //   dispatch({
-  //     type: 'SHOW_BOT',
-  //     payload: !showBot,
-  //   });
-  // };
-
   return (
     <div
       // variants={variants}
@@ -184,7 +184,7 @@ const Bot = ({ toggle }) => {
           : 'Hey ask something to the bot'}
       </div>
       <div className={`${styles.formWrapper}`}>
-        <LoadingBar loading={isWaiting} />
+        <LoadingBar loading={isWaitingAnswer} />
         <div>
           {suggestions && (
             <SuggestionsBox data={suggestions} action={handleClickSuggestion} />

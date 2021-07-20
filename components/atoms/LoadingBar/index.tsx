@@ -1,15 +1,20 @@
+/* eslint-disable react/prop-types */
 import { motion, useMotionValue } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import styles from './loadingBar.module.scss';
 
-const LoadingBar = ({ loading }) => {
+interface LoadingBarProps {
+  loading: boolean;
+}
+
+const LoadingBar = ({ loading }: LoadingBarProps) => {
   const loadingContainerRef = useRef(null);
   // const [loading, setLoading] = useState(false);
   const [transitionX, setTransitionX] = useState(0);
   const [invert, setInvert] = useState(true);
   const gradientSize = 4000; // width of background element
 
-  const x = useMotionValue(0, { bounce: 0 });
+  const x = useMotionValue(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,4 +48,5 @@ const LoadingBar = ({ loading }) => {
     </div>
   );
 };
+
 export default LoadingBar;
