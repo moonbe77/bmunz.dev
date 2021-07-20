@@ -39,7 +39,7 @@ const Path = (props) => (
   />
 );
 
-const Bot = () => {
+const BotContainer = () => {
   const [inputValue, setInputValue] = useState(''); // TODO: move to component
   const [suggestions, setSuggestions] = useState(null); // TODO: move logic to component
   const messagesContainer = useRef<HTMLDivElement>(null);
@@ -205,4 +205,4 @@ const Bot = () => {
   );
 };
 
-export default Bot;
+export default BotContainer;

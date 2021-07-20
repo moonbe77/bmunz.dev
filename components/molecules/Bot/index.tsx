@@ -40,7 +40,7 @@ const Bot = () => {
         ref={BotWrapperRef}
         variants={botAnimation}
       >
-        <BotContainer toggle={() => toggleOpen()} />
+        <BotContainer />
       </motion.div>
       <BotButton toggle={() => toggleOpen()} botHeight={botDimensions.height} />
     </motion.div>
