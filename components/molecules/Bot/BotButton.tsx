@@ -4,7 +4,7 @@ import styles from './botButton.module.scss';
 import { useStateContext } from '../../../store/store';
 
 interface BotButtonProps {
-  toggle: Function;
+  toggle: React.MouseEventHandler<HTMLDivElement>;
   botHeight: number;
   isOpen: boolean;
 }

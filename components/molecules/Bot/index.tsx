@@ -32,6 +32,10 @@ const Bot = () => {
   const BotWrapperRef = useRef();
   const botDimensions = useDimensions(BotWrapperRef);
 
+  const toggleBot = () => {
+    toggleOpen();
+  };
+
   return (
     <motion.div animate={isOpen ? 'open' : 'closed'}>
       <motion.div
@@ -43,7 +47,7 @@ const Bot = () => {
         <BotContainer />
       </motion.div>
       <BotButton
-        toggle={() => toggleOpen()}
+        toggle={toggleBot}
         isOpen={isOpen}
         botHeight={botDimensions.height}
       />
