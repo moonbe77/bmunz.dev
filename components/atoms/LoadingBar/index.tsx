@@ -9,23 +9,23 @@ interface LoadingBarProps {
 
 const LoadingBar = ({ loading }: LoadingBarProps) => {
   const loadingContainerRef = useRef(null);
-  // const [loading, setLoading] = useState(false);
   const [transitionX, setTransitionX] = useState(0);
   const [invert, setInvert] = useState(true);
-  const gradientSize = 4000; // width of background element
+  const gradientSize = 3000; // width of progress background
 
   const x = useMotionValue(0);
 
   useEffect(() => {
+    const moveX = 2;
     const interval = setInterval(() => {
       if (loading) {
         if (invert) {
-          setTransitionX((prev) => prev - 100);
+          setTransitionX((prev) => prev - moveX);
         } else {
-          setTransitionX((prev) => prev + 100);
+          setTransitionX((prev) => prev + moveX);
         }
       }
-    }, 100);
+    }, 1);
 
     return () => window.clearInterval(interval);
   }, [loading, invert]);
@@ -39,12 +39,17 @@ const LoadingBar = ({ loading }: LoadingBarProps) => {
     if (transitionX >= 0) {
       setInvert(true);
     }
+
     x.set(transitionX);
   }, [x, transitionX]);
 
   return (
     <div className={styles.loadingBar} ref={loadingContainerRef}>
-      <motion.div className={styles.background} style={{ x }} />
+      <motion.div
+        transition={{ type: 'tween' }}
+        className={styles.background}
+        style={{ x }}
+      />
     </div>
   );
 };

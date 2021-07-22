@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { askToBot } from '../../../utils/askToBot';
 import styles from './botContainer.module.scss';
 import LoadingBar from '../../atoms/LoadingBar';
@@ -9,35 +9,6 @@ import TextMessage from './TextMessage';
 import SuggestionsBox from './SuggestionsBox';
 import { useBotDispatch, useBotContext } from '../../../store/botContext';
 import { useStateContext } from '../../../store/store';
-
-const variants = {
-  open: {
-    // y: 0,
-    opacity: 1,
-    transition: {
-      // delay: 0.8,
-      y: { stiffness: 1000, velocity: -100 },
-    },
-  },
-  closed: {
-    // y: 500,
-    opacity: 1,
-    transition: {
-      y: { stiffness: 1000 },
-    },
-  },
-};
-
-const Path = (props) => (
-  <motion.path
-    fill="transparent"
-    strokeWidth="3"
-    stroke="#887b7b"
-    strokeLinecap="round"
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    {...props}
-  />
-);
 
 const BotContainer = () => {
   const [inputValue, setInputValue] = useState(''); // TODO: move to component
@@ -51,11 +22,40 @@ const BotContainer = () => {
 
   // this function should create the message creator that is gonna be render in the chat
   const messageParser = (message, sender) => {
+    console.log('sender:', sender);
+    console.log(message);
+
     // parsing of the message to be added in the chat
     if (message.fulfillmentMessages) {
       message.fulfillmentMessages.forEach((fulfillmentMessage) => {
         if (fulfillmentMessage.message === 'text') {
           fulfillmentMessage.text.text.forEach((txt) => {
+            if (txt === '') {
+              console.log(
+                '%cempty message received from bot ',
+                'color:red; font-size: 15px; background-color: white;'
+              );
+
+              botDispatch({
+                type: 'ADD_MESSAGE',
+                payload: {
+                  id: Date.now(),
+                  text: "couldn't process that, try asking something else",
+                  component: (
+                    <TextMessage
+                      message={
+                        "couldn't process that, try asking something else"
+                      }
+                      sender={sender}
+                    />
+                  ),
+                  sender,
+                  type: 'text',
+                },
+              });
+              return;
+            }
+
             botDispatch({
               type: 'ADD_MESSAGE',
               payload: {
