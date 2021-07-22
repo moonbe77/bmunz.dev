@@ -42,7 +42,11 @@ const Bot = () => {
       >
         <BotContainer />
       </motion.div>
-      <BotButton toggle={() => toggleOpen()} botHeight={botDimensions.height} />
+      <BotButton
+        toggle={() => toggleOpen()}
+        isOpen={isOpen}
+        botHeight={botDimensions.height}
+      />
     </motion.div>
   );
 };

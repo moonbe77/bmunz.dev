@@ -1,31 +1,38 @@
+import React, { useState, useEffect } from 'react';
 import { motion, useAnimation, useMotionValue } from 'framer-motion';
-import { useEffect } from 'react';
 import styles from './botButton.module.scss';
 import { useStateContext } from '../../../store/store';
 
-const BotButton = ({ toggle, botHeight }) => {
-  const { isDarkTheme } = useStateContext();
-  const controls = useAnimation();
-  const theme = isDarkTheme ? styles.dark : styles.light;
+interface BotButtonProps {
+  toggle: Function;
+  botHeight: number;
+  isOpen: boolean;
+}
 
-  const effect = {
-    closed: {
-      y: 0,
-    },
-    open: (i) => ({
-      // i = bot container height
-      y: -i + 65,
-    }),
-  };
+const BotButton = ({ toggle, botHeight, isOpen }: BotButtonProps) => {
+  const [buttonPosition, setButtonPosition] = useState(null);
+  const { isDarkTheme } = useStateContext();
+  const theme = isDarkTheme ? styles.dark : styles.light;
+  const controls = useAnimation();
+
+  useEffect(() => {
+    setButtonPosition(botHeight);
+  }, [botHeight]);
+
+  useEffect(() => {
+    controls.start((i) => ({
+      y: isOpen ? 65 - i : 0,
+    }));
+  });
 
   return (
     <motion.div
       className={`${styles.botButton} ${theme}`}
       onClick={toggle}
-      variants={effect}
+      animate={controls}
+      custom={buttonPosition}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      custom={botHeight}
     >
       <svg
         width="1662"
