@@ -19,7 +19,9 @@ export default function Layout({ children }) {
       initGA();
       window.GA_INITIALIZED = true;
     }
-    if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') logPageView();
+    if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
+      logPageView();
+    }
   }, [router]);
 
   return (
