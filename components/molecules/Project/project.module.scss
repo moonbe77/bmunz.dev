@@ -10,6 +10,8 @@
   overflow: hidden;
   touch-action: pan-y;
   padding: 1rem;  
+  font-size: 0.9rem;
+  border: 1px solid #739bc8;
 }
 
 .dark {
@@ -56,6 +58,7 @@
   // max-width: 400px;
   max-height: 200px;
   overflow: hidden;
+  white-space: pre-line;
 }
 
 .technologies{
