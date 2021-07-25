@@ -1,6 +1,22 @@
 {
   "data": [
     {
+      "id": 5,
+      "title": "Covid-MAP",
+      "subTitle": "map project",
+      "liveUrl": "https://covid-map.moonbe77.vercel.app/",
+      "ghUrl":"https://github.com/moonbe77/covid_map",
+      "imgName": "covid_map_mockup.png",
+      "description": "This is a side project to show the location of venues associated with confirmed COVID-19 cases that have been classified by NSW Health for action. \n It also show the closet location from your position",
+      "technologies": [
+        "Next.js",
+        "React.js",
+        "Location API",
+        "Google API",
+        "Google Maps"
+      ]
+    },
+    {
       "id": 1,
       "title": "Latitud Náutica",
       "subTitle": "E-Commerce",

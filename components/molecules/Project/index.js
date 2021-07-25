@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { motion, useCycle, AnimateSharedLayout } from 'framer-motion';
 import Button from '../../atoms/Button';
 import TechnologyIcon from '../../atoms/TechnologyIcon';
+import { logEvent } from '../../../utils/analytics';
 import styles from './project.module.scss';
 
 const shimmer = (w, h) => `
@@ -128,13 +129,26 @@ const Project = (props) => {
         <div className={styles.description}>{description}</div>
         <div>
           <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-            <Button primary size="medium" isDarkTheme={isDarkTheme}>
+            <Button
+              primary
+              size="medium"
+              isDarkTheme={isDarkTheme}
+              onClick={() => {
+                logEvent('View Project', title);
+              }}
+            >
               View
             </Button>
           </a>
           {ghUrl && (
             <a href={ghUrl} target="_blank" rel="noopener noreferrer">
-              <Button primary size="medium">
+              <Button
+                primary
+                size="medium"
+                onClick={() => {
+                  logEvent('Github Button', title);
+                }}
+              >
                 GitHub
               </Button>
             </a>
