@@ -1,41 +1,26 @@
-import { AnimatePresence, motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import Project from '../Project';
 import style from './portfolioProjectsWrapper.module.scss';
 
-const PortfolioProjectsWrapper = ({ projects, isDarkTheme }) => (
-  // const container = {
-  //   hidden: { opacity: 0 },
-  //   show: {
-  //     opacity: 1,
-  //     transition: {
-  //       staggerChildren: 0.5,
-  //     },
-  //   },
-  // };
-
-  // const item = {
-  //   hidden: { opacity: 0 },
-  //   show: { opacity: 1 },
-  // };
-  <motion.section className={style.projectsWrapper}>
-    <AnimatePresence>
+const PortfolioProjectsWrapper = ({ projects, isDarkTheme }) => {
+  return (
+    <section className={style.projectsWrapper}>
       <h1>What I've Been Doing</h1>
-      {/* <div>
-          click on the icon to filter <span>🎈🧨🎗🎟🎏</span>
-        </div> */}
       <div>
-        {projects.map((project) => (
-          <Project
-            key={project.id}
-            project={project}
-            isDarkTheme={isDarkTheme}
-          />
-        ))}
+        {projects.map((project) => {
+          return (
+            <Project
+              key={`project-${project.id}`}
+              project={project}
+              isDarkTheme={isDarkTheme}
+            />
+          );
+        })}
       </div>
-    </AnimatePresence>
-  </motion.section>
-);
+    </section>
+  );
+};
+
 export default PortfolioProjectsWrapper;
 
 PortfolioProjectsWrapper.propTypes = {

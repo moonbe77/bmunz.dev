@@ -3,6 +3,7 @@
       "wesbos"
     ],
     "rules": {
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "tsx","ts"] }]
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "tsx","ts"] }],
+      "arrow-body-style":"off"
     }
   }
