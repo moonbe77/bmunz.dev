@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="og:description"
-          content="I am Bernardo an electronic technician persuading a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
+          content="I am Bernardo an electronic technician pursuing a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
         />
         <meta property="og:image" content="./figma/bmunz.png" />
 
@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           name="twitter:description"
-          content="I am Bernardo an electronic technician persuading a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
+          content="I am Bernardo an electronic technician pursuing a change of career into Frontend developing, React.js, Next.js & Express.js is my stack today, check my porfolio for more info"
         />
         <meta name="twitter:image" content="./figma/bmunz.png" />
         <script
